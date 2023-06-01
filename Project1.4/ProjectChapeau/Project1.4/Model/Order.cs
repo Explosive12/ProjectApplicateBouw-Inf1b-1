@@ -12,5 +12,6 @@ namespace Project1._4.Model
         public int TableId { get; set; }
         public DateTime BeginTime { get; set; }
         public DateTime EndTime { get; set; }
+        public OrderStatusEnum Status { get; set; }
     }
 }

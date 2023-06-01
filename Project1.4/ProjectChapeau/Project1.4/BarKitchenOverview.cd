@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="UI">
+    <Position X="1.495" Y="1.588" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Service">
+    <Position X="1.514" Y="5.014" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Model">
+    <Position X="8.028" Y="5.023" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="DAL">
+    <Position X="1.514" Y="8.597" Height="0.291" Width="0.7" />
+  </Comment>
+  <Class Name="Project1._4.UI.BarKitchenView">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAAAAAAAACABAACAQQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\BarKitchenView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.Service.OrderService">
+    <Position X="1.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAg=</HashCode>
+      <FileName>Service\OrderService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.DAL.OrderDao">
+    <Position X="1.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAg=</HashCode>
+      <FileName>DAL\OrderDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.Model.Order">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Model\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Project1._4.Model.OrderItem">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAEAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\OrderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.DAL.OrderItemDao">
+    <Position X="3.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAA4AAAAAAAAAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>DAL\OrderItemDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.Service.OrderItemService">
+    <Position X="3.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAoAAAAAAACAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>Service\OrderItemService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Project1._4.Model.OrderStatusEnum">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAgAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Model\OrderStatusEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
