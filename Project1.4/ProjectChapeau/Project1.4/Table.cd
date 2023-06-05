@@ -12,39 +12,42 @@
   <Comment CommentText="UI">
     <Position X="2.5" Y="2.75" Height="0.323" Width="0.7" />
   </Comment>
-  <Class Name="Project1._4.TableView">
-    <Position X="2.5" Y="3.5" Width="1.5" />
+  <Class Name="Project1._4.UI.TableView">
+    <Position X="2.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
-      <FileName>TableView.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>UI\TableView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.TableService">
-    <Position X="2.5" Y="5.75" Width="1.5" />
+  <Class Name="Project1._4.Service.TableService">
+    <Position X="2.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TableService.cs</FileName>
+      <FileName>Service\TableService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.TableDao">
+  <Class Name="Project1._4.DAL.TableDao">
     <Position X="2.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TableDao.cs</FileName>
+      <FileName>DAL\TableDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Table">
+  <Class Name="Project1._4.Model.Table">
     <Position X="5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Table.cs</FileName>
+      <FileName>Model\Table.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="status" />
+    </ShowAsAssociation>
   </Class>
-  <Enum Name="Project1._4.TableStatus">
-    <Position X="7" Y="5.75" Width="1.5" />
+  <Enum Name="Project1._4.Model.TableStatus">
+    <Position X="8" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAgAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>TableStatus.cs</FileName>
+      <FileName>Model\TableStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
