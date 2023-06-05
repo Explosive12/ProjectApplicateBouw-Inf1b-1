@@ -39,11 +39,11 @@
   <Class Name="Project1._4.Service.ProductService">
     <Position X="2.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAIAEAAAAQAAAAABAAAAAAAAAAAQA=</HashCode>
       <FileName>Service\ProductService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.OrderView">
+  <Class Name="Project1._4.ManagerView">
     <Position X="2.5" Y="2.25" Width="2.75" />
     <Members>
       <Field Name="components" Hidden="true" />
@@ -51,7 +51,7 @@
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAEAAAAJACAgAAAAAACIBAACAQAAAAAAAAAABAAAEAA=</HashCode>
+      <HashCode>AAAAAFAAACAACAAACAGIAAACAACEBAgAAAAABAAAAAA=</HashCode>
       <FileName>UI\OrderView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -62,10 +62,10 @@
       <FileName>DAL\OrderDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Service.OrderService">
+  <Class Name="Project1._4.Service.EmployeeService">
     <Position X="4.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAIAACAAEgAAAAAAAAIAAgAAAAAAAA=</HashCode>
       <FileName>Service\OrderService.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -83,10 +83,10 @@
       <FileName>DAL\OrderItemDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Model.Order">
+  <Class Name="Project1._4.Model.Employee">
     <Position X="8.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>EAAAAAAEQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Model\Order.cs</FileName>
     </TypeIdentifier>
   </Class>

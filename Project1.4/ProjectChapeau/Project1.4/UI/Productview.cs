@@ -12,12 +12,12 @@ using Project1._4.Model;
 
 namespace Project1._4
 {
-    public partial class OrderView : Form
+    public partial class ManagerView : Form
     {
         private List<Product> products = new List<Product>();
-        private Order order = new Order();
+        private Employee Manager = new Employee();
 
-        public OrderView()
+        public ManagerView()
         {
             InitializeComponent();
         }
@@ -29,28 +29,37 @@ namespace Project1._4
             return products;
         }
 
-        public List<Order> LoadOrders()
+        public List<Employee> LoadEmployees()
         {
-            OrderService service = new OrderService();
-            List<Order> orders = service.GetAllOrders();
+            EmployeeService service = new EmployeeService();
+            List<Employee> orders = service.GetAllEmployees();
             return orders;
         }
 
-        public List<OrderItem> LoadOrderItems()
+        public List<OrderItem> RemoveMenuItem()
         {
             OrderItemService service = new OrderItemService();
             List<OrderItem> orderItems = service.GetAllOrderItems();
             return orderItems;
         }
 
-        public void AddProductToOrder(Product product) { }
+        public void ModifyEmployee(Product product) { }
 
         public void RemoveProductFromOrder(OrderItem orderItem) { }
 
-        public void AddComment(OrderItem orderItem) { }
+        public void AddEmployee(OrderItem orderItem) { }
 
-        public void GoToCategory() { }
+        public void AddMenuItem() { }
 
-        public void FinishOrder() { }
+        public void RemoveEmployee() { }
+
+        public void AddStockToMenu(OrderItem orderItem) { }
+
+        public void RemoveStockToMenu(OrderItem orderItem) { }
+
+        public void RevertStock()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

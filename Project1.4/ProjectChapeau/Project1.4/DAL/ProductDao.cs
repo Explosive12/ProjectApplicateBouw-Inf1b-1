@@ -39,5 +39,20 @@ namespace Project1._4.DAL
             //return ReadTablesSupervisor(ExecuteSelectQuery(query, sqlParameters));
             return new List<Product>(); // remove this, this is just to prevent errors
         }
+
+        public void InsertMenuItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveMenuItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateMenuItem()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

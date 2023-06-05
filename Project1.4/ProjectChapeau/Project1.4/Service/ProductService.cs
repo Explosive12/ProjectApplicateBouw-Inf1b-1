@@ -16,6 +16,16 @@ namespace Project1._4.Service
             this.productDb = new ProductDao();
         }
 
+        public ProductService()
+        {
+            this.productDb = new ProductDao();
+        }
+
+        public ProductService()
+        {
+            this.productDb = new ProductDao();
+        }
+
         public List<Product> GetAllProducts()
         {
             List<Product> products = productDb.GetAllProducts();
@@ -26,6 +36,21 @@ namespace Project1._4.Service
         {
             List<Product> products = productDb.GetByIdProduct(productId);
             return products;
+        }
+
+        public void InsertMenuItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveMenuItem()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateMenuItem()
+        {
+            throw new System.NotImplementedException();
         }
     }
 

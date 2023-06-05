@@ -24,10 +24,10 @@ namespace Project1._4.UI
 
         }
 
-        public List<Order> LoadOrders()
+        public List<Employee> LoadOrders()
         {
-            OrderService service = new OrderService();
-            List<Order> orders = service.GetAllOrders();
+            EmployeeService service = new EmployeeService();
+            List<Employee> orders = service.GetAllEmployees();
             return orders;
         }
 

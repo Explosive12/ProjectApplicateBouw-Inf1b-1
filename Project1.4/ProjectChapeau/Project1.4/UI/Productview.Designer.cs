@@ -1,6 +1,6 @@
 ﻿namespace Project1._4
 {
-    partial class OrderView
+    partial class ManagerView
     {
         /// <summary>
         /// Required designer variable.
