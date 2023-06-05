@@ -1,4 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Service">
+    <Position X="2.525" Y="5.065" Height="0.302" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Model">
+    <Position X="5" Y="5.25" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="DAL">
+    <Position X="2.476" Y="7.418" Height="0.292" Width="0.7" />
+  </Comment>
+  <Comment CommentText="UI">
+    <Position X="2.5" Y="2.75" Height="0.323" Width="0.7" />
+  </Comment>
+  <Class Name="Project1._4.TableView">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>TableView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.TableService">
+    <Position X="2.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TableService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.TableDao">
+    <Position X="2.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TableDao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.Table">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Project1._4.TableStatus">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAgAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>TableStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
