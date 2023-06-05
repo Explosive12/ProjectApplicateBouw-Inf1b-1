@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Project1._4.DAL
 {
-    public class OrderItemDao
+    public class OrderItemDao : BaseDao
     {
         // get all items from table
         public List<OrderItem> GetAllOrderItems()

@@ -14,7 +14,7 @@ namespace Project1._4.UI
 {
     public partial class BarKitchenView : Form
     {
-        private Order order = new Order();
+        //private Order order = new Order();
         public BarKitchenView()
         {
             InitializeComponent();
