@@ -1,4 +1,5 @@
 ﻿using Project1._4.DAL;
+using Project1._4.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,11 @@ namespace Project1._4.Service
             throw new System.NotImplementedException();
         }
 
-        public void GetTables()
+        public List<Table> GetTables()
+        {
+            throw new System.NotImplementedException();
+        }
+        public void ReserveTable()
         {
             throw new System.NotImplementedException();
         }

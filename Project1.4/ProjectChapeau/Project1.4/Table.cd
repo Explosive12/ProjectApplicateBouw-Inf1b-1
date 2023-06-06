@@ -22,14 +22,14 @@
   <Class Name="Project1._4.Service.TableService">
     <Position X="2.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAABAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAABAAAAI=</HashCode>
       <FileName>Service\TableService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.TableDao">
     <Position X="2.5" Y="8.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAABAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAABAAAAI=</HashCode>
       <FileName>DAL\TableDao.cs</FileName>
     </TypeIdentifier>
   </Class>

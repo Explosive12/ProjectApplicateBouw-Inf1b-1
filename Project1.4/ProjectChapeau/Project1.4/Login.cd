@@ -40,7 +40,7 @@
     <Position X="2.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DAL\LoginDao.cs</FileName>
+      <FileName>DAL\UserDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Project1._4.Model.employeeType">
