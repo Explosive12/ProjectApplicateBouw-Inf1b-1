@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-
   <Comment CommentText="Service">
     <Position X="2.525" Y="5.079" Height="0.302" Width="0.7" />
   </Comment>
@@ -8,7 +7,7 @@
     <Position X="5.75" Y="5" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="DAL">
-    <Position X="2.5" Y="7.5" Height="0.292" Width="0.7" />
+    <Position X="2.5" Y="8" Height="0.292" Width="0.7" />
   </Comment>
   <Comment CommentText="UI">
     <Position X="2.528" Y="1.841" Height="0.323" Width="0.7" />
@@ -20,29 +19,32 @@
       <FileName>UI\LoginView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Service.LoginService">
+  <Class Name="Project1._4.Service.UserService">
     <Position X="2.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\LoginService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Model.Login">
+  <Class Name="Project1._4.Model.User">
     <Position X="5.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Model\Login.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="employeeType" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="Project1._4.DAL.LoginDao">
-    <Position X="2.5" Y="8.25" Width="1.5" />
+  <Class Name="Project1._4.DAL.UserDoa">
+    <Position X="2.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\LoginDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Project1._4.Model.employeeType">
-    <Position X="7.75" Y="5.75" Width="1.5" />
+    <Position X="8.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACDAAAAAAAAABAAAA=</HashCode>
       <FileName>Model\employeeType.cs</FileName>

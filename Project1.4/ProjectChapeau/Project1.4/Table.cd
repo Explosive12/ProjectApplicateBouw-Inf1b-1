@@ -4,10 +4,10 @@
     <Position X="2.525" Y="5.065" Height="0.302" Width="0.7" />
   </Comment>
   <Comment CommentText="Model">
-    <Position X="5" Y="5.25" Height="0.291" Width="0.7" />
+    <Position X="5" Y="5" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="DAL">
-    <Position X="2.476" Y="7.418" Height="0.292" Width="0.7" />
+    <Position X="2.5" Y="8" Height="0.292" Width="0.7" />
   </Comment>
   <Comment CommentText="UI">
     <Position X="2.5" Y="2.75" Height="0.323" Width="0.7" />
@@ -20,21 +20,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.TableService">
-    <Position X="2.5" Y="5.5" Width="1.5" />
+    <Position X="2.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAABAAAAA=</HashCode>
       <FileName>Service\TableService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.TableDao">
-    <Position X="2.5" Y="8" Width="1.5" />
+    <Position X="2.5" Y="8.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAABAAAAA=</HashCode>
       <FileName>DAL\TableDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Model.Table">
-    <Position X="5" Y="5.75" Width="1.5" />
+    <Position X="5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Table.cs</FileName>
@@ -44,9 +44,9 @@
     </ShowAsAssociation>
   </Class>
   <Enum Name="Project1._4.Model.TableStatus">
-    <Position X="8" Y="5.75" Width="1.5" />
+    <Position X="8" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAgAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAgAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TableStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>

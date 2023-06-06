@@ -6,13 +6,18 @@ using System.Text;
 
 namespace Project1._4.Service
 {
-    public class LoginService
+    public class UserService
     {
-        private LoginDao logindb;
+        private UserDoa logindb;
        
         public void GetLogin()
         {
             throw new NotImplementedException();
+        }
+
+        public void Authenticate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

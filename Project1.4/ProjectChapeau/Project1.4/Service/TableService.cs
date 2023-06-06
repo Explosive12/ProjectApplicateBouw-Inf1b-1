@@ -9,9 +9,19 @@ namespace Project1._4.Service
     public class TableService
     {
         private TableDao tabledb;
-        public void GetTable()
+        public void GetTableById()
         {
             throw new NotImplementedException();
+        }
+
+        public void UpdateTableStatus()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void GetTables()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
