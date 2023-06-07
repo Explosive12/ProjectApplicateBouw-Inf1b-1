@@ -16,49 +16,49 @@
     <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQEAAACIACIAACAKAAAASAACAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>ManagerView.cs</FileName>
+      <FileName>UI\ManagerView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Menu">
-    <Position X="8.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAQAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Menu.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Project1._4.Employee">
-    <Position X="8.75" Y="3.5" Width="1.5" />
+  <Class Name="Project1._4.Model.Employee">
+    <Position X="8.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAQAAAQQAAAAAAAAAAAAAAAACAAA=</HashCode>
-      <FileName>Employee.cs</FileName>
+      <FileName>Model\Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.MenuDao">
-    <Position X="5.75" Y="1" Width="1.5" />
+  <Class Name="Project1._4.Model.Menu">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.DAL.MenuDao">
+    <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAQAAAAAAAAAAAAQAACCAAAAAAAAAABAAAA=</HashCode>
-      <FileName>MenuDao.cs</FileName>
+      <FileName>DAL\MenuDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.EmployeeDao">
-    <Position X="5.75" Y="3.5" Width="1.5" />
+  <Class Name="Project1._4.DAL.EmployeeDao">
+    <Position X="5.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAYAAAAAAAAAIEAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>EmployeeDao.cs</FileName>
+      <FileName>DAL\EmployeeDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.MenuService">
-    <Position X="3.25" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAQAACCAAAAAAACAABAAAA=</HashCode>
-      <FileName>MenuService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Project1._4.EmployeeService">
-    <Position X="3.25" Y="4" Width="1.5" />
+  <Class Name="Project1._4.Service.EmployeeService">
+    <Position X="3" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAIAAAAAAEAAIEAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>EmployeeService.cs</FileName>
+      <FileName>Service\EmployeeService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.Service.MenuService">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAQAACCAAAAAAACAABAAAA=</HashCode>
+      <FileName>Service\MenuService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

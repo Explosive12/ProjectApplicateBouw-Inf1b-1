@@ -9,7 +9,8 @@ namespace Project1._4.Model
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
-        public int Voorraad { get; set; }
-        public decimal Prijs { get; set; }
+        public int Stock { get; set; }
+        public decimal Price { get; set; }
+        public decimal BTW { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace Project1._4.Model
     public class Employee
     {
         public int EmployeeId { get; set; }
+        public EmployeeType EmployeeType { get; set; }
 
         public int LoginId { get; set; }
         public string Username { get; set; }

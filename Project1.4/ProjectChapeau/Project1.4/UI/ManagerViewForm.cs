@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project1._4.Model;
+using Project1._4.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Project1._4.Model;
-using Project1._4.Service;
 
 namespace Project1._4
 {
-    public partial class ManagerView : Form
+    public partial class ManagerViewForm : UserControl
     {
-        private List<Menu> _menuItems;
-        private List<Employee> _employees;
-        
-        public ManagerView()
+        public ManagerViewForm()
         {
             InitializeComponent();
         }
@@ -82,16 +79,5 @@ namespace Project1._4
         {
 
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

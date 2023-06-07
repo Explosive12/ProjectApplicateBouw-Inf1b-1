@@ -8,8 +8,7 @@ namespace Project1._4.Model
     public class Menu
     {
         public int Id { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
-        public int Amount { get; set; }
-        public double Price { get; set; }
     }
 }
