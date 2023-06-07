@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "BarKitchenView";
+            SuspendLayout();
+            // 
+            // BarKitchenView
+            // 
+            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(2591, 1389);
+            Name = "BarKitchenView";
+            Text = "BarKitchenView";
+            ResumeLayout(false);
         }
 
         #endregion
