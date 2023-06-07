@@ -34,7 +34,7 @@
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1228, 781);
+            ClientSize = new Size(2591, 1389);
             Name = "BarKitchenView";
             Text = "BarKitchenView";
             ResumeLayout(false);
