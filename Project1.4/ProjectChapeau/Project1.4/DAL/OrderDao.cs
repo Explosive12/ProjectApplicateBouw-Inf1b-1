@@ -97,6 +97,7 @@ namespace Project1._4.DAL
             int seconnedTimeRowsAffected = command.ExecuteNonQuery();
             connection.Close();
 
+            //for debugging
             int totalRowsAffected = firstTimeRowsAffected + seconnedTimeRowsAffected;
         }
         public void RemoveOrder(int orderId)
@@ -120,13 +121,29 @@ namespace Project1._4.DAL
         public void UpdateOrder(int orderId, int tableId, DateTime beginTime, DateTime finishTime, int productId, int amount, string comment, OrderStatusEnum status)
         {
             //Define the SQL query to insert a new order with the given parameters
-            string query =  "UPDATE bestelling " +
+            string query = "UPDATE bestelling " +
                                 "SET tafelId = tableId, " +
                                 "begintijd = beginTime, " +
                                 "eindtijd = finishTime " +
                             "WHERE bestellingId = 1;";
 
+            //Create a new SQL connection and command with the above query
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand(query, connection);
 
+            //Add parameters to the command to set the values of the activity ID, student ID
+            command.Parameters.AddWithValue("@tafelID", tableId);
+            command.Parameters.AddWithValue("@begintijd", beginTime);
+
+            //Open the database connection, execute the query, and close the connection
+            connection.Open();
+            int firstTimeRowsAffected = command.ExecuteNonQuery();
+            connection.Close();
+
+
+
+
+            //Define the SQL query to insert a new order with the given parameters
             query = "UPDATE bestelregel" +
                     "SET productId = productId, " +
                         "aantal = amount, " +
@@ -135,16 +152,20 @@ namespace Project1._4.DAL
                     "WHERE bestellingId = 1;";
 
             //Create a new SQL connection and command with the above query
-            SqlConnection connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(query, connection);
+            connection = new SqlConnection(connectionString);
+            command = new SqlCommand(query, connection);
 
             //Add parameters to the command to set the values of the activity ID, student ID
-            command.Parameters.AddWithValue("@bestellingId", orderId);
+            command.Parameters.AddWithValue("@aantal", amount);
+            command.Parameters.AddWithValue("@opmerking", comment);
 
             //Open the database connection, execute the query, and close the connection
             connection.Open();
-            int rowsAffected = command.ExecuteNonQuery();
+            int seconnedTimeRowsAffected = command.ExecuteNonQuery();
             connection.Close();
+
+            //for debugging
+            int totalRowsAffected = firstTimeRowsAffected + seconnedTimeRowsAffected;
         }
     }
 }
