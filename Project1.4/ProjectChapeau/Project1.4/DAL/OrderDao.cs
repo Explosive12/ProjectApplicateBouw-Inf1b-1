@@ -26,6 +26,7 @@ namespace Project1._4.DAL
         }
 
         private List<Order> ReadTables(DataTable dataTable)
+
         {
             List<Order> orders = new List<Order>();
             foreach (DataRow dr in dataTable.Rows)
@@ -41,6 +42,7 @@ namespace Project1._4.DAL
             return orders;
         }
 
+
         public void InsertOrder(Order order)
         {
             string query = "INSERT INTO bestelling (bestellingId, tafelId, begintijd, eindtijd) " +
@@ -55,13 +57,16 @@ namespace Project1._4.DAL
 
             };
             ExecuteEditQuery(query, sqlParameters);
+
         }
+        
         public void RemoveOrder(Order order)
         {
             string query = "DELETE FROM bestelling WHERE id = @orderId";
             SqlParameter[] sqlParameters = { new SqlParameter("@orderId", order.OrderId) };
             ExecuteEditQuery(query, sqlParameters);
         }
+        
         public void UpdateOrder(Order order)
         {
             string query = "UPDATE bestelling" +
