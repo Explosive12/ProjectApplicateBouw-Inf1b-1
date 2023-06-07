@@ -15,37 +15,49 @@ namespace Project1._4
 
         public string GetUsername()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public string GetPassword()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void LoginScreen()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void ManagerView()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void WaitressView()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void BartenderView()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void ChefView()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // LoginView
+            // 
+            ClientSize = new Size(398, 697);
+            Name = "LoginView";
+            Text = "Login";
+            ResumeLayout(false);
         }
     }
 }
