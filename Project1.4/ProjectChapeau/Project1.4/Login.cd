@@ -15,7 +15,7 @@
   <Class Name="Project1._4.LoginView">
     <Position X="2.5" Y="2.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AQAAQAABAIAAAAgAAAAAAAAAAAAAAAAQAAIAAAAAAAA=</HashCode>
+      <HashCode>AQAAQAABAIAAAAgAAAAAAAACAAAAAAAQAAIAAAAAAAA=</HashCode>
       <FileName>UI\LoginView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -26,20 +26,25 @@
       <FileName>Service\LoginService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Model.User">
+  <Class Name="Project1._4.Model.Login">
     <Position X="5.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
+<<<<<<< Updated upstream:Project1.4/ProjectChapeau/Project1.4/Login.cd
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Model\User.cs</FileName>
+=======
+      <HashCode>AAAAAAgAAAAAAAAAAAQQAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Login.cs</FileName>
+>>>>>>> Stashed changes:Project1.4/ProjectChapeau/Project1.4/Class Diagrams/Login.cd
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="employeeType" />
+      <Property Name="employeeType" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Project1._4.DAL.UserDoa">
     <Position X="2.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAIAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\UserDao.cs</FileName>
     </TypeIdentifier>
   </Class>

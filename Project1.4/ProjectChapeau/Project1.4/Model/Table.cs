@@ -7,7 +7,8 @@ namespace Project1._4.Model
 {
     public class Table
     {
-        private int number;
-        private TableStatus status;
+        public int tafelId { get; set; }
+        public int reseveringId { get; set; }
+        public TableStatus status { get; set; }
     }
 }

@@ -50,6 +50,7 @@ namespace Project1._4
 
         private void InitializeComponent()
         {
+<<<<<<< Updated upstream
             SuspendLayout();
             // 
             // LoginView
@@ -58,6 +59,101 @@ namespace Project1._4
             Name = "LoginView";
             Text = "Login";
             ResumeLayout(false);
+=======
+            imageboxLogoChapeau = new PictureBox();
+            txbInlogNaam = new TextBox();
+            txbWachtwoord = new TextBox();
+            lblUsername = new Label();
+            label2 = new Label();
+            btnLoginHandheld = new Button();
+            lblForgotPassword = new Label();
+            ((ISupportInitialize)imageboxLogoChapeau).BeginInit();
+            SuspendLayout();
+            // 
+            // imageboxLogoChapeau
+            // 
+            imageboxLogoChapeau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            imageboxLogoChapeau.Image = Properties.Resources.chapeagoeie;
+            imageboxLogoChapeau.Location = new Point(59, 47);
+            imageboxLogoChapeau.Name = "imageboxLogoChapeau";
+            imageboxLogoChapeau.Size = new Size(263, 151);
+            imageboxLogoChapeau.TabIndex = 0;
+            imageboxLogoChapeau.TabStop = false;
+            // 
+            // txbInlogNaam
+            // 
+            txbInlogNaam.Location = new Point(190, 325);
+            txbInlogNaam.Name = "txbInlogNaam";
+            txbInlogNaam.Size = new Size(100, 23);
+            txbInlogNaam.TabIndex = 1;
+            // 
+            // txbWachtwoord
+            // 
+            txbWachtwoord.Location = new Point(190, 383);
+            txbWachtwoord.Name = "txbWachtwoord";
+            txbWachtwoord.Size = new Size(100, 23);
+            txbWachtwoord.TabIndex = 2;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUsername.Location = new Point(78, 325);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(92, 19);
+            lblUsername.TabIndex = 3;
+            lblUsername.Text = "USERNAME";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(78, 387);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 19);
+            label2.TabIndex = 4;
+            label2.Text = "PASSWORD";
+            // 
+            // btnLoginHandheld
+            // 
+            btnLoginHandheld.BackColor = Color.Aquamarine;
+            btnLoginHandheld.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLoginHandheld.ForeColor = SystemColors.ControlText;
+            btnLoginHandheld.Location = new Point(113, 457);
+            btnLoginHandheld.Name = "btnLoginHandheld";
+            btnLoginHandheld.Size = new Size(118, 46);
+            btnLoginHandheld.TabIndex = 5;
+            btnLoginHandheld.Text = "Login";
+            btnLoginHandheld.UseVisualStyleBackColor = false;
+            // 
+            // lblForgotPassword
+            // 
+            lblForgotPassword.AutoSize = true;
+            lblForgotPassword.Font = new Font("Stencil", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblForgotPassword.Location = new Point(113, 525);
+            lblForgotPassword.Name = "lblForgotPassword";
+            lblForgotPassword.Size = new Size(118, 14);
+            lblForgotPassword.TabIndex = 6;
+            lblForgotPassword.Text = "Forgot password";
+            // 
+            // LoginView
+            // 
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(398, 697);
+            Controls.Add(lblForgotPassword);
+            Controls.Add(btnLoginHandheld);
+            Controls.Add(label2);
+            Controls.Add(lblUsername);
+            Controls.Add(txbWachtwoord);
+            Controls.Add(txbInlogNaam);
+            Controls.Add(imageboxLogoChapeau);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "LoginView";
+            Text = "Login";
+            ((ISupportInitialize)imageboxLogoChapeau).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+>>>>>>> Stashed changes
         }
     }
 }

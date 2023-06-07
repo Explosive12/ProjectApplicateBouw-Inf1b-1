@@ -1,27 +1,48 @@
-﻿using System;
+﻿using Microsoft.Graph.Models;
+using Project1._4.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
+<<<<<<< Updated upstream
+=======
+using System.Data.SqlClient;
+>>>>>>> Stashed changes
 using System.Linq;
 using System.Text;
-using Project1._4.Model;
 
 namespace Project1._4.DAL
 {
     public class UserDoa : BaseDao
     {
-        public void GetLogin()
+        public List<Login> GetAllUser()
         {
-            throw new NotImplementedException();
+            string query = "SELECT medewerkerId , functie , inlogNaam , wachtwoord , naam FROM medewerker";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
-        private List<User> ReadTables()
+        
+        private List<Login> ReadTables(DataTable dataTable)
         {
-            throw new NotImplementedException();
+            List<Login> logins = new List<Login>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Login login = new Login()
+                {
+                    medewerkerId = (int)dr["medewerkerId"],
+                    //employeeType = (string)dr["functie"],
+                    inlogNaam = (string)dr["inlogNaam"],
+                    wachtwoord = (int)dr["wachtwoord"]
+                };
+                logins.Add(login);
+            }
+            return logins;
         }
 
         public void Authenticate()
         {
-            throw new System.NotImplementedException();
+            string query = "SELECT medewerkerId , functie , inlogNaam , wachtwoord , naam FROM medewerker WHERE wachtwoord = @wachtwoord";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         private List<User> ReadTables(DataTable dataTable)
         {
