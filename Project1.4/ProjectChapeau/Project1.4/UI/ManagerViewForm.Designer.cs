@@ -35,6 +35,10 @@
             ChangeMenuPanel = new Panel();
             MenuItemsListView = new ListView();
             ChangeEmployeePanel = new Panel();
+            textBoxPassword = new TextBox();
+            comboBoxEmployeeFunction = new ComboBox();
+            textBoxUserName = new TextBox();
+            textBoxName = new TextBox();
             textBoxId = new TextBox();
             labelFunction = new Label();
             labelPassword = new Label();
@@ -110,6 +114,10 @@
             // 
             // ChangeEmployeePanel
             // 
+            ChangeEmployeePanel.Controls.Add(textBoxPassword);
+            ChangeEmployeePanel.Controls.Add(comboBoxEmployeeFunction);
+            ChangeEmployeePanel.Controls.Add(textBoxUserName);
+            ChangeEmployeePanel.Controls.Add(textBoxName);
             ChangeEmployeePanel.Controls.Add(textBoxId);
             ChangeEmployeePanel.Controls.Add(labelFunction);
             ChangeEmployeePanel.Controls.Add(labelPassword);
@@ -125,11 +133,41 @@
             ChangeEmployeePanel.Size = new Size(1440, 1024);
             ChangeEmployeePanel.TabIndex = 3;
             // 
+            // textBoxPassword
+            // 
+            textBoxPassword.Location = new Point(152, 524);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.Size = new Size(121, 23);
+            textBoxPassword.TabIndex = 14;
+            // 
+            // comboBoxEmployeeFunction
+            // 
+            comboBoxEmployeeFunction.FormattingEnabled = true;
+            comboBoxEmployeeFunction.Items.AddRange(new object[] { "Waitress", "Chef", "Bartender", "Manager" });
+            comboBoxEmployeeFunction.Location = new Point(152, 564);
+            comboBoxEmployeeFunction.Name = "comboBoxEmployeeFunction";
+            comboBoxEmployeeFunction.Size = new Size(121, 23);
+            comboBoxEmployeeFunction.TabIndex = 13;
+            // 
+            // textBoxUserName
+            // 
+            textBoxUserName.Location = new Point(152, 486);
+            textBoxUserName.Name = "textBoxUserName";
+            textBoxUserName.Size = new Size(121, 23);
+            textBoxUserName.TabIndex = 11;
+            // 
+            // textBoxName
+            // 
+            textBoxName.Location = new Point(152, 452);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(121, 23);
+            textBoxName.TabIndex = 10;
+            // 
             // textBoxId
             // 
             textBoxId.Location = new Point(152, 416);
             textBoxId.Name = "textBoxId";
-            textBoxId.Size = new Size(100, 23);
+            textBoxId.Size = new Size(41, 23);
             textBoxId.TabIndex = 9;
             // 
             // labelFunction
@@ -144,7 +182,7 @@
             // labelPassword
             // 
             labelPassword.AutoSize = true;
-            labelPassword.Location = new Point(38, 524);
+            labelPassword.Location = new Point(38, 532);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(57, 15);
             labelPassword.TabIndex = 7;
@@ -153,7 +191,7 @@
             // labelUserName
             // 
             labelUserName.AutoSize = true;
-            labelUserName.Location = new Point(38, 486);
+            labelUserName.Location = new Point(38, 489);
             labelUserName.Name = "labelUserName";
             labelUserName.Size = new Size(60, 15);
             labelUserName.TabIndex = 6;
@@ -217,6 +255,7 @@
             listViewEmployees.TabIndex = 0;
             listViewEmployees.UseCompatibleStateImageBehavior = false;
             listViewEmployees.View = View.Details;
+            listViewEmployees.SelectedIndexChanged += listViewEmployees_SelectedIndexChanged;
             // 
             // EmployeeName
             // 
@@ -281,5 +320,11 @@
         private Label labelName;
         private Label labelId;
         private TextBox textBoxId;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private TextBox textBoxUserName;
+        private TextBox textBoxName;
+        private ComboBox comboBoxEmployeeFunction;
+        private TextBox textBoxPassword;
     }
 }

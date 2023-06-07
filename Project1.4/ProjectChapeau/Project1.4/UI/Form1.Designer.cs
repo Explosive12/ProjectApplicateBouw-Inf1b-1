@@ -32,6 +32,7 @@
             btnBarResOverview = new Button();
             buttonStartManagerView = new Button();
             panelManagerView = new Panel();
+            panelManagerView.SuspendLayout();
             SuspendLayout();
             // 
             // listView1
@@ -45,8 +46,8 @@
             // 
             // btnBarResOverview
             // 
-            btnBarResOverview.Location = new Point(25, 319);
-            btnBarResOverview.Margin = new Padding(1, 1, 1, 1);
+            btnBarResOverview.Location = new Point(696, 631);
+            btnBarResOverview.Margin = new Padding(1);
             btnBarResOverview.Name = "btnBarResOverview";
             btnBarResOverview.Size = new Size(250, 68);
             btnBarResOverview.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // buttonStartManagerView
             // 
-            buttonStartManagerView.Location = new Point(289, 329);
+            buttonStartManagerView.Location = new Point(229, -22);
             buttonStartManagerView.Name = "buttonStartManagerView";
             buttonStartManagerView.Size = new Size(165, 49);
             buttonStartManagerView.TabIndex = 2;
@@ -66,22 +67,23 @@
             // 
             // panelManagerView
             // 
+            panelManagerView.Controls.Add(btnBarResOverview);
             panelManagerView.Location = new Point(25, 33);
             panelManagerView.Name = "panelManagerView";
-            panelManagerView.Size = new Size(667, 112);
+            panelManagerView.Size = new Size(937, 750);
             panelManagerView.TabIndex = 3;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 430);
-            Controls.Add(panelManagerView);
+            ClientSize = new Size(1299, 931);
             Controls.Add(buttonStartManagerView);
-            Controls.Add(btnBarResOverview);
             Controls.Add(listView1);
+            Controls.Add(panelManagerView);
             Name = "Form1";
             Text = "Form1";
+            panelManagerView.ResumeLayout(false);
             ResumeLayout(false);
         }
 
