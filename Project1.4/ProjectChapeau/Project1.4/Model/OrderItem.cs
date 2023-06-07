@@ -7,10 +7,20 @@ namespace Project1._4.Model
 {
     public class OrderItem
     {
+        public OrderItem(int OrderItemId, int OrderId, int ProductId, int Amount, string Comment, OrderStatusEnum status)
+        {
+            this.OrderItemId = OrderItemId;
+            this.OrderId = OrderId;
+            this.ProductId = ProductId;
+            this.Comment = Comment;
+            this.Amount = Amount;
+            this.Status = status;
+        }
         public int OrderItemId { get; set; }
         public int OrderId { get; set; }
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
         public string Comment { get; set; }
         public int Amount { get; set; }
+        public OrderStatusEnum Status { get; set; }
     }
 }
