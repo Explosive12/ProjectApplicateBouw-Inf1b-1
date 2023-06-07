@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -89,7 +90,7 @@ namespace Project1._4
         // load the Employee info into the boxes
         private void LoadEmployeeTextboxes()
         {
-            if (listViewEmployees.SelectedItems.Count != 0)
+            if (listViewEmployees.SelectedItems.Count != 1)
                 return;
             ListViewItem selectedEmployeeItem = listViewEmployees.SelectedItems[0];
             Employee selectedEmployee = (Employee)selectedEmployeeItem.Tag;
@@ -174,6 +175,7 @@ namespace Project1._4
         }
         private Employee SelectEmployee()
         {
+
             Employee newEmployee = new Employee()
             {
                 Name = textBoxName.Text,
@@ -186,9 +188,9 @@ namespace Project1._4
 
         private void UpdateEmployee()
         {
-            if (listViewEmployees.SelectedItems.Count != 0)
+            if (listViewEmployees.SelectedItems.Count != 1)
             {
-                MessageBox.Show("Please only 1 activity to update, thank youz <33");
+                MessageBox.Show("Please only 1 employee to update, thank youz <33");
                 return;
             }
             try
@@ -209,11 +211,35 @@ namespace Project1._4
 
         private void DeleteEmployee()
         {
-            if (listViewEmployees.SelectedItems.Count != 0)
-            {
-                MessageBox.Show("Please only 1 activity to delete, thank youz <33");
+            if (listViewEmployees.SelectedItems.Count == 0)
                 return;
+            else if (listViewEmployees.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Please only 1 employee to delete, thank youz <33");
+                return;
+            }
+            // have a yes no option, continue if yes is selected
+            DialogResult EmployeeDeleteResult = MessageBox.Show($"Are you sure you want to delete this beautiful looking employee {textBoxName.Text}?", "Delete activity", MessageBoxButtons.YesNo);
+            if (EmployeeDeleteResult == DialogResult.No)
+                return;
+            try
+            {
+                ListViewItem selectedEmployeeItem = listViewEmployees.SelectedItems[0];
+                Employee selectedEmployee = (Employee)listViewEmployees.Tag;
 
+                // delete the activity
+                _employeeService.DeleteEmployee(selectedEmployee);
+
+                MessageBox.Show($"Successfully deleted the activity {selectedEmployee.Name}!");
+
+                // refresh the listview
+                DisplayAllEmployees();
+
+
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show($"Something went wrong with adding {textBoxName.Text}");
             }
         }
 
