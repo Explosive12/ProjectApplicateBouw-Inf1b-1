@@ -22,7 +22,7 @@ namespace Project1._4.DAL
         public List<Order> GetAllOrders()
         {
             //Activiteit gegevens uit de database halen.
-            string query =  "SELECT P.naam, BR.aantal, BR.opmerking " +
+            string query = "SELECT P.naam, BR.aantal, BR.opmerking, BR.[status] " +
                             "FROM bestelregel AS BR " +
                                 "JOIN product AS P ON P.productId = BR.productId";
             SqlParameter[] parameters = new SqlParameter[0];
@@ -47,7 +47,7 @@ namespace Project1._4.DAL
             //Activiteit gegevens uit de database halen.
 
             //TODO change query to mach the objective of the method
-            string query =  "SELECT P.naam, BR.aantal, BR.opmerking " +
+            string query = "SELECT P.naam, BR.aantal, BR.opmerking, BR.[status] " +
                             "FROM bestelregel AS BR " +
                                 "JOIN product AS P ON P.productId = BR.productId " +
                             $"WHERE bestellingId = {orderId} " +
@@ -99,7 +99,13 @@ namespace Project1._4.DAL
 
             int totalRowsAffected = firstTimeRowsAffected + seconnedTimeRowsAffected;
         }
-        public void RemoveOrder(Order order) { }
-        public void UpdateOrder(Order order) { }
+        public void RemoveOrder(Order order)
+        {
+
+        }
+        public void UpdateOrder(Order order)
+        {
+
+        }
     }
 }
