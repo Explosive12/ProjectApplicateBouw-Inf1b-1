@@ -33,13 +33,25 @@ namespace Project1._4.DAL
         {
             List<Order> orders = new List<Order>();
 
-            //foreach (DataRow dr in dataTable.Rows)
-            //{
-            //    Order order = new Order(
-            //        );
-            //    orders.Add(product);
-            //}
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Order order = new Order()
+                {
+                    OrderId = (int)dr["bestellingId"],
+                    //TODO OrderList???
+                    TableId = (int)dr["tafelId"],
+                    BeginTime = (DateTime)dr["begintijd"],
+                    EndTime = (DateTime)dr["eindtijd"],
+                    Status = (OrderStatusEnum)dr["status"]
+                };
+                orders.Add(order);
+            }
             return orders;
+        }
+
+        public void Add()
+        {
+           //TODO kian leef je uit
         }
 
         public List<Order> GetByIdOrder(int orderId)
@@ -56,8 +68,7 @@ namespace Project1._4.DAL
             return ReadTables(ExecuteSelectQuery(query, parameters));
         }
 
-
-        public void InsertOrder(int tableId, int beginTime, int amount, string comment)
+        public void InsertOrder(Order order /*int tableId, int beginTime, int amount, string comment*/)
         {
             //Define the SQL query to insert a new order with the given parameters
             string query =  "INSERT INTO bestelling (tafelId, begintijd)" +
