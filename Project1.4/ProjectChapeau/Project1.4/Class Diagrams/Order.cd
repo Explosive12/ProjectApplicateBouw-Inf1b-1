@@ -86,7 +86,7 @@
   <Class Name="Project1._4.Model.Order">
     <Position X="8.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>EAAAAAAEQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Model\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
