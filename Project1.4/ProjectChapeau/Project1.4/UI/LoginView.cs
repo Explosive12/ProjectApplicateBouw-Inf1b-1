@@ -50,7 +50,6 @@ namespace Project1._4
 
         private void InitializeComponent()
         {
-<<<<<<< Updated upstream
             SuspendLayout();
             // 
             // LoginView
@@ -59,7 +58,7 @@ namespace Project1._4
             Name = "LoginView";
             Text = "Login";
             ResumeLayout(false);
-=======
+
             imageboxLogoChapeau = new PictureBox();
             txbInlogNaam = new TextBox();
             txbWachtwoord = new TextBox();
@@ -153,7 +152,6 @@ namespace Project1._4
             ((ISupportInitialize)imageboxLogoChapeau).EndInit();
             ResumeLayout(false);
             PerformLayout();
->>>>>>> Stashed changes
         }
     }
 }
