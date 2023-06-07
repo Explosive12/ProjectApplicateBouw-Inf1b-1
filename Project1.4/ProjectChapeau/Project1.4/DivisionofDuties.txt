@@ -1,0 +1,5 @@
+﻿Restaurantmedewerkers moeten kunnen aan- afmelden via de applicatie, overzicht van het Restaurant/tafels kunnen zien via de applicatie  @Nick Schaap
+Restaurantmedewerkers moeten bestellingen kunnen verwerken en bijwerken via de applicatie @Kian Steffens
+Keukenmedewerkers moeten een keuken overzicht kunnen zien via de applicatie, Barmedewerkers moeten een bar overzicht kunnen zien van de applicatie @Remco van der Velde
+Restaurantmedewerkers moeten kunnen afrekenen via de applicatie @Thijs Zoontjes
+Restaurantmedewerkers moeten het menu, personeel en de voorraad kunnen beheren via de aplicatie @Julian Kiesewetter

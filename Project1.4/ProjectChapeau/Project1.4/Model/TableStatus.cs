@@ -7,7 +7,6 @@ namespace Project1._4.Model
 {
     public enum TableStatus
     {
-        Waiting,
         Occupied,
         Reserved,
         Available
