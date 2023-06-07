@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project1._4.Model
 {
-    public class Menu
+    public class MenuProduct
     {
-        public int Id { get; set; }
+        public int MenuId { get; set; }
         public int ProductId { get; set; }
-        public string Name { get; set; }
     }
 }

@@ -30,15 +30,15 @@ namespace Project1._4.Service
 
         public void InsertOrder(Order order)
         {
-            orderDb.InsertOrder(order);
+            //orderDb.InsertOrder(order);
         }
         public void RemoveOrder(Order order)
         {
-            orderDb.RemoveOrder(order);
+            //orderDb.RemoveOrder(order);
         }
         public void UpdateOrder(Order order)
         {
-            orderDb.RemoveOrder(order);
+            //orderDb.RemoveOrder(order);
         }
 
     }
