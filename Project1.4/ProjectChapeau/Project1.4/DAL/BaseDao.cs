@@ -16,7 +16,7 @@ namespace Project1._4.DAL
 
         public BaseDao()
         {
-            // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'SOMEREN DATABASE' IN YOUR APP.CONFIG!!
+            // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'CHAPEAU DATABASE' IN YOUR APP.CONFIG!!
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString);
             adapter = new SqlDataAdapter();
 
