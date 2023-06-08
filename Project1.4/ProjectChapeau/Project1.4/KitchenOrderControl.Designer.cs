@@ -192,7 +192,7 @@
             // 
             // pbxHeaderViewOrderStatusKitchen
             // 
-            pbxHeaderViewOrderStatusKitchen.BackColor = Color.DarkOrange;
+            pbxHeaderViewOrderStatusKitchen.BackColor = Color.Orange;
             pbxHeaderViewOrderStatusKitchen.Location = new Point(1164, 250);
             pbxHeaderViewOrderStatusKitchen.Name = "pbxHeaderViewOrderStatusKitchen";
             pbxHeaderViewOrderStatusKitchen.Size = new Size(835, 112);
@@ -201,7 +201,7 @@
             // 
             // pbxHeaderKitchen
             // 
-            pbxHeaderKitchen.BackColor = Color.DarkOrange;
+            pbxHeaderKitchen.BackColor = Color.Orange;
             pbxHeaderKitchen.Location = new Point(0, 0);
             pbxHeaderKitchen.Name = "pbxHeaderKitchen";
             pbxHeaderKitchen.Size = new Size(1999, 112);
