@@ -12,6 +12,10 @@ namespace Project1._4
 {
     public partial class LoginView : Form
     {
+        public LoginView()
+        {
+            InitializeComponent();
+        }
 
         public string GetUsername()
         {
@@ -48,17 +52,9 @@ namespace Project1._4
             throw new NotImplementedException();
         }
 
+        /*
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // LoginView
-            // 
-            ClientSize = new Size(398, 697);
-            Name = "LoginView";
-            Text = "Login";
-            ResumeLayout(false);
-
             imageboxLogoChapeau = new PictureBox();
             txbInlogNaam = new TextBox();
             txbWachtwoord = new TextBox();
@@ -96,44 +92,47 @@ namespace Project1._4
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUsername.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblUsername.Location = new Point(78, 325);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(92, 19);
+            lblUsername.Size = new Size(101, 19);
             lblUsername.TabIndex = 3;
             lblUsername.Text = "USERNAME";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(78, 387);
             label2.Name = "label2";
-            label2.Size = new Size(91, 19);
+            label2.Size = new Size(104, 19);
             label2.TabIndex = 4;
             label2.Text = "PASSWORD";
             // 
             // btnLoginHandheld
             // 
-            btnLoginHandheld.BackColor = Color.Aquamarine;
-            btnLoginHandheld.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLoginHandheld.BackColor = Color.FromArgb(138, 210, 176);
+            btnLoginHandheld.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLoginHandheld.ForeColor = SystemColors.ControlText;
-            btnLoginHandheld.Location = new Point(113, 457);
+            btnLoginHandheld.Location = new Point(133, 453);
             btnLoginHandheld.Name = "btnLoginHandheld";
             btnLoginHandheld.Size = new Size(118, 46);
             btnLoginHandheld.TabIndex = 5;
             btnLoginHandheld.Text = "Login";
+            btnLoginHandheld.UseMnemonic = false;
             btnLoginHandheld.UseVisualStyleBackColor = false;
             // 
             // lblForgotPassword
             // 
             lblForgotPassword.AutoSize = true;
-            lblForgotPassword.Font = new Font("Stencil", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblForgotPassword.Location = new Point(113, 525);
+            lblForgotPassword.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblForgotPassword.Location = new Point(133, 514);
             lblForgotPassword.Name = "lblForgotPassword";
-            lblForgotPassword.Size = new Size(118, 14);
+            lblForgotPassword.Size = new Size(111, 14);
             lblForgotPassword.TabIndex = 6;
             lblForgotPassword.Text = "Forgot password";
+            lblForgotPassword.TextAlign = ContentAlignment.MiddleCenter;
+            lblForgotPassword.UseMnemonic = false;
             // 
             // LoginView
             // 
@@ -153,5 +152,6 @@ namespace Project1._4
             ResumeLayout(false);
             PerformLayout();
         }
+        */
     }
 }

@@ -7,7 +7,7 @@ namespace Project1._4.Model
 {
     public enum employeeType
     {
-        Waitress,
+        Waitress = 1,
         Chef,
         Bartender,
         Manager

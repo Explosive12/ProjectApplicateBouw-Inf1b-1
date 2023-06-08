@@ -1,12 +1,8 @@
-﻿using Microsoft.Graph.Models;
-using Project1._4.Model;
+﻿using Project1._4.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-<<<<<<< Updated upstream
-=======
 using System.Data.SqlClient;
->>>>>>> Stashed changes
 using System.Linq;
 using System.Text;
 
@@ -29,7 +25,7 @@ namespace Project1._4.DAL
                 Login login = new Login()
                 {
                     medewerkerId = (int)dr["medewerkerId"],
-                    //employeeType = (string)dr["functie"],
+                    employeeType = (employeeType)Enum.Parse(typeof(employeeType) ,dr["functie"].ToString()),
                     inlogNaam = (string)dr["inlogNaam"],
                     wachtwoord = (int)dr["wachtwoord"]
                 };
@@ -37,16 +33,11 @@ namespace Project1._4.DAL
             }
             return logins;
         }
-
         public void Authenticate()
         {
             string query = "SELECT medewerkerId , functie , inlogNaam , wachtwoord , naam FROM medewerker WHERE wachtwoord = @wachtwoord";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
-        private List<User> ReadTables(DataTable dataTable)
-        {
-            throw new NotImplementedException();
         }
     }
 }
