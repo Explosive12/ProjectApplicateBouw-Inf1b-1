@@ -173,9 +173,10 @@
             // tipHasBeenAdded
             // 
             tipHasBeenAdded.AutoSize = true;
-            tipHasBeenAdded.BackColor = Color.FromArgb(138, 210, 176);
+            tipHasBeenAdded.BackColor = SystemColors.Control;
             tipHasBeenAdded.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            tipHasBeenAdded.Location = new Point(182, 483);
+            tipHasBeenAdded.ForeColor = Color.FromArgb(138, 210, 176);
+            tipHasBeenAdded.Location = new Point(141, 483);
             tipHasBeenAdded.Name = "tipHasBeenAdded";
             tipHasBeenAdded.Size = new Size(0, 15);
             tipHasBeenAdded.TabIndex = 34;

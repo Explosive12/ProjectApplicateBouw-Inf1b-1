@@ -21,6 +21,8 @@ namespace Project1._4.UI
         {
             TableView tafelOverzicht = new TableView();
             tafelOverzicht.Show();
+
+            this.Hide();
         }
     }
 }

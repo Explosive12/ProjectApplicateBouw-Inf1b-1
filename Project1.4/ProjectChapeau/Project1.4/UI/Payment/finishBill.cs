@@ -28,24 +28,43 @@ namespace Project1._4.UI.Payment
             {
                 paymentSelected paymentSelect = new paymentSelected();
                 finishBill finishBill = new finishBill();
-                radioButtonVisa.BackColor = Color.Orange; // Set background color of radioButtonVisa
-                DEBITRadio.BackColor = Color.Orange;
                 paymentSelect.Show();
                 this.Hide();
             }
             else if (radioButtonCash.Checked)
             {
-                radioButtonCash.BackColor = Color.Orange; 
+                radioButtonCash.BackColor = Color.Orange;
 
                 TableView tafelOverzicht = new TableView();
                 tafelOverzicht.Show();
             }
-          
-           
+
+
         }
 
         private void DEBITRadio_CheckedChanged(object sender, EventArgs e)
         {
+            DEBITRadio.BackColor = Color.Orange;
+            radioButtonCash.BackColor = DefaultBackColor;
+            radioButtonVisa.BackColor = DefaultBackColor;
+
+        }
+
+        private void radioButtonVisa_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButtonVisa.BackColor = Color.Orange;
+            radioButtonCash.BackColor = DefaultBackColor;
+            DEBITRadio.BackColor = DefaultBackColor;
+
+        }
+
+
+
+        private void radioButtonCash_CheckedChanged_1(object sender, EventArgs e)
+        {
+            radioButtonCash.BackColor = Color.Orange;
+            radioButtonVisa.BackColor = DefaultBackColor;
+            DEBITRadio.BackColor = DefaultBackColor;
 
         }
     }

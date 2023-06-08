@@ -154,6 +154,7 @@
             radioButtonVisa.TabStop = true;
             radioButtonVisa.Text = "VISA/AMEX";
             radioButtonVisa.UseVisualStyleBackColor = true;
+            radioButtonVisa.CheckedChanged += radioButtonVisa_CheckedChanged;
             // 
             // radioButtonCash
             // 
@@ -165,6 +166,7 @@
             radioButtonCash.TabStop = true;
             radioButtonCash.Text = "CASH";
             radioButtonCash.UseVisualStyleBackColor = true;
+            radioButtonCash.CheckedChanged += radioButtonCash_CheckedChanged_1;
             // 
             // finishBill
             // 
