@@ -6,7 +6,7 @@ using Project1._4.Model;
 
 namespace Project1._4.DAL
 {
-    public class LoginDao
+    public class UserDoa : BaseDao
     {
         public void GetLogin()
         {
@@ -16,6 +16,11 @@ namespace Project1._4.DAL
         private List<Login> ReadTables()
         {
             throw new NotImplementedException();
+        }
+
+        public void Authenticate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

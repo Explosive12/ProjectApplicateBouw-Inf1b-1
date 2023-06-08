@@ -4,43 +4,85 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace Project1._4.DAL
 {
     public class OrderItemDao : BaseDao
     {
-        // get all items from table
         public List<OrderItem> GetAllOrderItems()
         {
-            //string query = "";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-            return new List<OrderItem>(); // remove this, this is just to prevent errors
+            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetByIdOrderItem(int orderItemId)
+        {
+            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel WHERE id = @orderItemId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private List<OrderItem> ReadTables(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
 
-            //foreach (DataRow dr in dataTable.Rows)
-            //{
-            //    OrderItem orderItem = new OrderItem(
-            //        );
-            //    orderItems.Add(orderItem);
-            //}
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem orderItem = new OrderItem(
+                    (int)dr["id"],
+                    (int)dr["bestellingId"],
+                    (int)dr["productId"],
+                    (int)dr["aantal"],
+                    (string)dr["opmerking"],
+                    (OrderStatusEnum)dr["status"]
+                    );
+                orderItems.Add(orderItem);
+            }
             return orderItems;
         }
 
-        public List<OrderItem> GetByIdOrderItem(int orderItemId)
+        
+
+        public void InsertOrderItem(OrderItem orderItem) 
         {
-            //string query = "";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //return ReadTablesSupervisor(ExecuteSelectQuery(query, sqlParameters));
-            return new List<OrderItem>(); // !!!remove this, this is just to prevent errors!!!
+            string query = "INSERT INTO bestelregel (id, bestellingId, productId, aantal, opmerking, status) " +
+                                "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
+                new SqlParameter("@OrderId", orderItem.OrderId),
+                new SqlParameter("@ProductId", orderItem.ProductId),
+                new SqlParameter("@Amount", orderItem.Amount),
+                new SqlParameter("@Comment", orderItem.Comment),
+                new SqlParameter("@Status", orderItem.Status),
+            };
+            ExecuteEditQuery( query, sqlParameters );
         }
 
-        public void InsertOrderItem(OrderItem orderItem) { }
-        public void RemoveOrderItem(OrderItem orderItem) { }
-        public void UpdateOrderItem(OrderItem orderItem) { }
+        public void RemoveOrderItem(OrderItem orderItem) 
+        {
+            string query = "DELETE FROM bestelregel WHERE id = @Id";
+            SqlParameter[] sqlParameters = { new SqlParameter("@Id", orderItem.OrderItemId) };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void UpdateOrderItem(OrderItem orderItem) 
+        {
+            string query = "UPDATE bestelregel " +
+                "SET id = @OrderItemId, bestellingId = @OrderId, productId = @ProductId, aantal = @Amount, opmerking = @Comment, status = @Status " +
+                "WHERE id = @OrderItemId";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
+                new SqlParameter("@OrderId", orderItem.OrderId),
+                new SqlParameter("@ProductId", orderItem.ProductId),
+                new SqlParameter("@Amount", orderItem.Amount),
+                new SqlParameter("@Comment", orderItem.Comment),
+                new SqlParameter("@Status", orderItem.Status),
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
