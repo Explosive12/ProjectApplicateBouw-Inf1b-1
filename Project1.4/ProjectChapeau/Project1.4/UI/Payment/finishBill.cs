@@ -28,18 +28,17 @@ namespace Project1._4.UI.Payment
             {
                 paymentSelected paymentSelect = new paymentSelected();
                 finishBill finishBill = new finishBill();
-
+                radioButtonVisa.BackColor = Color.Orange; // Set background color of radioButtonVisa
+                DEBITRadio.BackColor = Color.Orange;
                 paymentSelect.Show();
                 this.Hide();
             }
             else if (radioButtonCash.Checked)
             {
+                radioButtonCash.BackColor = Color.Orange; 
 
-              /*  tafelOverzichtForm tafelOverzicht = new paymentSelectedForm();
-
-
+                TableView tafelOverzicht = new TableView();
                 tafelOverzicht.Show();
-                this.Hide();*/
             }
           
            

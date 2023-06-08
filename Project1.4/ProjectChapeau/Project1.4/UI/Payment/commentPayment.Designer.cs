@@ -94,7 +94,7 @@
             // commentHasBeenSaved
             // 
             commentHasBeenSaved.AutoSize = true;
-            commentHasBeenSaved.BackColor = Color.White;
+            commentHasBeenSaved.BackColor = SystemColors.Control;
             commentHasBeenSaved.ForeColor = Color.FromArgb(138, 210, 176);
             commentHasBeenSaved.Location = new Point(114, 529);
             commentHasBeenSaved.Name = "commentHasBeenSaved";

@@ -41,11 +41,12 @@ namespace Project1._4.UI.Payment
             else if (string.IsNullOrEmpty(commentCustomerBox.Text))
             {
                 commentHasBeenSaved.Text = "PLEASE ENTER A COMMENT";
-                
+                commentHasBeenSaved.ForeColor = Color.Red;
+
             }
 
 
-           
+
         }
 
         private void backToCommentOrContinue_Click(object sender, EventArgs e)

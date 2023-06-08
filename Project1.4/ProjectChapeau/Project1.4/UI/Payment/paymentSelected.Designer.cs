@@ -36,12 +36,13 @@
             textBoxAmountPaid = new TextBox();
             labelChange = new Label();
             TipLabel = new Label();
-            label1 = new Label();
+            customTip = new Label();
             textBoxCustomTip = new TextBox();
             buttonPay = new Button();
             buttonSet = new Button();
-            button1 = new Button();
+            setButton1 = new Button();
             buttonAddChangeTip = new Button();
+            tipHasBeenAdded = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -109,14 +110,14 @@
             TipLabel.TabIndex = 27;
             TipLabel.Text = "TIP";
             // 
-            // label1
+            // customTip
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 419);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 15);
-            label1.TabIndex = 28;
-            label1.Text = "CUSTOM TIP:";
+            customTip.AutoSize = true;
+            customTip.Location = new Point(28, 419);
+            customTip.Name = "customTip";
+            customTip.Size = new Size(76, 15);
+            customTip.TabIndex = 28;
+            customTip.Text = "CUSTOM TIP:";
             // 
             // textBoxCustomTip
             // 
@@ -147,15 +148,15 @@
             buttonSet.Text = "SET";
             buttonSet.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // setButton1
             // 
-            button1.BackColor = Color.FromArgb(138, 210, 176);
-            button1.Location = new Point(317, 440);
-            button1.Name = "button1";
-            button1.Size = new Size(56, 23);
-            button1.TabIndex = 32;
-            button1.Text = "SET";
-            button1.UseVisualStyleBackColor = false;
+            setButton1.BackColor = Color.FromArgb(138, 210, 176);
+            setButton1.Location = new Point(317, 440);
+            setButton1.Name = "setButton1";
+            setButton1.Size = new Size(56, 23);
+            setButton1.TabIndex = 32;
+            setButton1.Text = "SET";
+            setButton1.UseVisualStyleBackColor = false;
             // 
             // buttonAddChangeTip
             // 
@@ -167,18 +168,30 @@
             buttonAddChangeTip.TabIndex = 33;
             buttonAddChangeTip.Text = "ADD CHANGE AS TIP";
             buttonAddChangeTip.UseVisualStyleBackColor = false;
+            buttonAddChangeTip.Click += buttonAddChangeTip_Click;
+            // 
+            // tipHasBeenAdded
+            // 
+            tipHasBeenAdded.AutoSize = true;
+            tipHasBeenAdded.BackColor = Color.FromArgb(138, 210, 176);
+            tipHasBeenAdded.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            tipHasBeenAdded.Location = new Point(182, 483);
+            tipHasBeenAdded.Name = "tipHasBeenAdded";
+            tipHasBeenAdded.Size = new Size(0, 15);
+            tipHasBeenAdded.TabIndex = 34;
             // 
             // paymentSelected
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(tipHasBeenAdded);
             Controls.Add(buttonAddChangeTip);
-            Controls.Add(button1);
+            Controls.Add(setButton1);
             Controls.Add(buttonSet);
             Controls.Add(buttonPay);
             Controls.Add(textBoxCustomTip);
-            Controls.Add(label1);
+            Controls.Add(customTip);
             Controls.Add(TipLabel);
             Controls.Add(labelChange);
             Controls.Add(textBoxAmountPaid);
@@ -204,11 +217,12 @@
         private TextBox textBoxAmountPaid;
         private Label labelChange;
         private Label TipLabel;
-        private Label label1;
+        private Label customTip;
         private TextBox textBoxCustomTip;
         private Button buttonPay;
         private Button buttonSet;
-        private Button button1;
+        private Button setButton1;
         private Button buttonAddChangeTip;
+        private Label tipHasBeenAdded;
     }
 }

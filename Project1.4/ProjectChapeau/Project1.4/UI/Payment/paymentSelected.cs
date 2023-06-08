@@ -30,5 +30,15 @@ namespace Project1._4.UI.Payment
             this.Hide();
 
         }
+
+        private void buttonAddChangeTip_Click(object sender, EventArgs e)
+        {
+            customTip.Visible = false;
+            textBoxCustomTip.Visible = false;
+            setButton1.Visible = false;
+            buttonAddChangeTip.Visible = false;
+
+            tipHasBeenAdded.Text = "HAS BEEN ADDED";
+        }
     }
 }

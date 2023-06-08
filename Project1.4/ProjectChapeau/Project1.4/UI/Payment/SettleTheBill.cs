@@ -16,5 +16,11 @@ namespace Project1._4.UI
         {
             InitializeComponent();
         }
+
+        private void goBackToTableForm_Click(object sender, EventArgs e)
+        {
+            TableView tafelOverzicht = new TableView();
+            tafelOverzicht.Show();
+        }
     }
 }

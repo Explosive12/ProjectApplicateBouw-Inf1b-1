@@ -35,6 +35,7 @@
             amountPaidLAbel = new Label();
             tipAmountLabel = new Label();
             labelVat = new Label();
+            goBackToTableForm = new Button();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -95,11 +96,24 @@
             labelVat.TabIndex = 10;
             labelVat.Text = "VAT: ";
             // 
+            // goBackToTableForm
+            // 
+            goBackToTableForm.BackColor = Color.FromArgb(138, 210, 176);
+            goBackToTableForm.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            goBackToTableForm.Location = new Point(77, 483);
+            goBackToTableForm.Name = "goBackToTableForm";
+            goBackToTableForm.Size = new Size(243, 44);
+            goBackToTableForm.TabIndex = 15;
+            goBackToTableForm.Text = "GO BACK TO TABLES";
+            goBackToTableForm.UseVisualStyleBackColor = false;
+            goBackToTableForm.Click += goBackToTableForm_Click;
+            // 
             // SettleTheBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(goBackToTableForm);
             Controls.Add(labelVat);
             Controls.Add(tipAmountLabel);
             Controls.Add(amountPaidLAbel);
@@ -122,5 +136,6 @@
         private Label amountPaidLAbel;
         private Label tipAmountLabel;
         private Label labelVat;
+        private Button goBackToTableForm;
     }
 }
