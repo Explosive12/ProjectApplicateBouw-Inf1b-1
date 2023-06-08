@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Project1._4.DAL
 {
@@ -26,7 +27,10 @@ namespace Project1._4.DAL
 
         public List<MenuProduct> GetAllMenuItems()
         {
-            return null;
+            //Menu gegevens uit de database halen.
+            string query = "SELECT * FROM Menu";
+            SqlParameter[] parameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, parameters));
         }
 
         public MenuProduct GetMenuItemById(int id)

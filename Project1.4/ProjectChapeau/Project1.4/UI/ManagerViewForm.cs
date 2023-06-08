@@ -178,14 +178,15 @@ namespace Project1._4
         private Employee SelectEmployee()
         {
 
-            Employee newEmployee = new Employee()
-            {
-                Name = textBoxName.Text,
-                Username = textBoxUserName.Text,
-                LoginId = int.Parse(textBoxPassword.Text),
-                Function = (EmployeeType)comboBoxEmployeeFunction.SelectedItem
-            };
-            return newEmployee;
+            //Employee newEmployee = new Employee(
+
+            //    Name = textBoxName.Text,
+            //    Username = textBoxUserName.Text,
+            //    LoginId = int.Parse(textBoxPassword.Text),
+            //    Function = (EmployeeType)comboBoxEmployeeFunction.SelectedItem
+            //);
+            //return newEmployee;
+            return null;
         }
 
         private void UpdateEmployee()
