@@ -12,31 +12,24 @@
   <Comment CommentText="Service">
     <Position X="3.469" Y="0.542" Height="0.291" Width="0.7" />
   </Comment>
-  <Class Name="Project1._4.ManagerView">
-    <Position X="0.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAQEAAACIACIAACAKAAAASAACAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>UI\ManagerView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Project1._4.Model.Employee">
     <Position X="8.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAQAAAQQAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAQYAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Model\Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Model.Menu">
     <Position X="8.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAQAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.MenuDao">
     <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAQAAAAAAAAAAAAQAACCAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\MenuDao.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -54,11 +47,18 @@
       <FileName>Service\EmployeeService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Service.MenuService">
+  <Class Name="Project1._4.Service.MenuProductService">
     <Position X="3" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAQAACCAAAAAAACAABAAAA=</HashCode>
-      <FileName>Service\MenuService.cs</FileName>
+      <HashCode>AAQAQAAAAAAAAAAAAAAAAAAQAACCAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Service\MenuProductService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.ManagerView">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAIAoAAAEAAAAAAAAA=</HashCode>
+      <FileName>UI\ManagerView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

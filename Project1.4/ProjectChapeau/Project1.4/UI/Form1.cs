@@ -32,6 +32,7 @@ namespace Project1._4
         {
             ManagerView managerView = new ManagerView();
             managerView.Show();
+            
         }
     }
 }

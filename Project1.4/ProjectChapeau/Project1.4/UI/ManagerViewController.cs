@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Project1._4
 {
-    public partial class ManagerViewForm : UserControl
+    public partial class ManagerViewController : UserControl
     {
         private EmployeeService _employeeService;
         private MenuProductService _menuproductService;
@@ -24,7 +24,7 @@ namespace Project1._4
         private List<Employee> _employees;
 
 
-        public ManagerViewForm()
+        public ManagerViewController()
         {
             _menuItems = new List<MenuProduct>();
             _employees = new List<Employee>();
@@ -148,7 +148,7 @@ namespace Project1._4
         // Employee code
         private void AddEmployee()
         {
-            GetAllEmployees();
+            _employees = GetAllEmployees();
             DisplayAllEmployees();
             try
             {

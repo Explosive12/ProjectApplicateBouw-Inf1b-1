@@ -1,6 +1,6 @@
 ﻿namespace Project1._4
 {
-    partial class ManagerViewForm
+    partial class ManagerViewController
     {
         /// <summary> 
         /// Required designer variable.

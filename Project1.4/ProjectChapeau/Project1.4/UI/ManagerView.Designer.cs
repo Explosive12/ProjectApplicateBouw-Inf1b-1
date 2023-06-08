@@ -29,29 +29,46 @@
         private void InitializeComponent()
         {
             panelManagerView = new Panel();
+            button1 = new Button();
+            panelManagerView.SuspendLayout();
             SuspendLayout();
             // 
             // panelManagerView
             // 
+            panelManagerView.Controls.Add(button1);
             panelManagerView.Location = new Point(0, 0);
+            panelManagerView.Margin = new Padding(2, 2, 2, 2);
             panelManagerView.Name = "panelManagerView";
-            panelManagerView.Size = new Size(1440, 1024);
+            panelManagerView.Size = new Size(1008, 614);
             panelManagerView.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(40, 508);
+            button1.Name = "button1";
+            button1.Size = new Size(65, 32);
+            button1.TabIndex = 0;
+            button1.Text = "Load";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ManagerView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1447, 1022);
+            ClientSize = new Size(1013, 565);
             Controls.Add(panelManagerView);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ManagerView";
             Text = "ManagerView";
             Load += ManagerView_Load;
+            panelManagerView.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelManagerView;
+        private Button button1;
     }
 }

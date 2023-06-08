@@ -34,8 +34,6 @@ namespace Project1._4.DAL
                     case "bartender":
                         function = EmployeeType.Bartender;
                         break;
-                    default:
-                        throw new Exception("The EmployeeType doesnt exist in database");
                 }
                 Employee employee = new Employee(
                     (int)dr[0],
@@ -53,15 +51,14 @@ namespace Project1._4.DAL
         public List<Employee> GetAllEmployees()
         {
             //Employee gegevens uit de database halen.
-            string query = "SELECT naam, inlogNaam, functie FROM Medewerker";
-            SqlParameter[] parameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, parameters));
+            string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker";
+            return ReadTables(ExecuteSelectQuery(query));
         }
 
         public Employee GetEmployeeById(int id)
         {
             //Employee gegevens uit de database halen van een Persoon.
-            string query = "SELECT naam, inlogNaam, functie FROM Medewerker WHERE medewerkerId = @id";
+            string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker WHERE medewerkerId = @id";
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("@id", id);
             return ReadTables(ExecuteSelectQuery(query, parameters))[0];
