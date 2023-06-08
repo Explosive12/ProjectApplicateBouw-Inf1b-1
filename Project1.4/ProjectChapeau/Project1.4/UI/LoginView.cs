@@ -1,4 +1,7 @@
 ﻿using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.Security;
+using Project1._4.Model;
+using Project1._4.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,41 +24,28 @@ namespace Project1._4
         {
 
         }
-        public string GetUsername()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetPassword()
-        {
-            throw new NotImplementedException();
-        }
         public void ForgetPassword()
         {
-
+            MessageBox.Show("Contact the Manager for a password reset");
         }
-
-        public void ManagerView()
+        private void EmployeeView(Employee employee)
         {
-            throw new NotImplementedException();
+            switch (employee.EmployeeType) 
+            {
+                case employeeType.Waitress:
+                    this.Hide();
+                    break;
+                case employeeType.Chef:
+                    this.Hide();
+                    break;
+                case employeeType.Bartender:
+                    this.Hide();
+                    break;
+                case employeeType.Manager:
+                    this.Hide();
+                    break;
+            }
         }
-
-        public void WaitressView()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void BartenderView()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ChefView()
-        {
-            throw new NotImplementedException();
-        }
-
-
         private void InitializeComponent()
         {
             txtInlogNaam = new TextBox();
