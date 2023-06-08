@@ -106,6 +106,7 @@
             Controls.Add(orderPriceLabel);
             Controls.Add(label1);
             Controls.Add(logo);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "SettleTheBill";
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

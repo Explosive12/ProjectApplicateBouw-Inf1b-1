@@ -75,6 +75,7 @@
             proceedPayment.TabIndex = 19;
             proceedPayment.Text = "PROCEED TO PAYMENT";
             proceedPayment.UseVisualStyleBackColor = false;
+            proceedPayment.Click += proceedPayment_Click;
             // 
             // listView1
             // 

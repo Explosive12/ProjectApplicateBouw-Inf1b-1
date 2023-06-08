@@ -31,9 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(commentOrContinuePayment));
             logo = new PictureBox();
             labelCustomerComment = new Label();
-            confirmPayment = new Button();
             buttonContinuePayment = new Button();
-            button1 = new Button();
+            buttonAddComment = new Button();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -57,17 +56,6 @@
             labelCustomerComment.TabIndex = 18;
             labelCustomerComment.Text = "ANY COMMENTS?";
             // 
-            // confirmPayment
-            // 
-            confirmPayment.BackColor = Color.FromArgb(138, 210, 176);
-            confirmPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            confirmPayment.Location = new Point(78, 326);
-            confirmPayment.Name = "confirmPayment";
-            confirmPayment.Size = new Size(243, 44);
-            confirmPayment.TabIndex = 19;
-            confirmPayment.Text = "CONFIRM";
-            confirmPayment.UseVisualStyleBackColor = false;
-            // 
             // buttonContinuePayment
             // 
             buttonContinuePayment.BackColor = Color.FromArgb(138, 210, 176);
@@ -78,28 +66,30 @@
             buttonContinuePayment.TabIndex = 20;
             buttonContinuePayment.Text = "CONTINUE WITH PAYMENT";
             buttonContinuePayment.UseVisualStyleBackColor = false;
+            buttonContinuePayment.Click += buttonContinuePayment_Click;
             // 
-            // button1
+            // buttonAddComment
             // 
-            button1.BackColor = Color.Orange;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(80, 279);
-            button1.Name = "button1";
-            button1.Size = new Size(243, 44);
-            button1.TabIndex = 21;
-            button1.Text = "ADD A COMMENT";
-            button1.UseVisualStyleBackColor = false;
+            buttonAddComment.BackColor = Color.Orange;
+            buttonAddComment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonAddComment.Location = new Point(80, 279);
+            buttonAddComment.Name = "buttonAddComment";
+            buttonAddComment.Size = new Size(243, 44);
+            buttonAddComment.TabIndex = 21;
+            buttonAddComment.Text = "ADD A COMMENT";
+            buttonAddComment.UseVisualStyleBackColor = false;
+            buttonAddComment.Click += buttonAddComment_Click;
             // 
             // commentOrContinuePayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
-            Controls.Add(button1);
+            Controls.Add(buttonAddComment);
             Controls.Add(buttonContinuePayment);
-            Controls.Add(confirmPayment);
             Controls.Add(labelCustomerComment);
             Controls.Add(logo);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "commentOrContinuePayment";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
@@ -111,8 +101,7 @@
 
         private PictureBox logo;
         private Label labelCustomerComment;
-        private Button confirmPayment;
         private Button buttonContinuePayment;
-        private Button button1;
+        private Button buttonAddComment;
     }
 }

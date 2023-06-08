@@ -27,7 +27,32 @@ namespace Project1._4.UI.Payment
 
         }
 
-        private void confirmPayment_Click(object sender, EventArgs e)
+        private async void confirmPayment_Click(object sender, EventArgs e)
+        {
+
+
+            if (!string.IsNullOrEmpty(commentCustomerBox.Text))
+            {
+                commentHasBeenSaved.Text = "COMMENT HAS BEEN SAVED";
+                await Task.Delay(3000); // Delay for 3 seconds
+                SettleTheBill settleForm = new SettleTheBill();
+                settleForm.Show();
+            }
+
+
+
+            this.Hide();
+        }
+
+        private void backToCommentOrContinue_Click(object sender, EventArgs e)
+        {
+            commentOrContinuePayment commentOrContinue = new commentOrContinuePayment();
+
+            commentOrContinue.Show();
+            this.Hide();
+        }
+
+        private void commentCustomerBox_TextChanged(object sender, EventArgs e)
         {
 
         }

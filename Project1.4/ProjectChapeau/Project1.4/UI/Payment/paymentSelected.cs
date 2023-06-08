@@ -21,5 +21,14 @@ namespace Project1._4.UI.Payment
         {
 
         }
+
+        private void buttonPay_Click(object sender, EventArgs e)
+        {
+            commentOrContinuePayment commentOrContinue = new commentOrContinuePayment();
+
+            commentOrContinue.Show();
+            this.Hide();
+
+        }
     }
 }

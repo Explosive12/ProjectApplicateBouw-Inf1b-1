@@ -135,6 +135,7 @@
             buttonPay.TabIndex = 30;
             buttonPay.Text = "PAY";
             buttonPay.UseVisualStyleBackColor = false;
+            buttonPay.Click += buttonPay_Click;
             // 
             // buttonSet
             // 

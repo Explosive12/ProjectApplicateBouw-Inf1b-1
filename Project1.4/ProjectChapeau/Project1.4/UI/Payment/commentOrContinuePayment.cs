@@ -16,5 +16,20 @@ namespace Project1._4.UI.Payment
         {
             InitializeComponent();
         }
+
+        private void buttonAddComment_Click(object sender, EventArgs e)
+        {
+            commentPayment commentPayment = new commentPayment();
+
+            commentPayment.Show();
+            this.Hide();
+        }
+
+        private void buttonContinuePayment_Click(object sender, EventArgs e)
+        {
+            SettleTheBill settleTheBill = new SettleTheBill();
+            settleTheBill.Show();
+            this.Hide();
+        }
     }
 }
