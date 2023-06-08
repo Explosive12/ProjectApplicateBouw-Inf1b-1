@@ -38,10 +38,14 @@ namespace Project1._4.UI.Payment
                 SettleTheBill settleForm = new SettleTheBill();
                 settleForm.Show();
             }
+            else if (string.IsNullOrEmpty(commentCustomerBox.Text))
+            {
+                commentHasBeenSaved.Text = "PLEASE ENTER A COMMENT";
+                
+            }
 
 
-
-            this.Hide();
+           
         }
 
         private void backToCommentOrContinue_Click(object sender, EventArgs e)

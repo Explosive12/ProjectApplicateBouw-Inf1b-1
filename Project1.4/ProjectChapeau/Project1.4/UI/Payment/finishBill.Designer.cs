@@ -142,6 +142,7 @@
             DEBITRadio.TabStop = true;
             DEBITRadio.Text = "DEBIT";
             DEBITRadio.UseVisualStyleBackColor = true;
+            DEBITRadio.CheckedChanged += DEBITRadio_CheckedChanged;
             // 
             // radioButtonVisa
             // 
@@ -182,6 +183,7 @@
             Controls.Add(proceedPayment);
             Controls.Add(billLabel);
             Controls.Add(logo);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "finishBill";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

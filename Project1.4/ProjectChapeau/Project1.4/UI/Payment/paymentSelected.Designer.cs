@@ -186,6 +186,7 @@
             Controls.Add(labelPaymentType);
             Controls.Add(labelCustomerComment);
             Controls.Add(logo);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "paymentSelected";
             Text = "Form1";
             Load += paymentSelected_Load;
