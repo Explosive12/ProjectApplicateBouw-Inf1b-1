@@ -17,11 +17,13 @@ namespace Project1._4
         private void btnBarResOverview_Click(object sender, EventArgs e)
         {
             // Create an instance of the new form
+            LoginView loginview = new LoginView(); 
             BarKitchenView barKitchenView = new BarKitchenView();
             Form1 form1 = new Form1();
             
             // Show the new form
             barKitchenView.Show();
+            loginview.Show();
 
             ///doesnt close it
             form1.Close();
