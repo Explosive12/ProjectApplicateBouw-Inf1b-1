@@ -46,7 +46,7 @@ namespace Project1._4
             {
                 if (!cbxOrderStatusKitchen.Items.Contains($"{order.OrderId}"))
                 {
-                    cbxOrderStatusKitchen.Items.Add($"{order.OrderId} {order.}")
+                    cbxOrderStatusKitchen.Items.Add($"{order.OrderId} {order.}");
                 }
             }
         }

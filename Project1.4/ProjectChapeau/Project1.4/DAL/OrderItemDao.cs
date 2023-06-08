@@ -84,5 +84,12 @@ namespace Project1._4.DAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+        public List<OrderItem> GetByStatus(int orderItemId)
+        {
+            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel WHERE id = @orderItemId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
     }
 }

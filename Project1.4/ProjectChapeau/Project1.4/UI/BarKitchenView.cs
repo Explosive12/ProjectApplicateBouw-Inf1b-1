@@ -26,10 +26,6 @@ namespace Project1._4.UI
 
             this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
         }
-        private void ChangeStatus()
-        {
-
-        }
 
         public List<Order> LoadOrders()
         {
