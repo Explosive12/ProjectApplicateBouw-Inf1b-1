@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Graph.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,10 @@ namespace Project1._4
         {
             InitializeComponent();
         }
+        public void Getlogin()
+        {
 
+        }
         public string GetUsername()
         {
             throw new NotImplementedException();
@@ -26,10 +30,9 @@ namespace Project1._4
         {
             throw new NotImplementedException();
         }
-
-        public void LoginScreen()
+        public void ForgetPassword()
         {
-            throw new NotImplementedException();
+
         }
 
         public void ManagerView()
@@ -52,42 +55,32 @@ namespace Project1._4
             throw new NotImplementedException();
         }
 
-        /*
+
         private void InitializeComponent()
         {
-            imageboxLogoChapeau = new PictureBox();
-            txbInlogNaam = new TextBox();
-            txbWachtwoord = new TextBox();
+            txtInlogNaam = new TextBox();
+            txtWachtwoord = new TextBox();
             lblUsername = new Label();
             label2 = new Label();
             btnLoginHandheld = new Button();
             lblForgotPassword = new Label();
-            ((ISupportInitialize)imageboxLogoChapeau).BeginInit();
+            pictureBox1 = new PictureBox();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // imageboxLogoChapeau
+            // txtInlogNaam
             // 
-            imageboxLogoChapeau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            imageboxLogoChapeau.Image = Properties.Resources.chapeagoeie;
-            imageboxLogoChapeau.Location = new Point(59, 47);
-            imageboxLogoChapeau.Name = "imageboxLogoChapeau";
-            imageboxLogoChapeau.Size = new Size(263, 151);
-            imageboxLogoChapeau.TabIndex = 0;
-            imageboxLogoChapeau.TabStop = false;
+            txtInlogNaam.Location = new Point(190, 325);
+            txtInlogNaam.Name = "txtInlogNaam";
+            txtInlogNaam.Size = new Size(100, 23);
+            txtInlogNaam.TabIndex = 1;
             // 
-            // txbInlogNaam
+            // txtWachtwoord
             // 
-            txbInlogNaam.Location = new Point(190, 325);
-            txbInlogNaam.Name = "txbInlogNaam";
-            txbInlogNaam.Size = new Size(100, 23);
-            txbInlogNaam.TabIndex = 1;
-            // 
-            // txbWachtwoord
-            // 
-            txbWachtwoord.Location = new Point(190, 383);
-            txbWachtwoord.Name = "txbWachtwoord";
-            txbWachtwoord.Size = new Size(100, 23);
-            txbWachtwoord.TabIndex = 2;
+            txtWachtwoord.Location = new Point(190, 383);
+            txtWachtwoord.Name = "txtWachtwoord";
+            txtWachtwoord.Size = new Size(100, 23);
+            txtWachtwoord.TabIndex = 2;
             // 
             // lblUsername
             // 
@@ -121,6 +114,7 @@ namespace Project1._4
             btnLoginHandheld.Text = "Login";
             btnLoginHandheld.UseMnemonic = false;
             btnLoginHandheld.UseVisualStyleBackColor = false;
+            btnLoginHandheld.Click += btnLoginHandheld_Click;
             // 
             // lblForgotPassword
             // 
@@ -133,25 +127,44 @@ namespace Project1._4
             lblForgotPassword.Text = "Forgot password";
             lblForgotPassword.TextAlign = ContentAlignment.MiddleCenter;
             lblForgotPassword.UseMnemonic = false;
+            lblForgotPassword.Click += lblForgotPassword_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.chapeagoeie;
+            pictureBox1.Location = new Point(78, 49);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(259, 167);
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
             // 
             // LoginView
             // 
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 697);
+            Controls.Add(pictureBox1);
             Controls.Add(lblForgotPassword);
             Controls.Add(btnLoginHandheld);
             Controls.Add(label2);
             Controls.Add(lblUsername);
-            Controls.Add(txbWachtwoord);
-            Controls.Add(txbInlogNaam);
-            Controls.Add(imageboxLogoChapeau);
+            Controls.Add(txtWachtwoord);
+            Controls.Add(txtInlogNaam);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginView";
             Text = "Login";
-            ((ISupportInitialize)imageboxLogoChapeau).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-        */
+
+        private void btnLoginHandheld_Click(object sender, EventArgs e)
+        {
+            Getlogin();
+        }
+
+        private void lblForgotPassword_Click(object sender, EventArgs e)
+        {
+            ForgetPassword();
+        }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project1._4
 {
-    public partial class TableView : Form
+    public partial class tableviewControl : UserControl
     {
-        public TableView()
+        public tableviewControl()
         {
             InitializeComponent();
         }

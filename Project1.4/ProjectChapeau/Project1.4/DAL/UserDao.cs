@@ -16,7 +16,7 @@ namespace Project1._4.DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        
+
         private List<Login> ReadTables(DataTable dataTable)
         {
             List<Login> logins = new List<Login>();
@@ -25,7 +25,7 @@ namespace Project1._4.DAL
                 Login login = new Login()
                 {
                     medewerkerId = (int)dr["medewerkerId"],
-                    employeeType = (employeeType)Enum.Parse(typeof(employeeType) ,dr["functie"].ToString()),
+                    employeeType = (employeeType)Enum.Parse(typeof(employeeType), dr["functie"].ToString()),
                     inlogNaam = (string)dr["inlogNaam"],
                     wachtwoord = (int)dr["wachtwoord"]
                 };
