@@ -20,20 +20,22 @@ namespace Project1._4.DAL
             {
                 EmployeeType function = EmployeeType.Waitress;
 
-                switch (dr[1].ToString())
+                switch (dr[1].ToString().ToLower())
                 {
-                    case "1":
+                    case "manager":
                         function = EmployeeType.Manager;
                         break;
-                    case "2":
+                    case "chef":
                         function = EmployeeType.Chef;
                         break;
-                    case "3":
+                    case "waitress":
                         function = EmployeeType.Waitress;
                         break;
-                    case "4":
+                    case "bartender":
                         function = EmployeeType.Bartender;
                         break;
+                    default:
+                        throw new Exception("The EmployeeType doesnt exist in database");
                 }
                 Employee employee = new Employee(
                     (int)dr[0],
