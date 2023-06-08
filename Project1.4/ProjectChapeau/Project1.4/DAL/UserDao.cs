@@ -13,7 +13,7 @@ namespace Project1._4.DAL
             throw new NotImplementedException();
         }
 
-        private List<User> ReadTables()
+        private List<Login> ReadTables()
         {
             throw new NotImplementedException();
         }

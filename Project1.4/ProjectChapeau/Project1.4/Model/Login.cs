@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Project1._4.Model
 {
-    public class User
+    public class Login
     {
         private int username;
         private int password;
