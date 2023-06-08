@@ -30,7 +30,8 @@ namespace Project1._4
 
         private void buttonStartManagerView_Click(object sender, EventArgs e)
         {
-            this.panelManagerView.Controls.Add(new ManagerViewForm());
+            ManagerView managerView = new ManagerView();
+            managerView.Show();
         }
     }
 }

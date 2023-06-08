@@ -148,6 +148,8 @@ namespace Project1._4
         // Employee code
         private void AddEmployee()
         {
+            GetAllEmployees();
+            DisplayAllEmployees();
             try
             {
                 // Check if its valid
@@ -188,15 +190,21 @@ namespace Project1._4
 
         private void UpdateEmployee()
         {
+            if (listViewEmployees.SelectedItems.Count == 0)
+                return;
+            else if (listViewEmployees.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Please select only 1 employee to update, thank youz <33");
+                return;
+            }
             if (listViewEmployees.SelectedItems.Count != 1)
             {
-                MessageBox.Show("Please only 1 employee to update, thank youz <33");
-                return;
+
             }
             try
             {
                 _employeeService.UpdateEmployee(SelectEmployee());
-                MessageBox.Show($"The editing of {textBoxName.Text} went all wells");
+                MessageBox.Show($"The updating of {textBoxName.Text} went all wells");
             }
             catch (Exception exp)
             {

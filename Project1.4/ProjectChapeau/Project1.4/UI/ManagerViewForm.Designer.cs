@@ -65,12 +65,12 @@
             MenuPannel.Controls.Add(GoToChangeMenuPanel);
             MenuPannel.Location = new Point(0, 0);
             MenuPannel.Name = "MenuPannel";
-            MenuPannel.Size = new Size(1456, 1038);
+            MenuPannel.Size = new Size(1181, 836);
             MenuPannel.TabIndex = 2;
             // 
             // GoToChangeStockPanel
             // 
-            GoToChangeStockPanel.Location = new Point(1045, 478);
+            GoToChangeStockPanel.Location = new Point(196, 310);
             GoToChangeStockPanel.Name = "GoToChangeStockPanel";
             GoToChangeStockPanel.Size = new Size(221, 162);
             GoToChangeStockPanel.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // GoToChangeEmployeePanel
             // 
-            GoToChangeEmployeePanel.Location = new Point(663, 478);
+            GoToChangeEmployeePanel.Location = new Point(419, 80);
             GoToChangeEmployeePanel.Name = "GoToChangeEmployeePanel";
             GoToChangeEmployeePanel.Size = new Size(221, 162);
             GoToChangeEmployeePanel.TabIndex = 1;
@@ -89,7 +89,7 @@
             // 
             // GoToChangeMenuPanel
             // 
-            GoToChangeMenuPanel.Location = new Point(283, 478);
+            GoToChangeMenuPanel.Location = new Point(39, 80);
             GoToChangeMenuPanel.Name = "GoToChangeMenuPanel";
             GoToChangeMenuPanel.Size = new Size(221, 162);
             GoToChangeMenuPanel.TabIndex = 0;
@@ -288,7 +288,7 @@
             Controls.Add(MenuPannel);
             Controls.Add(ChangeStockPanel);
             Name = "ManagerViewForm";
-            Size = new Size(1440, 1024);
+            Size = new Size(1440, 1040);
             Load += ManagerViewForm_Load;
             MenuPannel.ResumeLayout(false);
             ChangeMenuPanel.ResumeLayout(false);
