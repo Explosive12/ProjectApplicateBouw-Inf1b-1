@@ -38,7 +38,7 @@ namespace Project1._4.Service
         }
         public void UpdateOrderItem(OrderItem orderItem)
         {
-            orderItemDb.RemoveOrderItem(orderItem);
+            orderItemDb.UpdateOrderItem(orderItem);
         }
     }
 }

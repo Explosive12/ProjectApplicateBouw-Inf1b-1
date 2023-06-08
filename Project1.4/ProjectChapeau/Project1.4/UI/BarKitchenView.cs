@@ -37,5 +37,25 @@ namespace Project1._4.UI
             List<OrderItem> orderItems = service.GetAllOrderItems();
             return orderItems;
         }
+
+        private void btnLoad2004_Click(object sender, EventArgs e)
+        {
+            Order kitchenOrder = GenerateNewKitchenOrder();
+            KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
+
+            this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+        }
+        private Order GenerateNewKitchenOrder()
+        {
+            Random random = new Random();
+
+            int orderId = random.Next(0, 100);
+            int tableId = random.Next(0, 100);
+            DateTime beginTime = DateTime.Now;
+            DateTime endTime = DateTime.Now;
+
+            Order kitchenOrder = new Order(orderId, tableId, beginTime, endTime);
+            return kitchenOrder;
+        }
     }
 }
