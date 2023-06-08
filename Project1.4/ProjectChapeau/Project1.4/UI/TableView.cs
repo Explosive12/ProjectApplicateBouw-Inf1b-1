@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project1._4
+namespace Project1._4.UI
 {
     public partial class TableView : Form
     {
