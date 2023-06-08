@@ -13,17 +13,22 @@ namespace Project1._4.UI.Payment
     public partial class commentPayment : Form
     {
 
-   /*     private Timer timer;*/
+        /*     private Timer timer;*/
 
-       
+
 
         public commentPayment()
         {
             InitializeComponent();
-           /* timer = new Timer();
-            timer.Interval = 5000; // 5 seconds
-            timer.Tick += Timer_Tick;*/
-           
+            /* timer = new Timer();
+             timer.Interval = 5000; // 5 seconds
+             timer.Tick += Timer_Tick;*/
+
+
+        }
+
+        private void confirmPayment_Click(object sender, EventArgs e)
+        {
 
         }
     }

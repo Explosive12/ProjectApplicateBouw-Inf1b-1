@@ -16,5 +16,10 @@ namespace Project1._4.UI.Payment
         {
             InitializeComponent();
         }
+
+        private void paymentSelected_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

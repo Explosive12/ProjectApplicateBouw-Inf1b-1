@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(commentPayment));
             logo = new PictureBox();
             confirmPayment = new Button();
+            backToCommentOrContinue = new Button();
+            commentCustomerBox = new TextBox();
+            labelCustomerComment = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -46,7 +49,7 @@
             // 
             // confirmPayment
             // 
-            confirmPayment.BackColor = Color.MediumSeaGreen;
+            confirmPayment.BackColor = Color.FromArgb(138, 210, 176);
             confirmPayment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             confirmPayment.Location = new Point(77, 468);
             confirmPayment.Name = "confirmPayment";
@@ -54,23 +57,60 @@
             confirmPayment.TabIndex = 14;
             confirmPayment.Text = "CONFIRM";
             confirmPayment.UseVisualStyleBackColor = false;
+            confirmPayment.Click += confirmPayment_Click;
             // 
-            // Form1
+            // backToCommentOrContinue
+            // 
+            backToCommentOrContinue.BackColor = Color.Orange;
+            backToCommentOrContinue.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            backToCommentOrContinue.Location = new Point(300, 12);
+            backToCommentOrContinue.Name = "backToCommentOrContinue";
+            backToCommentOrContinue.Size = new Size(86, 38);
+            backToCommentOrContinue.TabIndex = 15;
+            backToCommentOrContinue.Text = "BACK";
+            backToCommentOrContinue.UseVisualStyleBackColor = false;
+            // 
+            // commentCustomerBox
+            // 
+            commentCustomerBox.Location = new Point(55, 170);
+            commentCustomerBox.Multiline = true;
+            commentCustomerBox.Name = "commentCustomerBox";
+            commentCustomerBox.Size = new Size(293, 274);
+            commentCustomerBox.TabIndex = 16;
+            // 
+            // labelCustomerComment
+            // 
+            labelCustomerComment.AutoSize = true;
+            labelCustomerComment.Font = new Font("Segoe UI", 16.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelCustomerComment.Location = new Point(12, 122);
+            labelCustomerComment.Name = "labelCustomerComment";
+            labelCustomerComment.Size = new Size(377, 30);
+            labelCustomerComment.TabIndex = 17;
+            labelCustomerComment.Text = "TYPE CUSTOMER COMMENT HERE:";
+            // 
+            // commentPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(labelCustomerComment);
+            Controls.Add(commentCustomerBox);
+            Controls.Add(backToCommentOrContinue);
             Controls.Add(confirmPayment);
             Controls.Add(logo);
-            Name = "Form1";
+            Name = "commentPayment";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox logo;
         private Button confirmPayment;
+        private Button backToCommentOrContinue;
+        private TextBox commentCustomerBox;
+        private Label labelCustomerComment;
     }
 }

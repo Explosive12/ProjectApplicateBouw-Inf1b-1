@@ -16,5 +16,10 @@ namespace Project1._4.UI.Payment
         {
             InitializeComponent();
         }
+
+        private void billLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

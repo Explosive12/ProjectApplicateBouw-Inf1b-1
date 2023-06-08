@@ -28,12 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettleTheBill));
+            logo = new PictureBox();
+            label1 = new Label();
+            orderPriceLabel = new Label();
+            amountPaidLAbel = new Label();
+            tipAmountLabel = new Label();
+            labelVat = new Label();
+            ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
+            SuspendLayout();
+            // 
+            // logo
+            // 
+            logo.Image = (Image)resources.GetObject("logo.Image");
+            logo.Location = new Point(-1, 1);
+            logo.Name = "logo";
+            logo.Size = new Size(115, 58);
+            logo.SizeMode = PictureBoxSizeMode.Zoom;
+            logo.TabIndex = 5;
+            logo.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(138, 210, 176);
+            label1.Location = new Point(55, 184);
+            label1.Name = "label1";
+            label1.Size = new Size(293, 28);
+            label1.TabIndex = 6;
+            label1.Text = "THE BILL HAS BEEN SETTLED!";
+            // 
+            // orderPriceLabel
+            // 
+            orderPriceLabel.AutoSize = true;
+            orderPriceLabel.Location = new Point(87, 264);
+            orderPriceLabel.Name = "orderPriceLabel";
+            orderPriceLabel.Size = new Size(84, 15);
+            orderPriceLabel.TabIndex = 7;
+            orderPriceLabel.Text = "ORDER PRICE: ";
+            // 
+            // amountPaidLAbel
+            // 
+            amountPaidLAbel.AutoSize = true;
+            amountPaidLAbel.Location = new Point(87, 306);
+            amountPaidLAbel.Name = "amountPaidLAbel";
+            amountPaidLAbel.Size = new Size(95, 15);
+            amountPaidLAbel.TabIndex = 8;
+            amountPaidLAbel.Text = "AMOUNT PAID:  ";
+            // 
+            // tipAmountLabel
+            // 
+            tipAmountLabel.AutoSize = true;
+            tipAmountLabel.Location = new Point(87, 343);
+            tipAmountLabel.Name = "tipAmountLabel";
+            tipAmountLabel.Size = new Size(83, 15);
+            tipAmountLabel.TabIndex = 9;
+            tipAmountLabel.Text = "TIP AMOUNT: ";
+            // 
+            // labelVat
+            // 
+            labelVat.AutoSize = true;
+            labelVat.Location = new Point(87, 380);
+            labelVat.Name = "labelVat";
+            labelVat.Size = new Size(32, 15);
+            labelVat.TabIndex = 10;
+            labelVat.Text = "VAT: ";
+            // 
+            // SettleTheBill
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(398, 697);
+            Controls.Add(labelVat);
+            Controls.Add(tipAmountLabel);
+            Controls.Add(amountPaidLAbel);
+            Controls.Add(orderPriceLabel);
+            Controls.Add(label1);
+            Controls.Add(logo);
+            Name = "SettleTheBill";
             Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)logo).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private PictureBox logo;
+        private Label label1;
+        private Label orderPriceLabel;
+        private Label amountPaidLAbel;
+        private Label tipAmountLabel;
+        private Label labelVat;
     }
 }
