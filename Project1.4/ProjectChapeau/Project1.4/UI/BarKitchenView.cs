@@ -19,6 +19,13 @@ namespace Project1._4.UI
         {
             InitializeComponent();
         }
+        public void Loadabc()
+        {
+            Order kitchenOrder = GenerateNewKitchenOrder();
+            KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
+
+            this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+        }
         private void ChangeStatus()
         {
 
@@ -38,13 +45,6 @@ namespace Project1._4.UI
             return orderItems;
         }
 
-        private void btnLoad2004_Click(object sender, EventArgs e)
-        {
-            Order kitchenOrder = GenerateNewKitchenOrder();
-            KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
-
-            this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
-        }
         private Order GenerateNewKitchenOrder()
         {
             Random random = new Random();
@@ -56,6 +56,28 @@ namespace Project1._4.UI
 
             Order kitchenOrder = new Order(orderId, tableId, beginTime, endTime);
             return kitchenOrder;
+        }
+
+        private void btnLoadKitchenOrders_Click(object sender, EventArgs e)
+        {
+            Order kitchenOrder = GenerateNewKitchenOrder();
+            KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
+
+            this.flpKitchenOrders.Controls.Clear();
+            this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+        }
+
+        private void btnKitchenToMain_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            // Create an instance of the new form
+            LoginView loginview = new LoginView();
+            BarKitchenView barKitchenView = new BarKitchenView();
+
+            // Show the new form
+            form1.Show();
+
+            this.Hide();
         }
     }
 }

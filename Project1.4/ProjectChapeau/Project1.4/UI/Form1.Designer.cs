@@ -56,7 +56,7 @@
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1714, 1110);
+            ClientSize = new Size(1484, 693);
             Controls.Add(btnBarResOverview);
             Controls.Add(listView1);
             Margin = new Padding(6, 7, 6, 7);

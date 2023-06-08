@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cbxOrderStatusKitchen = new ComboBox();
             cbxSelectOrderKitchen = new ComboBox();
             btnServedKitchen = new Button();
             btnPreparedKitchen = new Button();
@@ -45,18 +44,10 @@
             lblBestelregelIdKitchen = new Label();
             pbxHeaderViewOrderStatusKitchen = new PictureBox();
             pbxHeaderKitchen = new PictureBox();
+            lblStatusOfDish = new Label();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).BeginInit();
             SuspendLayout();
-            // 
-            // cbxOrderStatusKitchen
-            // 
-            cbxOrderStatusKitchen.FormattingEnabled = true;
-            cbxOrderStatusKitchen.Location = new Point(1619, 435);
-            cbxOrderStatusKitchen.Name = "cbxOrderStatusKitchen";
-            cbxOrderStatusKitchen.Size = new Size(272, 45);
-            cbxOrderStatusKitchen.TabIndex = 48;
-            cbxOrderStatusKitchen.Text = "Order status";
             // 
             // cbxSelectOrderKitchen
             // 
@@ -78,6 +69,7 @@
             btnServedKitchen.TabIndex = 42;
             btnServedKitchen.Text = "Served";
             btnServedKitchen.UseVisualStyleBackColor = false;
+            btnServedKitchen.Click += btnServedKitchen_Click;
             // 
             // btnPreparedKitchen
             // 
@@ -88,6 +80,7 @@
             btnPreparedKitchen.TabIndex = 41;
             btnPreparedKitchen.Text = "Prepared";
             btnPreparedKitchen.UseVisualStyleBackColor = false;
+            btnPreparedKitchen.Click += btnPreparedKitchen_Click;
             // 
             // btnPreparationKitchen
             // 
@@ -97,6 +90,7 @@
             btnPreparationKitchen.TabIndex = 39;
             btnPreparationKitchen.Text = "in preparation";
             btnPreparationKitchen.UseVisualStyleBackColor = true;
+            btnPreparationKitchen.Click += btnPreparationKitchen_Click;
             // 
             // lblViewOrderStatusHeaderBar
             // 
@@ -137,6 +131,7 @@
             // lblChangeStatusHeaderKitchen
             // 
             lblChangeStatusHeaderKitchen.AutoSize = true;
+            lblChangeStatusHeaderKitchen.BackColor = Color.Transparent;
             lblChangeStatusHeaderKitchen.Location = new Point(1423, 40);
             lblChangeStatusHeaderKitchen.Name = "lblChangeStatusHeaderKitchen";
             lblChangeStatusHeaderKitchen.Size = new Size(255, 37);
@@ -208,12 +203,21 @@
             pbxHeaderKitchen.TabIndex = 40;
             pbxHeaderKitchen.TabStop = false;
             // 
+            // lblStatusOfDish
+            // 
+            lblStatusOfDish.AutoSize = true;
+            lblStatusOfDish.Location = new Point(1705, 435);
+            lblStatusOfDish.Name = "lblStatusOfDish";
+            lblStatusOfDish.Size = new Size(102, 37);
+            lblStatusOfDish.TabIndex = 50;
+            lblStatusOfDish.Text = "{status}";
+            // 
             // KitchenOrderControl
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(cbxOrderStatusKitchen);
+            Controls.Add(lblStatusOfDish);
             Controls.Add(cbxSelectOrderKitchen);
             Controls.Add(btnServedKitchen);
             Controls.Add(btnPreparedKitchen);
@@ -231,7 +235,7 @@
             Controls.Add(pbxHeaderViewOrderStatusKitchen);
             Controls.Add(pbxHeaderKitchen);
             Name = "KitchenOrderControl";
-            Size = new Size(2472, 1223);
+            Size = new Size(1999, 635);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).EndInit();
             ResumeLayout(false);
@@ -257,5 +261,6 @@
         private Label lblBestelregelIdKitchen;
         private PictureBox pbxHeaderViewOrderStatusKitchen;
         private PictureBox pbxHeaderKitchen;
+        private Label lblStatusOfDish;
     }
 }
