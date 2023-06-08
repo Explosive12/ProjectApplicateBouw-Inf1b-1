@@ -70,7 +70,7 @@
             // 
             // btnServedKitchen
             // 
-            btnServedKitchen.BackColor = Color.FromArgb(128, 255, 128);
+            btnServedKitchen.BackColor = Color.FromArgb(138, 210, 176);
             btnServedKitchen.ForeColor = Color.Black;
             btnServedKitchen.Location = new Point(1705, 147);
             btnServedKitchen.Name = "btnServedKitchen";
@@ -81,7 +81,7 @@
             // 
             // btnPreparedKitchen
             // 
-            btnPreparedKitchen.BackColor = Color.FromArgb(255, 192, 128);
+            btnPreparedKitchen.BackColor = Color.FromArgb(255, 179, 71);
             btnPreparedKitchen.Location = new Point(1435, 147);
             btnPreparedKitchen.Name = "btnPreparedKitchen";
             btnPreparedKitchen.Size = new Size(253, 52);
@@ -212,6 +212,7 @@
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(cbxOrderStatusKitchen);
             Controls.Add(cbxSelectOrderKitchen);
             Controls.Add(btnServedKitchen);
@@ -230,7 +231,7 @@
             Controls.Add(pbxHeaderViewOrderStatusKitchen);
             Controls.Add(pbxHeaderKitchen);
             Name = "KitchenOrderControl";
-            Size = new Size(2474, 1225);
+            Size = new Size(2472, 1223);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).EndInit();
             ResumeLayout(false);
