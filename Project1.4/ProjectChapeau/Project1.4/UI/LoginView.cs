@@ -1,6 +1,7 @@
 ﻿using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.Security;
 using Project1._4.Model;
+using Project1._4.Service;
 using Project1._4.UI;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,15 +18,21 @@ namespace Project1._4
 {
     public partial class LoginView : Form
     {
+        private UserService userService = new UserService();
         public LoginView()
         {
             InitializeComponent();
+            txtWachtwoord.PasswordChar = '*';
         }
         public void Getlogin()
         {
-
+            //string checkPassword = userService.
         }
-        public void ForgetPassword()
+        //private string hashPassword(string password , string salt)
+        //{
+            
+        //}
+        private void ForgetPassword()
         {
             MessageBox.Show("Contact the Manager for a password reset");
         }
@@ -33,18 +41,27 @@ namespace Project1._4
             switch (employee.EmployeeType) 
             {
                 case employeeType.Waitress:
+                    TableView tableView = new TableView();
+                    tableView.ShowDialog();
                     this.Hide();
                     break;
                 case employeeType.Chef:
                     this.Hide();
+                    OrderView orderViewChef = new OrderView();
+                    orderViewChef.ShowDialog();
                     break;
                 case employeeType.Bartender:
+                    OrderView orderViewBar = new OrderView();
+                    orderViewBar.ShowDialog();
                     this.Hide();
                     break;
                 case employeeType.Manager:
+                    ManagerView managerView = new ManagerView();
+                    managerView.ShowDialog();
                     this.Hide();
                     break;
             }
+            //deze switchstatement stuurt je door naar het juiste screen als werknemer
         }
         private void InitializeComponent()
         {
