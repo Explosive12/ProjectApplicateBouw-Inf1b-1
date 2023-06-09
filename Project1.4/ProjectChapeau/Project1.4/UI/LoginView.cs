@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Project1._4
 {
     public partial class LoginView : Form
@@ -26,12 +27,18 @@ namespace Project1._4
         }
         public void Getlogin()
         {
-            //string checkPassword = userService.
+            string password = HashPassword(txtWachtwoord.Text);
+
+            Login login = userService.LoginUser(password);
         }
-        //private string hashPassword(string password , string salt)
-        //{
-            
-        //}
+        public string HashPassword(string password)
+        {
+            SHA256 hash = SHA256.Create();
+            var passwordbytes = Encoding.Default.GetBytes(password);
+
+            var hashedpassword = hash.ComputeHash(passwordbytes);
+            return Convert.ToHexString(hashedpassword);
+        }
         private void ForgetPassword()
         {
             MessageBox.Show("Contact the Manager for a password reset");

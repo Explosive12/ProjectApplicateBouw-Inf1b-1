@@ -1,4 +1,6 @@
-﻿using Project1._4.DAL;
+﻿using Microsoft.Graph.Models;
+using Project1._4.DAL;
+using Project1._4.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +10,15 @@ namespace Project1._4.Service
 {
     public class UserService
     {
-        private UserDoa logindb;
-       
-        public void GetLogin()
+        private UserDoa userdao;
+        public UserService()
         {
-            throw new NotImplementedException();
+            userdao = new UserDoa();
         }
-
+        public Login LoginUser(string hash)
+        {
+            return userdao.LoginUser(hash);
+        }
         public void Authenticate()
         {
             throw new System.NotImplementedException();
