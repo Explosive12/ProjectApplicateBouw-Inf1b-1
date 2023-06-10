@@ -9,7 +9,7 @@ namespace Project1._4.Model
     {
         public int medewerkerId { get; set; }
         public string inlogNaam { get; set; }
-        public int wachtwoord { get; set; }
+        public string Hash { get; set; }
         public employeeType employeeType { get; set; }
 
     }

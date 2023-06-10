@@ -19,33 +19,48 @@ namespace Project1._4
 {
     public partial class LoginView : Form
     {
-        private UserService userService = new UserService();
+        private UserService userService;
         public LoginView()
         {
             InitializeComponent();
             txtWachtwoord.PasswordChar = '*';
+            userService = new UserService();
         }
         public void Getlogin()
         {
             string password = HashPassword(txtWachtwoord.Text);
+            string username = txtInlogNaam.Text;
+            try
+            {
+                Login login = userService.LoginUser(password , username);
 
-            Login login = userService.LoginUser(password);
+                if (login.Hash != username && login.Hash != password)
+                    throw new Exception("You entered the wrong password or username");
+                
+                EmployeeView(login);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("login failed " + ex.Message);  
+            }
         }
         public string HashPassword(string password)
         {
+            string salt = "password";
             SHA256 hash = SHA256.Create();
-            var passwordbytes = Encoding.Default.GetBytes(password);
-
-            var hashedpassword = hash.ComputeHash(passwordbytes);
-            return Convert.ToHexString(hashedpassword);
+            byte[] passwordbytes = Encoding.UTF8.GetBytes(password + salt);
+            byte[] hashedpassword = hash.ComputeHash(passwordbytes);
+            return Convert.ToBase64String(hashedpassword);
+            //sgeen var
+            //https://www.youtube.com/watch?v=ZbUCgU3G1z4&t
         }
         private void ForgetPassword()
         {
             MessageBox.Show("Contact the Manager for a password reset");
         }
-        private void EmployeeView(Employee employee)
+        private void EmployeeView(Login login)
         {
-            switch (employee.EmployeeType) 
+            switch (login.employeeType) 
             {
                 case employeeType.Waitress:
                     TableView tableView = new TableView();
@@ -53,9 +68,9 @@ namespace Project1._4
                     this.Hide();
                     break;
                 case employeeType.Chef:
-                    this.Hide();
                     OrderView orderViewChef = new OrderView();
                     orderViewChef.ShowDialog();
+                    this.Hide();
                     break;
                 case employeeType.Bartender:
                     OrderView orderViewBar = new OrderView();

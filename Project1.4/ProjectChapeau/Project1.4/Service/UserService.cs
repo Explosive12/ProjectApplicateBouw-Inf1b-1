@@ -15,9 +15,9 @@ namespace Project1._4.Service
         {
             userdao = new UserDoa();
         }
-        public Login LoginUser(string hash)
+        public Login LoginUser(string hash, string username)
         {
-            return userdao.LoginUser(hash);
+            return userdao.LoginUser(hash , username);
         }
         public void Authenticate()
         {
