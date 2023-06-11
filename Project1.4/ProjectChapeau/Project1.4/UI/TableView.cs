@@ -22,7 +22,7 @@ namespace Project1._4.UI
             tableviewControl tableviewControl = new tableviewControl(table);
 
             this.FLPTableView.Controls.Add(tableviewControl);
-            
+
             lblLoginName.Text = username;
         }
         private void UpdateTable()

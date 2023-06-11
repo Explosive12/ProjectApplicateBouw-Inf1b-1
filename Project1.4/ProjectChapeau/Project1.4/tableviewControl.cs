@@ -14,6 +14,7 @@ namespace Project1._4
     public partial class tableviewControl : UserControl
     {
         private Table table;
+        private TableButtonsControl tableButtons;
         public Table Table
         {
             get { return table; }
@@ -23,6 +24,16 @@ namespace Project1._4
         {
             InitializeComponent();
             this.table = table;
+
+            tableButtons = new TableButtonsControl();
+            tableLayoutPanel.Controls.Add(tableButtons, 0 , 0);
+
+            for (int row = 1; row < 2; row++)
+                for (int coll = 0; coll < 5; coll++)
+                {
+                    Button button = tableButtons.GetButton(coll, row);
+                    tableLayoutPanel.Controls.Add(button, coll, row);
+                }
         }
     }
 }

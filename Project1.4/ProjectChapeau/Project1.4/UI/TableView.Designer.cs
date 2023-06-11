@@ -56,9 +56,11 @@
             // 
             lblLoginName.AutoSize = true;
             lblLoginName.BackColor = Color.FromArgb(255, 179, 71);
-            lblLoginName.Location = new Point(336, 9);
+            lblLoginName.BorderStyle = BorderStyle.FixedSingle;
+            lblLoginName.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblLoginName.Location = new Point(317, 9);
             lblLoginName.Name = "lblLoginName";
-            lblLoginName.Size = new Size(0, 15);
+            lblLoginName.Size = new Size(2, 21);
             lblLoginName.TabIndex = 2;
             // 
             // TableView
