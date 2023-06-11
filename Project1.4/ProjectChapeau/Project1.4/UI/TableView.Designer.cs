@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            FLPTableView = new FlowLayoutPanel();
+            lblLoginName = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -44,38 +45,42 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // tableLayoutPanel1
+            // FLPTableView
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Location = new Point(22, 137);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Size = new Size(367, 374);
-            tableLayoutPanel1.TabIndex = 1;
+            FLPTableView.Location = new Point(19, 123);
+            FLPTableView.Name = "FLPTableView";
+            FLPTableView.Size = new Size(367, 445);
+            FLPTableView.TabIndex = 1;
+            // 
+            // lblLoginName
+            // 
+            lblLoginName.AutoSize = true;
+            lblLoginName.BackColor = Color.FromArgb(255, 179, 71);
+            lblLoginName.Location = new Point(336, 9);
+            lblLoginName.Name = "lblLoginName";
+            lblLoginName.Size = new Size(0, 15);
+            lblLoginName.TabIndex = 2;
             // 
             // TableView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(414, 736);
-            Controls.Add(tableLayoutPanel1);
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(398, 697);
+            Controls.Add(lblLoginName);
+            Controls.Add(FLPTableView);
             Controls.Add(pictureBox1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "TableView";
+            Text = "Table";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBox1;
-        private TableLayoutPanel tableLayoutPanel1;
+        private FlowLayoutPanel FLPTableView;
+        private Label lblLoginName;
     }
 }

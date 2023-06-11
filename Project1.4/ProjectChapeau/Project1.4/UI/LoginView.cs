@@ -32,16 +32,16 @@ namespace Project1._4
             string username = txtInlogNaam.Text;
             try
             {
-                Login login = userService.LoginUser(password , username);
+                Login login = userService.LoginUser(password, username);
 
                 if (login.Hash != username && login.Hash != password)
                     throw new Exception("You entered the wrong password or username");
-                
-                EmployeeView(login);
+
+                EmployeeView(login, username);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("login failed " + ex.Message);  
+                MessageBox.Show("login failed " + ex.Message);
             }
         }
         public string HashPassword(string password)
@@ -58,12 +58,12 @@ namespace Project1._4
         {
             MessageBox.Show("Contact the Manager for a password reset");
         }
-        private void EmployeeView(Login login)
+        private void EmployeeView(Login login, string username)
         {
-            switch (login.employeeType) 
+            switch (login.employeeType)
             {
                 case employeeType.Waitress:
-                    TableView tableView = new TableView();
+                    TableView tableView = new TableView(username);
                     tableView.ShowDialog();
                     this.Hide();
                     break;
@@ -178,7 +178,6 @@ namespace Project1._4
             Controls.Add(lblUsername);
             Controls.Add(txtWachtwoord);
             Controls.Add(txtInlogNaam);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginView";
             Text = "Login";
             ((ISupportInitialize)pictureBox1).EndInit();

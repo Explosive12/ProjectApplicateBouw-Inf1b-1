@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1._4.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace Project1._4
 {
     public partial class tableviewControl : UserControl
     {
-        public tableviewControl()
+        private Table table;
+        public Table Table
+        {
+            get { return table; }
+        }
+
+        public tableviewControl(Table table)
         {
             InitializeComponent();
+            this.table = table;
         }
     }
 }

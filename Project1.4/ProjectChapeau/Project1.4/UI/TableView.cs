@@ -15,9 +15,15 @@ namespace Project1._4.UI
 {
     public partial class TableView : Form
     {
-        public TableView()
+        public TableView(string username)
         {
             InitializeComponent();
+            Table table = new Table();
+            tableviewControl tableviewControl = new tableviewControl(table);
+
+            this.FLPTableView.Controls.Add(tableviewControl);
+            
+            lblLoginName.Text = username;
         }
         private void UpdateTable()
         {
