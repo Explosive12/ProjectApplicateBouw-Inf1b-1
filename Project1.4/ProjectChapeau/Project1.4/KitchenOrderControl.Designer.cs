@@ -41,11 +41,11 @@
             pbxHeaderKitchen = new PictureBox();
             lblStatusOfDish = new Label();
             listViewKitchenOrders = new ListView();
-            lblSelectedOrder = new Label();
             kitchenOrderId = new ColumnHeader();
             kitchenOrderNumber = new ColumnHeader();
             kitchenOrderCount = new ColumnHeader();
             kitchenDescription = new ColumnHeader();
+            lblSelectedOrder = new Label();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).BeginInit();
             SuspendLayout();
@@ -172,23 +172,14 @@
             listViewKitchenOrders.Columns.AddRange(new ColumnHeader[] { kitchenOrderId, kitchenOrderNumber, kitchenOrderCount, kitchenDescription });
             listViewKitchenOrders.Location = new Point(82, 130);
             listViewKitchenOrders.Name = "listViewKitchenOrders";
-            listViewKitchenOrders.Size = new Size(969, 455);
+            listViewKitchenOrders.Size = new Size(1062, 455);
             listViewKitchenOrders.TabIndex = 51;
             listViewKitchenOrders.UseCompatibleStateImageBehavior = false;
             listViewKitchenOrders.View = View.Details;
             // 
-            // lblSelectedOrder
-            // 
-            lblSelectedOrder.AutoSize = true;
-            lblSelectedOrder.Location = new Point(1315, 438);
-            lblSelectedOrder.Name = "lblSelectedOrder";
-            lblSelectedOrder.Size = new Size(198, 37);
-            lblSelectedOrder.TabIndex = 52;
-            lblSelectedOrder.Text = "{selectedOrder}";
-            // 
             // kitchenOrderId
             // 
-            kitchenOrderId.Text = "OrderId";
+            kitchenOrderId.Text = "Order Id";
             kitchenOrderId.Width = 200;
             // 
             // kitchenOrderNumber
@@ -205,6 +196,15 @@
             // 
             kitchenDescription.Text = "kitchen description";
             kitchenDescription.Width = 200;
+            // 
+            // lblSelectedOrder
+            // 
+            lblSelectedOrder.AutoSize = true;
+            lblSelectedOrder.Location = new Point(1315, 438);
+            lblSelectedOrder.Name = "lblSelectedOrder";
+            lblSelectedOrder.Size = new Size(198, 37);
+            lblSelectedOrder.TabIndex = 52;
+            lblSelectedOrder.Text = "{selectedOrder}";
             // 
             // KitchenOrderControl
             // 
