@@ -18,14 +18,14 @@ namespace Project1._4.Service
 
         public List<Order> GetAllOrders()
         {
-            List<Order> list = orderDb.GetAllOrders();
-            return list;
+            List<Order> orders = orderDb.GetAllOrders();
+            return orders;
         }
 
         public List<Order> GetByIdOrder(int orderId)
         {
-            List<Order> list = orderDb.GetByIdOrder(orderId);
-            return list;
+            List<Order> orders = orderDb.GetByIdOrder(orderId);
+            return orders;
         }
 
         public void InsertOrder(Order order)

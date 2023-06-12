@@ -12,16 +12,20 @@ namespace Project1._4.DAL
     {
         public List<Order> GetAllOrders()
         {
-            string query = "SELECT bestellingId, tafelId, begintijd, eindtijd FROM bestelling";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            string query =  "SELECT bestellingId, tafelId, begintijd, eindtijd " +
+                            "FROM bestelling";
+            return ReadTables(ExecuteSelectQuery(query));
         }
 
         public List<Order> GetByIdOrder(int orderId)
         {
-            string query = "SELECT bestellingId, tafelId, begintijd, eindtijd FROM bestelling WHERE bestellingId = @orderId";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@orderId", orderId);
+            string query =  "SELECT bestellingId, tafelId, begintijd, eindtijd " +
+                            "FROM bestelling " +
+                            "WHERE bestellingId = @orderId";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@orderId", orderId)
+            };
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -52,9 +56,7 @@ namespace Project1._4.DAL
                 new SqlParameter("@orderId", order.OrderId),
                 new SqlParameter("@tableId", order.TableId),
                 new SqlParameter("@beginTime", order.BeginTime),
-                new SqlParameter("@endTime", order.EndTime),
-
-
+                new SqlParameter("@endTime", order.EndTime)
             };
             ExecuteEditQuery(query, sqlParameters);
 
@@ -62,8 +64,12 @@ namespace Project1._4.DAL
         
         public void RemoveOrder(Order order)
         {
-            string query = "DELETE FROM bestelling WHERE id = @orderId";
-            SqlParameter[] sqlParameters = { new SqlParameter("@orderId", order.OrderId) };
+            string query =  "DELETE FROM bestelling " +
+                            "WHERE id = @orderId";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@orderId", order.OrderId)
+            };
             ExecuteEditQuery(query, sqlParameters);
         }
         
@@ -79,6 +85,7 @@ namespace Project1._4.DAL
                 new SqlParameter("@beginTime", order.BeginTime),
                 new SqlParameter("@endTime", order.EndTime)
             };
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
