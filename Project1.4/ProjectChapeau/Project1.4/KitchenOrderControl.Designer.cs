@@ -28,36 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cbxSelectOrderKitchen = new ComboBox();
             btnServedKitchen = new Button();
             btnPreparedKitchen = new Button();
             btnPreparationKitchen = new Button();
             lblViewOrderStatusHeaderBar = new Label();
-            lblDescriptionKitchen = new Label();
-            lblCountKitchen = new Label();
-            lblOrderIdKitchen = new Label();
             lblChangeStatusHeaderKitchen = new Label();
             lblDescriptionHeaderKitchen = new Label();
             lblCountHeaderKitchen = new Label();
             lblOrderNumberHeaderKitchen = new Label();
             lblOrderIDHeaderKitchen = new Label();
-            lblBestelregelIdKitchen = new Label();
             pbxHeaderViewOrderStatusKitchen = new PictureBox();
             pbxHeaderKitchen = new PictureBox();
             lblStatusOfDish = new Label();
+            listView1 = new ListView();
+            lblSelectedOrder = new Label();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).BeginInit();
             SuspendLayout();
-            // 
-            // cbxSelectOrderKitchen
-            // 
-            cbxSelectOrderKitchen.AllowDrop = true;
-            cbxSelectOrderKitchen.FormattingEnabled = true;
-            cbxSelectOrderKitchen.Location = new Point(1226, 435);
-            cbxSelectOrderKitchen.Name = "cbxSelectOrderKitchen";
-            cbxSelectOrderKitchen.Size = new Size(272, 45);
-            cbxSelectOrderKitchen.TabIndex = 47;
-            cbxSelectOrderKitchen.Text = "Selected order ID";
             // 
             // btnServedKitchen
             // 
@@ -100,33 +87,6 @@
             lblViewOrderStatusHeaderBar.Size = new Size(222, 37);
             lblViewOrderStatusHeaderBar.TabIndex = 49;
             lblViewOrderStatusHeaderBar.Text = "View order status";
-            // 
-            // lblDescriptionKitchen
-            // 
-            lblDescriptionKitchen.AutoSize = true;
-            lblDescriptionKitchen.Location = new Point(842, 155);
-            lblDescriptionKitchen.Name = "lblDescriptionKitchen";
-            lblDescriptionKitchen.Size = new Size(165, 37);
-            lblDescriptionKitchen.TabIndex = 46;
-            lblDescriptionKitchen.Text = "{description}";
-            // 
-            // lblCountKitchen
-            // 
-            lblCountKitchen.AutoSize = true;
-            lblCountKitchen.Location = new Point(628, 162);
-            lblCountKitchen.Name = "lblCountKitchen";
-            lblCountKitchen.Size = new Size(100, 37);
-            lblCountKitchen.TabIndex = 45;
-            lblCountKitchen.Text = "{count}";
-            // 
-            // lblOrderIdKitchen
-            // 
-            lblOrderIdKitchen.AutoSize = true;
-            lblOrderIdKitchen.Location = new Point(362, 155);
-            lblOrderIdKitchen.Name = "lblOrderIdKitchen";
-            lblOrderIdKitchen.Size = new Size(120, 37);
-            lblOrderIdKitchen.TabIndex = 44;
-            lblOrderIdKitchen.Text = "{orderId}";
             // 
             // lblChangeStatusHeaderKitchen
             // 
@@ -176,15 +136,6 @@
             lblOrderIDHeaderKitchen.TabIndex = 34;
             lblOrderIDHeaderKitchen.Text = "Order ID";
             // 
-            // lblBestelregelIdKitchen
-            // 
-            lblBestelregelIdKitchen.AutoSize = true;
-            lblBestelregelIdKitchen.Location = new Point(59, 155);
-            lblBestelregelIdKitchen.Name = "lblBestelregelIdKitchen";
-            lblBestelregelIdKitchen.Size = new Size(187, 37);
-            lblBestelregelIdKitchen.TabIndex = 33;
-            lblBestelregelIdKitchen.Text = "{bestelregelId}";
-            // 
             // pbxHeaderViewOrderStatusKitchen
             // 
             pbxHeaderViewOrderStatusKitchen.BackColor = Color.Orange;
@@ -206,32 +157,46 @@
             // lblStatusOfDish
             // 
             lblStatusOfDish.AutoSize = true;
-            lblStatusOfDish.Location = new Point(1705, 435);
+            lblStatusOfDish.Location = new Point(1705, 438);
             lblStatusOfDish.Name = "lblStatusOfDish";
             lblStatusOfDish.Size = new Size(102, 37);
             lblStatusOfDish.TabIndex = 50;
             lblStatusOfDish.Text = "{status}";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(82, 130);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(912, 455);
+            listView1.TabIndex = 51;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // lblSelectedOrder
+            // 
+            lblSelectedOrder.AutoSize = true;
+            lblSelectedOrder.Location = new Point(1315, 438);
+            lblSelectedOrder.Name = "lblSelectedOrder";
+            lblSelectedOrder.Size = new Size(198, 37);
+            lblSelectedOrder.TabIndex = 52;
+            lblSelectedOrder.Text = "{selectedOrder}";
             // 
             // KitchenOrderControl
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(lblSelectedOrder);
+            Controls.Add(listView1);
             Controls.Add(lblStatusOfDish);
-            Controls.Add(cbxSelectOrderKitchen);
             Controls.Add(btnServedKitchen);
             Controls.Add(btnPreparedKitchen);
             Controls.Add(btnPreparationKitchen);
             Controls.Add(lblViewOrderStatusHeaderBar);
-            Controls.Add(lblDescriptionKitchen);
-            Controls.Add(lblCountKitchen);
-            Controls.Add(lblOrderIdKitchen);
             Controls.Add(lblChangeStatusHeaderKitchen);
             Controls.Add(lblDescriptionHeaderKitchen);
             Controls.Add(lblCountHeaderKitchen);
             Controls.Add(lblOrderNumberHeaderKitchen);
             Controls.Add(lblOrderIDHeaderKitchen);
-            Controls.Add(lblBestelregelIdKitchen);
             Controls.Add(pbxHeaderViewOrderStatusKitchen);
             Controls.Add(pbxHeaderKitchen);
             Name = "KitchenOrderControl";
@@ -245,22 +210,19 @@
         #endregion
 
         private ComboBox cbxOrderStatusKitchen;
-        private ComboBox cbxSelectOrderKitchen;
         private Button btnServedKitchen;
         private Button btnPreparedKitchen;
         private Button btnPreparationKitchen;
         private Label lblViewOrderStatusHeaderBar;
-        private Label lblDescriptionKitchen;
-        private Label lblCountKitchen;
-        private Label lblOrderIdKitchen;
         private Label lblChangeStatusHeaderKitchen;
         private Label lblDescriptionHeaderKitchen;
         private Label lblCountHeaderKitchen;
         private Label lblOrderNumberHeaderKitchen;
         private Label lblOrderIDHeaderKitchen;
-        private Label lblBestelregelIdKitchen;
         private PictureBox pbxHeaderViewOrderStatusKitchen;
         private PictureBox pbxHeaderKitchen;
         private Label lblStatusOfDish;
+        private ListView listView1;
+        private Label lblSelectedOrder;
     }
 }
