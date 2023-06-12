@@ -43,8 +43,8 @@ namespace Project1._4
 
         public void DisplayKitchenOrders(List<Order> kitchenOrders, List<OrderItem> kitchenOrderItems)
         {
-//            //Clear the ListView control before adding new items
-//            listViewKitchenOrders.Items.Clear();
+            //Clear the ListView control before adding new items
+            listViewKitchenOrders.Items.Clear();
 //
 //            //Iterate over each CashRegister object in the list and create a new ListViewItem to display its data
 //            foreach (Order order in kitchenOrders)
@@ -52,10 +52,10 @@ namespace Project1._4
 //                //Create a new ListViewItem with the student ID as the first column
 //                ListViewItem li = new ListViewItem(order.OrderId.ToString());
 //
-//                ////Set the Tag property of the ListViewItem to the CashRegister object itself
+//                //Set the Tag property of the ListViewItem to the CashRegister object itself
 //                li.Tag = order;
-//                //
-//                ////Add additional sub-items to the ListViewItem for the student's first and last name, the drink name, and the order date
+//                
+//                //Add additional sub-items to the ListViewItem for the student's first and last name, the drink name, and the order date
 //                li.SubItems.Add(order.OrderId.ToString());
 //
 //                //Add the ListViewItem to the ListView control
