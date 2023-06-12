@@ -28,20 +28,6 @@ namespace Project1._4.UI
             this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
         }
 
-        public List<Order> LoadOrders()
-        {
-            OrderService service = new OrderService();
-            List<Order> orders = service.GetAllOrders();
-            return orders;
-        }
-
-        public List<OrderItem> LoadOrderItems()
-        {
-            OrderItemService service = new OrderItemService();
-            List<OrderItem> orderItems = service.GetAllOrderItems();
-            return orderItems;
-        }
-
         private Order GenerateNewKitchenOrder()
         {
             Random random = new Random();
@@ -95,13 +81,14 @@ namespace Project1._4.UI
                 List<Order> kitchenOrders = GetBarKitchenOrders();
                 List<OrderItem> kitchenOrderItems = GetBarKitchenOrderItems();
 
+                this.flpKitchenOrders.Controls.Clear();  // Clear existing controls
 
-                Order kitchenOrder = GenerateNewKitchenOrder();
-
-                KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
-
-                kitchenOrderControl.DisplayKitchenOrders(kitchenOrders, kitchenOrderItems);
-
+                foreach (Order order in kitchenOrders)
+                {
+                    KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(order);
+                    kitchenOrderControl.DisplayKitchenOrders(kitchenOrders, kitchenOrderItems);
+                    this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+                }
             }
             catch (SqlException e)
             {
