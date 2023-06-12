@@ -7,8 +7,10 @@ namespace Project1._4.Model
 {
     public class Login
     {
-        private int username;
-        private int password;
-        private employeeType employeeType;
+        public int medewerkerId { get; set; }
+        public string inlogNaam { get; set; }
+        public string Hash { get; set; }
+        public employeeType employeeType { get; set; }
+
     }
 }
