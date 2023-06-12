@@ -90,7 +90,7 @@ namespace Project1._4.UI
 
             try
             {
-                List<BarKitchenView> barKitchenOrders = GetBarKitchenOrders();
+                List<Order> barKitchenOrders = GetBarKitchenOrders();
                 DisplayCashRegisters(barKitchenOrders);
             }
             catch (SqlException e)
@@ -98,17 +98,17 @@ namespace Project1._4.UI
                 MessageBox.Show("Something went wrong while loading the cash registers: " + e.Message);
             }
         }
-        private List<BarKitchenView> GetBarKitchenOrders()
+        private List<Order> GetBarKitchenOrders()
         {
             //Create a new instance of the CashRegisterService
             OrderService orderService = new OrderService();
 
             //Call the GetCashRegisters method on the service to retrieve a list of CashRegister objects
-            List<OrderService> orders = orders.GetCashRegisters();
+            List<Order> orders = orderService.GetAllOrders();
 
             return orders;
         }
-        private void DisplayCashRegisters(List<BarKitchenView> barKitchenOrders)
+        private void DisplayCashRegisters(List<Order> barKitchenOrders)
         {
             //Clear the ListView control before adding new items
             listViewCashRegisters.Items.Clear();

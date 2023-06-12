@@ -30,17 +30,18 @@ namespace Project1._4.DAL
         }
 
         private List<Order> ReadTables(DataTable dataTable)
+
         {
             List<Order> orders = new List<Order>();
             foreach (DataRow dr in dataTable.Rows)
             {
-                Order order = new Order()
-                {
-                    OrderId = (int)dr["bestellingId"],
-                    TableId = (int)dr["tafelId"],
-                    BeginTime = (DateTime)dr["begintijd"],
-                    EndTime = (DateTime)dr["eindtijd"],
-                };
+                Order order = new Order
+                (
+                    (int)dr["bestellingId"],
+                    (int)dr["tafelId"],
+                    (DateTime)dr["begintijd"],
+                    (DateTime)dr["eindtijd"]
+                );
                 orders.Add(order);
             }
             return orders;
