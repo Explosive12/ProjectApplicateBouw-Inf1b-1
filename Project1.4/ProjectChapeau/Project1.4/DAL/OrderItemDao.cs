@@ -12,13 +12,15 @@ namespace Project1._4.DAL
     {
         public List<OrderItem> GetAllOrderItems()
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
+                            "FROM bestelregel";
+            return ReadTables(ExecuteSelectQuery(query));
         }
         public List<OrderItem> GetByIdOrderItem(int orderItemId)
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel WHERE id = @orderItemId";
+            string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
+                            "FROM bestelregel " +
+                            "WHERE id = @orderItemId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
@@ -30,14 +32,15 @@ namespace Project1._4.DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem(
+                OrderItem orderItem = new OrderItem
+                (
                     (int)dr["id"],
                     (int)dr["bestellingId"],
                     (int)dr["productId"],
                     (int)dr["aantal"],
                     (string)dr["opmerking"],
                     (OrderStatusEnum)dr["status"]
-                    );
+                );
                 orderItems.Add(orderItem);
             }
             return orderItems;

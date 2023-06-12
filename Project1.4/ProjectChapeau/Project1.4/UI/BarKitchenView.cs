@@ -19,7 +19,6 @@ namespace Project1._4.UI
         public BarKitchenView()
         {
             InitializeComponent();
-            ShowCashRegistersPanel();
         }
         public void Loadabc()
         {
@@ -63,6 +62,8 @@ namespace Project1._4.UI
 
             this.flpKitchenOrders.Controls.Clear();
             this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+
+            ShowCashRegistersPanel();
         }
 
         private void btnKitchenToMain_Click(object sender, EventArgs e)
@@ -91,12 +92,16 @@ namespace Project1._4.UI
 
             try
             {
-                List<Order> barKitchenOrders = GetBarKitchenOrders();
+                List<Order> kitchenOrders = GetBarKitchenOrders();
+                List<OrderItem> kitchenOrderItems = GetBarKitchenOrderItems();
+
 
                 Order kitchenOrder = GenerateNewKitchenOrder();
+
                 KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
 
-                kitchenOrderControl.DisplayKitchenOrders(barKitchenOrders);
+                kitchenOrderControl.DisplayKitchenOrders(kitchenOrders, kitchenOrderItems);
+
             }
             catch (SqlException e)
             {
@@ -112,6 +117,16 @@ namespace Project1._4.UI
             List<Order> orders = orderService.GetAllOrders();
 
             return orders;
+        }
+        private List<OrderItem> GetBarKitchenOrderItems()
+        {
+            //Create a new instance of the CashRegisterService
+            OrderItemService orderItemService = new OrderItemService();
+
+            //Call the GetCashRegisters method on the service to retrieve a list of CashRegister objects
+            List<OrderItem> orderItems = orderItemService.GetAllOrderItems();
+
+            return orderItems;
         }
     }
 }
