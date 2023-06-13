@@ -67,23 +67,6 @@ namespace Project1._4
                 listViewKitchenOrders.Items.Add(li);
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //          //Clear the ComboBoxes for students and drinks before repopulating them with updated data
             //          cbxStudent.Items.Clear();
             //          List<Student> students = GetStudents();
