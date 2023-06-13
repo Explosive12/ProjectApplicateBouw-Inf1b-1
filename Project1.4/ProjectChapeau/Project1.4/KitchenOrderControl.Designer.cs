@@ -176,6 +176,7 @@
             listViewKitchenOrders.TabIndex = 51;
             listViewKitchenOrders.UseCompatibleStateImageBehavior = false;
             listViewKitchenOrders.View = View.Details;
+            listViewKitchenOrders.SelectedIndexChanged += listViewKitchenOrders_SelectedIndexChanged;
             // 
             // kitchenOrderId
             // 

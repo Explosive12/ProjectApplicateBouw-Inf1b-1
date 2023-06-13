@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1._4
 {
@@ -106,6 +107,19 @@ namespace Project1._4
             //                  cbxDrink.Items.Add($"{drink.DrinkID} {drink.DrinkName}");
             //              }
             //          }
+        }
+
+        private void listViewKitchenOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewKitchenOrders.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewKitchenOrders.SelectedItems[0];
+                string clickedData = selectedItem.Text; // Assuming the clicked data is in the first column
+
+                // Use the clickedData as required
+                MessageBox.Show($"You clicked: {clickedData}");
+            }
+
         }
     }
 }
