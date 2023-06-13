@@ -24,7 +24,7 @@ namespace Project1._4.Service
 
         public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
-            List<OrderItem> list = orderItemDb.GetByIdOrderItem(orderItemId);
+            List<OrderItem> list = orderItemDb.GetByOrderItemId(orderItemId);
             return list;
         }
 

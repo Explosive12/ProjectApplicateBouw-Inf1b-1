@@ -1,5 +1,6 @@
 ﻿using Microsoft.Graph.Models;
 using Project1._4.Model;
+using Project1._4.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,8 +97,19 @@ namespace Project1._4
         {
             if (listViewKitchenOrders.SelectedItems.Count > 0)
             {
+                OrderItemService orderItemService = new OrderItemService();
+                
                 ListViewItem selectedItem = listViewKitchenOrders.SelectedItems[0];
                 int clickedData = int.Parse(selectedItem.Text); // Assuming the clicked data is in the first column
+
+                List<OrderItem> orderItems = orderItemService.GetByOrderItemId(clickedData);
+
+                if (orderItems.Count > 0)
+                {
+                    OrderItem selectedOrderItem = orderItems[0]; // Assuming you want to access the first item in the list
+                    lblSelectedOrder.Text = selectedOrderItem.OrderItemId.ToString();
+                    lblStatusOfDish.Text = selectedOrderItem.Status.ToString();
+                }
             }
         }
     }

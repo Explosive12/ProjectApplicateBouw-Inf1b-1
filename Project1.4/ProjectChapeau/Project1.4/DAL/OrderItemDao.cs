@@ -16,7 +16,7 @@ namespace Project1._4.DAL
                             "FROM bestelregel";
             return ReadTables(ExecuteSelectQuery(query));
         }
-        public List<OrderItem> GetByIdOrderItem(int orderItemId)
+        public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
             string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
                             "FROM bestelregel " +
