@@ -114,12 +114,8 @@ namespace Project1._4
             if (listViewKitchenOrders.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listViewKitchenOrders.SelectedItems[0];
-                string clickedData = selectedItem.Text; // Assuming the clicked data is in the first column
-
-                // Use the clickedData as required
-                MessageBox.Show($"You clicked: {clickedData}");
+                int clickedData = int.Parse(selectedItem.Text); // Assuming the clicked data is in the first column
             }
-
         }
     }
 }
