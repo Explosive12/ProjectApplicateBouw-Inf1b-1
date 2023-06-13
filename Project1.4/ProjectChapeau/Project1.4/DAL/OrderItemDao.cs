@@ -73,9 +73,9 @@ namespace Project1._4.DAL
 
         public void UpdateOrderItem(OrderItem orderItem) 
         {
-            string query = "UPDATE bestelregel " +
-                "SET id = @OrderItemId, bestellingId = @OrderId, productId = @ProductId, aantal = @Amount, opmerking = @Comment, status = @Status " +
-                "WHERE id = @OrderItemId";
+            string query =  "UPDATE bestelregel " +
+                            "SET id = @OrderItemId, bestellingId = @OrderId, productId = @ProductId, aantal = @Amount, opmerking = @Comment, status = @Status " +
+                            "WHERE id = @OrderItemId";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@OrderItemId", orderItem.OrderItemId),
@@ -89,7 +89,9 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetByStatus(int orderItemId)
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel WHERE id = @orderItemId";
+            string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
+                            "FROM bestelregel " +
+                            "WHERE id = @orderItemId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));

@@ -16,6 +16,7 @@ namespace Project1._4
 {
     public partial class KitchenOrderControl : UserControl
     {
+        private int clickedData;
         private Order kitchenOrder;
 
         public Order KitchenOrder
@@ -30,9 +31,11 @@ namespace Project1._4
 
         private void btnPreparedKitchen_Click(object sender, EventArgs e)
         {
-            Update();
-
             //TODO update database with the correct status to prepared and make it so the button checks if there is data in the select combobox
+
+            MessageBox.Show($"Clicked data: {clickedData}");
+
+
         }
 
         private void btnServedKitchen_Click(object sender, EventArgs e)
@@ -76,7 +79,7 @@ namespace Project1._4
                 OrderItemService orderItemService = new OrderItemService();
                 
                 ListViewItem selectedItem = listViewKitchenOrders.SelectedItems[0];
-                int clickedData = int.Parse(selectedItem.Text); // Assuming the clicked data is in the first column
+                clickedData = int.Parse(selectedItem.Text); // Assuming the clicked data is in the first column
 
                 List<OrderItem> orderItems = orderItemService.GetByOrderItemId(clickedData);
 
