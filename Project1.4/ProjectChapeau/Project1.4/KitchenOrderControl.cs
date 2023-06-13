@@ -67,30 +67,6 @@ namespace Project1._4
                 //Add the ListViewItem to the ListView control
                 listViewKitchenOrders.Items.Add(li);
             }
-
-            //          //Clear the ComboBoxes for students and drinks before repopulating them with updated data
-            //          cbxStudent.Items.Clear();
-            //          List<Student> students = GetStudents();
-            //          
-            //          //Iterate over each Student object in the list and add its first name to the ComboBox (with the ID included in the item's value)
-            //          foreach (Student student in students)
-            //          {
-            //              if (!cbxStudent.Items.Contains(student.Firstname))
-            //              {
-            //                  cbxStudent.Items.Add($"{student.StudentID} {student.Firstname}");
-            //              }
-            //          }
-            //          
-            //          //Repeat the same process for the list of drinks
-            //          cbxDrink.Items.Clear();
-            //          List<Drink> drinks = GetDrinks();
-            //          foreach (Drink drink in drinks)
-            //          {
-            //              if (!cbxDrink.Items.Contains($"{drink.DrinkID}"))
-            //              {
-            //                  cbxDrink.Items.Add($"{drink.DrinkID} {drink.DrinkName}");
-            //              }
-            //          }
         }
 
         private void listViewKitchenOrders_SelectedIndexChanged(object sender, EventArgs e)
