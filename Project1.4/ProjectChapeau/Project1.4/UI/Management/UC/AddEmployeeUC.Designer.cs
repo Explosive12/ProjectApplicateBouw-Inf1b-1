@@ -93,6 +93,7 @@
             buttonAddEmployee.TabIndex = 17;
             buttonAddEmployee.Text = "ADD";
             buttonAddEmployee.UseVisualStyleBackColor = false;
+            buttonAddEmployee.Click += AddEmployee;
             // 
             // AddEmployeeUC
             // 
