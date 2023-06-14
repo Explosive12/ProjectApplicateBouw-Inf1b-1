@@ -18,6 +18,7 @@ namespace Project1._4
     {
         private int clickedData;
         private Order kitchenOrder;
+        private string state;
 
         public Order KitchenOrder
         {
@@ -45,7 +46,11 @@ namespace Project1._4
 
         private void btnPreparationKitchen_Click(object sender, EventArgs e)
         {
-            //TODO update database with the correct status to preparation and make it so the button checks if there is data in the select combobox
+            //TODO update database with the correct status to preparation and MAKE IT SO IF THERE IS NO DATA CLICKED YOU GET EXEPTION
+            state = "klaar";
+
+            OrderItemService orderItemService = new OrderItemService();
+            orderItemService.UpdateOrderItemStatus(clickedData, state);
         }
 
         public void DisplayKitchenOrders(List<Order> kitchenOrders, List<OrderItem> kitchenOrderItems)

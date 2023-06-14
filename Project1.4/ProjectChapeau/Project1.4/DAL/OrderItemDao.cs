@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.CodeDom.Compiler;
 
 namespace Project1._4.DAL
 {
@@ -86,6 +87,18 @@ namespace Project1._4.DAL
                 new SqlParameter("@Status", orderItem.Status),
             };
             ExecuteEditQuery(query, sqlParameters);
+        }
+        public List<OrderItem> UpdateOrderItemState(int clickeddata, string state)
+        {
+            string query = "UPDATE bestelregel " +
+                                "SET status = @Status " +
+                                "WHERE id = @orderItemId";
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@OrderItemId", state),
+                new SqlParameter("@Status", clickeddata)
+            };
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<OrderItem> GetByStatus(int orderItemId)
         {
