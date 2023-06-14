@@ -37,9 +37,9 @@
             // 
             panelManagerView.Controls.Add(button1);
             panelManagerView.Location = new Point(0, 0);
-            panelManagerView.Margin = new Padding(2, 2, 2, 2);
+            panelManagerView.Margin = new Padding(2);
             panelManagerView.Name = "panelManagerView";
-            panelManagerView.Size = new Size(1008, 614);
+            panelManagerView.Size = new Size(246, 565);
             panelManagerView.TabIndex = 0;
             // 
             // button1
@@ -56,9 +56,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1013, 565);
+            ClientSize = new Size(318, 565);
             Controls.Add(panelManagerView);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "ManagerView";
             Text = "ManagerView";
             Load += ManagerView_Load;

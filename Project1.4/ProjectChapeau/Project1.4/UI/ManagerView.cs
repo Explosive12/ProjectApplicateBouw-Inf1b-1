@@ -25,7 +25,7 @@ namespace Project1._4.UI
         {
 
             this.panelManagerView.Controls.Add(new ManagerViewController());
-            
+
         }
     }
 }
