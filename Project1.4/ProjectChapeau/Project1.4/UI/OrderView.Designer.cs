@@ -28,18 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
+            testBtn = new Button();
+            OrderViewFLP = new FlowLayoutPanel();
             SuspendLayout();
+            // 
+            // testBtn
+            // 
+            testBtn.Location = new Point(133, 495);
+            testBtn.Name = "testBtn";
+            testBtn.Size = new Size(167, 29);
+            testBtn.TabIndex = 0;
+            testBtn.Text = "Load All test button";
+            testBtn.UseVisualStyleBackColor = true;
+            testBtn.Click += testBtn_Click;
+            // 
+            // OrderViewFLP
+            // 
+            OrderViewFLP.Location = new Point(3, 66);
+            OrderViewFLP.Name = "OrderViewFLP";
+            OrderViewFLP.Size = new Size(388, 395);
+            OrderViewFLP.TabIndex = 1;
             // 
             // OrderView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(396, 600);
+            Controls.Add(OrderViewFLP);
+            Controls.Add(testBtn);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OrderView";
             Text = "OrderView";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button testBtn;
+        private FlowLayoutPanel OrderViewFLP;
     }
 }

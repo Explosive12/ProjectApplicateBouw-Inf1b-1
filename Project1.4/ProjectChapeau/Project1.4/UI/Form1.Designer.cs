@@ -30,36 +30,49 @@
         {
             listView1 = new ListView();
             btnBarResOverview = new Button();
+            orderViewBtn = new Button();
             SuspendLayout();
             // 
             // listView1
             // 
-            listView1.Location = new Point(1071, 372);
-            listView1.Margin = new Padding(6, 7, 6, 7);
+            listView1.Location = new Point(571, 201);
+            listView1.Margin = new Padding(3, 4, 3, 4);
             listView1.Name = "listView1";
-            listView1.Size = new Size(255, 233);
+            listView1.Size = new Size(138, 128);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // btnBarResOverview
             // 
-            btnBarResOverview.Location = new Point(280, 312);
+            btnBarResOverview.Location = new Point(149, 169);
+            btnBarResOverview.Margin = new Padding(2, 2, 2, 2);
             btnBarResOverview.Name = "btnBarResOverview";
-            btnBarResOverview.Size = new Size(535, 168);
+            btnBarResOverview.Size = new Size(285, 91);
             btnBarResOverview.TabIndex = 1;
             btnBarResOverview.Text = "ga naar bar / restaurant overzicht";
             btnBarResOverview.UseVisualStyleBackColor = true;
             btnBarResOverview.Click += btnBarResOverview_Click;
             // 
+            // orderViewBtn
+            // 
+            orderViewBtn.Location = new Point(149, 283);
+            orderViewBtn.Name = "orderViewBtn";
+            orderViewBtn.Size = new Size(285, 89);
+            orderViewBtn.TabIndex = 2;
+            orderViewBtn.Text = "ga naar Bestellingen maken";
+            orderViewBtn.UseVisualStyleBackColor = true;
+            orderViewBtn.Click += orderViewBtn_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1714, 1110);
+            ClientSize = new Size(914, 570);
+            Controls.Add(orderViewBtn);
             Controls.Add(btnBarResOverview);
             Controls.Add(listView1);
-            Margin = new Padding(6, 7, 6, 7);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -69,5 +82,6 @@
 
         private ListView listView1;
         private Button btnBarResOverview;
+        private Button orderViewBtn;
     }
 }

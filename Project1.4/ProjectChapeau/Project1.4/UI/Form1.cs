@@ -18,14 +18,22 @@ namespace Project1._4
         {
             // Create an instance of the new form
             BarKitchenView barKitchenView = new BarKitchenView();
-            Form1 form1 = new Form1();
-            
+
             // Show the new form
             barKitchenView.Show();
 
             ///doesnt close it
-            form1.Close();
+            this.Hide();
 
+        }
+
+        private void orderViewBtn_Click(object sender, EventArgs e)
+        {
+            OrderView orderView = new OrderView();
+
+            orderView.Show();
+
+            this.Hide();
         }
     }
 }

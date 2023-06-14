@@ -20,35 +20,50 @@ namespace Project1._4
             InitializeComponent();
         }
 
-        public List<Product> LoadProducts()
+        private List<Product> LoadProducts()
         {
             ProductService service = new ProductService();
             List<Product> products = service.GetAllProducts();
             return products;
         }
 
-        public List<Order> LoadOrders()
+        private List<Order> LoadOrders()
         {
             OrderService service = new OrderService();
             List<Order> orders = service.GetAllOrders();
             return orders;
         }
 
-        public List<OrderItem> LoadOrderItems()
+        private List<OrderItem> LoadOrderItems()
         {
             OrderItemService service = new OrderItemService();
             List<OrderItem> orderItems = service.GetAllOrderItems();
             return orderItems;
         }
 
-        public void AddProductToOrder(Product product) { }
+        private void AddProductToOrder(Product product) { }
 
-        public void RemoveProductFromOrder(OrderItem orderItem) { }
+        private void RemoveProductFromOrder(OrderItem orderItem) { }
 
-        public void AddComment(OrderItem orderItem) { }
+        private void AddComment(OrderItem orderItem) { }
 
-        public void GoToCategory() { }
+        private void GoToCategory() { }
 
-        public void FinishOrder() { }
+        private void FinishOrder() { }
+
+        private void testBtn_Click(object sender, EventArgs e)
+        {
+            List<Product> products = LoadProducts();
+            products = LoadProducts();
+            LoadOrderItems();
+            LoadOrders();
+            OrderViewUC orderViewFLP;
+            foreach (Product product in products)
+            {
+                orderViewFLP = new OrderViewUC(product);
+                this.OrderViewFLP.Controls.Add(orderViewFLP);
+            }
+            
+        }
     }
 }

@@ -13,8 +13,7 @@ namespace Project1._4.DAL
         public List<OrderItem> GetAllOrderItems()
         {
             string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTables(ExecuteSelectQuery(query));
         }
         public List<OrderItem> GetByIdOrderItem(int orderItemId)
         {
@@ -35,7 +34,7 @@ namespace Project1._4.DAL
                     (int)dr["bestellingId"],
                     (int)dr["productId"],
                     (int)dr["aantal"],
-                    (string)dr["opmerking"],
+                    dr["opmerking"].ToString(),
                     (OrderStatusEnum)dr["status"]
                     );
                 orderItems.Add(orderItem);

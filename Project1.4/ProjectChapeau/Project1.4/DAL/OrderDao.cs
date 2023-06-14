@@ -13,8 +13,7 @@ namespace Project1._4.DAL
         public List<Order> GetAllOrders()
         {
             string query = "SELECT bestellingId, tafelId, begintijd, eindtijd FROM bestelling";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTables(ExecuteSelectQuery(query));
         }
 
         public List<Order> GetByIdOrder(int orderId)

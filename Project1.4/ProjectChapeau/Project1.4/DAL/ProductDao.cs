@@ -14,8 +14,7 @@ namespace Project1._4.DAL
         public List<Product> GetAllProducts()
         {
             string query = "SELECT productId, naam, prijs, voorraad, btw FROM product";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTables(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetByIdProduct(int productId)
@@ -34,7 +33,7 @@ namespace Project1._4.DAL
             {
                 Product product = new Product(
                     (int)dr["productId"],
-                    (string)dr["naam"],
+                    dr["naam"].ToString(),
                     (decimal)dr["prijs"],
                     (int)dr["voorraad"],
                     (decimal)dr["btw"]
