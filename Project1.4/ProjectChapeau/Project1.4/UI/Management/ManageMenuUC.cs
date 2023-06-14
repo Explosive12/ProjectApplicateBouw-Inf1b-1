@@ -15,8 +15,9 @@ using System.Windows.Forms;
 
 namespace Project1._4
 {
-    public partial class ManagerViewController : UserControl
+    public partial class ManageMenuUC : UserControl
     {
+        private string _currentEmployee;
         private EmployeeService _employeeService;
         private MenuProductService _menuproductService;
 
@@ -24,11 +25,15 @@ namespace Project1._4
         private List<Employee> _employees;
 
 
-        public ManagerViewController()
+        public ManageMenuUC()
         {
             _menuItems = new List<MenuProduct>();
             _employees = new List<Employee>();
+
+            _currentEmployee = "Lisa"; // TODO: get the current employee from the login screen
+
             InitializeComponent();
+            labelUserName.Text = _currentEmployee;
         }
 
         // Loading all panels

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             btnBarResOverview = new Button();
+            var x= btnBarResOverview.Text;
             buttonStartManagerView = new Button();
             panelManagerView = new Panel();
             panelManagerView.SuspendLayout();

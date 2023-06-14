@@ -19,13 +19,7 @@ namespace Project1._4.UI
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            this.panelManagerView.Controls.Add(new ManagerViewController());
-
+            this.panelManagerView.Controls.Add(new ManageMenuUC());
         }
     }
 }

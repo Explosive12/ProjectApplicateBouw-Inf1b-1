@@ -13,7 +13,7 @@ namespace Project1._4.Model
             Name = name;
             EmployeeId = employeeId;
             Function = function;
-            LoginId = loginId;
+            Password = loginId;
             Username = username;
             
 
@@ -22,7 +22,7 @@ namespace Project1._4.Model
         public string Name { get; set; }
         public int EmployeeId { get; set; }
         public EmployeeType Function { get; set; }
-        public int LoginId { get; set; }
+        public int Password { get; set; }
         public string Username { get; set; }
     }
 }
