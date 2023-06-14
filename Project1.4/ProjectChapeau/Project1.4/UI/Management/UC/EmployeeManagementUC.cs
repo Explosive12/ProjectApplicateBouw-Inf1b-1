@@ -14,7 +14,7 @@ namespace Project1._4.UI.Management
 {
     public partial class EmployeeManagementUC : UserControl
     {
-        private readonly ManagerView form;
+        private ManagerView form;
 
         public EmployeeManagementUC(ManagerView form)
         {
@@ -33,10 +33,9 @@ namespace Project1._4.UI.Management
         private void FillListView()
         {
             List<Employee> employees = GetAllEmployees();
-            for (int i = 0; i < employees.Count; i++)
+            foreach (Employee employee in employees)
             {
-                Employee employee = employees[i];
-                this.panelEmployee.Controls.Add(new UserEmployeeUC(employee.Name+i, employee.Function));
+                this.panelEmployee.Controls.Add(new UserEmployeeUC(employee.Name, employee.Function));
             }
         }
 
@@ -47,7 +46,6 @@ namespace Project1._4.UI.Management
 
         private void GoBackToMainMenu(object sender, EventArgs e)
         {
-
             form.GoBackToMainMenu();
         }
 

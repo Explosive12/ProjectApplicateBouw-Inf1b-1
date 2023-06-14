@@ -18,8 +18,10 @@ namespace Project1._4
 {
     public partial class MainMenuUC : UserControl
     {
-        private readonly ManagerView form;
+        private ManagerView form;
         private string _currentEmployee;
+
+        
         private EmployeeService _employeeService;
         private MenuProductService _menuproductService;
 

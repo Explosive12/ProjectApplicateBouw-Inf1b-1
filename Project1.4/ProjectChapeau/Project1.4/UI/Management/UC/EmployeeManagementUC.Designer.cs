@@ -66,7 +66,7 @@ namespace Project1._4.UI.Management
             buttonGoBack.Cursor = Cursors.Hand;
             buttonGoBack.FlatAppearance.BorderSize = 0;
             buttonGoBack.FlatStyle = FlatStyle.Flat;
-            buttonGoBack.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonGoBack.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonGoBack.ForeColor = SystemColors.ActiveCaptionText;
             buttonGoBack.Location = new Point(296, 21);
             buttonGoBack.Name = "buttonGoBack";
@@ -83,9 +83,9 @@ namespace Project1._4.UI.Management
             buttonAddNew.FlatAppearance.BorderSize = 0;
             buttonAddNew.FlatStyle = FlatStyle.Flat;
             buttonAddNew.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAddNew.Location = new Point(246, 84);
+            buttonAddNew.Location = new Point(273, 111);
             buttonAddNew.Name = "buttonAddNew";
-            buttonAddNew.Size = new Size(133, 69);
+            buttonAddNew.Size = new Size(120, 35);
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "ADD NEW";
             buttonAddNew.UseVisualStyleBackColor = false;
@@ -98,9 +98,9 @@ namespace Project1._4.UI.Management
             buttonRemove.FlatAppearance.BorderSize = 0;
             buttonRemove.FlatStyle = FlatStyle.Flat;
             buttonRemove.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonRemove.Location = new Point(256, 601);
+            buttonRemove.Location = new Point(273, 616);
             buttonRemove.Name = "buttonRemove";
-            buttonRemove.Size = new Size(133, 69);
+            buttonRemove.Size = new Size(120, 35);
             buttonRemove.TabIndex = 9;
             buttonRemove.Text = "REMOVE";
             buttonRemove.UseVisualStyleBackColor = false;
@@ -112,11 +112,11 @@ namespace Project1._4.UI.Management
             buttonAdjust.FlatAppearance.BorderSize = 0;
             buttonAdjust.FlatStyle = FlatStyle.Flat;
             buttonAdjust.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAdjust.Location = new Point(32, 601);
+            buttonAdjust.Location = new Point(36, 616);
             buttonAdjust.Name = "buttonAdjust";
-            buttonAdjust.Size = new Size(133, 69);
+            buttonAdjust.Size = new Size(120, 35);
             buttonAdjust.TabIndex = 10;
-            buttonAdjust.Text = "Adjust";
+            buttonAdjust.Text = "ADJUST";
             buttonAdjust.UseVisualStyleBackColor = false;
             // 
             // panelEmployee
@@ -154,6 +154,6 @@ namespace Project1._4.UI.Management
         private RoundButton buttonAddNew;
         private RoundButton buttonRemove;
         private RoundButton buttonAdjust;
-        private Panel panelEmployee;
+        private FlowLayoutPanel panelEmployee;
     }
 }

@@ -27,7 +27,8 @@ namespace Project1._4.UI
 
         internal void NavigateToAddEmployee()
         {
-            throw new NotImplementedException();
+            this.panelManagerView.Controls.Clear();
+            this.panelManagerView.Controls.Add(new AddEmployeeUC(this));
         }
 
         internal void NavigateToEmployee()
