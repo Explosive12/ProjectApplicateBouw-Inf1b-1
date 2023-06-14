@@ -30,43 +30,45 @@ namespace Project1._4.UI
         /// </summary>
         private void InitializeComponent()
         {
-            buttonEmployee = new RoundButton();
+            buttonSelectOption = new RoundButton();
             textBoxType = new RoundTextBox();
             SuspendLayout();
             // 
-            // buttonEmployee
+            // buttonSelectOption
             // 
-            buttonEmployee.BackColor = SystemColors.ActiveBorder;
-            buttonEmployee.FlatAppearance.BorderSize = 0;
-            buttonEmployee.FlatStyle = FlatStyle.Flat;
-            buttonEmployee.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonEmployee.Location = new Point(0, 0);
-            buttonEmployee.Name = "buttonEmployee";
-            buttonEmployee.Size = new Size(350, 35);
-            buttonEmployee.TabIndex = 2;
-            buttonEmployee.Text = "{name}";
-            buttonEmployee.TextAlign = ContentAlignment.MiddleLeft;
-            buttonEmployee.UseVisualStyleBackColor = false;
+            buttonSelectOption.BackColor = SystemColors.ActiveBorder;
+            buttonSelectOption.FlatAppearance.BorderSize = 0;
+            buttonSelectOption.FlatStyle = FlatStyle.Flat;
+            buttonSelectOption.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSelectOption.Location = new Point(0, 0);
+            buttonSelectOption.Name = "buttonSelectOption";
+            buttonSelectOption.Size = new Size(350, 35);
+            buttonSelectOption.TabIndex = 2;
+            buttonSelectOption.Text = "{Name}";
+            buttonSelectOption.TextAlign = ContentAlignment.MiddleLeft;
+            buttonSelectOption.UseVisualStyleBackColor = false;
             // 
             // textBoxType
             // 
             textBoxType.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            textBoxType.Location = new Point(201, 7);
+            textBoxType.Location = new Point(201, 8);
             textBoxType.Name = "textBoxType";
             textBoxType.ReadOnly = true;
             textBoxType.Size = new Size(128, 22);
             textBoxType.TabIndex = 1;
             textBoxType.Text = "{Type}";
             textBoxType.TextAlign = HorizontalAlignment.Center;
+            textBoxType.TextChanged += textBoxType_TextChanged;
             // 
             // UserEmployeeUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(textBoxType);
-            Controls.Add(buttonEmployee);
+            Controls.Add(buttonSelectOption);
             Name = "UserEmployeeUC";
             Size = new Size(350, 35);
+            Click += textBoxType_TextChanged;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -75,7 +77,7 @@ namespace Project1._4.UI
 
         //private Label labelName;
         private RoundTextBox textBoxType;
-        private RoundButton buttonEmployee;
+        private RoundButton buttonSelectOption;
     }
 
 }

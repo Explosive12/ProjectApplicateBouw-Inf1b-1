@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1._4.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,11 @@ namespace Project1._4.UI.Management.UC
         {
             InitializeComponent();
             this.form = form;
+
+            this.panelAddEmployee.Controls.Add(new AddItemUC("Name"));
+            this.panelAddEmployee.Controls.Add(new AddItemUC("Role"));
+            this.panelAddEmployee.Controls.Add(new AddItemUC("Password"));
+
         }
 
         private void GoBackToEmployee(object sender, EventArgs e)

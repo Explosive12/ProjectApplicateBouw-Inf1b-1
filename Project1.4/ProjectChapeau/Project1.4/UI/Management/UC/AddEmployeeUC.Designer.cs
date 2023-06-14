@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelEmployee = new FlowLayoutPanel();
+            panelAddEmployee = new FlowLayoutPanel();
             buttonGoBack = new RoundedItems.RoundButton();
             labelNewEmployee = new Label();
             Logo = new PictureBox();
@@ -36,13 +36,13 @@
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
-            // panelEmployee
+            // panelAddEmployee
             // 
-            panelEmployee.BackColor = SystemColors.Window;
-            panelEmployee.Location = new Point(36, 163);
-            panelEmployee.Name = "panelEmployee";
-            panelEmployee.Size = new Size(357, 449);
-            panelEmployee.TabIndex = 13;
+            panelAddEmployee.BackColor = SystemColors.Window;
+            panelAddEmployee.Location = new Point(36, 163);
+            panelAddEmployee.Name = "panelAddEmployee";
+            panelAddEmployee.Size = new Size(357, 449);
+            panelAddEmployee.TabIndex = 13;
             // 
             // buttonGoBack
             // 
@@ -102,7 +102,7 @@
             Controls.Add(Logo);
             Controls.Add(labelNewEmployee);
             Controls.Add(buttonGoBack);
-            Controls.Add(panelEmployee);
+            Controls.Add(panelAddEmployee);
             Name = "AddEmployeeUC";
             Size = new Size(414, 736);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
@@ -112,7 +112,7 @@
 
         #endregion
 
-        private FlowLayoutPanel panelEmployee;
+        private FlowLayoutPanel panelAddEmployee;
         private RoundedItems.RoundLabel labelEmployees;
         private RoundedItems.RoundButton buttonGoBack;
         private Label labelNewEmployee;
