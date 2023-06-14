@@ -27,5 +27,18 @@ namespace Project1._4.UI.Management
             return employees;
         }
 
+        private void FillListView()
+        {
+            List<Employee> employees = GetAllEmployees();
+            foreach (Employee employee in employees)
+            {
+                this.listBoxEmployee.Controls.Add(new UserEmployeeUC(employee.Name, employee.Function));
+            }
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            FillListView();
+        }
     }
 }

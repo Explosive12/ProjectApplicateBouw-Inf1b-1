@@ -31,12 +31,12 @@ namespace Project1._4.UI.Management
         private void InitializeComponent()
         {
             Logo = new PictureBox();
-            listBoxEmployee = new ListBox();
+            listBoxEmployee = new RoundListBox();
             labelEmployees = new RoundLabel();
             buttonGoBack = new RoundButton();
             buttonAddNew = new RoundButton();
             buttonRemove = new RoundButton();
-            roundButton1 = new RoundButton();
+            buttonAdjust = new RoundButton();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
@@ -52,6 +52,7 @@ namespace Project1._4.UI.Management
             // 
             // listBoxEmployee
             // 
+            listBoxEmployee.BackColor = Color.White;
             listBoxEmployee.FormattingEnabled = true;
             listBoxEmployee.ItemHeight = 15;
             listBoxEmployee.Location = new Point(32, 156);
@@ -72,6 +73,8 @@ namespace Project1._4.UI.Management
             // buttonGoBack
             // 
             buttonGoBack.BackColor = Color.DarkOrange;
+            buttonGoBack.FlatAppearance.BorderSize = 0;
+            buttonGoBack.FlatStyle = FlatStyle.Flat;
             buttonGoBack.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
             buttonGoBack.ForeColor = SystemColors.ActiveCaptionText;
             buttonGoBack.Location = new Point(296, 21);
@@ -84,6 +87,8 @@ namespace Project1._4.UI.Management
             // buttonAddNew
             // 
             buttonAddNew.BackColor = Color.FromArgb(138, 210, 176);
+            buttonAddNew.FlatAppearance.BorderSize = 0;
+            buttonAddNew.FlatStyle = FlatStyle.Flat;
             buttonAddNew.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonAddNew.Location = new Point(246, 84);
             buttonAddNew.Name = "buttonAddNew";
@@ -95,6 +100,8 @@ namespace Project1._4.UI.Management
             // buttonRemove
             // 
             buttonRemove.BackColor = Color.FromArgb(255, 128, 128);
+            buttonRemove.FlatAppearance.BorderSize = 0;
+            buttonRemove.FlatStyle = FlatStyle.Flat;
             buttonRemove.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonRemove.Location = new Point(256, 601);
             buttonRemove.Name = "buttonRemove";
@@ -103,22 +110,24 @@ namespace Project1._4.UI.Management
             buttonRemove.Text = "REMOVE";
             buttonRemove.UseVisualStyleBackColor = false;
             // 
-            // roundButton1
+            // buttonAdjust
             // 
-            roundButton1.BackColor = Color.FromArgb(138, 210, 176);
-            roundButton1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            roundButton1.Location = new Point(32, 601);
-            roundButton1.Name = "roundButton1";
-            roundButton1.Size = new Size(133, 69);
-            roundButton1.TabIndex = 10;
-            roundButton1.Text = "Adjust";
-            roundButton1.UseVisualStyleBackColor = false;
+            buttonAdjust.BackColor = Color.FromArgb(138, 210, 176);
+            buttonAdjust.FlatAppearance.BorderSize = 0;
+            buttonAdjust.FlatStyle = FlatStyle.Flat;
+            buttonAdjust.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonAdjust.Location = new Point(32, 601);
+            buttonAdjust.Name = "buttonAdjust";
+            buttonAdjust.Size = new Size(133, 69);
+            buttonAdjust.TabIndex = 10;
+            buttonAdjust.Text = "Adjust";
+            buttonAdjust.UseVisualStyleBackColor = false;
             // 
             // EmployeeManagementUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(roundButton1);
+            Controls.Add(buttonAdjust);
             Controls.Add(buttonRemove);
             Controls.Add(buttonAddNew);
             Controls.Add(buttonGoBack);
@@ -127,6 +136,7 @@ namespace Project1._4.UI.Management
             Controls.Add(Logo);
             Name = "EmployeeManagementUC";
             Size = new Size(414, 736);
+            Load += OnLoad;
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -135,11 +145,11 @@ namespace Project1._4.UI.Management
         #endregion
 
         private PictureBox Logo;
-        private ListBox listBoxEmployee;
         private RoundLabel labelEmployees;
         private RoundButton buttonGoBack;
         private RoundButton buttonAddNew;
         private RoundButton buttonRemove;
-        private RoundButton roundButton1;
+        private RoundButton buttonAdjust;
+        private RoundListBox listBoxEmployee;
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             panelManagerView = new Panel();
-            panelManagerView.SuspendLayout();
             SuspendLayout();
             // 
             // panelManagerView
@@ -37,20 +36,19 @@
             panelManagerView.Location = new Point(0, 0);
             panelManagerView.Margin = new Padding(2);
             panelManagerView.Name = "panelManagerView";
-            panelManagerView.Size = new Size(246, 565);
+            panelManagerView.Size = new Size(414, 736);
             panelManagerView.TabIndex = 0;
             // 
             // ManagerView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(318, 565);
+            ClientSize = new Size(433, 778);
             Controls.Add(panelManagerView);
             Margin = new Padding(2);
             Name = "ManagerView";
             Text = "ManagerView";
             Load += ManagerView_Load;
-            panelManagerView.ResumeLayout(false);
             ResumeLayout(false);
         }
 

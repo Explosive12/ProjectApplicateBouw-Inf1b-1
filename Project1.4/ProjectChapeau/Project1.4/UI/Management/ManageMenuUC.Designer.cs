@@ -41,6 +41,8 @@ namespace Project1._4
             // buttonToMenu
             // 
             buttonToMenu.BackColor = Color.FromArgb(138, 210, 176);
+            buttonToMenu.FlatAppearance.BorderSize = 0;
+            buttonToMenu.FlatStyle = FlatStyle.Flat;
             buttonToMenu.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonToMenu.Location = new Point(81, 496);
             buttonToMenu.Name = "buttonToMenu";
@@ -52,6 +54,8 @@ namespace Project1._4
             // buttonToEmployeeManagement
             // 
             buttonToEmployeeManagement.BackColor = Color.FromArgb(138, 210, 176);
+            buttonToEmployeeManagement.FlatAppearance.BorderSize = 0;
+            buttonToEmployeeManagement.FlatStyle = FlatStyle.Flat;
             buttonToEmployeeManagement.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonToEmployeeManagement.Location = new Point(81, 360);
             buttonToEmployeeManagement.Name = "buttonToEmployeeManagement";
@@ -84,6 +88,8 @@ namespace Project1._4
             // buttonToTableView
             // 
             buttonToTableView.BackColor = Color.FromArgb(138, 210, 176);
+            buttonToTableView.FlatAppearance.BorderSize = 0;
+            buttonToTableView.FlatStyle = FlatStyle.Flat;
             buttonToTableView.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonToTableView.Location = new Point(81, 218);
             buttonToTableView.Name = "buttonToTableView";
