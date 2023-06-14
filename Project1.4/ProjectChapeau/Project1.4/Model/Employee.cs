@@ -8,21 +8,20 @@ namespace Project1._4.Model
 {
     public class Employee
     {
-        public Employee(int employeeId, EmployeeType function, string username, int loginId, string name)
+        public Employee(int employeeId, EmployeeType function, string username, string password, string name)
         {
-            Name = name;
             EmployeeId = employeeId;
             Function = function;
-            Password = loginId;
             Username = username;
-            
-
+            Password = password;
+            Name = name;
         }
 
-        public string Name { get; set; }
         public int EmployeeId { get; set; }
         public EmployeeType Function { get; set; }
-        public int Password { get; set; }
         public string Username { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+
     }
 }

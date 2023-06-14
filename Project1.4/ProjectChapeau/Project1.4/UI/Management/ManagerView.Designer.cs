@@ -43,7 +43,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 778);
+            ClientSize = new Size(415, 739);
             Controls.Add(panelManagerView);
             Margin = new Padding(2);
             Name = "ManagerView";

@@ -2,7 +2,7 @@
 
 namespace Project1._4
 {
-    partial class ManageMenuUC
+    partial class MainMenuUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -50,6 +50,7 @@ namespace Project1._4
             buttonToMenu.TabIndex = 0;
             buttonToMenu.Text = "MENU";
             buttonToMenu.UseVisualStyleBackColor = false;
+            buttonToMenu.Click += NavigateToMenu;
             // 
             // buttonToEmployeeManagement
             // 
@@ -63,6 +64,7 @@ namespace Project1._4
             buttonToEmployeeManagement.TabIndex = 1;
             buttonToEmployeeManagement.Text = "EMPLOYEE MANAGEMENT";
             buttonToEmployeeManagement.UseVisualStyleBackColor = false;
+            buttonToEmployeeManagement.Click += NavigateToEmployee;
             // 
             // Logo
             // 
@@ -98,7 +100,7 @@ namespace Project1._4
             buttonToTableView.Text = "TABLE VIEW";
             buttonToTableView.UseVisualStyleBackColor = false;
             // 
-            // ManageMenuUC
+            // MainMenuUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -107,7 +109,7 @@ namespace Project1._4
             Controls.Add(buttonToEmployeeManagement);
             Controls.Add(buttonToMenu);
             Controls.Add(Logo);
-            Name = "ManageMenuUC";
+            Name = "MainMenuUC";
             Size = new Size(414, 736);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
 using Project1._4.Model;
 using Project1._4.Service;
+using Project1._4.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,9 @@ using System.Windows.Forms;
 
 namespace Project1._4
 {
-    public partial class ManageMenuUC : UserControl
+    public partial class MainMenuUC : UserControl
     {
+        private readonly ManagerView form;
         private string _currentEmployee;
         private EmployeeService _employeeService;
         private MenuProductService _menuproductService;
@@ -25,7 +27,7 @@ namespace Project1._4
         private List<Employee> _employees;
 
 
-        public ManageMenuUC()
+        public MainMenuUC(ManagerView form)
         {
             _menuItems = new List<MenuProduct>();
             _employees = new List<Employee>();
@@ -34,6 +36,18 @@ namespace Project1._4
 
             InitializeComponent();
             labelUserName.Text = _currentEmployee;
+            this.form = form;
+        }
+
+        private void NavigateToMenu(object sender, EventArgs e)
+        {
+            this.form.NavigateToMenu();
+
+        }
+
+        private void NavigateToEmployee(object sender, EventArgs e)
+        {
+            this.form.NavigateToEmployee();
         }
 
         // Loading all panels

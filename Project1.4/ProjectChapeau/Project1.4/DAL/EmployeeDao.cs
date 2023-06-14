@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace Project1._4.DAL
@@ -31,16 +32,23 @@ namespace Project1._4.DAL
         {
             List<Employee> employees = new List<Employee>();
 
+
             foreach (DataRow dr in dataTable.Rows)
             {
                 EmployeeType function = GetEmployeeType(dr[1].ToString().ToLower());
+                MessageBox.Show($"{function}");
+                MessageBox.Show($"{(int)dr[0]}");
+                MessageBox.Show($"{dr[2]}");
+                MessageBox.Show($"{dr[3]}");
+                MessageBox.Show($"{dr[4]}");
+
 
                 Employee employee = new Employee(
-                    (int)dr[0],
-                    function,
-                    dr[2].ToString(),
-                    (int)dr[3],
-                    dr[4].ToString()
+                    (int)dr[0], // ID
+                    function, // EmployeeType
+                    dr[2].ToString(), // Username
+                    dr[3].ToString(), // Password
+                    dr[4].ToString() // Name
 
                 );
                 employees.Add(employee);
@@ -85,14 +93,14 @@ namespace Project1._4.DAL
             string query = "Update Medewerker SET naam = @name, inlogNaam = @username, wachtwoord = @inlognaam, functie = @function WHERE medewerkerId = @id";
             SqlParameter[] parameters = new SqlParameter[4];
             {
-            parameters[0] = new SqlParameter("@username", employee.Username);
-            parameters[1] = new SqlParameter("@function", employee.Function);
-            parameters[2] = new SqlParameter("@inlognaam", employee.Password);
-            parameters[3] = new SqlParameter("@name", employee.Name);
-        };
+                parameters[0] = new SqlParameter("@username", employee.Username);
+                parameters[1] = new SqlParameter("@function", employee.Function);
+                parameters[2] = new SqlParameter("@inlognaam", employee.Password);
+                parameters[3] = new SqlParameter("@name", employee.Name);
+            };
             ExecuteEditQuery(query, parameters);
         }
-        
+
         public void DeleteEmployee(Employee employee)
         {
             string query = "DELETE FROM Medewerker WHERE medewerkerId = @id";

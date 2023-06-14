@@ -14,9 +14,13 @@ namespace Project1._4.UI.Management
 {
     public partial class EmployeeManagementUC : UserControl
     {
-        public EmployeeManagementUC()
+        private readonly ManagerView form;
+
+        public EmployeeManagementUC(ManagerView form)
         {
             InitializeComponent();
+            this.form = form;
+
             this.listBoxEmployee.Controls.Add(new UserEmployeeUC("Julian", EmployeeType.Bartender));
         }
 
