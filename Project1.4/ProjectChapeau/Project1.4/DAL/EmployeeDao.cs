@@ -11,34 +11,34 @@ namespace Project1._4.DAL
 {
     public class EmployeeDao : BaseDao
     {
-
+        private EmployeeType GetEmployeeType(string type)
+        {
+            switch (type.ToLower())
+            {
+                case "manager":
+                    return EmployeeType.Manager;
+                case "chef":
+                    return EmployeeType.Chef;
+                case "waitress":
+                    return EmployeeType.Waitress;
+                case "bartender":
+                    return EmployeeType.Bartender;
+                default:
+                    return EmployeeType.Waitress;
+            }
+        }
         private List<Employee> ReadTables(DataTable dataTable)
         {
             List<Employee> employees = new List<Employee>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                EmployeeType function = EmployeeType.Waitress;
+                EmployeeType function = GetEmployeeType(dr[1].ToString().ToLower());
 
-                switch (dr[1].ToString().ToLower())
-                {
-                    case "manager":
-                        function = EmployeeType.Manager;
-                        break;
-                    case "chef":
-                        function = EmployeeType.Chef;
-                        break;
-                    case "waitress":
-                        function = EmployeeType.Waitress;
-                        break;
-                    case "bartender":
-                        function = EmployeeType.Bartender;
-                        break;
-                }
                 Employee employee = new Employee(
                     (int)dr[0],
                     function,
-                dr[2].ToString(),
+                    dr[2].ToString(),
                     (int)dr[3],
                     dr[4].ToString()
 
