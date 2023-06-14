@@ -34,9 +34,10 @@
             // 
             // testBtn
             // 
-            testBtn.Location = new Point(133, 495);
+            testBtn.Location = new Point(116, 371);
+            testBtn.Margin = new Padding(3, 2, 3, 2);
             testBtn.Name = "testBtn";
-            testBtn.Size = new Size(167, 29);
+            testBtn.Size = new Size(146, 22);
             testBtn.TabIndex = 0;
             testBtn.Text = "Load All test button";
             testBtn.UseVisualStyleBackColor = true;
@@ -44,19 +45,20 @@
             // 
             // OrderViewFLP
             // 
-            OrderViewFLP.Location = new Point(3, 66);
+            OrderViewFLP.AutoScroll = true;
+            OrderViewFLP.Location = new Point(3, 50);
+            OrderViewFLP.Margin = new Padding(3, 2, 3, 2);
             OrderViewFLP.Name = "OrderViewFLP";
-            OrderViewFLP.Size = new Size(388, 395);
+            OrderViewFLP.Size = new Size(340, 296);
             OrderViewFLP.TabIndex = 1;
             // 
             // OrderView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 600);
+            ClientSize = new Size(346, 450);
             Controls.Add(OrderViewFLP);
             Controls.Add(testBtn);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "OrderView";
             Text = "OrderView";
             ResumeLayout(false);

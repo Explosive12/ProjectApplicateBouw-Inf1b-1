@@ -35,41 +35,44 @@
             // 
             // productLbl
             // 
-            productLbl.AutoSize = true;
-            productLbl.Location = new Point(22, 24);
+            productLbl.AutoEllipsis = true;
+            productLbl.Location = new Point(13, 10);
             productLbl.Name = "productLbl";
-            productLbl.Size = new Size(70, 20);
+            productLbl.Size = new Size(218, 39);
             productLbl.TabIndex = 0;
             productLbl.Text = "{Product}";
             // 
             // priceLbl
             // 
             priceLbl.AutoSize = true;
-            priceLbl.Location = new Point(258, 60);
+            priceLbl.Location = new Point(233, 34);
             priceLbl.Name = "priceLbl";
-            priceLbl.Size = new Size(51, 20);
+            priceLbl.Size = new Size(41, 15);
             priceLbl.TabIndex = 1;
             priceLbl.Text = "{Price}";
             // 
             // UCButton
             // 
-            UCButton.Location = new Point(0, 0);
+            UCButton.BackColor = Color.Transparent;
+            UCButton.Location = new Point(-3, -2);
+            UCButton.Margin = new Padding(3, 2, 3, 2);
             UCButton.Name = "UCButton";
-            UCButton.Size = new Size(390, 118);
+            UCButton.Size = new Size(341, 62);
             UCButton.TabIndex = 2;
-            UCButton.UseVisualStyleBackColor = true;
+            UCButton.UseVisualStyleBackColor = false;
             UCButton.Click += UCButton_Click;
             // 
             // OrderViewUC
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 0, 192);
+            BackColor = Color.White;
             Controls.Add(priceLbl);
             Controls.Add(productLbl);
             Controls.Add(UCButton);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "OrderViewUC";
-            Size = new Size(390, 118);
+            Size = new Size(337, 58);
             ResumeLayout(false);
             PerformLayout();
         }

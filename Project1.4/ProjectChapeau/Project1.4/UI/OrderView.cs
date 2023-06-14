@@ -63,7 +63,7 @@ namespace Project1._4
                 orderViewFLP = new OrderViewUC(product);
                 this.OrderViewFLP.Controls.Add(orderViewFLP);
             }
-            
+
         }
     }
 }
