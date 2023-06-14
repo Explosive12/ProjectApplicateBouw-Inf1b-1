@@ -37,7 +37,6 @@
             btnTableButton.Name = "btnTableButton";
             btnTableButton.Size = new Size(140, 72);
             btnTableButton.TabIndex = 0;
-            btnTableButton.Text = "X";
             btnTableButton.UseVisualStyleBackColor = true;
             // 
             // TableButtonsControl

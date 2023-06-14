@@ -22,34 +22,46 @@ namespace Project1._4.DAL
                 Table table = new Table()
                 {
                     tafelId = (int)dr["tafelId"],
-                    reseveringId = (int)dr["reseveringId"],
+                    reseveringId = (int)dr["reserveringId"],
                     status = (TableStatus)dr["status"]
                 };
                 tables.Add(table);
             }
             return tables;
         }
-        public void GetTableById()
+        private Table ReadTable(DataTable dataTable)
         {
-            string query = "SELECT tafelId , reservingId , status FROM tafel WHERE tafelId = @tafelId";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
+            Table table = new Table();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                table.tafelId = (int)dr["tafelId"];
+                table.reseveringId = (int)dr["reserveringId"];
+                table.status = (TableStatus)dr["status"];
+            }
+            return table;
+        }
+        public Table GetTableById(int tableid)
+        {
+            string query = "SELECT tafelId , reserveringId , status FROM tafel";
+            SqlParameter[] sqlParameters = { new SqlParameter("@tableId" , tableid)};
+            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<Table> GetTables()
         {
-            string query = "SELECT tafelId , reservingId , status FROM tafel";
+            string query = "SELECT tafelId , reserveringId , status FROM tafel";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        public void UpdateTableStatus()
+        public void UpdateTableStatus(Table table)
         {
-            string query = "UPDATE tafel set ... WHERE tafelId = {tafelId}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = "UPDATE tafel set status = @status WHERE tafelId = {tafelId}";
+            SqlParameter[] sqlParameters = {new SqlParameter("@tafelId" , table.tafelId) , new SqlParameter("@status", table.status) };
             ExecuteEditQuery(query, sqlParameters);
         }
         public void ReserveTable(int tafelId)
         {
-            string query = "SELECT tafelId , reseveringId, status FROM tafel where tafelId = {tafelId}";
+            string query = "SELECT tafelId , reserveringId, status FROM tafel where tafelId = {tafelId}";
             SqlParameter[] sqlParameters = new SqlParameter[] { new SqlParameter("@tafelId" , tafelId) };
             ExecuteEditQuery(query, sqlParameters);
         }

@@ -1,4 +1,5 @@
 ﻿using Project1._4.Model;
+using Project1._4.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,9 @@ namespace Project1._4
     {
         private Table table;
         private TableButtonsControl tableButtons;
+
+        private TableService tableService;
+        private List<Table> tableslist;
         public Table Table
         {
             get { return table; }
@@ -25,15 +29,21 @@ namespace Project1._4
             InitializeComponent();
             this.table = table;
 
+            tableService = new TableService();
+            tableslist = tableService.GetTables();
+
             tableButtons = new TableButtonsControl();
             tableLayoutPanel.Controls.Add(tableButtons, 0 , 0);
 
-            for (int row = 1; row < 2; row++)
+            for (int row = 0; row < 2; row++)
+            {
                 for (int coll = 0; coll < 5; coll++)
                 {
-                    Button button = tableButtons.GetButton(coll, row);
+                    int buttontext = tableslist[row * 5 + coll].tafelId;
+                    Button button = tableButtons.GetButton(coll, row, buttontext);
                     tableLayoutPanel.Controls.Add(button, coll, row);
                 }
+            }
         }
     }
 }
