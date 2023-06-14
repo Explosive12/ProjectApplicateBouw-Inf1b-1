@@ -12,13 +12,6 @@ namespace Project1._4.DAL
         private List<Menu> ReadTables(DataTable dataTable)
         {
             List<Menu> menu = new List<Menu>();
-
-            //foreach (DataRow dr in dataTable.Rows)
-            //{
-            //    Order order = new Order(
-            //        );
-            //    orders.Add(product);
-            //}
             return menu;
         }
 

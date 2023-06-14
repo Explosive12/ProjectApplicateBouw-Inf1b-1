@@ -27,6 +27,24 @@ namespace Project1._4.Service
             List<Product> products = productDb.GetByIdProduct(productId);
             return products;
         }
+
+        public List<Product> GetAllLunchProducts()
+        {
+            List<Product> products = productDb.GetAllLunchProducts();
+            return products;
+        }
+
+        public List<Product> GetAllDinnerProducts()
+        {
+            List<Product> products = productDb.GetAllDinnerProducts();
+            return products;
+        }
+
+        public List<Product> GetAllDrinksProducts()
+        {
+            List<Product> products = productDb.GetAllDrinksProducts();
+            return products;
+        }
     }
 
 }

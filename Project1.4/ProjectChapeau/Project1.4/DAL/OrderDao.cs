@@ -41,7 +41,7 @@ namespace Project1._4.DAL
             return orders;
         }
 
-
+        // TODO fix so list can be added, change database for automatic ID creation
         public void InsertOrder(Order order)
         {
             string query = "INSERT INTO bestelling (bestellingId, tafelId, begintijd, eindtijd) " +

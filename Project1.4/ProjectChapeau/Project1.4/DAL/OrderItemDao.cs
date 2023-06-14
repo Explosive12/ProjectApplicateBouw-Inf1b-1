@@ -43,7 +43,7 @@ namespace Project1._4.DAL
         }
 
         
-
+        // TODO fix so list can be added, change database for automatic ID creation
         public void InsertOrderItem(OrderItem orderItem) 
         {
             string query = "INSERT INTO bestelregel (id, bestellingId, productId, aantal, opmerking, status) " +

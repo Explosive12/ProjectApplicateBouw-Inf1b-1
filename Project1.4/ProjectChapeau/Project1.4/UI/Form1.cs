@@ -29,7 +29,7 @@ namespace Project1._4
 
         private void orderViewBtn_Click(object sender, EventArgs e)
         {
-            OrderView orderView = new OrderView();
+            OrderViewLunch orderView = new OrderViewLunch();
 
             orderView.Show();
 
