@@ -41,6 +41,7 @@ namespace Project1._4
             // buttonToMenu
             // 
             buttonToMenu.BackColor = Color.FromArgb(138, 210, 176);
+            buttonToMenu.Cursor = Cursors.Hand;
             buttonToMenu.FlatAppearance.BorderSize = 0;
             buttonToMenu.FlatStyle = FlatStyle.Flat;
             buttonToMenu.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -55,6 +56,7 @@ namespace Project1._4
             // buttonToEmployeeManagement
             // 
             buttonToEmployeeManagement.BackColor = Color.FromArgb(138, 210, 176);
+            buttonToEmployeeManagement.Cursor = Cursors.Hand;
             buttonToEmployeeManagement.FlatAppearance.BorderSize = 0;
             buttonToEmployeeManagement.FlatStyle = FlatStyle.Flat;
             buttonToEmployeeManagement.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -80,7 +82,7 @@ namespace Project1._4
             // 
             labelUserName.BackColor = Color.DarkOrange;
             labelUserName.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelUserName.Location = new Point(303, 26);
+            labelUserName.Location = new Point(296, 21);
             labelUserName.Name = "labelUserName";
             labelUserName.Size = new Size(86, 43);
             labelUserName.TabIndex = 3;
@@ -90,6 +92,7 @@ namespace Project1._4
             // buttonToTableView
             // 
             buttonToTableView.BackColor = Color.FromArgb(138, 210, 176);
+            buttonToTableView.Cursor = Cursors.Hand;
             buttonToTableView.FlatAppearance.BorderSize = 0;
             buttonToTableView.FlatStyle = FlatStyle.Flat;
             buttonToTableView.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);

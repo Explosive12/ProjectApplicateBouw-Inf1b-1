@@ -23,7 +23,8 @@ namespace Project1._4.UI
 
         private void textBoxType_TextChanged(object sender, EventArgs e)
         {
-
+            if (sender is UserEmployeeUC)
+                ((UserEmployeeUC)sender).BackColor = Color.DarkOrange;
         }
     }
 

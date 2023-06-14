@@ -19,6 +19,17 @@ namespace Project1._4.UI
             InitializeComponent();
         }
 
+        internal void GoBackToMainMenu()
+        {
+            this.panelManagerView.Controls.Clear();
+            this.panelManagerView.Controls.Add(new MainMenuUC(this));
+        }
+
+        internal void NavigateToAddEmployee()
+        {
+            throw new NotImplementedException();
+        }
+
         internal void NavigateToEmployee()
         {
             this.panelManagerView.Controls.Clear();

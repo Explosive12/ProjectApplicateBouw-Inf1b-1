@@ -32,7 +32,7 @@ namespace Project1._4
             _menuItems = new List<MenuProduct>();
             _employees = new List<Employee>();
 
-            _currentEmployee = "Lisa"; // TODO: get the current employee from the login screen
+            _currentEmployee = "Claire"; // TODO: get the current employee from the login screen
 
             InitializeComponent();
             labelUserName.Text = _currentEmployee;

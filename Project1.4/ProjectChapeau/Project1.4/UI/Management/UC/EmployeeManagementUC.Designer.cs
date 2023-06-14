@@ -31,12 +31,12 @@ namespace Project1._4.UI.Management
         private void InitializeComponent()
         {
             Logo = new PictureBox();
-            listBoxEmployee = new RoundListBox();
             labelEmployees = new RoundLabel();
             buttonGoBack = new RoundButton();
             buttonAddNew = new RoundButton();
             buttonRemove = new RoundButton();
             buttonAdjust = new RoundButton();
+            panelEmployee = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
@@ -49,16 +49,6 @@ namespace Project1._4.UI.Management
             Logo.SizeMode = PictureBoxSizeMode.Zoom;
             Logo.TabIndex = 3;
             Logo.TabStop = false;
-            // 
-            // listBoxEmployee
-            // 
-            listBoxEmployee.BackColor = Color.White;
-            listBoxEmployee.FormattingEnabled = true;
-            listBoxEmployee.ItemHeight = 15;
-            listBoxEmployee.Location = new Point(32, 156);
-            listBoxEmployee.Name = "listBoxEmployee";
-            listBoxEmployee.Size = new Size(357, 439);
-            listBoxEmployee.TabIndex = 4;
             // 
             // labelEmployees
             // 
@@ -73,6 +63,7 @@ namespace Project1._4.UI.Management
             // buttonGoBack
             // 
             buttonGoBack.BackColor = Color.DarkOrange;
+            buttonGoBack.Cursor = Cursors.Hand;
             buttonGoBack.FlatAppearance.BorderSize = 0;
             buttonGoBack.FlatStyle = FlatStyle.Flat;
             buttonGoBack.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -83,10 +74,12 @@ namespace Project1._4.UI.Management
             buttonGoBack.TabIndex = 6;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
+            buttonGoBack.Click += GoBackToMainMenu;
             // 
             // buttonAddNew
             // 
             buttonAddNew.BackColor = Color.FromArgb(138, 210, 176);
+            buttonAddNew.Cursor = Cursors.Hand;
             buttonAddNew.FlatAppearance.BorderSize = 0;
             buttonAddNew.FlatStyle = FlatStyle.Flat;
             buttonAddNew.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -96,10 +89,12 @@ namespace Project1._4.UI.Management
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "ADD NEW";
             buttonAddNew.UseVisualStyleBackColor = false;
+            buttonAddNew.Click += NavigateToAddEmployee;
             // 
             // buttonRemove
             // 
             buttonRemove.BackColor = Color.FromArgb(255, 128, 128);
+            buttonRemove.Cursor = Cursors.Hand;
             buttonRemove.FlatAppearance.BorderSize = 0;
             buttonRemove.FlatStyle = FlatStyle.Flat;
             buttonRemove.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -113,6 +108,7 @@ namespace Project1._4.UI.Management
             // buttonAdjust
             // 
             buttonAdjust.BackColor = Color.FromArgb(138, 210, 176);
+            buttonAdjust.Cursor = Cursors.Hand;
             buttonAdjust.FlatAppearance.BorderSize = 0;
             buttonAdjust.FlatStyle = FlatStyle.Flat;
             buttonAdjust.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -123,16 +119,24 @@ namespace Project1._4.UI.Management
             buttonAdjust.Text = "Adjust";
             buttonAdjust.UseVisualStyleBackColor = false;
             // 
+            // panelEmployee
+            // 
+            panelEmployee.BackColor = SystemColors.Window;
+            panelEmployee.Location = new Point(36, 152);
+            panelEmployee.Name = "panelEmployee";
+            panelEmployee.Size = new Size(357, 449);
+            panelEmployee.TabIndex = 11;
+            // 
             // EmployeeManagementUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panelEmployee);
             Controls.Add(buttonAdjust);
             Controls.Add(buttonRemove);
             Controls.Add(buttonAddNew);
             Controls.Add(buttonGoBack);
             Controls.Add(labelEmployees);
-            Controls.Add(listBoxEmployee);
             Controls.Add(Logo);
             Name = "EmployeeManagementUC";
             Size = new Size(414, 736);
@@ -150,6 +154,6 @@ namespace Project1._4.UI.Management
         private RoundButton buttonAddNew;
         private RoundButton buttonRemove;
         private RoundButton buttonAdjust;
-        private RoundListBox listBoxEmployee;
+        private Panel panelEmployee;
     }
 }

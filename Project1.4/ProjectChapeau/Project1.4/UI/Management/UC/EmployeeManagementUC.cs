@@ -21,7 +21,6 @@ namespace Project1._4.UI.Management
             InitializeComponent();
             this.form = form;
 
-            this.listBoxEmployee.Controls.Add(new UserEmployeeUC("Julian", EmployeeType.Bartender));
         }
 
         private List<Employee> GetAllEmployees()
@@ -34,15 +33,27 @@ namespace Project1._4.UI.Management
         private void FillListView()
         {
             List<Employee> employees = GetAllEmployees();
-            foreach (Employee employee in employees)
+            for (int i = 0; i < employees.Count; i++)
             {
-                this.listBoxEmployee.Controls.Add(new UserEmployeeUC(employee.Name, employee.Function));
+                Employee employee = employees[i];
+                this.panelEmployee.Controls.Add(new UserEmployeeUC(employee.Name+i, employee.Function));
             }
         }
 
         private void OnLoad(object sender, EventArgs e)
         {
             FillListView();
+        }
+
+        private void GoBackToMainMenu(object sender, EventArgs e)
+        {
+
+            form.GoBackToMainMenu();
+        }
+
+        private void NavigateToAddEmployee(object sender, EventArgs e)
+        {
+            form.NavigateToAddEmployee();
         }
     }
 }

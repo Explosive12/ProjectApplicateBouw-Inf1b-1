@@ -36,12 +36,6 @@ namespace Project1._4.DAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 EmployeeType function = GetEmployeeType(dr[1].ToString().ToLower());
-                MessageBox.Show($"{function}");
-                MessageBox.Show($"{(int)dr[0]}");
-                MessageBox.Show($"{dr[2]}");
-                MessageBox.Show($"{dr[3]}");
-                MessageBox.Show($"{dr[4]}");
-
 
                 Employee employee = new Employee(
                     (int)dr[0], // ID

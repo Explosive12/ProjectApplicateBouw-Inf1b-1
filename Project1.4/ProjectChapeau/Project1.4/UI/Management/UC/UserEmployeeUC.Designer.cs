@@ -53,6 +53,7 @@ namespace Project1._4.UI
             textBoxType.Size = new Size(128, 22);
             textBoxType.TabIndex = 1;
             textBoxType.Text = "{Type}";
+            textBoxType.TextAlign = HorizontalAlignment.Center;
             textBoxType.TextChanged += textBoxType_TextChanged;
             // 
             // UserEmployeeUC
@@ -63,7 +64,8 @@ namespace Project1._4.UI
             Controls.Add(textBoxType);
             Controls.Add(labelName);
             Name = "UserEmployeeUC";
-            Size = new Size(345, 35);
+            Size = new Size(350, 35);
+            Click += textBoxType_TextChanged;
             ResumeLayout(false);
             PerformLayout();
         }
