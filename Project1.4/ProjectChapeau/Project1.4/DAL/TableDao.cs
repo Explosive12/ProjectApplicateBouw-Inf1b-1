@@ -22,7 +22,7 @@ namespace Project1._4.DAL
                 Table table = new Table()
                 {
                     tafelId = (int)dr["tafelId"],
-                    reseveringId = (int)dr["reserveringId"],
+                    reseveringId = Convert.IsDBNull(dr["reserveringId"]) ? 0 : (int)dr["reserveringId"],
                     status = (TableStatus)dr["status"]
                 };
                 tables.Add(table);
@@ -36,7 +36,7 @@ namespace Project1._4.DAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 table.tafelId = (int)dr["tafelId"];
-                table.reseveringId = (int)dr["reserveringId"];
+                table.reseveringId = Convert.IsDBNull(dr["reserveringId"]) ? 0 : (int)dr["reserveringId"];
                 table.status = (TableStatus)dr["status"];
             }
             return table;
@@ -47,7 +47,7 @@ namespace Project1._4.DAL
             SqlParameter[] sqlParameters = { new SqlParameter("@tableId" , tableid)};
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
-        public List<Table> GetTables()
+        public List<Table> GetAllTables()
         {
             string query = "SELECT tafelId , reserveringId , status FROM tafel";
             SqlParameter[] sqlParameters = new SqlParameter[0];

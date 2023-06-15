@@ -23,9 +23,9 @@ namespace Project1._4.Service
         {
             tabledb.UpdateTableStatus(table);
         }
-        public List<Table> GetTables()
+        public List<Table> GetAllTables()
         {
-            return tabledb.GetTables();
+            return tabledb.GetAllTables();
         }
         public void ReserveTable()
         {

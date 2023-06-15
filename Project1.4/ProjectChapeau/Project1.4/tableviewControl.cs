@@ -30,20 +30,33 @@ namespace Project1._4
             this.table = table;
 
             tableService = new TableService();
-            tableslist = tableService.GetTables();
+            tableslist = tableService.GetAllTables();
 
             tableButtons = new TableButtonsControl();
-            tableLayoutPanel.Controls.Add(tableButtons, 0 , 0);
+            //tableLayoutPanel.Controls.Add(tableButtons, 0 , 0);
+
+            int buttontext = 0;
 
             for (int row = 0; row < 2; row++)
             {
                 for (int coll = 0; coll < 5; coll++)
                 {
-                    int buttontext = tableslist[row * 5 + coll].tafelId;
-                    Button button = tableButtons.GetButton(coll, row, buttontext);
+                    int tableId = tableslist[buttontext].tafelId;
+                    Button button = tableButtons.GetButton(coll, row, tableId);
+                    button.Click += Button_Click;
                     tableLayoutPanel.Controls.Add(button, coll, row);
+                    buttontext++;
                 }
             }
+        }
+        private void Button_Click(object sender , EventArgs e)
+        {
+            Button button = (Button)sender;
+            int tableId = int.Parse(button.Text);
+
+            tableStatusControl tableStatusControl = new tableStatusControl(tableId);
+            this.Parent.Controls.Add(tableStatusControl);
+            tableStatusControl.BringToFront();
         }
     }
 }

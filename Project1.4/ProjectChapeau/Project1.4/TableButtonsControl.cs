@@ -16,10 +16,10 @@ namespace Project1._4
         {
             InitializeComponent();
         }
-        public Button GetButton(int column, int row, int buttontext)
+        public Button GetButton(int column, int row, int tableId)
         {
             Button button = new Button();
-            button.Text = buttontext.ToString();
+            button.Text = tableId.ToString();
             button.Size = btnTableButton.Size;
             return button;
         }
