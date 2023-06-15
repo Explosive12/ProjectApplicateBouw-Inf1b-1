@@ -30,7 +30,7 @@
         {
             panelAddEmployee = new FlowLayoutPanel();
             buttonGoBack = new RoundedItems.RoundButton();
-            labelNewEmployee = new Label();
+            labelEmployeeChanges = new Label();
             Logo = new PictureBox();
             buttonAddEmployee = new RoundedItems.RoundButton();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
@@ -58,17 +58,17 @@
             buttonGoBack.TabIndex = 14;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
-            buttonGoBack.Click += GoBackToEmployee;
+            buttonGoBack.Click += NavigateToEmployee;
             // 
-            // labelNewEmployee
+            // labelEmployeeChanges
             // 
-            labelNewEmployee.AutoSize = true;
-            labelNewEmployee.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            labelNewEmployee.Location = new Point(25, 121);
-            labelNewEmployee.Name = "labelNewEmployee";
-            labelNewEmployee.Size = new Size(278, 39);
-            labelNewEmployee.TabIndex = 15;
-            labelNewEmployee.Text = "NEW EMPLOYEE";
+            labelEmployeeChanges.AutoSize = true;
+            labelEmployeeChanges.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            labelEmployeeChanges.Location = new Point(25, 121);
+            labelEmployeeChanges.Name = "labelEmployeeChanges";
+            labelEmployeeChanges.Size = new Size(191, 39);
+            labelEmployeeChanges.TabIndex = 15;
+            labelEmployeeChanges.Text = "EMPLOYEE";
             // 
             // Logo
             // 
@@ -99,9 +99,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(buttonAddEmployee);
             Controls.Add(Logo);
-            Controls.Add(labelNewEmployee);
+            Controls.Add(labelEmployeeChanges);
             Controls.Add(buttonGoBack);
             Controls.Add(panelAddEmployee);
             Name = "AddEmployeeUC";
@@ -116,7 +117,7 @@
         private FlowLayoutPanel panelAddEmployee;
         private RoundedItems.RoundLabel labelEmployees;
         private RoundedItems.RoundButton buttonGoBack;
-        private Label labelNewEmployee;
+        private Label labelEmployeeChanges;
         private PictureBox Logo;
         private RoundedItems.RoundButton buttonAddEmployee;
     }

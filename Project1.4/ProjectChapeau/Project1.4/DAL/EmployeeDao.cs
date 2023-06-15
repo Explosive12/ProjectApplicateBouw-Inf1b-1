@@ -12,17 +12,17 @@ namespace Project1._4.DAL
 {
     public class EmployeeDao : BaseDao
     {
-        private EmployeeType GetEmployeeType(string type)
+        private EmployeeType GetEmployeeType(int type)
         {
-            switch (type.ToLower())
+            switch (type)
             {
-                case "manager":
+                case 1:
                     return EmployeeType.Manager;
-                case "chef":
+                case 2:
                     return EmployeeType.Chef;
-                case "waitress":
+                case 3:
                     return EmployeeType.Waitress;
-                case "bartender":
+                case 4:
                     return EmployeeType.Bartender;
                 default:
                     return EmployeeType.Waitress;
@@ -35,7 +35,7 @@ namespace Project1._4.DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                EmployeeType function = GetEmployeeType(dr[1].ToString().ToLower());
+                EmployeeType function = GetEmployeeType((int)dr[1]);
 
                 Employee employee = new Employee(
                     (int)dr[0], // ID
@@ -68,8 +68,8 @@ namespace Project1._4.DAL
         public void AddEmployee(Employee employee)
         {
             // Talk to database to add the employee
-            string query = "INSERT INTO Medewerker (naam, inlogNaam, wachtwoord, functie) VALUES (@name, @username, @inlognaam @function)";
-            SqlParameter[] parameters = new SqlParameter[3];
+            string query = "INSERT INTO Medewerker (naam, inlogNaam, wachtwoord, functie) VALUES (@name, @username, @inlognaam, @function)";
+            SqlParameter[] parameters = new SqlParameter[4];
             {
                 parameters[0] = new SqlParameter("@username", employee.Username);
                 parameters[1] = new SqlParameter("@function", employee.Function);

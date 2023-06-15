@@ -89,7 +89,7 @@ namespace Project1._4.UI.Management
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "ADD NEW";
             buttonAddNew.UseVisualStyleBackColor = false;
-            buttonAddNew.Click += NavigateToAddEmployee;
+            buttonAddNew.Click += NavigateToAddOrAdjustEmployee;
             // 
             // buttonRemove
             // 
@@ -118,6 +118,7 @@ namespace Project1._4.UI.Management
             buttonAdjust.TabIndex = 10;
             buttonAdjust.Text = "ADJUST";
             buttonAdjust.UseVisualStyleBackColor = false;
+            buttonAdjust.Click += buttonAdjust_Click;
             // 
             // panelEmployee
             // 
@@ -131,6 +132,7 @@ namespace Project1._4.UI.Management
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(panelEmployee);
             Controls.Add(buttonAdjust);
             Controls.Add(buttonRemove);

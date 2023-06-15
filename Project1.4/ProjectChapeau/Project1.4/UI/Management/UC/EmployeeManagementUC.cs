@@ -49,9 +49,14 @@ namespace Project1._4.UI.Management
             form.GoBackToMainMenu();
         }
 
-        private void NavigateToAddEmployee(object sender, EventArgs e)
+        private void NavigateToAddOrAdjustEmployee(object sender, EventArgs e)
         {
-            form.NavigateToAddEmployee();
+            form.NavigateToAddOrAdjustEmployee("NEW EMPLOYEE");
+        }
+
+        private void buttonAdjust_Click(object sender, EventArgs e)
+        {
+            form.NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE");
         }
     }
 }

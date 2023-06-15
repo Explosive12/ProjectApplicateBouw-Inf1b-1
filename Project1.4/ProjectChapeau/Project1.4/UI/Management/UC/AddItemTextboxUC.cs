@@ -12,11 +12,22 @@ namespace Project1._4.UI.Management.UC
 {
     public partial class AddItemUC : UserControl
     {
-        public AddItemUC(string label)
+
+        public string Value
+        {
+            get
+            {
+                return textBoxAddItem.Text;
+            }
+        }
+
+        public AddItemUC(string label, bool isPassword = false)
         {
             InitializeComponent();
 
             this.labelAddItem.Text = label;
+            if (isPassword)
+                this.textBoxAddItem.PasswordChar = '*';
         }
     }
 }

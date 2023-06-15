@@ -1,4 +1,5 @@
-﻿using Project1._4.UI.Management.RoundedItems;
+﻿using Microsoft.Graph.Models;
+using Project1._4.UI.Management.RoundedItems;
 
 namespace Project1._4.UI.Management.UC
 {
@@ -42,6 +43,7 @@ namespace Project1._4.UI.Management.UC
             textBoxAddItem.Size = new Size(128, 22);
             textBoxAddItem.TabIndex = 0;
             textBoxAddItem.TextAlign = HorizontalAlignment.Center;
+            
             // 
             // labelAddItem
             // 

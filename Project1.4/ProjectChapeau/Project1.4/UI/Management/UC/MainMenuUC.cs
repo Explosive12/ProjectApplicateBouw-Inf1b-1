@@ -21,7 +21,7 @@ namespace Project1._4
         private ManagerView form;
         private string _currentEmployee;
 
-        
+
         private EmployeeService _employeeService;
         private MenuProductService _menuproductService;
 
