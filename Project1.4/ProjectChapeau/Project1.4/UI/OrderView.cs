@@ -14,7 +14,6 @@ namespace Project1._4
 {
     public partial class OrderView : Form
     {
-
         public OrderView()
         {
             InitializeComponent();

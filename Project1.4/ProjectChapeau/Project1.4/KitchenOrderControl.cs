@@ -1,6 +1,7 @@
 ﻿using Microsoft.Graph.Models;
 using Project1._4.Model;
 using Project1._4.Service;
+using Project1._4.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,6 @@ namespace Project1._4
 
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, state);
-
         }
 
         private void btnServedKitchen_Click(object sender, EventArgs e)
@@ -65,7 +65,6 @@ namespace Project1._4
 
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, state);
-
         }
 
         public void DisplayKitchenOrders(List<Order> kitchenOrders, List<OrderItem> kitchenOrderItems)
