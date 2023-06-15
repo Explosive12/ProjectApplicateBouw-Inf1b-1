@@ -18,12 +18,7 @@ namespace Project1._4
     {
         private int clickedData;
         private Order kitchenOrder;
-        private string state;
 
-        public Order KitchenOrder
-        {
-            get { return kitchenOrder; }
-        }
         public KitchenOrderControl(Order kitchenOrder)
         {
             InitializeComponent();
@@ -34,23 +29,43 @@ namespace Project1._4
         {
             //TODO update database with the correct status to prepared and make it so the button checks if there is data in the select combobox
 
-            MessageBox.Show($"Clicked data: {clickedData}");
+            int state = 1;
 
+           //state = OrderStatusEnum.Prepared.ToString(); // Convert enum value to string
+           //int.Parse(state);
+
+            OrderItemService orderItemService = new OrderItemService();
+            orderItemService.UpdateOrderItemStatus(clickedData, state);
 
         }
 
         private void btnServedKitchen_Click(object sender, EventArgs e)
         {
             //TODO update database with the correct status to Served and make it so the button checks if there is data in the select combobox
+
+            int state = 2;
+
+
+           // state = OrderStatusEnum.Served.ToString(); // Convert enum value to string
+           // int.Parse(state);
+
+            OrderItemService orderItemService = new OrderItemService();
+            orderItemService.UpdateOrderItemStatus(clickedData, state);
         }
 
         private void btnPreparationKitchen_Click(object sender, EventArgs e)
         {
             //TODO update database with the correct status to preparation and MAKE IT SO IF THERE IS NO DATA CLICKED YOU GET EXEPTION
-            state = "klaar";
+
+            int state = 0;
+
+            //state = OrderStatusEnum.Inpreparation.ToString(); // Convert enum value to string
+            //int.Parse(state);
+
 
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, state);
+
         }
 
         public void DisplayKitchenOrders(List<Order> kitchenOrders, List<OrderItem> kitchenOrderItems)
@@ -82,7 +97,7 @@ namespace Project1._4
             if (listViewKitchenOrders.SelectedItems.Count > 0)
             {
                 OrderItemService orderItemService = new OrderItemService();
-                
+
                 ListViewItem selectedItem = listViewKitchenOrders.SelectedItems[0];
                 clickedData = int.Parse(selectedItem.Text); // Assuming the clicked data is in the first column
 

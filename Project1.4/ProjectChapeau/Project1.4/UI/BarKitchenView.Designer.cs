@@ -28,32 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblKitchenHeader = new Label();
             flpKitchenOrders = new FlowLayoutPanel();
             btnLoadKitchenOrders = new Button();
             btnKitchenToMain = new Button();
             SuspendLayout();
             // 
-            // lblKitchenHeader
-            // 
-            lblKitchenHeader.AutoSize = true;
-            lblKitchenHeader.Font = new Font("Segoe UI", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            lblKitchenHeader.Location = new Point(819, 85);
-            lblKitchenHeader.Name = "lblKitchenHeader";
-            lblKitchenHeader.Size = new Size(553, 104);
-            lblKitchenHeader.TabIndex = 0;
-            lblKitchenHeader.Text = "Kitchen Orders";
-            // 
             // flpKitchenOrders
             // 
-            flpKitchenOrders.Location = new Point(97, 189);
+            flpKitchenOrders.Location = new Point(215, 39);
             flpKitchenOrders.Name = "flpKitchenOrders";
-            flpKitchenOrders.Size = new Size(2045, 1399);
+            flpKitchenOrders.Size = new Size(1927, 1549);
             flpKitchenOrders.TabIndex = 3;
             // 
             // btnLoadKitchenOrders
             // 
-            btnLoadKitchenOrders.Location = new Point(97, 85);
+            btnLoadKitchenOrders.Location = new Point(12, 178);
             btnLoadKitchenOrders.Name = "btnLoadKitchenOrders";
             btnLoadKitchenOrders.Size = new Size(169, 52);
             btnLoadKitchenOrders.TabIndex = 4;
@@ -63,7 +52,7 @@
             // 
             // btnKitchenToMain
             // 
-            btnKitchenToMain.Location = new Point(97, 12);
+            btnKitchenToMain.Location = new Point(12, 104);
             btnKitchenToMain.Name = "btnKitchenToMain";
             btnKitchenToMain.Size = new Size(169, 52);
             btnKitchenToMain.TabIndex = 5;
@@ -79,16 +68,12 @@
             Controls.Add(btnKitchenToMain);
             Controls.Add(btnLoadKitchenOrders);
             Controls.Add(flpKitchenOrders);
-            Controls.Add(lblKitchenHeader);
             Name = "BarKitchenView";
             Text = "BarKitchenView";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label lblKitchenHeader;
         private Button btnLoad2004;
         private FlowLayoutPanel flpKitchenOrders;
         private Button button2;

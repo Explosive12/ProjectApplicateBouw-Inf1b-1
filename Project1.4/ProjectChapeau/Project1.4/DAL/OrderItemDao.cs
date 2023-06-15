@@ -88,15 +88,13 @@ namespace Project1._4.DAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-        public List<OrderItem> UpdateOrderItemState(int clickeddata, string state)
+        public List<OrderItem> UpdateOrderItemState(int clickeddata, int state)
         {
-            string query = "UPDATE bestelregel " +
-                                "SET status = @Status " +
-                                "WHERE id = @orderItemId";
+            string query = "UPDATE bestelregel SET status = @Status WHERE id = @OrderItemId";
             SqlParameter[] sqlParameters =
             {
-                new SqlParameter("@OrderItemId", state),
-                new SqlParameter("@Status", clickeddata)
+                new SqlParameter("@OrderItemId", clickeddata),
+                new SqlParameter("@Status", state)
             };
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

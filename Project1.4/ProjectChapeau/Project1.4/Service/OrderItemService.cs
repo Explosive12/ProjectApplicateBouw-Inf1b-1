@@ -40,7 +40,7 @@ namespace Project1._4.Service
         {
             orderItemDb.UpdateOrderItem(orderItem);
         }
-        public void UpdateOrderItemStatus(int clickedData, string state)
+        public void UpdateOrderItemStatus(int clickedData, int state)
         {
             orderItemDb.UpdateOrderItemState(clickedData, state);
         }
