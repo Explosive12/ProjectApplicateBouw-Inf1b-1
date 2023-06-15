@@ -1,29 +1,69 @@
 ﻿using Project1._4.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1._4.DAL
 {
     public class TableDao : BaseDao
     {
-        public void GetTableById()
+        private List<Table> ReadTables(DataTable dataTable)
         {
-            throw new NotImplementedException();
-        }
-        public List<Table> GetTables()
-        {
-            throw new NotImplementedException();
-        }
+            List<Table> tables = new List<Table>();
 
-        public void UpdateTableStatus()
-        {
-            throw new System.NotImplementedException();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Table table = new Table()
+                {
+                    tafelId = (int)dr["tafelId"],
+                    reseveringId = Convert.IsDBNull(dr["reserveringId"]) ? 0 : (int)dr["reserveringId"],
+                    status = (TableStatus)dr["status"]
+                };
+                tables.Add(table);
+            }
+            return tables;
         }
-        public void ReserveTable()
+        private Table ReadTable(DataTable dataTable)
         {
-            throw new System.NotImplementedException();
+            Table table = new Table();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                table.tafelId = (int)dr["tafelId"];
+                table.reseveringId = Convert.IsDBNull(dr["reserveringId"]) ? 0 : (int)dr["reserveringId"];
+                table.status = (TableStatus)dr["status"];
+            }
+            return table;
+        }
+        public Table GetTableById(int tableid)
+        {
+            string query = "SELECT tafelId , reserveringId , status FROM tafel";
+            SqlParameter[] sqlParameters = { new SqlParameter("@tableId" , tableid)};
+            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<Table> GetAllTables()
+        {
+            string query = "SELECT tafelId , reserveringId , status FROM tafel";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public void UpdateTableStatus(Table table)
+        {
+            string query = "UPDATE tafel set status = @status WHERE tafelId = {tafelId}";
+            SqlParameter[] sqlParameters = {new SqlParameter("@tafelId" , table.tafelId) , new SqlParameter("@status", table.status) };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void ReserveTable(int tafelId)
+        {
+            string query = "SELECT tafelId , reserveringId, status FROM tafel where tafelId = {tafelId}";
+            SqlParameter[] sqlParameters = new SqlParameter[] { new SqlParameter("@tafelId" , tafelId) };
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }

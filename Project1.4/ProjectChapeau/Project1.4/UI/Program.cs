@@ -1,3 +1,5 @@
+using Project1._4.Model;
+
 namespace Project1._4.UI
 {
     internal static class Program
@@ -11,8 +13,7 @@ namespace Project1._4.UI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ManagerView());
-            
+            Application.Run(new BarKitchenView());
         }
     }
 }
