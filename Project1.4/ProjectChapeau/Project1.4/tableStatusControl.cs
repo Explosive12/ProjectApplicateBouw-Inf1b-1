@@ -18,5 +18,9 @@ namespace Project1._4
             InitializeComponent();
             lblTableIdStatusControl.Text = tableId.ToString();
         }
+        private void Back(object sender , EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
