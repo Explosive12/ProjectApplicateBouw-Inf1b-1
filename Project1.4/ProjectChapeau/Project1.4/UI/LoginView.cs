@@ -62,22 +62,22 @@ namespace Project1._4
         {
             switch (login.employeeType)
             {
-                case employeeType.Waitress:
+                case EmployeeType.Waitress:
                     TableView tableView = new TableView(username);
                     tableView.Show();
                     this.Hide();
                     break;
-                case employeeType.Chef:
+                case EmployeeType.Chef:
                     OrderView orderViewChef = new OrderView();
                     orderViewChef.Show();
                     this.Hide();
                     break;
-                case employeeType.Bartender:
+                case EmployeeType.Bartender:
                     OrderView orderViewBar = new OrderView();
                     orderViewBar.Show();
                     this.Hide();
                     break;
-                case employeeType.Manager:
+                case EmployeeType.Manager:
                     ManagerView managerView = new ManagerView();
                     managerView.Show();
                     this.Hide();

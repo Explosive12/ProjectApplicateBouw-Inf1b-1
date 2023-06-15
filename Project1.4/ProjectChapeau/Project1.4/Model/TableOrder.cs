@@ -9,6 +9,6 @@ namespace Project1._4.Model
     {
         private int username;
         private int password;
-        private employeeType employeeType;
+        private EmployeeType employeeType;
     }
 }

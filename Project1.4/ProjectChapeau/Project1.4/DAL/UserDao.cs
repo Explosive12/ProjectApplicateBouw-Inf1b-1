@@ -18,7 +18,7 @@ namespace Project1._4.DAL
             {
                 DataRow dr = dataTable.Rows[0];
                 login.MedewerkerId = (int)dr["medewerkerId"];
-                login.employeeType = (employeeType)Enum.Parse(typeof(employeeType), dr["functie"].ToString());
+                login.employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), dr["functie"].ToString());
                 login.InlogNaam = (string)dr["inlogNaam"];
                 login.Hash = (string)dr["wachtwoord"];
             }
