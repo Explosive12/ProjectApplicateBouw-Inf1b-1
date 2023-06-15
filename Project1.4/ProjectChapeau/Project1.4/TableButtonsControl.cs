@@ -16,9 +16,12 @@ namespace Project1._4
         {
             InitializeComponent();
         }
-        public Button GetButton(int column , int row)
+        public Button GetButton(int column, int row, int tableId)
         {
-            return btnTableButton;
+            Button button = new Button();
+            button.Text = tableId.ToString();
+            button.Size = btnTableButton.Size;
+            return button;
         }
     }
 }

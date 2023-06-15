@@ -10,19 +10,22 @@ namespace Project1._4.Service
     public class TableService
     {
         private TableDao tabledb;
-        public void GetTableById()
+        public TableService()
         {
-            throw new NotImplementedException();
+            tabledb = new TableDao();
+        }
+        public Table GetTableById(int tableId)
+        {
+            return tabledb.GetTableById(tableId);
         }
 
-        public void UpdateTableStatus()
+        public void UpdateTableStatus(Table table)
         {
-            throw new System.NotImplementedException();
+            tabledb.UpdateTableStatus(table);
         }
-
-        public List<Table> GetTables()
+        public List<Table> GetAllTables()
         {
-            throw new System.NotImplementedException();
+            return tabledb.GetAllTables();
         }
         public void ReserveTable()
         {
