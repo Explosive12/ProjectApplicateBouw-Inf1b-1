@@ -28,6 +28,11 @@ namespace Project1._4.Service
             return list;
         }
 
+        public int GetNextAvailableOrderId()
+        {
+            return orderDb.GetNextOrderAvailableId();
+        }
+
         public void InsertOrder(Order order)
         {
             orderDb.InsertOrder(order);

@@ -11,8 +11,8 @@ namespace Project1._4.DAL
 {
     public abstract class BaseDao
     {
-        private SqlDataAdapter adapter;
-        public SqlConnection conn;
+        protected SqlDataAdapter adapter;
+        protected SqlConnection conn;
 
         public BaseDao()
         {

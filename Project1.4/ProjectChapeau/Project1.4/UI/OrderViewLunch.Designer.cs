@@ -41,10 +41,12 @@
             label1 = new Label();
             orderViewCommentBtn = new Button();
             orderViewRemoveBtn = new Button();
-            orderViewAddBtn = new Button();
-            listView1 = new ListView();
+            orderViewFinishBtn = new Button();
+            orderItemLV = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // OrderViewStarterFLP
@@ -169,6 +171,7 @@
             orderViewCommentBtn.TabIndex = 10;
             orderViewCommentBtn.Text = "COMMENT";
             orderViewCommentBtn.UseVisualStyleBackColor = true;
+            orderViewCommentBtn.Click += orderViewCommentBtn_Click;
             // 
             // orderViewRemoveBtn
             // 
@@ -179,26 +182,31 @@
             orderViewRemoveBtn.TabIndex = 11;
             orderViewRemoveBtn.Text = "REMOVE";
             orderViewRemoveBtn.UseVisualStyleBackColor = true;
+            orderViewRemoveBtn.Click += orderViewRemoveBtn_Click;
             // 
-            // orderViewAddBtn
+            // orderViewFinishBtn
             // 
-            orderViewAddBtn.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
-            orderViewAddBtn.Location = new Point(216, 1009);
-            orderViewAddBtn.Name = "orderViewAddBtn";
-            orderViewAddBtn.Size = new Size(152, 40);
-            orderViewAddBtn.TabIndex = 12;
-            orderViewAddBtn.Text = "ADD";
-            orderViewAddBtn.UseVisualStyleBackColor = true;
+            orderViewFinishBtn.BackColor = Color.DarkOrange;
+            orderViewFinishBtn.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            orderViewFinishBtn.Location = new Point(216, 1009);
+            orderViewFinishBtn.Name = "orderViewFinishBtn";
+            orderViewFinishBtn.Size = new Size(152, 40);
+            orderViewFinishBtn.TabIndex = 12;
+            orderViewFinishBtn.Text = "FINISH";
+            orderViewFinishBtn.UseVisualStyleBackColor = false;
+            orderViewFinishBtn.Click += orderViewFinishBtn_Click;
             // 
-            // listView1
+            // orderItemLV
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
-            listView1.Location = new Point(28, 836);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(340, 167);
-            listView1.TabIndex = 13;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            orderItemLV.Activation = ItemActivation.OneClick;
+            orderItemLV.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            orderItemLV.Location = new Point(28, 836);
+            orderItemLV.MultiSelect = false;
+            orderItemLV.Name = "orderItemLV";
+            orderItemLV.Size = new Size(340, 167);
+            orderItemLV.TabIndex = 13;
+            orderItemLV.UseCompatibleStateImageBehavior = false;
+            orderItemLV.View = View.Details;
             // 
             // columnHeader1
             // 
@@ -209,14 +217,26 @@
             columnHeader2.Text = "";
             columnHeader2.Width = 250;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.chapeagoeie;
+            pictureBox1.Location = new Point(-4, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(118, 63);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            // 
             // OrderViewLunch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 1061);
-            Controls.Add(listView1);
-            Controls.Add(orderViewAddBtn);
+            Controls.Add(pictureBox1);
+            Controls.Add(orderItemLV);
+            Controls.Add(orderViewFinishBtn);
             Controls.Add(orderViewRemoveBtn);
             Controls.Add(orderViewCommentBtn);
             Controls.Add(label1);
@@ -235,6 +255,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderView";
             Load += OrderViewLunch_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,9 +276,10 @@
         private Label label1;
         private Button orderViewCommentBtn;
         private Button orderViewRemoveBtn;
-        private Button orderViewAddBtn;
-        private ListView listView1;
+        private Button orderViewFinishBtn;
+        private ListView orderItemLV;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private PictureBox pictureBox1;
     }
 }

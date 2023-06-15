@@ -6,6 +6,7 @@ using System.Text;
 using static System.Windows.Forms.LinkLabel;
 using Project1._4.Model;
 using System.Data.SqlClient;
+using System.Drawing.Text;
 
 namespace Project1._4.DAL
 {
@@ -40,6 +41,8 @@ namespace Project1._4.DAL
                             "WHERE M.type='Drinks'";
             return ReadTables(ExecuteSelectQuery(query));
         }
+
+        
 
         public List<Product> GetByIdProduct(int productId)
         {

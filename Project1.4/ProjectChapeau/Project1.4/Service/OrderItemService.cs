@@ -28,9 +28,9 @@ namespace Project1._4.Service
             return list;
         }
 
-        public void InsertOrderItem(OrderItem orderItem)
+        public void InsertOrderItem(List<OrderItem> orderItems)
         {
-            orderItemDb.InsertOrderItem(orderItem);
+            orderItemDb.InsertOrderItems(orderItems);
         }
         public void RemoveOrderItem(OrderItem orderItem)
         {

@@ -41,7 +41,20 @@ namespace Project1._4.DAL
             return orders;
         }
 
-        // TODO fix so list can be added, change database for automatic ID creation
+        public int GetNextOrderAvailableId()
+        {
+            string query = "SELECT COUNT(*) FROM bestelling";
+            int count = ReadCountTable(ExecuteSelectQuery(query)) + 1;
+            return count;
+        }
+
+        private int ReadCountTable(DataTable dataTable)
+        {
+            DataRow dr = dataTable.Rows[0];
+            int count = (int)dr[0];
+            return count;
+        }
+
         public void InsertOrder(Order order)
         {
             string query = "INSERT INTO bestelling (bestellingId, tafelId, begintijd, eindtijd) " +
@@ -52,8 +65,6 @@ namespace Project1._4.DAL
                 new SqlParameter("@tableId", order.TableId),
                 new SqlParameter("@beginTime", order.BeginTime),
                 new SqlParameter("@endTime", order.EndTime),
-
-
             };
             ExecuteEditQuery(query, sqlParameters);
 

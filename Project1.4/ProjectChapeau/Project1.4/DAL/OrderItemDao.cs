@@ -42,22 +42,39 @@ namespace Project1._4.DAL
             return orderItems;
         }
 
-        
-        // TODO fix so list can be added, change database for automatic ID creation
-        public void InsertOrderItem(OrderItem orderItem) 
+        private int GetNextAvailableId()
+        {
+            string query = "SELECT COUNT(*) FROM bestelregel";
+            int count = ReadCountTable(ExecuteSelectQuery(query)) + 1;
+            return count;
+        }
+
+        private int ReadCountTable(DataTable dataTable)
+        {
+            DataRow dr = dataTable.Rows[0];
+            int count = (int)dr[0];
+            return count;
+        }
+
+        public void InsertOrderItems(List<OrderItem> orderItems)
         {
             string query = "INSERT INTO bestelregel (id, bestellingId, productId, aantal, opmerking, status) " +
-                                "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
-            SqlParameter[] sqlParameters =
+                           "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
+            foreach (OrderItem orderItem in orderItems)
             {
-                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
-                new SqlParameter("@OrderId", orderItem.OrderId),
-                new SqlParameter("@ProductId", orderItem.ProductId),
-                new SqlParameter("@Amount", orderItem.Amount),
-                new SqlParameter("@Comment", orderItem.Comment),
-                new SqlParameter("@Status", orderItem.Status),
-            };
-            ExecuteEditQuery( query, sqlParameters );
+                orderItem.OrderItemId = GetNextAvailableId();
+                SqlParameter[] sqlParameters =
+                {
+                    new SqlParameter("@OrderItemId", orderItem.OrderItemId),
+                    new SqlParameter("@OrderId", orderItem.OrderId),
+                    new SqlParameter("@ProductId", orderItem.ProductId),
+                    new SqlParameter("@Amount", orderItem.Amount),
+                    new SqlParameter("@Comment", orderItem.Comment),
+                    new SqlParameter("@Status", orderItem.Status),
+                };
+
+                ExecuteEditQuery(query, sqlParameters);
+            }
         }
 
         public void RemoveOrderItem(OrderItem orderItem) 

@@ -1,6 +1,6 @@
 ﻿namespace Project1._4
 {
-    partial class OrderViewUC
+    partial class OrderViewLunchUC
     {
         /// <summary> 
         /// Required designer variable.
