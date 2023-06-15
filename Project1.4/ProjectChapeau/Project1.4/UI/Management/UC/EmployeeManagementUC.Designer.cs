@@ -1,4 +1,4 @@
-﻿using Project1._4.UI.Management.RoundedItems;
+﻿using Project1._4.RoundedItems;
 
 namespace Project1._4.UI.Management
 {
@@ -62,7 +62,7 @@ namespace Project1._4.UI.Management
             // 
             // buttonGoBack
             // 
-            buttonGoBack.BackColor = Color.DarkOrange;
+            buttonGoBack.BackColor = Color.FromArgb(255, 179, 71);
             buttonGoBack.Cursor = Cursors.Hand;
             buttonGoBack.FlatAppearance.BorderSize = 0;
             buttonGoBack.FlatStyle = FlatStyle.Flat;
@@ -93,7 +93,7 @@ namespace Project1._4.UI.Management
             // 
             // buttonRemove
             // 
-            buttonRemove.BackColor = Color.FromArgb(255, 128, 128);
+            buttonRemove.BackColor = Color.FromArgb(245, 108, 117);
             buttonRemove.Cursor = Cursors.Hand;
             buttonRemove.FlatAppearance.BorderSize = 0;
             buttonRemove.FlatStyle = FlatStyle.Flat;
@@ -104,6 +104,7 @@ namespace Project1._4.UI.Management
             buttonRemove.TabIndex = 9;
             buttonRemove.Text = "REMOVE";
             buttonRemove.UseVisualStyleBackColor = false;
+            buttonRemove.Click += buttonRemove_Click;
             // 
             // buttonAdjust
             // 

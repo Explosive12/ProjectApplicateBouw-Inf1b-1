@@ -12,22 +12,23 @@ using System.Windows.Forms;
 
 namespace Project1._4.UI.Management.UC
 {
-    public partial class AddEmployeeUC : UserControl
+    public partial class AddAdjustEmployeeUC : UserControl
     {
         private ManagerView form;
 
         private AddItemUC name = new AddItemUC("Name");
         private AddItemUC username = new AddItemUC("Username");
-        private AddItemComboBoxUC role = new AddItemComboBoxUC("Role", "EmployeeType");
+        private AddAdjustItemComboBoxUC role = new AddAdjustItemComboBoxUC("Role", "EmployeeType");
         private AddItemUC password = new AddItemUC("Password", true);
 
 
 
-        public AddEmployeeUC(ManagerView form, string label)
+        public AddAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText)
         {
             InitializeComponent();
             this.form = form;
-            labelEmployeeChanges.Text = label;
+            labelEmployeeChanges.Text = typeOfPanelEmployeeText;
+            buttonAddEmployee.Text = buttonText;
             LoadControllers();
         }
 
@@ -53,18 +54,15 @@ namespace Project1._4.UI.Management.UC
             try
             {
                 EmployeeService service = new EmployeeService();
-
                 Employee employee = new Employee(0, (EmployeeType)role.ChosenOption, name.Value, username.Value, password.Value);
-                //EmployeeService service = new EmployeeService();
                 service.AddEmployee(employee);
 
-
                 form.NavigateToEmployee();
-
             }
-
+            
             catch (Exception exp)
             {
+                MessageBox.Show($"Something went wrong when adding {username.Value}{exp.Message}");
             }
         }
     }

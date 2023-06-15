@@ -51,12 +51,22 @@ namespace Project1._4.UI.Management
 
         private void NavigateToAddOrAdjustEmployee(object sender, EventArgs e)
         {
-            form.NavigateToAddOrAdjustEmployee("NEW EMPLOYEE");
+            NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD");
         }
 
         private void buttonAdjust_Click(object sender, EventArgs e)
         {
-            form.NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE");
+            NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE", "ADJUST");
+        }
+
+        private void NavigateToAddOrAdjustEmployee(string panelname, string buttonName)
+        {
+            form.NavigateToAddOrAdjustEmployee(panelname, buttonName);
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

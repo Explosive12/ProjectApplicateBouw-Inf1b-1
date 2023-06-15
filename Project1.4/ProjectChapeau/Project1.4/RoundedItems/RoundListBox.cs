@@ -1,7 +1,6 @@
-﻿namespace Project1._4.UI.Management.RoundedItems
+﻿namespace Project1._4.RoundedItems
 {
-    class RoundLabel : Label
-
+    class RoundListBox : ListBox
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn

@@ -25,10 +25,10 @@ namespace Project1._4.UI
             this.panelManagerView.Controls.Add(new MainMenuUC(this));
         }
 
-        internal void NavigateToAddOrAdjustEmployee(string typeOfPanel)
+        internal void NavigateToAddOrAdjustEmployee(string typeOfPanel, string buttonText)
         {
             this.panelManagerView.Controls.Clear();
-            this.panelManagerView.Controls.Add(new AddEmployeeUC(this, typeOfPanel));
+            this.panelManagerView.Controls.Add(new AddAdjustEmployeeUC(this, typeOfPanel, buttonText));
         }
 
         internal void NavigateToEmployee()

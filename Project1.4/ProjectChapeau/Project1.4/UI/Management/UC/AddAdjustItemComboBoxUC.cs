@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Project1._4.UI.Management.UC
 {
-    public partial class AddItemComboBoxUC : UserControl
+    public partial class AddAdjustItemComboBoxUC : UserControl
     {
         private string enumType;
 
@@ -24,7 +24,7 @@ namespace Project1._4.UI.Management.UC
             }
         }
 
-        public AddItemComboBoxUC(string label, string enumType)
+        public AddAdjustItemComboBoxUC(string label, string enumType)
         {
             InitializeComponent();
 
@@ -36,7 +36,7 @@ namespace Project1._4.UI.Management.UC
         // Fill Combobox with the enum options
         private void FillComboBox(object sender, EventArgs e)
         {
-            //comboBoxType.SelectedValue = 'dsa';
+            comboBoxType.SelectedValue = "Hi";
             switch (enumType)
             {
                 case "EmployeeType":

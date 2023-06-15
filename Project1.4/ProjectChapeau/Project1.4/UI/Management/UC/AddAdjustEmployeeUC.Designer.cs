@@ -1,6 +1,8 @@
-﻿namespace Project1._4.UI.Management.UC
+﻿using Project1._4.RoundedItems;
+
+namespace Project1._4.UI.Management.UC
 {
-    partial class AddEmployeeUC
+    partial class AddAdjustEmployeeUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -115,10 +117,10 @@
         #endregion
 
         private FlowLayoutPanel panelAddEmployee;
-        private RoundedItems.RoundLabel labelEmployees;
-        private RoundedItems.RoundButton buttonGoBack;
+        private RoundLabel labelEmployees;
+        private RoundButton buttonGoBack;
         private Label labelEmployeeChanges;
         private PictureBox Logo;
-        private RoundedItems.RoundButton buttonAddEmployee;
+        private RoundButton buttonAddEmployee;
     }
 }

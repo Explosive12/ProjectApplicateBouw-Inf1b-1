@@ -1,4 +1,4 @@
-﻿using Project1._4.UI.Management.RoundedItems;
+﻿using Project1._4.RoundedItems;
 
 namespace Project1._4
 {
@@ -80,7 +80,7 @@ namespace Project1._4
             // 
             // labelUserName
             // 
-            labelUserName.BackColor = Color.DarkOrange;
+            labelUserName.BackColor = Color.FromArgb(255, 179, 71);
             labelUserName.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelUserName.Location = new Point(296, 21);
             labelUserName.Name = "labelUserName";
