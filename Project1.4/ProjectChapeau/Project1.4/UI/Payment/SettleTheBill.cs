@@ -24,5 +24,15 @@ namespace Project1._4.UI
 
             this.Hide();
         }
+
+        private void SettleTheBill_Load(object sender, EventArgs e)
+        {
+            LoadAllPaymentData();
+        }
+
+        private void LoadAllPaymentData()
+        {
+
+        }
     }
 }

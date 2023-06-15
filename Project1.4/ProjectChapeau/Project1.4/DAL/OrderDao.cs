@@ -17,12 +17,46 @@ namespace Project1._4.DAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /* 
+         *  GetOrdersFromTable
+         *  via bestelling, rekening en bestelregel (zelfde als orderitem)
+         *  
+         *  voor bill UI loop door all order items en voeg het toe aan een list ofzo
+         *  
+         *  addcommand function in DAO
+         */
+
+
+        public List<OrderItem> GetOrdersFromTable(int tableId)
+        {
+            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel AS BR " +
+                           "JOIN rekening AS R ON BR.id = R.rekeningId " +
+                           "JOIN bestelling AS B ON R.bestellingId = B.bestellingId " +
+                           "WHERE B.tafelId = @tableId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@tableId", tableId);
+            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+  
+
         public List<Order> GetByIdOrder(int orderId)
         {
             string query = "SELECT bestellingId, tafelId, begintijd, eindtijd FROM bestelling WHERE bestellingId = @orderId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderId", orderId);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<OrderItem> ReadOrderItems(DataTable dataTable) 
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["bestellingId"], (int)dr["productId"], (int)dr["aantal"],(string)dr["opmerking"], (OrderStatusEnum)dr["status"]);
+                orderItems.Add(orderItem);
+            }
+            return orderItems;
         }
 
         private List<Order> ReadTables(DataTable dataTable)

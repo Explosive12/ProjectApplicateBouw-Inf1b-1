@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Graph.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,6 +66,32 @@ namespace Project1._4.UI.Payment
             radioButtonCash.BackColor = Color.Orange;
             radioButtonVisa.BackColor = DefaultBackColor;
             DEBITRadio.BackColor = DefaultBackColor;
+
+        }
+
+        // constructor om tafel id op te halen
+        private void GetTable()
+        {
+
+        }
+
+        private void finishBill_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadBill()
+        {
+
+        }
+
+        private void GetTotalPrice()
+        {
+
+        }
+
+        private void GetVatPrice()
+        {
 
         }
     }

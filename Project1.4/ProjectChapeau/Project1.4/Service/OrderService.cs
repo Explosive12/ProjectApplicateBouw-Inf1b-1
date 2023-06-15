@@ -22,6 +22,11 @@ namespace Project1._4.Service
             return list;
         }
 
+        public List<OrderItem> GetOrdersFromTable(int tableId)
+        {
+            return orderDb.GetOrdersFromTable(tableId);
+        }
+
         public List<Order> GetByIdOrder(int orderId)
         {
             List<Order> list = orderDb.GetByIdOrder(orderId);

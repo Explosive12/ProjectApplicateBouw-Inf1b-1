@@ -188,6 +188,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "finishBill";
             Text = "Form1";
+            Load += finishBill_Load;
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ResumeLayout(false);
             PerformLayout();

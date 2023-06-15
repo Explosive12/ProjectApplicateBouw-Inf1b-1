@@ -40,5 +40,15 @@ namespace Project1._4.UI.Payment
 
             tipHasBeenAdded.Text = "HAS BEEN ADDED";
         }
+
+        private void GetPaymentPrice()
+        {
+
+        }
+
+        private void GetCustomTip()
+        {
+
+        }
     }
 }

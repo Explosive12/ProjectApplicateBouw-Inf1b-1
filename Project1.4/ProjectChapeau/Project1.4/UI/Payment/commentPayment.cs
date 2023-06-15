@@ -61,5 +61,15 @@ namespace Project1._4.UI.Payment
         {
 
         }
+
+        private void commentPayment_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GetComment()
+        {
+
+        }
     }
 }

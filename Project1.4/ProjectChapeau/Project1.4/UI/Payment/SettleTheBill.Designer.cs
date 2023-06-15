@@ -123,6 +123,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "SettleTheBill";
             Text = "Form2";
+            Load += SettleTheBill_Load;
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ResumeLayout(false);
             PerformLayout();
