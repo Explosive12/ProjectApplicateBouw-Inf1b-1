@@ -17,6 +17,22 @@ namespace Project1._4.DAL
                             "FROM bestelregel";
             return ReadTables(ExecuteSelectQuery(query));
         }
+        public List<OrderItem> GetOrderItemsByDinnerLunch()
+        {
+            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                            "WHERE M.type='Lunch' " +
+                            "OR M.type='Dinner'";
+            return ReadTables(ExecuteSelectQuery(query));
+        }
+        public List<OrderItem> GetOrderItemsByDrinks()
+        {
+            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status " +
+                            "FROM bestelregel";
+            return ReadTables(ExecuteSelectQuery(query));
+        }
         public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
             string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
@@ -47,31 +63,6 @@ namespace Project1._4.DAL
             return orderItems;
         }
 
-        
-
-        public void InsertOrderItem(OrderItem orderItem) 
-        {
-            string query = "INSERT INTO bestelregel (id, bestellingId, productId, aantal, opmerking, status) " +
-                                "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
-            SqlParameter[] sqlParameters =
-            {
-                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
-                new SqlParameter("@OrderId", orderItem.OrderId),
-                new SqlParameter("@ProductId", orderItem.ProductId),
-                new SqlParameter("@Amount", orderItem.Amount),
-                new SqlParameter("@Comment", orderItem.Comment),
-                new SqlParameter("@Status", orderItem.Status),
-            };
-            ExecuteEditQuery( query, sqlParameters );
-        }
-
-        public void RemoveOrderItem(OrderItem orderItem) 
-        {
-            string query = "DELETE FROM bestelregel WHERE id = @Id";
-            SqlParameter[] sqlParameters = { new SqlParameter("@Id", orderItem.OrderItemId) };
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
         public void UpdateOrderItem(OrderItem orderItem) 
         {
             string query =  "UPDATE bestelregel " +
@@ -90,7 +81,8 @@ namespace Project1._4.DAL
         }
         public void UpdateOrderItemState(int clickeddata, int state)
         {
-            string query = "UPDATE bestelregel SET status = @Status WHERE id = @OrderItemId";
+            string query =  "UPDATE bestelregel SET status = @Status " +
+                            "WHERE id = @OrderItemId";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@OrderItemId", clickeddata),

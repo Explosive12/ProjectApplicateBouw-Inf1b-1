@@ -56,7 +56,7 @@
             btnServedKitchen.BackColor = Color.FromArgb(138, 210, 176);
             btnServedKitchen.ForeColor = Color.Black;
             btnServedKitchen.Location = new Point(1705, 375);
-            btnServedKitchen.Margin = new Padding(2, 2, 2, 2);
+            btnServedKitchen.Margin = new Padding(2);
             btnServedKitchen.Name = "btnServedKitchen";
             btnServedKitchen.Size = new Size(253, 52);
             btnServedKitchen.TabIndex = 42;
@@ -68,7 +68,7 @@
             // 
             btnPreparedKitchen.BackColor = Color.FromArgb(255, 179, 71);
             btnPreparedKitchen.Location = new Point(1435, 375);
-            btnPreparedKitchen.Margin = new Padding(2, 2, 2, 2);
+            btnPreparedKitchen.Margin = new Padding(2);
             btnPreparedKitchen.Name = "btnPreparedKitchen";
             btnPreparedKitchen.Size = new Size(253, 52);
             btnPreparedKitchen.TabIndex = 41;
@@ -79,7 +79,7 @@
             // btnPreparationKitchen
             // 
             btnPreparationKitchen.Location = new Point(1163, 375);
-            btnPreparationKitchen.Margin = new Padding(2, 2, 2, 2);
+            btnPreparationKitchen.Margin = new Padding(2);
             btnPreparationKitchen.Name = "btnPreparationKitchen";
             btnPreparationKitchen.Size = new Size(253, 52);
             btnPreparationKitchen.TabIndex = 39;
@@ -113,7 +113,7 @@
             // 
             lblDescriptionHeaderKitchen.AutoSize = true;
             lblDescriptionHeaderKitchen.BackColor = Color.Orange;
-            lblDescriptionHeaderKitchen.Location = new Point(841, 266);
+            lblDescriptionHeaderKitchen.Location = new Point(781, 266);
             lblDescriptionHeaderKitchen.Margin = new Padding(2, 0, 2, 0);
             lblDescriptionHeaderKitchen.Name = "lblDescriptionHeaderKitchen";
             lblDescriptionHeaderKitchen.Size = new Size(152, 37);
@@ -124,7 +124,7 @@
             // 
             lblCountHeaderKitchen.AutoSize = true;
             lblCountHeaderKitchen.BackColor = Color.Orange;
-            lblCountHeaderKitchen.Location = new Point(638, 266);
+            lblCountHeaderKitchen.Location = new Point(551, 266);
             lblCountHeaderKitchen.Margin = new Padding(2, 0, 2, 0);
             lblCountHeaderKitchen.Name = "lblCountHeaderKitchen";
             lblCountHeaderKitchen.Size = new Size(89, 37);
@@ -135,7 +135,7 @@
             // 
             lblOrderNumberHeaderKitchen.AutoSize = true;
             lblOrderNumberHeaderKitchen.BackColor = Color.Orange;
-            lblOrderNumberHeaderKitchen.Location = new Point(331, 266);
+            lblOrderNumberHeaderKitchen.Location = new Point(274, 266);
             lblOrderNumberHeaderKitchen.Margin = new Padding(2, 0, 2, 0);
             lblOrderNumberHeaderKitchen.Name = "lblOrderNumberHeaderKitchen";
             lblOrderNumberHeaderKitchen.Size = new Size(184, 37);
@@ -158,7 +158,7 @@
             // 
             pbxHeaderViewOrderStatusKitchen.BackColor = Color.Orange;
             pbxHeaderViewOrderStatusKitchen.Location = new Point(1163, 476);
-            pbxHeaderViewOrderStatusKitchen.Margin = new Padding(2, 2, 2, 2);
+            pbxHeaderViewOrderStatusKitchen.Margin = new Padding(2);
             pbxHeaderViewOrderStatusKitchen.Name = "pbxHeaderViewOrderStatusKitchen";
             pbxHeaderViewOrderStatusKitchen.Size = new Size(836, 111);
             pbxHeaderViewOrderStatusKitchen.TabIndex = 43;
@@ -167,8 +167,8 @@
             // pbxHeaderKitchen
             // 
             pbxHeaderKitchen.BackColor = Color.Orange;
-            pbxHeaderKitchen.Location = new Point(-1, 227);
-            pbxHeaderKitchen.Margin = new Padding(2, 2, 2, 2);
+            pbxHeaderKitchen.Location = new Point(2, 224);
+            pbxHeaderKitchen.Margin = new Padding(2);
             pbxHeaderKitchen.Name = "pbxHeaderKitchen";
             pbxHeaderKitchen.Size = new Size(1999, 111);
             pbxHeaderKitchen.TabIndex = 40;
@@ -187,10 +187,10 @@
             // listViewKitchenOrders
             // 
             listViewKitchenOrders.Columns.AddRange(new ColumnHeader[] { kitchenOrderId, kitchenOrderNumber, kitchenOrderCount, kitchenDescription });
-            listViewKitchenOrders.Location = new Point(80, 375);
-            listViewKitchenOrders.Margin = new Padding(2, 2, 2, 2);
+            listViewKitchenOrders.Location = new Point(80, 290);
+            listViewKitchenOrders.Margin = new Padding(2);
             listViewKitchenOrders.Name = "listViewKitchenOrders";
-            listViewKitchenOrders.Size = new Size(1030, 455);
+            listViewKitchenOrders.Size = new Size(1030, 563);
             listViewKitchenOrders.TabIndex = 51;
             listViewKitchenOrders.UseCompatibleStateImageBehavior = false;
             listViewKitchenOrders.View = View.Details;
@@ -199,22 +199,22 @@
             // kitchenOrderId
             // 
             kitchenOrderId.Text = "Order Id";
-            kitchenOrderId.Width = 200;
+            kitchenOrderId.Width = 185;
             // 
             // kitchenOrderNumber
             // 
             kitchenOrderNumber.Text = "kitchen order number";
-            kitchenOrderNumber.Width = 300;
+            kitchenOrderNumber.Width = 280;
             // 
             // kitchenOrderCount
             // 
             kitchenOrderCount.Text = "Count";
-            kitchenOrderCount.Width = 200;
+            kitchenOrderCount.Width = 230;
             // 
             // kitchenDescription
             // 
             kitchenDescription.Text = "kitchen description";
-            kitchenDescription.Width = 200;
+            kitchenDescription.Width = 300;
             // 
             // lblSelectedOrder
             // 
@@ -243,7 +243,6 @@
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(lblKitchenHeader);
             Controls.Add(lblSelectedOrder);
-            Controls.Add(listViewKitchenOrders);
             Controls.Add(lblStatusOfDish);
             Controls.Add(btnServedKitchen);
             Controls.Add(btnPreparedKitchen);
@@ -256,7 +255,8 @@
             Controls.Add(lblOrderIDHeaderKitchen);
             Controls.Add(pbxHeaderViewOrderStatusKitchen);
             Controls.Add(pbxHeaderKitchen);
-            Margin = new Padding(2, 2, 2, 2);
+            Controls.Add(listViewKitchenOrders);
+            Margin = new Padding(2);
             Name = "KitchenOrderControl";
             Size = new Size(1999, 937);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).EndInit();

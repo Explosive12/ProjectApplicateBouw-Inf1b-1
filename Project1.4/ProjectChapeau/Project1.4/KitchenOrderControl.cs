@@ -18,56 +18,46 @@ namespace Project1._4
     public partial class KitchenOrderControl : UserControl
     {
         private int clickedData;
-        private Order kitchenOrder;
+        private OrderItem kitchenOrder;
+        private OrderStatusEnum state;
 
-        public KitchenOrderControl(Order kitchenOrder)
+        public KitchenOrderControl(OrderItem kitchenOrder)
         {
             InitializeComponent();
             this.kitchenOrder = kitchenOrder;
         }
 
+        //TODO AUTOUPDATE LISTVIEW
         private void btnPreparedKitchen_Click(object sender, EventArgs e)
         {
-            //TODO update database with the correct status to prepared and make it so the button checks if there is data in the select combobox
-
-            int state = 1;
-
-           //state = OrderStatusEnum.Prepared.ToString(); // Convert enum value to string
-           //int.Parse(state);
+            state = OrderStatusEnum.Prepared;
+            int stateInt = (int)state;
 
             OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, state);
+            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
 
+        //TODO AUTOUPDATE LISTVIEW
         private void btnServedKitchen_Click(object sender, EventArgs e)
         {
-            //TODO update database with the correct status to Served and make it so the button checks if there is data in the select combobox
-
-            int state = 2;
-
-
-           // state = OrderStatusEnum.Served.ToString(); // Convert enum value to string
-           // int.Parse(state);
+            state = OrderStatusEnum.Served;
+            int stateInt = (int)state;
 
             OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, state);
+            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
 
+        //TODO AUTOUPDATE LISTVIEW
         private void btnPreparationKitchen_Click(object sender, EventArgs e)
         {
-            //TODO update database with the correct status to preparation and MAKE IT SO IF THERE IS NO DATA CLICKED YOU GET EXEPTION
-
-            int state = 0;
-
-            //state = OrderStatusEnum.Inpreparation.ToString(); // Convert enum value to string
-            //int.Parse(state);
-
+            state = OrderStatusEnum.Inpreparation;
+            int stateInt = (int)state;
 
             OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, state);
+            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
 
-        public void DisplayKitchenOrders(List<Order> kitchenOrders, List<OrderItem> kitchenOrderItems)
+        public void DisplayKitchenOrders(List<OrderItem> kitchenOrderItems)
         {
             //Clear the ListView control before adding new items
             listViewKitchenOrders.Items.Clear();
