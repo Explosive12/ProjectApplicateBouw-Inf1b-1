@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Project1._4.Model
 {
-    public class Menu
+    public class MenuProduct
     {
-        public Menu(int id, int productId, string name)
+        public MenuProduct(int menuId, int productId)
         {
-            Id = id;
+            MenuId = menuId;
             ProductId = productId;
-            Name = name;
         }
 
-        public int Id { get; set; }
+        public int MenuId { get; set; }
         public int ProductId { get; set; }
-        public string Name { get; set; }
     }
 }

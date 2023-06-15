@@ -19,7 +19,6 @@ namespace Project1._4.DAL
             // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'CHAPEAU DATABASE' IN YOUR APP.CONFIG!!
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["applicatiebouw"].ConnectionString);
             adapter = new SqlDataAdapter();
-
         }
 
         protected SqlConnection OpenConnection()

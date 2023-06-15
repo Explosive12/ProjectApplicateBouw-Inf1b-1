@@ -19,13 +19,20 @@ namespace Project1._4
             // Create an instance of the new form
             BarKitchenView barKitchenView = new BarKitchenView();
             Form1 form1 = new Form1();
-            
+
             // Show the new form
             barKitchenView.Show();
 
             ///doesnt close it
             form1.Close();
 
+        }
+
+        private void buttonStartManagerView_Click(object sender, EventArgs e)
+        {
+            ManagerView managerView = new ManagerView();
+            managerView.Show();
+            
         }
     }
 }

@@ -18,10 +18,10 @@ namespace Project1._4.Service
 
         public List<Employee> GetAllEmployees()
         {
-            List<Employee> list = _employeeDb.GetAllEmployees();
-            return list;
+            List<Employee> employeeList = _employeeDb.GetAllEmployees();
+            return employeeList;
         }
-
+        
         public Employee GetEmployeeById(int employeeId)
         {
             Employee employee = _employeeDb.GetEmployeeById(employeeId);

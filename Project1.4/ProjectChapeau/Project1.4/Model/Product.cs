@@ -16,6 +16,7 @@ namespace Project1._4.Model
             this.Btw = Btw;
         }
         public int ProductId { get; set; }
+        public ProductType Type { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
