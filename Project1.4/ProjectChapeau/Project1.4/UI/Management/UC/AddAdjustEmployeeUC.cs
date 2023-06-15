@@ -14,8 +14,8 @@ namespace Project1._4.UI.Management.UC
 {
     public partial class AddAdjustEmployeeUC : UserControl
     {
-        private ManagerView form;
-
+        private readonly ManagerView _form;
+        private readonly Employee _employee;
         private AddItemUC name = new AddItemUC("Name");
         private AddItemUC username = new AddItemUC("Username");
         private AddAdjustItemComboBoxUC role = new AddAdjustItemComboBoxUC("Role", "EmployeeType");
@@ -26,7 +26,8 @@ namespace Project1._4.UI.Management.UC
         public AddAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText, Employee employee)
         {
             InitializeComponent();
-            this.form = form;
+            _form = form;
+            _employee = employee;
             labelEmployeeChanges.Text = typeOfPanelEmployeeText;
             buttonAddAdjustEmployee.Text = buttonText;
             LoadControllers(employee);
@@ -48,7 +49,7 @@ namespace Project1._4.UI.Management.UC
 
         private void NavigateToEmployee(object sender, EventArgs e)
         {
-            form.NavigateToEmployee();
+            _form.NavigateToEmployee();
         }
 
         private void AddAdjustEmployee(object sender, EventArgs e)
@@ -78,10 +79,10 @@ namespace Project1._4.UI.Management.UC
 
             EmployeeService service = new EmployeeService();
             EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), role.ChosenOption);
-            Employee employee = new Employee(0, employeeType, name.Value, username.Value, password.Value);
+            Employee employee = new Employee(_employee.EmployeeId, employeeType, name.Value, password.Value, username.Value);
             service.AdjustEmployee(employee);
 
-            form.NavigateToEmployee();
+            _form.NavigateToEmployee();
         }
         private void AddEmployee()
         {
@@ -89,10 +90,10 @@ namespace Project1._4.UI.Management.UC
 
             EmployeeService service = new EmployeeService();
             EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), role.ChosenOption);
-            Employee employee = new Employee(0, employeeType, name.Value, username.Value, password.Value);
+            Employee employee = new Employee(0, employeeType, name.Value, password.Value, username.Value);
             service.AddEmployee(employee);
 
-            form.NavigateToEmployee();
+            _form.NavigateToEmployee();
         }
     }
 }

@@ -14,19 +14,7 @@ namespace Project1._4.DAL
     {
         private EmployeeType GetEmployeeType(int type)
         {
-            switch (type)
-            {
-                case 1:
-                    return EmployeeType.Manager;
-                case 2:
-                    return EmployeeType.Chef;
-                case 3:
-                    return EmployeeType.Waitress;
-                case 4:
-                    return EmployeeType.Bartender;
-                default:
-                    return EmployeeType.Waitress;
-            }
+            return (EmployeeType)type;
         }
         private List<Employee> ReadTables(DataTable dataTable)
         {
@@ -73,8 +61,8 @@ namespace Project1._4.DAL
             {
                 parameters[0] = new SqlParameter("@function", employee.Function);
                 parameters[1] = new SqlParameter("@username", employee.Username);
-                parameters[2] = new SqlParameter("@password", employee.Name);
-                parameters[3] = new SqlParameter("@name", employee.Password);
+                parameters[2] = new SqlParameter("@password", employee.Password);
+                parameters[3] = new SqlParameter("@name", employee.Name);
 
             }
             

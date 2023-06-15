@@ -10,8 +10,5 @@ namespace Project1._4.DAL
     public class MenuDao : BaseDao
     {
 
-
-
-
     }
 }
