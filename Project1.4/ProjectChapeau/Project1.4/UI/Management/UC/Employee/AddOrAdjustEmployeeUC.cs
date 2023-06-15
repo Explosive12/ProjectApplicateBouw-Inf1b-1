@@ -12,18 +12,18 @@ using System.Windows.Forms;
 
 namespace Project1._4.UI.Management.UC
 {
-    public partial class AddAdjustEmployeeUC : UserControl
+    public partial class AddOrAdjustEmployeeUC : UserControl
     {
         private readonly ManagerView _form;
         private readonly Employee _employee;
         private AddItemUC name = new AddItemUC("Name");
         private AddItemUC username = new AddItemUC("Username");
-        private AddAdjustItemComboBoxUC role = new AddAdjustItemComboBoxUC("Role", "EmployeeType");
+        private AddOrAdjustItemComboBoxUC role = new AddOrAdjustItemComboBoxUC("Role", "EmployeeType");
         private AddItemUC password = new AddItemUC("Password", true);
 
 
 
-        public AddAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText, Employee employee)
+        public AddOrAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText, Employee employee)
         {
             InitializeComponent();
             _form = form;
@@ -35,7 +35,8 @@ namespace Project1._4.UI.Management.UC
 
         private void LoadControllers(Employee employee)
         {
-            if (employee != null) {
+            if (employee != null)
+            {
                 name.Value = employee.Name;
                 username.Value = employee.Username;
                 role.ChosenOption = employee.Function.ToString();

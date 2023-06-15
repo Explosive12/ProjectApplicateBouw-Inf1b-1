@@ -54,7 +54,7 @@ namespace Project1._4.UI.Management
             // 
             labelEmployees.AutoSize = true;
             labelEmployees.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            labelEmployees.Location = new Point(22, 114);
+            labelEmployees.Location = new Point(30, 111);
             labelEmployees.Name = "labelEmployees";
             labelEmployees.Size = new Size(211, 39);
             labelEmployees.TabIndex = 5;

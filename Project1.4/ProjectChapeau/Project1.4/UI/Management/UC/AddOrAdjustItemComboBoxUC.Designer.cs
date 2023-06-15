@@ -2,7 +2,7 @@
 
 namespace Project1._4.UI.Management.UC
 {
-    partial class AddAdjustItemComboBoxUC
+    partial class AddOrAdjustItemComboBoxUC
     {
         /// <summary> 
         /// Required designer variable.

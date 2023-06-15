@@ -3,7 +3,7 @@
 
 namespace Project1._4.UI.Management.UC
 {
-    public partial class AddAdjustItemComboBoxUC : UserControl
+    public partial class AddOrAdjustItemComboBoxUC : UserControl
     {
         private string enumType;
 
@@ -17,7 +17,7 @@ namespace Project1._4.UI.Management.UC
             set { comboBoxType.SelectedItem = value; }
         }
 
-        public AddAdjustItemComboBoxUC(string label, string enumType)
+        public AddOrAdjustItemComboBoxUC(string label, string enumType)
         {
             InitializeComponent();
 

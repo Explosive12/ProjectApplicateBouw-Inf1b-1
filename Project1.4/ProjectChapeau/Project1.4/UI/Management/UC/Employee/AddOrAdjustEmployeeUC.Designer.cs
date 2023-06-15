@@ -2,7 +2,7 @@
 
 namespace Project1._4.UI.Management.UC
 {
-    partial class AddAdjustEmployeeUC
+    partial class AddOrAdjustEmployeeUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -66,7 +66,7 @@ namespace Project1._4.UI.Management.UC
             // 
             labelEmployeeChanges.AutoSize = true;
             labelEmployeeChanges.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            labelEmployeeChanges.Location = new Point(25, 121);
+            labelEmployeeChanges.Location = new Point(30, 121);
             labelEmployeeChanges.Name = "labelEmployeeChanges";
             labelEmployeeChanges.Size = new Size(191, 39);
             labelEmployeeChanges.TabIndex = 15;

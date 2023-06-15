@@ -52,7 +52,7 @@ namespace Project1._4.UI.Management
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD",null);
+            NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD", null);
         }
 
         private void buttonAdjust_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace Project1._4.UI.Management
 
         private void NavigateToAddOrAdjustEmployee(string panelname, string buttonName, Employee employee)
         {
-            form.NavigateToAddOrAdjustEmployee(panelname, buttonName,employee);
+            form.NavigateToAddOrAdjustEmployee(panelname, buttonName, employee);
         }
 
         private void ButtonRemove_Click(object sender, EventArgs e)

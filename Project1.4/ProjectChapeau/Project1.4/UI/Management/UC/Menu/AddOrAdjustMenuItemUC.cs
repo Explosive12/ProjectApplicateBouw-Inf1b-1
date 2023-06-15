@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Project1._4.UI.Management.UC
 {
-    public partial class ManageMenuUC : UserControl
+    public partial class AddOrAdjustMenuItemUC : UserControl
     {
         private ManagerView form;
 
-        public ManageMenuUC(ManagerView form)
+        public AddOrAdjustMenuItemUC(ManagerView form)
         {
             InitializeComponent();
             this.form = form;
+        }
+
+        private void buttonGoBack_Click(object sender, EventArgs e)
+        {
+            form.GoBackToManageMenu();
         }
     }
 }

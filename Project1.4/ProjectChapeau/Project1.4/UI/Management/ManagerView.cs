@@ -1,6 +1,7 @@
 ﻿using Project1._4.Model;
 using Project1._4.UI.Management;
 using Project1._4.UI.Management.UC;
+using Project1._4.UI.Management.UC.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,10 +27,22 @@ namespace Project1._4.UI
             this.panelManagerView.Controls.Add(new MainMenuUC(this));
         }
 
+        internal void GoBackToManageMenu()
+        {
+            this.panelManagerView.Controls.Clear();
+            this.panelManagerView.Controls.Add(new ManageMenuUC(this));
+        }
+
+        internal void NavigateToAddMenuItem()
+        {
+            this.panelManagerView.Controls.Clear();
+            this.panelManagerView.Controls.Add(new AddOrAdjustMenuItemUC(this));
+        }
+
         internal void NavigateToAddOrAdjustEmployee(string typeOfPanel, string buttonText,Employee employee)
         {
             this.panelManagerView.Controls.Clear();
-            this.panelManagerView.Controls.Add(new AddAdjustEmployeeUC(this, typeOfPanel, buttonText, employee));
+            this.panelManagerView.Controls.Add(new AddOrAdjustEmployeeUC(this, typeOfPanel, buttonText, employee));
         }
 
         internal void NavigateToEmployee()
@@ -43,6 +56,12 @@ namespace Project1._4.UI
             this.panelManagerView.Controls.Clear();
             this.panelManagerView.Controls.Add(new ManageMenuUC(this));
     }
+
+        internal void NavigateToStockManagement()
+        {
+            this.panelManagerView.Controls.Clear();
+            this.panelManagerView.Controls.Add(new StockManagementUC(this));
+        }
 
         private void ManagerView_Load(object sender, EventArgs e)
         {
