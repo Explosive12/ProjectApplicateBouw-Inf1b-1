@@ -17,9 +17,9 @@ namespace Project1._4.DAL
             if (dataTable.Rows.Count > 0)
             {
                 DataRow dr = dataTable.Rows[0];
-                login.medewerkerId = (int)dr["medewerkerId"];
+                login.MedewerkerId = (int)dr["medewerkerId"];
                 login.employeeType = (employeeType)Enum.Parse(typeof(employeeType), dr["functie"].ToString());
-                login.inlogNaam = (string)dr["inlogNaam"];
+                login.InlogNaam = (string)dr["inlogNaam"];
                 login.Hash = (string)dr["wachtwoord"];
             }
             return login;
