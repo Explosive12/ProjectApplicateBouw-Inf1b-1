@@ -60,6 +60,7 @@
             buttonGoBack.TabIndex = 19;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
+            buttonGoBack.Click += buttonGoBack_Click;
             // 
             // labelStock
             // 
@@ -93,7 +94,7 @@
             buttonAddStockAmount.Text = "ADD";
             buttonAddStockAmount.UseVisualStyleBackColor = false;
             // 
-            // StockUC
+            // StockManagementUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -102,7 +103,7 @@
             Controls.Add(labelStock);
             Controls.Add(buttonGoBack);
             Controls.Add(Logo);
-            Name = "StockUC";
+            Name = "StockManagementUC";
             Size = new Size(414, 736);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);

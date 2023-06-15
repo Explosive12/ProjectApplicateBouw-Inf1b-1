@@ -19,5 +19,10 @@ namespace Project1._4.UI.Management.UC.Menu
             InitializeComponent();
             this.form = form;
         }
+
+        private void buttonGoBack_Click(object sender, EventArgs e)
+        {
+            form.GoBackToManageMenu();
+        }
     }
 }
