@@ -16,8 +16,8 @@
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            IntPtr hrgn = CreateRoundRectRgn(2, 3, Width, Height, 15, 15);
-            Region = Region.FromHrgn(hrgn); //play with these values till you are happy
+            IntPtr makeCoolShape = CreateRoundRectRgn(2, 3, Width, Height, 15, 15);
+            Region = Region.FromHrgn(makeCoolShape); //play with these values till you are happy
         }
     }
 }

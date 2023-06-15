@@ -81,16 +81,17 @@ namespace Project1._4.DAL
             ExecuteEditQuery(query, parameters);
         }
 
-        public void UpdateEmployee(Employee employee)
+        public void AdjustEmployee(Employee employee)
         {
             // Talk to database to Update the employee
             string query = "Update Medewerker SET naam = @name, inlogNaam = @username, wachtwoord = @inlognaam, functie = @function WHERE medewerkerId = @id";
-            SqlParameter[] parameters = new SqlParameter[4];
+            SqlParameter[] parameters = new SqlParameter[5];
             {
-                parameters[0] = new SqlParameter("@username", employee.Username);
-                parameters[1] = new SqlParameter("@function", employee.Function);
-                parameters[2] = new SqlParameter("@inlognaam", employee.Password);
-                parameters[3] = new SqlParameter("@name", employee.Name);
+                parameters[0] = new SqlParameter("@id", employee.EmployeeId);
+                parameters[1] = new SqlParameter("@username", employee.Username);
+                parameters[2] = new SqlParameter("@function", employee.Function);
+                parameters[3] = new SqlParameter("@inlognaam", employee.Password);
+                parameters[4] = new SqlParameter("@name", employee.Name);
             };
             ExecuteEditQuery(query, parameters);
         }

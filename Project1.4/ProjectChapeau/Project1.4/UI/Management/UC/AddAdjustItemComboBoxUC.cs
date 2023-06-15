@@ -1,13 +1,5 @@
 ﻿using Project1._4.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace Project1._4.UI.Management.UC
 {
@@ -16,12 +8,13 @@ namespace Project1._4.UI.Management.UC
         private string enumType;
 
         // public string to get the chosen option
-        public int ChosenOption
+        public string ChosenOption
         {
             get
             {
-                return comboBoxType.SelectedIndex;
+                return (string)comboBoxType.SelectedItem;
             }
+            set { comboBoxType.SelectedItem = value; }
         }
 
         public AddAdjustItemComboBoxUC(string label, string enumType)
@@ -30,11 +23,12 @@ namespace Project1._4.UI.Management.UC
 
             this.labelAddComboBoxItem.Text = label;
             this.enumType = enumType;
+            FillComboBox();
         }
 
 
         // Fill Combobox with the enum options
-        private void FillComboBox(object sender, EventArgs e)
+        private void FillComboBox()
         {
             comboBoxType.SelectedValue = "Hi";
             switch (enumType)

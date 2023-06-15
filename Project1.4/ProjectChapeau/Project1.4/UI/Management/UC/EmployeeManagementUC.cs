@@ -30,18 +30,19 @@ namespace Project1._4.UI.Management
             return employees;
         }
 
-        private void FillListView()
+        private void RefreshEmployeePanel()
         {
+            panelEmployee.Controls.Clear();
             List<Employee> employees = GetAllEmployees();
             foreach (Employee employee in employees)
             {
-                this.panelEmployee.Controls.Add(new UserEmployeeUC(employee.Name, employee.Function));
+                panelEmployee.Controls.Add(new UserEmployeeUC(employee));
             }
         }
 
         private void OnLoad(object sender, EventArgs e)
         {
-            FillListView();
+            RefreshEmployeePanel();
         }
 
         private void GoBackToMainMenu(object sender, EventArgs e)
@@ -49,24 +50,49 @@ namespace Project1._4.UI.Management
             form.GoBackToMainMenu();
         }
 
-        private void NavigateToAddOrAdjustEmployee(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD");
+            NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD",null);
         }
 
         private void buttonAdjust_Click(object sender, EventArgs e)
         {
-            NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE", "ADJUST");
+            Employee employee = GetSelectedEmployee();
+            if (employee == null)
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+
+            NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE", "ADJUST", employee);
         }
 
-        private void NavigateToAddOrAdjustEmployee(string panelname, string buttonName)
+        private void NavigateToAddOrAdjustEmployee(string panelname, string buttonName, Employee employee)
         {
-            form.NavigateToAddOrAdjustEmployee(panelname, buttonName);
+            form.NavigateToAddOrAdjustEmployee(panelname, buttonName,employee);
         }
 
-        private void buttonRemove_Click(object sender, EventArgs e)
+        private void ButtonRemove_Click(object sender, EventArgs e)
         {
+            Employee employee = GetSelectedEmployee();
+            if (employee == null)
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+            EmployeeService service = new EmployeeService();
+            service.DeleteEmployee(employee);
 
+            RefreshEmployeePanel();
+        }
+        private Employee GetSelectedEmployee()
+        {
+            foreach (UserEmployeeUC userEmployeeUC in panelEmployee.Controls.OfType<UserEmployeeUC>())
+            {
+                if (userEmployeeUC.IsSelected)
+                    return userEmployeeUC.Employee;
+            }
+            return null!;
         }
     }
 }

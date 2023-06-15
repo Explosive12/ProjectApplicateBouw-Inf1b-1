@@ -47,6 +47,7 @@ namespace Project1._4.UI
             buttonSelectOption.Text = "{Name}";
             buttonSelectOption.TextAlign = ContentAlignment.MiddleLeft;
             buttonSelectOption.UseVisualStyleBackColor = false;
+            buttonSelectOption.Click += OptionSelected;
             // 
             // textBoxType
             // 

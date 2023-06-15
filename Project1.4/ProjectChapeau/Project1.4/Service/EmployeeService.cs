@@ -38,9 +38,9 @@ namespace Project1._4.Service
             _employeeDb.DeleteEmployee(employee);
         }
 
-        public void UpdateEmployee(Employee employee)
+        public void AdjustEmployee(Employee employee)
         {
-            _employeeDb.UpdateEmployee(employee);
+            _employeeDb.AdjustEmployee(employee);
         }
     }
 }

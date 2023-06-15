@@ -19,6 +19,7 @@ namespace Project1._4.UI.Management.UC
             {
                 return textBoxAddItem.Text;
             }
+            set { textBoxAddItem.Text = value; }
         }
 
         public AddItemUC(string label, bool isPassword = false)

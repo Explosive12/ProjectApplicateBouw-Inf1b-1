@@ -31,10 +31,10 @@ namespace Project1._4.UI.Management.UC
         private void InitializeComponent()
         {
             panelAddEmployee = new FlowLayoutPanel();
-            buttonGoBack = new RoundedItems.RoundButton();
+            buttonGoBack = new RoundButton();
             labelEmployeeChanges = new Label();
             Logo = new PictureBox();
-            buttonAddEmployee = new RoundedItems.RoundButton();
+            buttonAddAdjustEmployee = new RoundButton();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +48,7 @@ namespace Project1._4.UI.Management.UC
             // 
             // buttonGoBack
             // 
-            buttonGoBack.BackColor = Color.DarkOrange;
+            buttonGoBack.BackColor = Color.FromArgb(255, 179, 71);
             buttonGoBack.Cursor = Cursors.Hand;
             buttonGoBack.FlatAppearance.BorderSize = 0;
             buttonGoBack.FlatStyle = FlatStyle.Flat;
@@ -82,32 +82,32 @@ namespace Project1._4.UI.Management.UC
             Logo.TabIndex = 16;
             Logo.TabStop = false;
             // 
-            // buttonAddEmployee
+            // buttonAddAdjustEmployee
             // 
-            buttonAddEmployee.BackColor = Color.FromArgb(138, 210, 176);
-            buttonAddEmployee.Cursor = Cursors.Hand;
-            buttonAddEmployee.FlatAppearance.BorderSize = 0;
-            buttonAddEmployee.FlatStyle = FlatStyle.Flat;
-            buttonAddEmployee.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAddEmployee.Location = new Point(36, 633);
-            buttonAddEmployee.Name = "buttonAddEmployee";
-            buttonAddEmployee.Size = new Size(120, 35);
-            buttonAddEmployee.TabIndex = 17;
-            buttonAddEmployee.Text = "ADD";
-            buttonAddEmployee.UseVisualStyleBackColor = false;
-            buttonAddEmployee.Click += AddEmployee;
+            buttonAddAdjustEmployee.BackColor = Color.FromArgb(138, 210, 176);
+            buttonAddAdjustEmployee.Cursor = Cursors.Hand;
+            buttonAddAdjustEmployee.FlatAppearance.BorderSize = 0;
+            buttonAddAdjustEmployee.FlatStyle = FlatStyle.Flat;
+            buttonAddAdjustEmployee.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonAddAdjustEmployee.Location = new Point(36, 633);
+            buttonAddAdjustEmployee.Name = "buttonAddAdjustEmployee";
+            buttonAddAdjustEmployee.Size = new Size(120, 35);
+            buttonAddAdjustEmployee.TabIndex = 17;
+            buttonAddAdjustEmployee.Text = "ADD";
+            buttonAddAdjustEmployee.UseVisualStyleBackColor = false;
+            buttonAddAdjustEmployee.Click += AddAdjustEmployee;
             // 
-            // AddEmployeeUC
+            // AddAdjustEmployeeUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            Controls.Add(buttonAddEmployee);
+            Controls.Add(buttonAddAdjustEmployee);
             Controls.Add(Logo);
             Controls.Add(labelEmployeeChanges);
             Controls.Add(buttonGoBack);
             Controls.Add(panelAddEmployee);
-            Name = "AddEmployeeUC";
+            Name = "AddAdjustEmployeeUC";
             Size = new Size(414, 736);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
@@ -121,6 +121,6 @@ namespace Project1._4.UI.Management.UC
         private RoundButton buttonGoBack;
         private Label labelEmployeeChanges;
         private PictureBox Logo;
-        private RoundButton buttonAddEmployee;
+        private RoundButton buttonAddAdjustEmployee;
     }
 }

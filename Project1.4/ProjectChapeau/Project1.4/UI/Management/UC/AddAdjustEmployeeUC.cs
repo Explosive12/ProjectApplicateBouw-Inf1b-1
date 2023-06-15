@@ -23,17 +23,30 @@ namespace Project1._4.UI.Management.UC
 
 
 
-        public AddAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText)
+        public AddAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText, Employee employee)
         {
             InitializeComponent();
             this.form = form;
             labelEmployeeChanges.Text = typeOfPanelEmployeeText;
-            buttonAddEmployee.Text = buttonText;
-            LoadControllers();
+            buttonAddAdjustEmployee.Text = buttonText;
+            LoadControllers(employee);
         }
 
-        private void LoadControllers()
+        private void LoadControllers(Employee employee)
         {
+            if (employee == null) {
+                //name.Value = "";
+                //username.Value = "";
+                //role.ChosenOption = "";
+                //password.Value = "";
+            }
+            else
+            {
+                name.Value = employee.Name;
+                username.Value = employee.Username;
+                role.ChosenOption = employee.Function.ToString();
+                password.Value = employee.Password;
+            }
             this.panelAddEmployee.Controls.Add(name);
             this.panelAddEmployee.Controls.Add(username);
             this.panelAddEmployee.Controls.Add(role);
@@ -45,25 +58,48 @@ namespace Project1._4.UI.Management.UC
             form.NavigateToEmployee();
         }
 
-        private void AddEmployee(object sender, EventArgs e)
+        private void AddAdjustEmployee(object sender, EventArgs e)
+        {
+            if (name.Value == "" || username.Value == "" || password.Value == "" || role.ChosenOption == null)
+            {
+                MessageBox.Show("Please fill in all the fields");
+                return;
+            }
+
+            try
+            {
+                if (buttonAddAdjustEmployee.Text == "ADJUST")
+                    AdjustEmployee();
+                else
+                    AddEmployee();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show($"Something went wrong while adding or adjusting {username.Value}{exp.Message}");
+            }
+        }
+
+        private void AdjustEmployee()
+        {
+            // Adjust an employee in the database
+
+            EmployeeService service = new EmployeeService();
+            EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), role.ChosenOption);
+            Employee employee = new Employee(0, employeeType, name.Value, username.Value, password.Value);
+            service.AdjustEmployee(employee);
+
+            form.NavigateToEmployee();
+        }
+        private void AddEmployee()
         {
             // Add an employee to the database
 
+            EmployeeService service = new EmployeeService();
+            EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), role.ChosenOption);
+            Employee employee = new Employee(0, employeeType, name.Value, username.Value, password.Value);
+            service.AddEmployee(employee);
 
-            //EmployeeType employeeFunction = (EmployeeType)employeeType.ChosenOption;
-            try
-            {
-                EmployeeService service = new EmployeeService();
-                Employee employee = new Employee(0, (EmployeeType)role.ChosenOption, name.Value, username.Value, password.Value);
-                service.AddEmployee(employee);
-
-                form.NavigateToEmployee();
-            }
-            
-            catch (Exception exp)
-            {
-                MessageBox.Show($"Something went wrong when adding {username.Value}{exp.Message}");
-            }
+            form.NavigateToEmployee();
         }
     }
 }

@@ -1,30 +1,45 @@
 ﻿using Project1._4.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace Project1._4.UI
 {
     public partial class UserEmployeeUC : UserControl
     {
-        public UserEmployeeUC(string userName, EmployeeType employeeType)
+
+        private Color selectedColor = Color.FromArgb(255, 128, 0);
+        private Color unSelectedColor = SystemColors.ActiveBorder;
+        public bool IsSelected
+        {
+            get
+            {
+                return buttonSelectOption.BackColor == selectedColor;
+            }
+        }
+
+        public Employee Employee { get; internal set; }
+
+        public UserEmployeeUC(Employee employee)
         {
             InitializeComponent();
-            buttonSelectOption.Text = userName;
-            textBoxType.Text = employeeType.ToString();
+            Employee = employee;
+            buttonSelectOption.Text = employee.Username;
+            textBoxType.Text = employee.Function.ToString();
         }
 
 
         private void textBoxType_TextChanged(object sender, EventArgs e)
         {
-            if (sender is UserEmployeeUC)
-                ((UserEmployeeUC)sender).BackColor = Color.DarkOrange;
+
+        }
+
+        private void OptionSelected(object sender, EventArgs e)
+        {
+            foreach (UserEmployeeUC userEmployeeUC in Parent.Controls.OfType<UserEmployeeUC>())
+            {
+                userEmployeeUC.buttonSelectOption.BackColor = unSelectedColor;
+            }
+
+            this.buttonSelectOption.BackColor = selectedColor;
         }
     }
 

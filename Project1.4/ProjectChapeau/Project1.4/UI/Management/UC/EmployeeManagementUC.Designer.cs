@@ -89,7 +89,7 @@ namespace Project1._4.UI.Management
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "ADD NEW";
             buttonAddNew.UseVisualStyleBackColor = false;
-            buttonAddNew.Click += NavigateToAddOrAdjustEmployee;
+            buttonAddNew.Click += ButtonAdd_Click;
             // 
             // buttonRemove
             // 
@@ -104,7 +104,7 @@ namespace Project1._4.UI.Management
             buttonRemove.TabIndex = 9;
             buttonRemove.Text = "REMOVE";
             buttonRemove.UseVisualStyleBackColor = false;
-            buttonRemove.Click += buttonRemove_Click;
+            buttonRemove.Click += ButtonRemove_Click;
             // 
             // buttonAdjust
             // 

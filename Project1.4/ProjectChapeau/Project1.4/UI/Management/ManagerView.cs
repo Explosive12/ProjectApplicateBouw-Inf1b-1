@@ -1,4 +1,5 @@
-﻿using Project1._4.UI.Management;
+﻿using Project1._4.Model;
+using Project1._4.UI.Management;
 using Project1._4.UI.Management.UC;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,10 @@ namespace Project1._4.UI
             this.panelManagerView.Controls.Add(new MainMenuUC(this));
         }
 
-        internal void NavigateToAddOrAdjustEmployee(string typeOfPanel, string buttonText)
+        internal void NavigateToAddOrAdjustEmployee(string typeOfPanel, string buttonText,Employee employee)
         {
             this.panelManagerView.Controls.Clear();
-            this.panelManagerView.Controls.Add(new AddAdjustEmployeeUC(this, typeOfPanel, buttonText));
+            this.panelManagerView.Controls.Add(new AddAdjustEmployeeUC(this, typeOfPanel, buttonText, employee));
         }
 
         internal void NavigateToEmployee()

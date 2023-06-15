@@ -63,7 +63,6 @@ namespace Project1._4.UI.Management.UC
             Controls.Add(labelAddComboBoxItem);
             Name = "AddItemComboBoxUC";
             Size = new Size(350, 35);
-            Load += FillComboBox;
             ResumeLayout(false);
             PerformLayout();
         }
