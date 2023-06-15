@@ -34,14 +34,7 @@ namespace Project1._4.UI.Management.UC
 
         private void LoadControllers(Employee employee)
         {
-            if (employee == null) {
-                //name.Value = "";
-                //username.Value = "";
-                //role.ChosenOption = "";
-                //password.Value = "";
-            }
-            else
-            {
+            if (employee != null) {
                 name.Value = employee.Name;
                 username.Value = employee.Username;
                 role.ChosenOption = employee.Function.ToString();
