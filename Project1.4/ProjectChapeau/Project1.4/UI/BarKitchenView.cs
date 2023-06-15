@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,22 +20,76 @@ namespace Project1._4.UI
         {
             InitializeComponent();
         }
-        private void ChangeStatus()
+        public void Loadabc()
         {
+            List<OrderItem> kitchenOrders = GetKitchenOrders();
+
+            this.flpKitchenOrders.Controls.Clear();
+
+            foreach (OrderItem kitchenOrder in kitchenOrders)
+            {
+                KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
+                this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+            }
 
         }
 
-        public List<Order> LoadOrders()
+        private void btnLoadKitchenOrders_Click(object sender, EventArgs e)
         {
-            OrderService service = new OrderService();
-            List<Order> orders = service.GetAllOrders();
-            return orders;
+            List<OrderItem> kitchenOrders = GetKitchenOrders();
+
+            this.flpKitchenOrders.Controls.Clear();
+
+            foreach (OrderItem kitchenOrder in kitchenOrders)
+            {
+                KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
+                this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+            }
+
+            ShowCashRegistersPanel();
         }
 
-        public List<OrderItem> LoadOrderItems()
+        private void btnKitchenToMain_Click(object sender, EventArgs e)
         {
-            OrderItemService service = new OrderItemService();
-            List<OrderItem> orderItems = service.GetAllOrderItems();
+            Form1 form1 = new Form1();
+            // Create an instance of the new form
+            LoginView loginview = new LoginView();
+            BarKitchenView barKitchenView = new BarKitchenView();
+
+            // Show the new form
+            form1.Show();
+            this.Hide();
+        }
+        private void ShowCashRegistersPanel()
+        {
+            try
+            {
+                List<OrderItem> kitchenOrderItems = GetKitchenOrderItems();
+
+                this.flpKitchenOrders.Controls.Clear();
+
+                foreach (OrderItem order in kitchenOrderItems)
+                {
+                    KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(order);
+                    kitchenOrderControl.DisplayKitchenOrders(kitchenOrderItems);
+                    this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Something went wrong while loading the cash registers: " + e.Message);
+            }
+        }
+        private List<OrderItem> GetKitchenOrders()
+        {
+           OrderItemService orderItemService = new OrderItemService();
+           List<OrderItem> orders = orderItemService.GetOrderItemsByDinnerLunch();
+           return orders;
+        }
+        private List<OrderItem> GetKitchenOrderItems()
+        {
+            OrderItemService orderItemService = new OrderItemService();
+            List<OrderItem> orderItems = orderItemService.GetOrderItemsByDinnerLunch();
             return orderItems;
         }
     }

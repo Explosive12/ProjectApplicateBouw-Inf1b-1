@@ -100,7 +100,7 @@ namespace Project1._4.DAL
             {
                 command.Connection = OpenConnection();
                 command.CommandText = query;
-                command.Parameters.AddRange(sqlParameters);
+                command.Parameters.AddRange(sqlParameters); 
                 command.ExecuteNonQuery();
                 adapter.SelectCommand = command;
                 adapter.Fill(dataSet);

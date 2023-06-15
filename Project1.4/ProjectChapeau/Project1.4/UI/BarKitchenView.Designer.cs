@@ -28,46 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblKitchenHeader = new Label();
-            button1 = new Button();
+            flpKitchenOrders = new FlowLayoutPanel();
+            btnLoadKitchenOrders = new Button();
+            btnKitchenToMain = new Button();
             SuspendLayout();
             // 
-            // lblKitchenHeader
+            // flpKitchenOrders
             // 
-            lblKitchenHeader.AutoSize = true;
-            lblKitchenHeader.Font = new Font("Segoe UI", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            lblKitchenHeader.Location = new Point(819, 85);
-            lblKitchenHeader.Name = "lblKitchenHeader";
-            lblKitchenHeader.Size = new Size(553, 104);
-            lblKitchenHeader.TabIndex = 0;
-            lblKitchenHeader.Text = "Kitchen Orders";
+            flpKitchenOrders.Location = new Point(215, 39);
+            flpKitchenOrders.Name = "flpKitchenOrders";
+            flpKitchenOrders.Size = new Size(2010, 1549);
+            flpKitchenOrders.TabIndex = 3;
             // 
-            // button1
+            // btnLoadKitchenOrders
             // 
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.Location = new Point(244, 85);
-            button1.Name = "button1";
-            button1.Size = new Size(169, 52);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnLoadKitchenOrders.Location = new Point(12, 178);
+            btnLoadKitchenOrders.Name = "btnLoadKitchenOrders";
+            btnLoadKitchenOrders.Size = new Size(169, 52);
+            btnLoadKitchenOrders.TabIndex = 4;
+            btnLoadKitchenOrders.Text = "button";
+            btnLoadKitchenOrders.UseVisualStyleBackColor = true;
+            btnLoadKitchenOrders.Click += btnLoadKitchenOrders_Click;
+            // 
+            // btnKitchenToMain
+            // 
+            btnKitchenToMain.Location = new Point(12, 104);
+            btnKitchenToMain.Name = "btnKitchenToMain";
+            btnKitchenToMain.Size = new Size(169, 52);
+            btnKitchenToMain.TabIndex = 5;
+            btnKitchenToMain.Text = "Back";
+            btnKitchenToMain.UseVisualStyleBackColor = true;
+            btnKitchenToMain.Click += btnKitchenToMain_Click;
             // 
             // BarKitchenView
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2237, 1005);
-            Controls.Add(button1);
-            Controls.Add(lblKitchenHeader);
+            Controls.Add(btnKitchenToMain);
+            Controls.Add(btnLoadKitchenOrders);
+            Controls.Add(flpKitchenOrders);
             Name = "BarKitchenView";
             Text = "BarKitchenView";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label lblKitchenHeader;
-        private Button button1;
+        private Button btnLoad2004;
+        private FlowLayoutPanel flpKitchenOrders;
+        private Button button2;
+        private Button btnLoadKitchenOrders;
+        private Button btnKitchenToMain;
     }
 }

@@ -1,26 +1,34 @@
-﻿using System;
+﻿using Microsoft.Graph.Models;
+using Project1._4.Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using Project1._4.Model;
 
 namespace Project1._4.DAL
 {
     public class UserDoa : BaseDao
     {
-        public void GetLogin()
+        public Login ReadTables(DataTable dataTable)
         {
-            throw new NotImplementedException();
+            Login login = new Login();
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow dr = dataTable.Rows[0];
+                login.medewerkerId = (int)dr["medewerkerId"];
+                login.employeeType = (employeeType)Enum.Parse(typeof(employeeType), dr["functie"].ToString());
+                login.inlogNaam = (string)dr["inlogNaam"];
+                login.Hash = (string)dr["wachtwoord"];
+            }
+            return login;
         }
-
-        private List<Login> ReadTables()
+        public Login LoginUser(string hash , string username)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Authenticate()
-        {
-            throw new System.NotImplementedException();
+            string query = "SELECT medewerkerId , functie , inlogNaam , wachtwoord , naam FROM medewerker WHERE inlogNaam = @inlogNaam AND wachtwoord = @wachtwoord";
+            SqlParameter[] sqlParameters = new SqlParameter[] { new SqlParameter("@inlogNaam", username), new SqlParameter("@wachtwoord" , hash)};
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
     }
 }

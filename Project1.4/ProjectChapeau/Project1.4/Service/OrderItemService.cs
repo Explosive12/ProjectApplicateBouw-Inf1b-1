@@ -16,29 +16,21 @@ namespace Project1._4.Service
             orderItemDb = new OrderItemDao();
         }
 
-        public List<OrderItem> GetAllOrderItems()
+        public List<OrderItem> GetOrderItemsByDinnerLunch()
         {
-            List<OrderItem> list = orderItemDb.GetAllOrderItems();
+            List<OrderItem> list = orderItemDb.GetOrderItemsByDinnerLunch();
             return list;
         }
 
-        public List<OrderItem> GetByIdOrderItem(int orderItemId)
+        public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
-            List<OrderItem> list = orderItemDb.GetByIdOrderItem(orderItemId);
+            List<OrderItem> list = orderItemDb.GetByOrderItemId(orderItemId);
             return list;
         }
 
-        public void InsertOrderItem(OrderItem orderItem)
+        public void UpdateOrderItemStatus(int clickedData, int state)
         {
-            orderItemDb.InsertOrderItem(orderItem);
-        }
-        public void RemoveOrderItem(OrderItem orderItem)
-        {
-            orderItemDb.RemoveOrderItem(orderItem);
-        }
-        public void UpdateOrderItem(OrderItem orderItem)
-        {
-            orderItemDb.UpdateOrderItem(orderItem);
+            orderItemDb.UpdateOrderItemState(clickedData, state);
         }
     }
 }

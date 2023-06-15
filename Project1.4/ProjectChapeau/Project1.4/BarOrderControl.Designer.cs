@@ -106,7 +106,7 @@
             // 
             // btnServedBar
             // 
-            btnServedBar.BackColor = Color.FromArgb(128, 255, 128);
+            btnServedBar.BackColor = Color.FromArgb(138, 210, 176);
             btnServedBar.ForeColor = Color.Black;
             btnServedBar.Location = new Point(1705, 147);
             btnServedBar.Name = "btnServedBar";
@@ -117,7 +117,7 @@
             // 
             // btnPreparedBar
             // 
-            btnPreparedBar.BackColor = Color.FromArgb(255, 192, 128);
+            btnPreparedBar.BackColor = Color.FromArgb(255, 179, 71);
             btnPreparedBar.Location = new Point(1435, 147);
             btnPreparedBar.Name = "btnPreparedBar";
             btnPreparedBar.Size = new Size(253, 52);
@@ -230,7 +230,7 @@
             Controls.Add(pbxHeaderViewOrderStatusBar);
             Controls.Add(pbxHeaderBar);
             Name = "BarOrderControl";
-            Size = new Size(2752, 1206);
+            Size = new Size(1988, 787);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderBar).EndInit();
             ResumeLayout(false);

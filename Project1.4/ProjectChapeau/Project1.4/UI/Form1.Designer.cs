@@ -74,6 +74,10 @@
             Controls.Add(buttonStartManagerView);
             Controls.Add(panelManagerView);
             Margin = new Padding(4, 5, 4, 5);
+            ClientSize = new Size(1484, 693);
+            Controls.Add(btnBarResOverview);
+            Controls.Add(listView1);
+            Margin = new Padding(6, 7, 6, 7);
             Name = "Form1";
             Text = "Form1";
             panelManagerView.ResumeLayout(false);
