@@ -45,14 +45,6 @@ namespace Project1._4.DAL
             return ReadEmployees(ExecuteSelectQuery(query));
         }
 
-        public Employee GetEmployeeById(int id)
-        {
-            //Employee gegevens uit de database halen van een Persoon.
-            string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker WHERE medewerkerId = @id";
-            SqlParameter parameter = new SqlParameter("@id", id);
-            return ReadEmployees(ExecuteSelectQuery(query, parameter))[0];
-        }
-
         public void AddEmployee(Employee employee)
         {
             // Talk to database to add the employee

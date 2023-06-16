@@ -22,12 +22,6 @@ namespace Project1._4.Service
             return employeeList;
         }
         
-        public Employee GetEmployeeById(int employeeId)
-        {
-            Employee employee = _employeeDb.GetEmployeeById(employeeId);
-            return employee;
-        }
-
         public void AddEmployee(Employee employee)
         {
             _employeeDb.AddEmployee(employee);
