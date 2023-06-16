@@ -28,6 +28,7 @@ namespace Project1._4.UI.Management.UC
         {
             InitializeComponent();
             this._form = form;
+            this._product = product;
             this.labelMenuChange.Text = typeOfPanelMenuItemText;
             this.buttonAddOrAdjustMenuItem.Text = buttonText;
 
@@ -40,6 +41,7 @@ namespace Project1._4.UI.Management.UC
             {
                 _productName.Value = product.Name;
                 _category.ChosenOption = product.Type.ToString();
+                _price.Value = product.Price.ToString();
                 _stock.Value = product.Stock.ToString();
             }
             this.panelAddProductList.Controls.Add(_productName);

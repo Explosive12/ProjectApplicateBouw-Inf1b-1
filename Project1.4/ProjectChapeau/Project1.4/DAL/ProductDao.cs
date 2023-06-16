@@ -50,27 +50,27 @@ namespace Project1._4.DAL
             sqlParameters[0] = new SqlParameter("@productId", productId);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private ProductType GetProductType(string productType)
+        private ProductType GetProductType(int productType)
         {
             switch (productType)
             {
-                case "Entree":
+                case 1:
                     return ProductType.Entree;
-                case "MainCourse":
+                case 2:
                     return ProductType.MainCourse;
-                case "Dessert":
-                    return ProductType.Dessert;
-                case "SideDish":
+                case 3:
                     return ProductType.SideDish;
-                case "SoftDrinks":
+                case 4:
+                    return ProductType.Dessert;
+                case 13:
                     return ProductType.SoftDrinks;
-                case "Beer":
+                case 10:
                     return ProductType.Beer;
-                case "Wine":
+                case 11:
                     return ProductType.Wine;
-                case "Spirit":
+                case 12:
                     return ProductType.Spirit;
-                case "CoffeeAdnTea":
+                case 14:
                     return ProductType.CoffeeAndTea;
                 default:
                     return ProductType.Entree;
@@ -83,7 +83,7 @@ namespace Project1._4.DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                ProductType productType = GetProductType(dr["productType"].ToString());
+                ProductType productType = GetProductType((int)dr[5]);
 
                 Product product = new Product(
                     (int)dr["productId"], //id
@@ -106,11 +106,13 @@ namespace Project1._4.DAL
         {
             string query = "INSERT INTO product (naam, prijs, voorraad, btw, productType) VALUES (@naam, @prijs, @voorraad, @btw, @productType)";
             SqlParameter[] sqlParameters = new SqlParameter[5];
-            sqlParameters[0] = new SqlParameter("@naam", product.Name);
-            sqlParameters[1] = new SqlParameter("@prijs", product.Price);
-            sqlParameters[2] = new SqlParameter("@voorraad", product.Stock);
-            sqlParameters[3] = new SqlParameter("@btw", product.Btw);
-            sqlParameters[4] = new SqlParameter("@productType", product.Type);
+            {
+                sqlParameters[0] = new SqlParameter("@naam", product.Name);
+                sqlParameters[1] = new SqlParameter("@prijs", product.Price);
+                sqlParameters[2] = new SqlParameter("@voorraad", product.Stock);
+                sqlParameters[3] = new SqlParameter("@btw", product.Btw);
+                sqlParameters[4] = new SqlParameter("@productType", product.Type);
+            };
             ExecuteEditQuery(query, sqlParameters);
         }
 
@@ -124,8 +126,18 @@ namespace Project1._4.DAL
 
         public void UpdateProduct(Product product)
         {
-            
-            
+            string query = "UPDATE product SET naam = @naam, prijs = @prijs, voorraad = @voorraad, btw = @btw, productType = @productType WHERE productId = @productId";
+            SqlParameter[] sqlParameters = new SqlParameter[6];
+            {
+                sqlParameters[0] = new SqlParameter("@productId", product.ProductId);
+                sqlParameters[1] = new SqlParameter("@naam", product.Name);
+                sqlParameters[2] = new SqlParameter("@prijs", product.Price);
+                sqlParameters[3] = new SqlParameter("@voorraad", product.Stock);
+                sqlParameters[4] = new SqlParameter("@btw", product.Btw);
+                sqlParameters[5] = new SqlParameter("@productType", product.Type);
+
+            }
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
