@@ -18,15 +18,23 @@ namespace Project1._4
     public partial class OrderViewLunch : Form
     {
 
-        public List<OrderItem> items = new List<OrderItem>();
-        public Order order;
-        public OrderViewLunch()
+        private List<OrderItem> items = new List<OrderItem>();
+        private Order order;
+        public OrderViewLunch() // TODO receive table id from tables // Employee name
         {
             InitializeComponent();
             OrderService service = new OrderService();
             order = new Order(service.GetNextAvailableOrderId(), 0, DateTime.Now, DateTime.Now);
         }
 
+        public OrderViewLunch(List<OrderItem> items, Order order) // Employee name
+        {
+            InitializeComponent();
+            this.order = order;
+            this.items = items;
+            DisplayOrderItems();
+
+        }
 
         // Start Display methods
         private void DisplayLunchProducts()
@@ -58,7 +66,7 @@ namespace Project1._4
         {
             orderItemLV.Items.Clear();
             ProductService service = new ProductService();
-            List<Product> products = LoadLunchProducts();
+            List<Product> products = service.GetAllProducts();
             foreach (OrderItem item in items)
             {
                 List<Product> nameProducts = service.GetProductById(item.ProductId);
@@ -84,12 +92,6 @@ namespace Project1._4
         }
 
         // Start Load methods
-        private List<Menu> LoadMenu()
-        {
-            MenuService service = new MenuService();
-            List<Menu> menuList = service.GetAllMenuItems();
-            return menuList;
-        }
 
         private List<Product> LoadLunchProducts()
         {
@@ -98,74 +100,75 @@ namespace Project1._4
             return products;
         }
 
-        private List<Order> LoadOrders()
-        {
-            OrderService service = new OrderService();
-            List<Order> orders = service.GetAllOrders();
-            return orders;
-        }
-
-        private List<OrderItem> LoadOrderItems()
-        {
-            OrderItemService service = new OrderItemService();
-            List<OrderItem> orderItems = service.GetAllOrderItems();
-            return orderItems;
-        }
         // End Loadmethods
         public void AddProductToOrderItem(Product product)
         {
-            OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Bezig);
-            List<OrderItem> itemsToAdd = new List<OrderItem>();
-
-            bool found = false;
-            foreach (OrderItem item in items)
+            try
             {
-                if (item.ProductId == orderItem.ProductId)
+                if (product.Stock > 0)
+                    throw new Exception("product is out of stock");
+                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Bezig);
+                List<OrderItem> itemsToAdd = new List<OrderItem>();
+
+                bool found = false;
+                foreach (OrderItem item in items)
                 {
-                    item.Amount += 1;
-                    found = true;
+                    if (item.ProductId == orderItem.ProductId)
+                    {
+                        item.Amount += 1;
+                        found = true;
+                    }
                 }
-            }
 
-            if (!found)
-            {
-                itemsToAdd.Add(orderItem);
+                if (!found)
+                {
+                    itemsToAdd.Add(orderItem);
+                }
+                items.AddRange(itemsToAdd);
             }
-            items.AddRange(itemsToAdd);
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
         }
 
         private void RemoveProductFromOrderItem(string name)
         {
-            int productIdToRemove = 0;
+            OrderItem itemToRemove = GetOrderItemWithName(name);
+            if (itemToRemove != null)
+            {
+                items.Remove(itemToRemove);
+            }
+            DisplayOrderItems();
+        }
+
+        private OrderItem GetOrderItemWithName(string name)
+        {
+            int productId = 0;
             ProductService service = new ProductService();
             foreach (Product product in service.GetAllProducts())
             {
                 if (product.Name == name)
                 {
-                    productIdToRemove = product.ProductId;
+                    productId = product.ProductId;
                     break;
                 }
             }
 
-            if (productIdToRemove != 0)
+            OrderItem itemToGet = null;
+            if (productId != 0)
             {
-                OrderItem itemToRemove = null;
-
                 foreach (OrderItem item in items)
                 {
-                    if (item.ProductId == productIdToRemove)
+                    if (item.ProductId == productId)
                     {
-                        itemToRemove = item;
+                        itemToGet = item;
                         break;
                     }
                 }
-
-                if (itemToRemove != null)
-                {
-                    items.Remove(itemToRemove);
-                }
             }
-            DisplayOrderItems();
+            return itemToGet;
         }
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
@@ -184,7 +187,7 @@ namespace Project1._4
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderView = new OrderViewLunch();
+            OrderViewLunch orderView = new OrderViewLunch(items, order);
             orderView.Show();
             this.Hide();
         }
@@ -206,12 +209,24 @@ namespace Project1._4
 
         private void orderViewCommentBtn_Click(object sender, EventArgs e)
         {
+           
+            if (orderItemLV.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = orderItemLV.SelectedItems[0];
+                string itemName = selectedItem.SubItems[1].Text;
+                OrderItem item = GetOrderItemWithName(itemName);
 
+                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order);
+                commentView.Show();
+                this.Hide();
+            }
         }
 
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
-
+            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order);
+            orderView.Show();
+            this.Hide();
         }
     }
 }

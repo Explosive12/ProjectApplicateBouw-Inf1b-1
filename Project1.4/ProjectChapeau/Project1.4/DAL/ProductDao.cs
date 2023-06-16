@@ -60,25 +60,25 @@ namespace Project1._4.DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                switch (dr["productType"].ToString())
+                switch ((int)dr["productType"])
                 {
-                    case "Entree":
+                    case 1:
                         productType = ProductTypeEnum.Entree; break;
-                    case "MainCourse":
+                    case 3:
                         productType = ProductTypeEnum.MainCourse; break;
-                    case "Dessert":
+                    case 4:
                         productType = ProductTypeEnum.Dessert; break;
-                    case "SideDish":
+                    case 2:
                         productType = ProductTypeEnum.SideDish; break;
-                    case "SoftDrinks":
+                    case 13:
                         productType = ProductTypeEnum.SoftDrinks; break;
-                    case "Beer":
+                    case 10:
                         productType = ProductTypeEnum.Beer; break;
-                    case "Wine": 
+                    case 11: 
                         productType = ProductTypeEnum.Wine; break;
-                    case "Spirit":
+                    case 12:
                         productType = ProductTypeEnum.Spirit; break;
-                    case "CoffeeAdnTea":
+                    case 14:
                         productType = ProductTypeEnum.CoffeeAndTea; break;
                 }
                 Product product = new Product(
