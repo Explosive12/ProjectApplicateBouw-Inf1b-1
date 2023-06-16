@@ -82,7 +82,7 @@ namespace Project1._4.UI
         }
 
         private void orderViewPayBtn_Click(object sender, EventArgs e)
-        { 
+        {
             // TODO Insert to orderItems
             // TODO Insert to orders
             // TODO Change Stock Amount

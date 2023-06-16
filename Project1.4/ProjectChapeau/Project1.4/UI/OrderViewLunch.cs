@@ -199,19 +199,27 @@ namespace Project1._4
 
         private void orderViewRemoveBtn_Click(object sender, EventArgs e)
         {
-            if (orderItemLV.SelectedItems.Count > 0)
+            try
             {
+                if (orderItemLV.SelectedItems.Count == 0)
+                    throw new Exception("Please select aleast 1 item, Do this by clicking the amount");
                 ListViewItem selectedItem = orderItemLV.SelectedItems[0];
                 string itemName = selectedItem.SubItems[1].Text;
                 RemoveProductFromOrderItem(itemName);
             }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+            
         }
 
         private void orderViewCommentBtn_Click(object sender, EventArgs e)
         {
-           
-            if (orderItemLV.SelectedItems.Count > 0)
+            try
             {
+                if (orderItemLV.SelectedItems.Count == 0)
+                    throw new Exception("Please select aleast 1 item, Do this by clicking the amount");
                 ListViewItem selectedItem = orderItemLV.SelectedItems[0];
                 string itemName = selectedItem.SubItems[1].Text;
                 OrderItem item = GetOrderItemWithName(itemName);
@@ -220,6 +228,11 @@ namespace Project1._4
                 commentView.Show();
                 this.Hide();
             }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+           
         }
 
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
