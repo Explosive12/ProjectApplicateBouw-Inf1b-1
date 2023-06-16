@@ -26,10 +26,11 @@ namespace Project1._4
             txtWachtwoord.PasswordChar = '*';
             userService = new UserService();
         }
-        public void Getlogin()
+        public void Getlogin(object sender, EventArgs e)
         {
             string password = HashPassword(txtWachtwoord.Text);
             string username = txtInlogNaam.Text;
+
             try
             {
                 Login login = userService.LoginUser(password, username);
@@ -51,10 +52,10 @@ namespace Project1._4
             byte[] passwordbytes = Encoding.UTF8.GetBytes(password + salt);
             byte[] hashedpassword = hash.ComputeHash(passwordbytes);
             return Convert.ToBase64String(hashedpassword);
-            //sgeen var
+            //geen var
             //https://www.youtube.com/watch?v=ZbUCgU3G1z4&t
         }
-        private void ForgetPassword()
+        private void ForgetPassword(object sender, EventArgs e)
         {
             MessageBox.Show("Contact the Manager for a password reset");
         }
@@ -143,12 +144,12 @@ namespace Project1._4
             btnLoginHandheld.Text = "Login";
             btnLoginHandheld.UseMnemonic = false;
             btnLoginHandheld.UseVisualStyleBackColor = false;
-            btnLoginHandheld.Click += btnLoginHandheld_Click;
+            btnLoginHandheld.Click += Getlogin;
             // 
             // lblForgotPassword
             // 
             lblForgotPassword.AutoSize = true;
-            lblForgotPassword.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblForgotPassword.Font = new Font("Tahoma", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lblForgotPassword.Location = new Point(133, 514);
             lblForgotPassword.Name = "lblForgotPassword";
             lblForgotPassword.Size = new Size(111, 14);
@@ -156,7 +157,7 @@ namespace Project1._4
             lblForgotPassword.Text = "Forgot password";
             lblForgotPassword.TextAlign = ContentAlignment.MiddleCenter;
             lblForgotPassword.UseMnemonic = false;
-            lblForgotPassword.Click += lblForgotPassword_Click;
+            lblForgotPassword.Click += ForgetPassword;
             // 
             // pictureBox1
             // 
@@ -183,16 +184,6 @@ namespace Project1._4
             ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void btnLoginHandheld_Click(object sender, EventArgs e)
-        {
-            Getlogin();
-        }
-
-        private void lblForgotPassword_Click(object sender, EventArgs e)
-        {
-            ForgetPassword();
         }
     }
 }

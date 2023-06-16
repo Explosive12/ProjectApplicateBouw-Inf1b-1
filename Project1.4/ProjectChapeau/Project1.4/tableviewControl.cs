@@ -1,4 +1,5 @@
-﻿using Project1._4.Model;
+﻿using Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions.Item.Return;
+using Project1._4.Model;
 using Project1._4.Service;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,8 @@ namespace Project1._4
                 for (int coll = 0; coll < 5; coll++)
                 {
                     int tableId = tableslist[buttontext].tafelId;
-                    Button button = tableButtons.GetButton(coll, row, tableId);
+                    TableStatus status = tableslist[buttontext].status;
+                    Button button = tableButtons.GetButton(coll, row, tableId, status);
                     button.Click += Button_Click;
                     tableLayoutPanel.Controls.Add(button, coll, row);
                     buttontext++;

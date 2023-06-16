@@ -55,8 +55,8 @@ namespace Project1._4.DAL
         }
         public void UpdateTableStatus(Table table)
         {
-            string query = "UPDATE tafel set status = @status WHERE tafelId = {tafelId}";
-            SqlParameter[] sqlParameters = {new SqlParameter("@tafelId" , table.tafelId) , new SqlParameter("@status", table.status) };
+            string query = "UPDATE tafel set status = @status WHERE tafelId = tafelId";
+            SqlParameter[] sqlParameters = {new SqlParameter("@tafelId" , table.tafelId) , new SqlParameter("@status", (int)table.status) };
             ExecuteEditQuery(query, sqlParameters);
         }
         public void ReserveTable(int tafelId)
