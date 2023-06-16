@@ -1,4 +1,5 @@
 ﻿using Project1._4.Model;
+using Project1._4.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,7 +72,13 @@ namespace Project1._4.UI.Management.UC
         }
         private void AdjustMenuItem()
         {
+            ProductService productService = new ProductService();
+            
+        }
 
+        private void AddMenuItem()
+        {
+            
         }
     }
 }

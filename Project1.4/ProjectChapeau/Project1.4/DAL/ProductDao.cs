@@ -113,6 +113,7 @@ namespace Project1._4.DAL
             sqlParameters[4] = new SqlParameter("@productType", product.Type);
             ExecuteEditQuery(query, sqlParameters);
         }
+
         public void DeleteProduct(Product product)
         {
             string query = "DELETE FROM product WHERE productId = @productId";
@@ -123,6 +124,7 @@ namespace Project1._4.DAL
 
         public void UpdateProduct(Product product)
         {
+            
             
         }
     }

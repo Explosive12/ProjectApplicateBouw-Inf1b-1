@@ -42,6 +42,7 @@ namespace Project1._4.UI.Management.UC
                 role.ChosenOption = employee.Function.ToString();
                 password.Value = employee.Password;
             }
+            // Add ListviewHeaders to panel
             this.panelAddEmployee.Controls.Add(name);
             this.panelAddEmployee.Controls.Add(username);
             this.panelAddEmployee.Controls.Add(role);
