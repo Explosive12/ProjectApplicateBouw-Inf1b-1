@@ -32,6 +32,11 @@ namespace Project1._4.Service
             List<OrderItem> list = orderItemDb.GetByOrderItemId(orderItemId);
             return list;
         }
+        public List<OrderItem> GetByStatusKitchen(int intValue)
+        {
+            List<OrderItem> list = orderItemDb.GetByStatusKitchen(intValue);
+            return list;
+        }
         public List<OrderItem> GetByStatusBar(int intValue)
         {
             List<OrderItem> list = orderItemDb.GetByStatusBar(intValue);
@@ -42,7 +47,5 @@ namespace Project1._4.Service
         {
             orderItemDb.UpdateOrderItemState(clickedData, state);
         }
-
-        
     }
 }

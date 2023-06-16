@@ -47,15 +47,21 @@
             kitchenDescription = new ColumnHeader();
             lblSelectedOrder = new Label();
             lblKitchenHeader = new Label();
+            btnFilterByStatusKitchen = new Button();
+            cbxStatusKitchen = new ComboBox();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            kitchenWaitingTime = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnServedKitchen
             // 
             btnServedKitchen.BackColor = Color.FromArgb(138, 210, 176);
             btnServedKitchen.ForeColor = Color.Black;
-            btnServedKitchen.Location = new Point(1705, 375);
+            btnServedKitchen.Location = new Point(1920, 367);
             btnServedKitchen.Margin = new Padding(2);
             btnServedKitchen.Name = "btnServedKitchen";
             btnServedKitchen.Size = new Size(253, 52);
@@ -67,7 +73,7 @@
             // btnPreparedKitchen
             // 
             btnPreparedKitchen.BackColor = Color.FromArgb(255, 179, 71);
-            btnPreparedKitchen.Location = new Point(1435, 375);
+            btnPreparedKitchen.Location = new Point(1650, 367);
             btnPreparedKitchen.Margin = new Padding(2);
             btnPreparedKitchen.Name = "btnPreparedKitchen";
             btnPreparedKitchen.Size = new Size(253, 52);
@@ -78,7 +84,7 @@
             // 
             // btnPreparationKitchen
             // 
-            btnPreparationKitchen.Location = new Point(1163, 375);
+            btnPreparationKitchen.Location = new Point(1378, 367);
             btnPreparationKitchen.Margin = new Padding(2);
             btnPreparationKitchen.Name = "btnPreparationKitchen";
             btnPreparationKitchen.Size = new Size(253, 52);
@@ -91,7 +97,7 @@
             // 
             lblViewOrderStatusHeaderBar.AutoSize = true;
             lblViewOrderStatusHeaderBar.BackColor = Color.Orange;
-            lblViewOrderStatusHeaderBar.Location = new Point(1516, 506);
+            lblViewOrderStatusHeaderBar.Location = new Point(1731, 498);
             lblViewOrderStatusHeaderBar.Margin = new Padding(2, 0, 2, 0);
             lblViewOrderStatusHeaderBar.Name = "lblViewOrderStatusHeaderBar";
             lblViewOrderStatusHeaderBar.Size = new Size(222, 37);
@@ -102,7 +108,7 @@
             // 
             lblChangeStatusHeaderKitchen.AutoSize = true;
             lblChangeStatusHeaderKitchen.BackColor = Color.Orange;
-            lblChangeStatusHeaderKitchen.Location = new Point(1422, 266);
+            lblChangeStatusHeaderKitchen.Location = new Point(1648, 266);
             lblChangeStatusHeaderKitchen.Margin = new Padding(2, 0, 2, 0);
             lblChangeStatusHeaderKitchen.Name = "lblChangeStatusHeaderKitchen";
             lblChangeStatusHeaderKitchen.Size = new Size(255, 37);
@@ -157,7 +163,7 @@
             // pbxHeaderViewOrderStatusKitchen
             // 
             pbxHeaderViewOrderStatusKitchen.BackColor = Color.Orange;
-            pbxHeaderViewOrderStatusKitchen.Location = new Point(1163, 476);
+            pbxHeaderViewOrderStatusKitchen.Location = new Point(1378, 468);
             pbxHeaderViewOrderStatusKitchen.Margin = new Padding(2);
             pbxHeaderViewOrderStatusKitchen.Name = "pbxHeaderViewOrderStatusKitchen";
             pbxHeaderViewOrderStatusKitchen.Size = new Size(836, 111);
@@ -170,14 +176,14 @@
             pbxHeaderKitchen.Location = new Point(2, 224);
             pbxHeaderKitchen.Margin = new Padding(2);
             pbxHeaderKitchen.Name = "pbxHeaderKitchen";
-            pbxHeaderKitchen.Size = new Size(1999, 111);
+            pbxHeaderKitchen.Size = new Size(2213, 111);
             pbxHeaderKitchen.TabIndex = 40;
             pbxHeaderKitchen.TabStop = false;
             // 
             // lblStatusOfDish
             // 
             lblStatusOfDish.AutoSize = true;
-            lblStatusOfDish.Location = new Point(1705, 666);
+            lblStatusOfDish.Location = new Point(1962, 612);
             lblStatusOfDish.Margin = new Padding(2, 0, 2, 0);
             lblStatusOfDish.Name = "lblStatusOfDish";
             lblStatusOfDish.Size = new Size(102, 37);
@@ -186,11 +192,11 @@
             // 
             // listViewKitchenOrders
             // 
-            listViewKitchenOrders.Columns.AddRange(new ColumnHeader[] { kitchenOrderId, kitchenOrderNumber, kitchenOrderCount, kitchenDescription });
-            listViewKitchenOrders.Location = new Point(80, 290);
+            listViewKitchenOrders.Columns.AddRange(new ColumnHeader[] { kitchenOrderId, kitchenOrderNumber, kitchenOrderCount, kitchenDescription, kitchenWaitingTime });
+            listViewKitchenOrders.Location = new Point(80, 337);
             listViewKitchenOrders.Margin = new Padding(2);
             listViewKitchenOrders.Name = "listViewKitchenOrders";
-            listViewKitchenOrders.Size = new Size(1030, 563);
+            listViewKitchenOrders.Size = new Size(1180, 563);
             listViewKitchenOrders.TabIndex = 51;
             listViewKitchenOrders.UseCompatibleStateImageBehavior = false;
             listViewKitchenOrders.View = View.Details;
@@ -219,7 +225,7 @@
             // lblSelectedOrder
             // 
             lblSelectedOrder.AutoSize = true;
-            lblSelectedOrder.Location = new Point(1315, 666);
+            lblSelectedOrder.Location = new Point(1572, 612);
             lblSelectedOrder.Margin = new Padding(2, 0, 2, 0);
             lblSelectedOrder.Name = "lblSelectedOrder";
             lblSelectedOrder.Size = new Size(198, 37);
@@ -236,31 +242,80 @@
             lblKitchenHeader.TabIndex = 53;
             lblKitchenHeader.Text = "Kitchen Orders";
             // 
+            // btnFilterByStatusKitchen
+            // 
+            btnFilterByStatusKitchen.Location = new Point(1920, 826);
+            btnFilterByStatusKitchen.Name = "btnFilterByStatusKitchen";
+            btnFilterByStatusKitchen.Size = new Size(169, 52);
+            btnFilterByStatusKitchen.TabIndex = 74;
+            btnFilterByStatusKitchen.Text = "filter";
+            btnFilterByStatusKitchen.UseVisualStyleBackColor = true;
+            btnFilterByStatusKitchen.Click += btnFilterByStatusKitchen_Click;
+            // 
+            // cbxStatusKitchen
+            // 
+            cbxStatusKitchen.FormattingEnabled = true;
+            cbxStatusKitchen.Location = new Point(1498, 826);
+            cbxStatusKitchen.Name = "cbxStatusKitchen";
+            cbxStatusKitchen.Size = new Size(272, 45);
+            cbxStatusKitchen.TabIndex = 73;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Orange;
+            pictureBox1.Location = new Point(1378, 672);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(836, 111);
+            pictureBox1.TabIndex = 43;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Orange;
+            label1.Location = new Point(1731, 702);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(222, 37);
+            label1.TabIndex = 49;
+            label1.Text = "View order status";
+            // 
+            // kitchenWaitingTime
+            // 
+            kitchenWaitingTime.Text = "Waiting Time";
+            kitchenWaitingTime.Width = 200;
+            // 
             // KitchenOrderControl
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(btnFilterByStatusKitchen);
+            Controls.Add(cbxStatusKitchen);
             Controls.Add(lblKitchenHeader);
             Controls.Add(lblSelectedOrder);
             Controls.Add(lblStatusOfDish);
             Controls.Add(btnServedKitchen);
             Controls.Add(btnPreparedKitchen);
             Controls.Add(btnPreparationKitchen);
+            Controls.Add(label1);
             Controls.Add(lblViewOrderStatusHeaderBar);
             Controls.Add(lblChangeStatusHeaderKitchen);
             Controls.Add(lblDescriptionHeaderKitchen);
             Controls.Add(lblCountHeaderKitchen);
             Controls.Add(lblOrderNumberHeaderKitchen);
+            Controls.Add(pictureBox1);
             Controls.Add(lblOrderIDHeaderKitchen);
             Controls.Add(pbxHeaderViewOrderStatusKitchen);
             Controls.Add(pbxHeaderKitchen);
             Controls.Add(listViewKitchenOrders);
             Margin = new Padding(2);
             Name = "KitchenOrderControl";
-            Size = new Size(1999, 937);
+            Size = new Size(2213, 1029);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderKitchen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -287,5 +342,10 @@
         private ColumnHeader kitchenOrderCount;
         private ColumnHeader kitchenDescription;
         private Label lblKitchenHeader;
+        private Button btnFilterByStatusKitchen;
+        private ComboBox cbxStatusKitchen;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private ColumnHeader kitchenWaitingTime;
     }
 }

@@ -29,12 +29,15 @@ namespace Project1._4
 
         public void DisplayBarOrders(List<OrderItem> barOrderItems)
         {
+
             //Clear the ListView control before adding new items
             listViewBarOrders.Items.Clear();
 
             //Iterate over each CashRegister object in the list and create a new ListViewItem to display its data
             foreach (OrderItem orderItem in barOrderItems)
             {
+                TimeSpan waitingTime = DateTime.Now - orderItem.BeginTime;
+
                 //Create a new ListViewItem with the student ID as the first column
                 ListViewItem li = new ListViewItem(orderItem.OrderItemId.ToString());
 
@@ -42,6 +45,7 @@ namespace Project1._4
                 li.SubItems.Add(orderItem.OrderId.ToString());
                 li.SubItems.Add(orderItem.Amount.ToString());
                 li.SubItems.Add(orderItem.Comment);
+                li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
 
                 //Set the Tag property of the ListViewItem to the CashRegister object itself
                 li.Tag = orderItem;
@@ -121,15 +125,6 @@ namespace Project1._4
         {
             if (cbxStatusBar.SelectedItem != null)
             {
-                //OrderStatusEnum selectedValue = (OrderStatusEnum)cbxStatusBar.SelectedItem;
-                //int intValue = (int)selectedValue;
-                //
-                //OrderItemService orderItemService = new OrderItemService();
-                //List<OrderItem> orders = orderItemService.GetByStatusBar(intValue);
-                //
-                //DisplayBarOrders(orders);
-
-
                 string selectedValue = cbxStatusBar.SelectedItem.ToString();
 
                 OrderItemService orderItemService = new OrderItemService();
@@ -149,7 +144,6 @@ namespace Project1._4
                     // Handle unknown status or error
                     return;
                 }
-
 
                 DisplayBarOrders(orders);
             }

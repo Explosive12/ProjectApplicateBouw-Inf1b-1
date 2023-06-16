@@ -21,7 +21,7 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetOrderItemsByDinnerLunch()
         {
-            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status " +
+            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd " +
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
@@ -33,7 +33,7 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetOrderItemsByDrinks()
         {
-            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status " +
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd " +
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
@@ -66,7 +66,8 @@ namespace Project1._4.DAL
                     (int)dr["productId"],
                     (int)dr["aantal"],
                     (string)dr["opmerking"],
-                    (OrderStatusEnum)dr["status"]
+                    (OrderStatusEnum)dr["status"],
+                    (DateTime)dr["begintijd"]
                 );
                 orderItems.Add(orderItem);
             }
@@ -75,26 +76,9 @@ namespace Project1._4.DAL
 
         public void UpdateOrderItemState(int clickeddata, int state)
         {
-            string query = string.Empty;
-            SqlParameter[] sqlParameters = null;
-            DateTime finishTime = DateTime.Now;
-
-            //if (served)
-            //{
-            //    query = "UPDATE bestelling SET eindtijd = @Eindtijd " +
-            //            "WHERE bestellingId = @BestellingID";
-            //    sqlParameters = new SqlParameter[]
-            //    {
-            //        new SqlParameter("@Eindtijd", finishTime),
-            //        new SqlParameter("@BestellingId", clickeddata),
-            //    };
-            //    ExecuteEditQuery(query, sqlParameters);
-            //}
-
-
-            query = "UPDATE bestelregel SET status = @Status " +
+            string query = "UPDATE bestelregel SET status = @Status " +
                         "WHERE id = @OrderItemId";
-            sqlParameters = new SqlParameter[]
+            SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@OrderItemId", clickeddata),
                 new SqlParameter("@Status", state),
@@ -103,9 +87,14 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetByStatusKitchen(int orderItemId)
         {
-            string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
-                            "FROM bestelregel " +
-                            "WHERE id = @orderItemId";
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status " +
+                             "FROM bestelregel as B " +
+                                 "JOIN product as P ON P.productId = B.productId " +
+                                 "JOIN menu as M ON P.productId = M.productId " +
+                                 "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                             "WHERE [status] = @IntValue " +
+                                 "AND (M.type='Lunch' OR M.type='Dinner')" +
+                             "ORDER BY begintijd";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));

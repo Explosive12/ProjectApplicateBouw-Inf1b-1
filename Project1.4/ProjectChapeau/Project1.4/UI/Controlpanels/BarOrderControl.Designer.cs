@@ -46,11 +46,13 @@
             lblOrderIDHeaderBar = new Label();
             pbxHeaderBar = new PictureBox();
             listViewBarOrders = new ListView();
+            barWaitingTime = new ColumnHeader();
             cbxStatusBar = new ComboBox();
             pbxOrderByStatusBar = new PictureBox();
             pbxHeaderViewOrderStatusBar = new PictureBox();
             lblViewOrderByStatusHeaderBar = new Label();
             btnFilterByStatusBar = new Button();
+            lblWaitingTimeHeader = new Label();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxOrderByStatusBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusBar).BeginInit();
@@ -60,11 +62,12 @@
             // 
             lblBarHeader.AutoSize = true;
             lblBarHeader.Font = new Font("Segoe UI", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            lblBarHeader.Location = new Point(682, 70);
+            lblBarHeader.Location = new Point(887, 70);
             lblBarHeader.Name = "lblBarHeader";
             lblBarHeader.Size = new Size(410, 104);
             lblBarHeader.TabIndex = 68;
             lblBarHeader.Text = "Bar Orders";
+            lblBarHeader.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // kitchenDescription
             // 
@@ -89,7 +92,7 @@
             // lblSelectedOrder
             // 
             lblSelectedOrder.AutoSize = true;
-            lblSelectedOrder.Location = new Point(1316, 638);
+            lblSelectedOrder.Location = new Point(1513, 638);
             lblSelectedOrder.Margin = new Padding(2, 0, 2, 0);
             lblSelectedOrder.Name = "lblSelectedOrder";
             lblSelectedOrder.Size = new Size(198, 37);
@@ -99,7 +102,7 @@
             // lblStatusOfDish
             // 
             lblStatusOfDish.AutoSize = true;
-            lblStatusOfDish.Location = new Point(1703, 638);
+            lblStatusOfDish.Location = new Point(1888, 638);
             lblStatusOfDish.Margin = new Padding(2, 0, 2, 0);
             lblStatusOfDish.Name = "lblStatusOfDish";
             lblStatusOfDish.Size = new Size(102, 37);
@@ -110,7 +113,7 @@
             // 
             btnServedBar.BackColor = Color.FromArgb(138, 210, 176);
             btnServedBar.ForeColor = Color.Black;
-            btnServedBar.Location = new Point(1703, 389);
+            btnServedBar.Location = new Point(1919, 386);
             btnServedBar.Margin = new Padding(2);
             btnServedBar.Name = "btnServedBar";
             btnServedBar.Size = new Size(253, 52);
@@ -122,7 +125,7 @@
             // btnPreparedBar
             // 
             btnPreparedBar.BackColor = Color.FromArgb(255, 179, 71);
-            btnPreparedBar.Location = new Point(1433, 389);
+            btnPreparedBar.Location = new Point(1649, 386);
             btnPreparedBar.Margin = new Padding(2);
             btnPreparedBar.Name = "btnPreparedBar";
             btnPreparedBar.Size = new Size(253, 52);
@@ -133,7 +136,7 @@
             // 
             // btnPreparationBar
             // 
-            btnPreparationBar.Location = new Point(1161, 389);
+            btnPreparationBar.Location = new Point(1377, 386);
             btnPreparationBar.Margin = new Padding(2);
             btnPreparationBar.Name = "btnPreparationBar";
             btnPreparationBar.Size = new Size(253, 52);
@@ -146,7 +149,7 @@
             // 
             lblViewOrderStatusHeaderBar.AutoSize = true;
             lblViewOrderStatusHeaderBar.BackColor = Color.Orange;
-            lblViewOrderStatusHeaderBar.Location = new Point(1514, 520);
+            lblViewOrderStatusHeaderBar.Location = new Point(1661, 520);
             lblViewOrderStatusHeaderBar.Margin = new Padding(2, 0, 2, 0);
             lblViewOrderStatusHeaderBar.Name = "lblViewOrderStatusHeaderBar";
             lblViewOrderStatusHeaderBar.Size = new Size(222, 37);
@@ -157,7 +160,7 @@
             // 
             lblChangeStatusHeaderBar.AutoSize = true;
             lblChangeStatusHeaderBar.BackColor = Color.Orange;
-            lblChangeStatusHeaderBar.Location = new Point(1420, 280);
+            lblChangeStatusHeaderBar.Location = new Point(1594, 280);
             lblChangeStatusHeaderBar.Margin = new Padding(2, 0, 2, 0);
             lblChangeStatusHeaderBar.Name = "lblChangeStatusHeaderBar";
             lblChangeStatusHeaderBar.Size = new Size(255, 37);
@@ -215,26 +218,31 @@
             pbxHeaderBar.Location = new Point(0, 238);
             pbxHeaderBar.Margin = new Padding(2);
             pbxHeaderBar.Name = "pbxHeaderBar";
-            pbxHeaderBar.Size = new Size(1999, 111);
+            pbxHeaderBar.Size = new Size(2211, 111);
             pbxHeaderBar.TabIndex = 60;
             pbxHeaderBar.TabStop = false;
             // 
             // listViewBarOrders
             // 
-            listViewBarOrders.Columns.AddRange(new ColumnHeader[] { kitchenOrderId, kitchenOrderNumber, kitchenOrderCount, kitchenDescription });
-            listViewBarOrders.Location = new Point(78, 304);
+            listViewBarOrders.Columns.AddRange(new ColumnHeader[] { kitchenOrderId, kitchenOrderNumber, kitchenOrderCount, kitchenDescription, barWaitingTime });
+            listViewBarOrders.Location = new Point(78, 348);
             listViewBarOrders.Margin = new Padding(2);
             listViewBarOrders.Name = "listViewBarOrders";
-            listViewBarOrders.Size = new Size(1030, 563);
+            listViewBarOrders.Size = new Size(1206, 563);
             listViewBarOrders.TabIndex = 66;
             listViewBarOrders.UseCompatibleStateImageBehavior = false;
             listViewBarOrders.View = View.Details;
             listViewBarOrders.SelectedIndexChanged += listViewBarOrders_SelectedIndexChanged;
             // 
+            // barWaitingTime
+            // 
+            barWaitingTime.Text = "Wait Time";
+            barWaitingTime.Width = 200;
+            // 
             // cbxStatusBar
             // 
             cbxStatusBar.FormattingEnabled = true;
-            cbxStatusBar.Location = new Point(1265, 871);
+            cbxStatusBar.Location = new Point(1444, 871);
             cbxStatusBar.Name = "cbxStatusBar";
             cbxStatusBar.Size = new Size(272, 45);
             cbxStatusBar.TabIndex = 69;
@@ -242,7 +250,7 @@
             // pbxOrderByStatusBar
             // 
             pbxOrderByStatusBar.BackColor = Color.Orange;
-            pbxOrderByStatusBar.Location = new Point(1166, 708);
+            pbxOrderByStatusBar.Location = new Point(1377, 708);
             pbxOrderByStatusBar.Margin = new Padding(2);
             pbxOrderByStatusBar.Name = "pbxOrderByStatusBar";
             pbxOrderByStatusBar.Size = new Size(836, 111);
@@ -252,7 +260,7 @@
             // pbxHeaderViewOrderStatusBar
             // 
             pbxHeaderViewOrderStatusBar.BackColor = Color.Orange;
-            pbxHeaderViewOrderStatusBar.Location = new Point(1166, 489);
+            pbxHeaderViewOrderStatusBar.Location = new Point(1377, 489);
             pbxHeaderViewOrderStatusBar.Margin = new Padding(2);
             pbxHeaderViewOrderStatusBar.Name = "pbxHeaderViewOrderStatusBar";
             pbxHeaderViewOrderStatusBar.Size = new Size(836, 111);
@@ -263,7 +271,7 @@
             // 
             lblViewOrderByStatusHeaderBar.AutoSize = true;
             lblViewOrderByStatusHeaderBar.BackColor = Color.Orange;
-            lblViewOrderByStatusHeaderBar.Location = new Point(1453, 745);
+            lblViewOrderByStatusHeaderBar.Location = new Point(1600, 745);
             lblViewOrderByStatusHeaderBar.Margin = new Padding(2, 0, 2, 0);
             lblViewOrderByStatusHeaderBar.Name = "lblViewOrderByStatusHeaderBar";
             lblViewOrderByStatusHeaderBar.Size = new Size(263, 37);
@@ -272,7 +280,7 @@
             // 
             // btnFilterByStatusBar
             // 
-            btnFilterByStatusBar.Location = new Point(1649, 864);
+            btnFilterByStatusBar.Location = new Point(1864, 864);
             btnFilterByStatusBar.Name = "btnFilterByStatusBar";
             btnFilterByStatusBar.Size = new Size(169, 52);
             btnFilterByStatusBar.TabIndex = 72;
@@ -280,10 +288,22 @@
             btnFilterByStatusBar.UseVisualStyleBackColor = true;
             btnFilterByStatusBar.Click += btnFilterByStatusBar_Click;
             // 
+            // lblWaitingTimeHeader
+            // 
+            lblWaitingTimeHeader.AutoSize = true;
+            lblWaitingTimeHeader.BackColor = Color.Orange;
+            lblWaitingTimeHeader.Location = new Point(1081, 280);
+            lblWaitingTimeHeader.Margin = new Padding(2, 0, 2, 0);
+            lblWaitingTimeHeader.Name = "lblWaitingTimeHeader";
+            lblWaitingTimeHeader.Size = new Size(174, 37);
+            lblWaitingTimeHeader.TabIndex = 73;
+            lblWaitingTimeHeader.Text = "Waiting Time";
+            // 
             // BarOrderControl
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblWaitingTimeHeader);
             Controls.Add(btnFilterByStatusBar);
             Controls.Add(lblViewOrderByStatusHeaderBar);
             Controls.Add(pbxOrderByStatusBar);
@@ -304,7 +324,7 @@
             Controls.Add(pbxHeaderBar);
             Controls.Add(listViewBarOrders);
             Name = "BarOrderControl";
-            Size = new Size(2002, 1029);
+            Size = new Size(2213, 1029);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxOrderByStatusBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusBar).EndInit();
@@ -337,5 +357,7 @@
         private PictureBox pbxHeaderViewOrderStatusBar;
         private Label lblViewOrderByStatusHeaderBar;
         private Button btnFilterByStatusBar;
+        private ColumnHeader barWaitingTime;
+        private Label lblWaitingTimeHeader;
     }
 }
