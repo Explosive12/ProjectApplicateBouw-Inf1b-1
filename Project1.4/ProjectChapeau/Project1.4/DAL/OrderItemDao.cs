@@ -25,8 +25,10 @@ namespace Project1._4.DAL
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
-                            "WHERE M.type='Lunch' " +
-                            "OR M.type='Dinner'";
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE (M.type='Lunch' OR M.type='Dinner') " +
+                                "AND B.status !='2' " +
+                            "ORDER BY begintijd";
             return ReadTables(ExecuteSelectQuery(query));
         }
         public List<OrderItem> GetOrderItemsByDrinks()

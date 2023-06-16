@@ -11,14 +11,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Project1._4.UI
 {
     public partial class BarKitchenView : Form
     {
+        private System.Windows.Forms.Timer kitchenOrdersTimer;
+
         //private Order order = new Order();
         public BarKitchenView()
         {
             InitializeComponent();
+
+            kitchenOrdersTimer = new System.Windows.Forms.Timer();
+            kitchenOrdersTimer.Interval = 1000; // 1 minute = 60,000 milliseconds
+            kitchenOrdersTimer.Tick += new EventHandler(btnLoadKitchenOrders_Click);
+            kitchenOrdersTimer.Start();
         }
         public void Loadabc()
         {
@@ -40,6 +48,10 @@ namespace Project1._4.UI
 
             this.flpKitchenOrders.Controls.Clear();
 
+            if (kitchenOrders.Count == 0)
+            {
+                MessageBox.Show("No orders in list");
+            }
             foreach (OrderItem kitchenOrder in kitchenOrders)
             {
                 KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
