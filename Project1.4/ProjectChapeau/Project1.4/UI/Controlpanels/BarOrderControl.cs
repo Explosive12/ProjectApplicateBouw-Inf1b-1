@@ -45,7 +45,10 @@ namespace Project1._4
                 li.SubItems.Add(orderItem.OrderId.ToString());
                 li.SubItems.Add(orderItem.Amount.ToString());
                 li.SubItems.Add(orderItem.Comment);
-                if (orderItem.Status.ToString() == "Prepared" || orderItem.Status.ToString() == "Served")
+
+                //TODO MAKE IT CHECK ORDERS OF TODAY
+
+                if (orderItem.Status.ToString() == "Prepared" || orderItem.Status.ToString() == "Served" && orderItem.BeginTime.Day == DateTime.Now.Day)
                 {
                     li.SubItems.Add("--:--:--");
                 }
