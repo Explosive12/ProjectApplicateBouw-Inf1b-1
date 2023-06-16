@@ -45,7 +45,15 @@ namespace Project1._4
                 li.SubItems.Add(orderItem.OrderId.ToString());
                 li.SubItems.Add(orderItem.Amount.ToString());
                 li.SubItems.Add(orderItem.Comment);
-                li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
+                if (orderItem.Status.ToString() == "Prepared" || orderItem.Status.ToString() == "Served")
+                {
+                    li.SubItems.Add("--:--:--");
+                }
+                else
+                {
+                    li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
+                }
+                
 
                 //Set the Tag property of the ListViewItem to the CashRegister object itself
                 li.Tag = orderItem;
