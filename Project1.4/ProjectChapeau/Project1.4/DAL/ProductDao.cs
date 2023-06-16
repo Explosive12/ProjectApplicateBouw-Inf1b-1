@@ -14,7 +14,7 @@ namespace Project1._4.DAL
         public List<Product> GetAllProducts()
         {
             string query = "SELECT productId, naam, prijs, voorraad, btw, productType FROM product";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetAllLunchProducts()
@@ -22,7 +22,7 @@ namespace Project1._4.DAL
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
                             "JOIN menu AS M ON P.productId = M.productId " +
                             "WHERE M.type='Lunch'";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetAllDinnerProducts()
@@ -30,7 +30,7 @@ namespace Project1._4.DAL
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
                             "JOIN menu AS M ON P.productId = M.productId" +
                             "WHERE M.type='Dinner'";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetAllDrinksProducts()
@@ -38,7 +38,7 @@ namespace Project1._4.DAL
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
                             "JOIN menu AS M ON P.productId = M.productId" +
                             "WHERE M.type='Drinks'";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
 
@@ -48,7 +48,7 @@ namespace Project1._4.DAL
             string query = "SELECT productId, naam, prijs, voorraad, btw, productType FROM product WHERE productId = @productId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@productId", productId);
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadProducts(ExecuteSelectQuery(query, sqlParameters));
         }
         private ProductType GetProductType(int productType)
         {
@@ -76,7 +76,7 @@ namespace Project1._4.DAL
                     return ProductType.Entree;
             }
         }
-        private List<Product> ReadTables(DataTable dataTable)
+        private List<Product> ReadProducts(DataTable dataTable)
         {
             List<Product> products = new List<Product>();
 
@@ -86,11 +86,11 @@ namespace Project1._4.DAL
                 ProductType productType = GetProductType((int)dr[5]);
 
                 Product product = new Product(
-                    (int)dr["productId"], //id
-                    dr["naam"].ToString(), // name
-                    (decimal)dr["prijs"], // price
-                    (int)dr["voorraad"], // Stock
-                    (decimal)dr["btw"], // btw
+                    (int)dr[0],         //id
+                    dr[1].ToString(),   // name
+                    (decimal)dr[2],     // price
+                    (int)dr[3],         // Stock
+                    (decimal)dr[4],     // btw
                     productType         // productType
                     );
                 products.Add(product);
