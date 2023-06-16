@@ -20,18 +20,6 @@ namespace Project1._4.UI
         {
             InitializeComponent();
         }
-        public void Loadabc()
-        {
-            List<OrderItem> kitchenOrders = GetKitchenOrders();
-
-            this.flpOrders.Controls.Clear();
-
-            foreach (OrderItem kitchenOrder in kitchenOrders)
-            {
-                KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
-                this.flpOrders.Controls.Add(kitchenOrderControl);
-            }
-        }
 
         private void btnLoadKitchenOrders_Click(object sender, EventArgs e)
         {
@@ -127,7 +115,7 @@ namespace Project1._4.UI
                 MessageBox.Show("Something went wrong while loading the cash registers: " + e.Message);
             }
         }
-        
+
         private List<OrderItem> GetKitchenOrderItems()
         {
             OrderItemService orderItemService = new OrderItemService();

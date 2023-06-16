@@ -26,8 +26,6 @@ namespace Project1._4
             barKitchenView.Show();
 
             this.Hide();
-
-            barKitchenView.Loadabc();
         }
 
         private void buttonStartManagerView_Click(object sender, EventArgs e)
