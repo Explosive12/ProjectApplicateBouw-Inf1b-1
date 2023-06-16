@@ -57,9 +57,9 @@ namespace Project1._4.DAL
                 case 1:
                     return ProductType.Entree;
                 case 2:
-                    return ProductType.MainCourse;
-                case 3:
                     return ProductType.SideDish;
+                case 3:
+                    return ProductType.MainCourse;
                 case 4:
                     return ProductType.Dessert;
                 case 13:
