@@ -60,7 +60,8 @@ namespace Project1._4.UI
             form1.Show();
             this.Hide();
         }
-        private void ShowCashRegistersPanel()
+
+        public void ShowCashRegistersPanel()
         {
             try
             {

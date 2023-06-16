@@ -35,6 +35,9 @@ namespace Project1._4
 
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+
+            //to instant update the label
+            lblStatusOfDish.Text = OrderStatusEnum.Prepared.ToString();
         }
 
         //TODO AUTOUPDATE LISTVIEW
@@ -45,6 +48,9 @@ namespace Project1._4
 
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+
+            //to instant update the label
+            lblStatusOfDish.Text = OrderStatusEnum.Served.ToString();
         }
 
         //TODO AUTOUPDATE LISTVIEW
@@ -55,6 +61,9 @@ namespace Project1._4
 
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+
+            //to instant update the label
+            lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
         }
 
         public void DisplayKitchenOrders(List<OrderItem> kitchenOrderItems)
