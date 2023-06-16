@@ -40,6 +40,7 @@ namespace Project1._4.UI.Management.UC
             // 
             // panelAddEmployee
             // 
+            panelAddEmployee.AutoScroll = true;
             panelAddEmployee.BackColor = SystemColors.Window;
             panelAddEmployee.Location = new Point(36, 163);
             panelAddEmployee.Name = "panelAddEmployee";
@@ -97,7 +98,7 @@ namespace Project1._4.UI.Management.UC
             buttonAddAdjustEmployee.UseVisualStyleBackColor = false;
             buttonAddAdjustEmployee.Click += AddAdjustEmployee_Click;
             // 
-            // AddAdjustEmployeeUC
+            // AddOrAdjustEmployeeUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -107,7 +108,7 @@ namespace Project1._4.UI.Management.UC
             Controls.Add(labelEmployeeChanges);
             Controls.Add(buttonGoBack);
             Controls.Add(panelAddEmployee);
-            Name = "AddAdjustEmployeeUC";
+            Name = "AddOrAdjustEmployeeUC";
             Size = new Size(414, 736);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);

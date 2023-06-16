@@ -31,7 +31,7 @@ namespace Project1._4.UI
         private void InitializeComponent()
         {
             buttonSelectOption = new RoundButton();
-            textBoxStock = new RoundTextBox();
+            textBox = new RoundTextBox();
             SuspendLayout();
             // 
             // buttonSelectOption
@@ -42,6 +42,7 @@ namespace Project1._4.UI
             buttonSelectOption.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSelectOption.Location = new Point(0, 0);
             buttonSelectOption.Name = "buttonSelectOption";
+            buttonSelectOption.Padding = new Padding(0, 0, 40, 0);
             buttonSelectOption.Size = new Size(350, 35);
             buttonSelectOption.TabIndex = 2;
             buttonSelectOption.Text = "{Name}";
@@ -49,24 +50,24 @@ namespace Project1._4.UI
             buttonSelectOption.UseVisualStyleBackColor = false;
             buttonSelectOption.Click += OptionSelected;
             // 
-            // textBoxType
+            // textBoxStock
             // 
-            textBoxStock.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            textBoxStock.Location = new Point(201, 8);
-            textBoxStock.Name = "textBoxType";
-            textBoxStock.ReadOnly = true;
-            textBoxStock.Size = new Size(128, 22);
-            textBoxStock.TabIndex = 1;
-            textBoxStock.Text = "{Type}";
-            textBoxStock.TextAlign = HorizontalAlignment.Center;
+            textBox.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox.Location = new Point(201, 8);
+            textBox.Name = "textBoxStock";
+            textBox.ReadOnly = true;
+            textBox.Size = new Size(128, 22);
+            textBox.TabIndex = 1;
+            textBox.Text = "{Type}";
+            textBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // UserEmployeeUC
+            // ItemButtonUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(textBoxStock);
+            Controls.Add(textBox);
             Controls.Add(buttonSelectOption);
-            Name = "UserEmployeeUC";
+            Name = "ItemButtonUC";
             Size = new Size(350, 35);
             ResumeLayout(false);
             PerformLayout();
@@ -75,7 +76,7 @@ namespace Project1._4.UI
         #endregion
 
         //private Label labelName;
-        private RoundTextBox textBoxStock;
+        private RoundTextBox textBox;
         private RoundButton buttonSelectOption;
     }
 

@@ -74,6 +74,7 @@
             // 
             // panelAddProductList
             // 
+            panelAddProductList.AutoScroll = true;
             panelAddProductList.BackColor = SystemColors.Window;
             panelAddProductList.Location = new Point(36, 163);
             panelAddProductList.Name = "panelAddProductList";

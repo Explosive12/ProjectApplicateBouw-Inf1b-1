@@ -29,7 +29,9 @@ namespace Project1._4.UI.Management.UC
             List<Product> products = GetAllProducts();
             foreach (Product product in products)
             {
-                panelProductsList.Controls.Add(new ItemButtonUC(null, product));
+                ItemButtonUC control = new ItemButtonUC(null, product);
+                control.TextboxSize = 30;
+                panelProductsList.Controls.Add(control);
             }
         }
 

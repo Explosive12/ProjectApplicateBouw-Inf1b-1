@@ -120,16 +120,18 @@
             // 
             // panelProductsList
             // 
+            panelProductsList.AutoScroll = true;
             panelProductsList.BackColor = SystemColors.Window;
             panelProductsList.Location = new Point(36, 152);
             panelProductsList.Name = "panelProductsList";
-            panelProductsList.Size = new Size(357, 449);
+            panelProductsList.Size = new Size(375, 449);
             panelProductsList.TabIndex = 21;
             // 
             // ManageMenuUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             Controls.Add(panelProductsList);
             Controls.Add(Logo);
             Controls.Add(labelMenu);

@@ -16,6 +16,17 @@ namespace Project1._4.UI
                 return buttonSelectOption.BackColor == selectedColor;
             }
         }
+        public int TextboxSize
+        {
+            get { return textBox.Width; }
+            set
+            {
+                textBox.Width = value;
+                int sizeAndPadding = value + 10;
+                textBox.Location = new Point(this.Width - sizeAndPadding, textBox.Location.Y);
+                buttonSelectOption.Padding = new Padding(0, 0, sizeAndPadding, 0);
+            }
+        }
 
         public Employee Employee { get; internal set; }
         public Product Product { get; internal set; }
@@ -42,16 +53,16 @@ namespace Project1._4.UI
         public void SetEmployee(Employee employee)
         {
             buttonSelectOption.Text = employee.Username;
-            textBoxStock.Text = employee.Function.ToString();
+            textBox.Text = employee.Function.ToString();
         }
 
         public void SetProduct(Product product)
         {
             buttonSelectOption.Text = product.Name;
-            textBoxStock.Text = product.Stock.ToString();
-            if (product.Stock == 1)
+            textBox.Text = product.Stock.ToString();
+            if (product.Stock < 1)
             {
-                textBoxStock.BackColor = lowStockColor;
+                textBox.BackColor = lowStockColor;
             }
         }
 

@@ -133,6 +133,7 @@ namespace Project1._4.UI.Management
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             Controls.Add(panelEmployee);
             Controls.Add(buttonAdjust);

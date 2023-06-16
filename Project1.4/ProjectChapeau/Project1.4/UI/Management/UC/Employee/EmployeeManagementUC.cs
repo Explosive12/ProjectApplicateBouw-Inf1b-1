@@ -77,7 +77,7 @@ namespace Project1._4.UI.Management
             Employee employee = GetSelectedEmployee();
             if (employee == null)
                 return;
-            
+
             EmployeeService service = new EmployeeService();
             service.DeleteEmployee(employee);
 

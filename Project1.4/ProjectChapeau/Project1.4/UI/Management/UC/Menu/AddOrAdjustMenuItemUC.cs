@@ -17,7 +17,8 @@ namespace Project1._4.UI.Management.UC
     {
         private readonly ManagerView _form;
         private readonly Product _product;
-        private AddItemUC productName = new AddItemUC("Name");
+        private AddItemUC _productName = new AddItemUC("Name");
+        private AddItemUC _price = new AddItemUC("Price");
         private AddOrAdjustItemComboBoxUC _category = new AddOrAdjustItemComboBoxUC("Category", "ProductType");
 
         private AddItemUC _stock = new AddItemUC("Stock");
@@ -37,11 +38,12 @@ namespace Project1._4.UI.Management.UC
         {
             if (product != null)
             {
-                productName.Value = product.Name;
+                _productName.Value = product.Name;
                 _category.ChosenOption = product.Type.ToString();
                 _stock.Value = product.Stock.ToString();
             }
-            this.panelAddProductList.Controls.Add(productName);
+            this.panelAddProductList.Controls.Add(_productName);
+            this.panelAddProductList.Controls.Add(_price);
             this.panelAddProductList.Controls.Add(_category);
             this.panelAddProductList.Controls.Add(_stock);
         }
@@ -53,7 +55,7 @@ namespace Project1._4.UI.Management.UC
 
         private void AddOrAdjust_Click(object sender, EventArgs e)
         {
-            if (productName.Value == "" || _category.ChosenOption == null || _stock.Value == "")
+            if (_productName.Value == "" || _category.ChosenOption == null || _stock.Value == "")
             {
                 MessageBox.Show("Please fill in all the fields");
                 return;
@@ -63,22 +65,46 @@ namespace Project1._4.UI.Management.UC
             {
                 if (buttonAddOrAdjustMenuItem.Text == "ADJUST")
                     AdjustMenuItem();
-                    
+                else
+                    AddMenuItem();
+
+
             }
             catch (Exception exp)
             {
-                MessageBox.Show($"Something went wrong while adding or adjusting {productName.Value}{exp.Message}");
+                MessageBox.Show($"Something went wrong while adding or adjusting {_productName.Value}{exp.Message}");
             }
         }
         private void AdjustMenuItem()
         {
             ProductService productService = new ProductService();
-            
+            ProductType productType = (ProductType)Enum.Parse(typeof(ProductType), _category.ChosenOption);
+            decimal vat = CalculateVat(productType);
+
+            Product product = new Product(_product.ProductId, _productName.Value, decimal.Parse(_price.Value), int.Parse(_stock.Value), vat, productType);
+            productService.UpdateProduct(product);
+
+            _form.NavigateToMenu();
         }
 
         private void AddMenuItem()
         {
-            
+            ProductService productService = new ProductService();
+            ProductType productType = (ProductType)Enum.Parse(typeof(ProductType), _category.ChosenOption);
+            decimal vat = CalculateVat(productType);
+            Product product = new Product(0, _productName.Value, decimal.Parse(_price.Value), int.Parse(_stock.Value), vat, productType);
+            productService.AddProduct(product);
+
+            _form.NavigateToMenu();
         }
+
+        private decimal CalculateVat(ProductType productType)
+        {
+            if (productType == ProductType.Spirit || productType == ProductType.Wine || productType == ProductType.Beer)
+                return 21;
+            return 9;
+        }
+
+
     }
 }
