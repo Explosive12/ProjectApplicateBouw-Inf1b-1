@@ -34,8 +34,27 @@ namespace Project1._4
             tableslist = tableService.GetAllTables();
 
             tableButtons = new TableButtonsControl();
-            //tableLayoutPanel.Controls.Add(tableButtons, 0 , 0);
+            AddButtonsToTableLayout();
+        }
+        private void Button_Click(object sender , EventArgs e)
+        {
+            Button button = (Button)sender;
+            int buttonIndex = tableLayoutPanel.Controls.IndexOf(button);
+            int tableId = tableslist[buttonIndex].tafelId;
 
+            tableStatusControl tableStatusControl = new tableStatusControl(tableId , this);
+            this.Parent.Controls.Add(tableStatusControl);
+            tableStatusControl.BringToFront();
+        }
+        public void UpdateTableData()
+        {
+            tableslist = tableService.GetAllTables();
+            AddButtonsToTableLayout();
+
+        }
+        private void AddButtonsToTableLayout()
+        {
+            tableLayoutPanel.Controls.Clear();
             int buttontext = 0;
 
             for (int row = 0; row < 2; row++)
@@ -50,15 +69,6 @@ namespace Project1._4
                     buttontext++;
                 }
             }
-        }
-        private void Button_Click(object sender , EventArgs e)
-        {
-            Button button = (Button)sender;
-            int tableId = int.Parse(button.Text);
-
-            tableStatusControl tableStatusControl = new tableStatusControl(tableId);
-            this.Parent.Controls.Add(tableStatusControl);
-            tableStatusControl.BringToFront();
         }
     }
 }

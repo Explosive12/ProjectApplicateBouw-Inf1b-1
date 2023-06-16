@@ -53,10 +53,10 @@ namespace Project1._4.DAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        public void UpdateTableStatus(Table table)
+        public void UpdateTableStatus(TableStatus status ,int tableId)
         {
-            string query = "UPDATE tafel set status = @status WHERE tafelId = tafelId";
-            SqlParameter[] sqlParameters = {new SqlParameter("@tafelId" , table.tafelId) , new SqlParameter("@status", (int)table.status) };
+            string query = "UPDATE tafel SET status = @status WHERE tafelId = tafelId";
+            SqlParameter[] sqlParameters = {new SqlParameter("@status" , (int)status) , new SqlParameter("@tableId", tableId) };
             ExecuteEditQuery(query, sqlParameters);
         }
         public void ReserveTable(int tafelId)

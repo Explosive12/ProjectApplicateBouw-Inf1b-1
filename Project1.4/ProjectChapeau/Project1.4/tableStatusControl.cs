@@ -1,6 +1,7 @@
 ﻿using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemWithName;
 using Project1._4.Model;
 using Project1._4.Service;
+using Project1._4.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,14 @@ namespace Project1._4
     {
         private TableService tableService;
         private int tableId;
-        public tableStatusControl(int tableId)
+        private tableviewControl tableviewControl;
+        public tableStatusControl(int tableId, tableviewControl tableviewControl)
         {
             InitializeComponent();
             lblTableIdStatusControl.Text = tableId.ToString();
+            this.tableId = tableId;
             tableService = new TableService();
+            this.tableviewControl = tableviewControl;
         }
         private void Back(object sender, EventArgs e)
         {
@@ -29,27 +33,22 @@ namespace Project1._4
         }
         private void freeButton(object sender, EventArgs e)
         {
-            UpdateTableStatus(TableStatus.Vrij);
+            UpdateTableStatus(TableStatus.Vrij , tableId);
         }
         private void occupiedButton(object sender, EventArgs e)
         {
-            UpdateTableStatus(TableStatus.Bezet);
+            UpdateTableStatus(TableStatus. Bezet , tableId);
         }
         private void reservedButton(object sender, EventArgs e)
         {
-            UpdateTableStatus(TableStatus.Gereseveerd);
+            UpdateTableStatus(TableStatus.Gereseveerd , tableId);
         }
-        private void UpdateTableStatus(TableStatus status)
+        private void UpdateTableStatus(TableStatus status, int tableId)
         {
-            Table table = tableService.GetTableById(tableId);
-            if (table != null)
-            {
-                table.status = status;
-                tableService.UpdateTableStatus(table);
-                MessageBox.Show("Table status updated successfully");
-            }
-            else
-                MessageBox.Show("Table status was not updated successfully");
+            tableService.UpdateTableStatus(status, tableId);
+            MessageBox.Show("The table was succesfully updated");
+
+            tableviewControl.UpdateTableData();
 
             this.Hide();
         }

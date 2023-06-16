@@ -19,9 +19,9 @@ namespace Project1._4.Service
             return tabledb.GetTableById(tableId);
         }
 
-        public void UpdateTableStatus(Table table)
+        public void UpdateTableStatus(TableStatus status, int tableId)
         {
-            tabledb.UpdateTableStatus(table);
+            tabledb.UpdateTableStatus(status, tableId);
         }
         public List<Table> GetAllTables()
         {
