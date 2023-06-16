@@ -95,7 +95,7 @@ namespace Project1._4.UI.Management.UC
             buttonAddAdjustEmployee.TabIndex = 17;
             buttonAddAdjustEmployee.Text = "ADD";
             buttonAddAdjustEmployee.UseVisualStyleBackColor = false;
-            buttonAddAdjustEmployee.Click += AddAdjustEmployee;
+            buttonAddAdjustEmployee.Click += AddAdjustEmployee_Click;
             // 
             // AddAdjustEmployeeUC
             // 

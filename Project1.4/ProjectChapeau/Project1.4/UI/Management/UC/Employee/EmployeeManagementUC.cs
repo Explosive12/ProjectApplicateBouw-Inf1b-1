@@ -36,11 +36,11 @@ namespace Project1._4.UI.Management
             List<Employee> employees = GetAllEmployees();
             foreach (Employee employee in employees)
             {
-                panelEmployee.Controls.Add(new UserEmployeeUC(employee));
+                panelEmployee.Controls.Add(new ItemButtonUC(employee));
             }
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void EmployeeManagementOnLoad(object sender, EventArgs e)
         {
             RefreshEmployeePanel();
         }
@@ -76,10 +76,8 @@ namespace Project1._4.UI.Management
         {
             Employee employee = GetSelectedEmployee();
             if (employee == null)
-            {
-                MessageBox.Show("Please select an employee");
                 return;
-            }
+            
             EmployeeService service = new EmployeeService();
             service.DeleteEmployee(employee);
 
@@ -87,7 +85,7 @@ namespace Project1._4.UI.Management
         }
         private Employee GetSelectedEmployee()
         {
-            foreach (UserEmployeeUC userEmployeeUC in panelEmployee.Controls.OfType<UserEmployeeUC>())
+            foreach (ItemButtonUC userEmployeeUC in panelEmployee.Controls.OfType<ItemButtonUC>())
             {
                 if (userEmployeeUC.IsSelected)
                     return userEmployeeUC.Employee;

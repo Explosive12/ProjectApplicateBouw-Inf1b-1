@@ -30,9 +30,9 @@
         {
             Logo = new PictureBox();
             buttonGoBack = new RoundedItems.RoundButton();
-            labelMenu = new Label();
-            panelAddMenuItem = new FlowLayoutPanel();
-            buttonAddMenuItem = new RoundedItems.RoundButton();
+            labelMenuChange = new Label();
+            panelAddProductList = new FlowLayoutPanel();
+            buttonAddOrAdjustMenuItem = new RoundedItems.RoundButton();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
@@ -62,48 +62,49 @@
             buttonGoBack.UseVisualStyleBackColor = false;
             buttonGoBack.Click += buttonGoBack_Click;
             // 
-            // labelMenu
+            // labelMenuChange
             // 
-            labelMenu.AutoSize = true;
-            labelMenu.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            labelMenu.Location = new Point(30, 121);
-            labelMenu.Name = "labelMenu";
-            labelMenu.Size = new Size(208, 39);
-            labelMenu.TabIndex = 19;
-            labelMenu.Text = "MENU ITEM";
+            labelMenuChange.AutoSize = true;
+            labelMenuChange.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMenuChange.Location = new Point(30, 121);
+            labelMenuChange.Name = "labelMenuChange";
+            labelMenuChange.Size = new Size(208, 39);
+            labelMenuChange.TabIndex = 19;
+            labelMenuChange.Text = "MENU ITEM";
             // 
-            // panelAddMenuItem
+            // panelAddProductList
             // 
-            panelAddMenuItem.BackColor = SystemColors.Window;
-            panelAddMenuItem.Location = new Point(36, 163);
-            panelAddMenuItem.Name = "panelAddMenuItem";
-            panelAddMenuItem.Size = new Size(357, 449);
-            panelAddMenuItem.TabIndex = 20;
+            panelAddProductList.BackColor = SystemColors.Window;
+            panelAddProductList.Location = new Point(36, 163);
+            panelAddProductList.Name = "panelAddProductList";
+            panelAddProductList.Size = new Size(357, 449);
+            panelAddProductList.TabIndex = 20;
             // 
-            // buttonAddMenuItem
+            // buttonAddOrAdjustMenuItem
             // 
-            buttonAddMenuItem.BackColor = Color.FromArgb(138, 210, 176);
-            buttonAddMenuItem.Cursor = Cursors.Hand;
-            buttonAddMenuItem.FlatAppearance.BorderSize = 0;
-            buttonAddMenuItem.FlatStyle = FlatStyle.Flat;
-            buttonAddMenuItem.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAddMenuItem.Location = new Point(36, 633);
-            buttonAddMenuItem.Name = "buttonAddMenuItem";
-            buttonAddMenuItem.Size = new Size(120, 35);
-            buttonAddMenuItem.TabIndex = 18;
-            buttonAddMenuItem.Text = "ADD";
-            buttonAddMenuItem.UseVisualStyleBackColor = false;
+            buttonAddOrAdjustMenuItem.BackColor = Color.FromArgb(138, 210, 176);
+            buttonAddOrAdjustMenuItem.Cursor = Cursors.Hand;
+            buttonAddOrAdjustMenuItem.FlatAppearance.BorderSize = 0;
+            buttonAddOrAdjustMenuItem.FlatStyle = FlatStyle.Flat;
+            buttonAddOrAdjustMenuItem.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonAddOrAdjustMenuItem.Location = new Point(36, 633);
+            buttonAddOrAdjustMenuItem.Name = "buttonAddOrAdjustMenuItem";
+            buttonAddOrAdjustMenuItem.Size = new Size(120, 35);
+            buttonAddOrAdjustMenuItem.TabIndex = 18;
+            buttonAddOrAdjustMenuItem.Text = "ADD";
+            buttonAddOrAdjustMenuItem.UseVisualStyleBackColor = false;
+            buttonAddOrAdjustMenuItem.Click += AddOrAdjust_Click;
             // 
-            // AddOrAjustMenuUC
+            // AddOrAdjustMenuItemUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(buttonAddMenuItem);
-            Controls.Add(panelAddMenuItem);
-            Controls.Add(labelMenu);
+            Controls.Add(buttonAddOrAdjustMenuItem);
+            Controls.Add(panelAddProductList);
+            Controls.Add(labelMenuChange);
             Controls.Add(buttonGoBack);
             Controls.Add(Logo);
-            Name = "AddOrAjustMenuUC";
+            Name = "AddOrAdjustMenuItemUC";
             Size = new Size(414, 736);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
@@ -114,8 +115,8 @@
 
         private PictureBox Logo;
         private RoundedItems.RoundButton buttonGoBack;
-        private Label labelMenu;
-        private FlowLayoutPanel panelAddMenuItem;
-        private RoundedItems.RoundButton buttonAddMenuItem;
+        private Label labelMenuChange;
+        private FlowLayoutPanel panelAddProductList;
+        private RoundedItems.RoundButton buttonAddOrAdjustMenuItem;
     }
 }

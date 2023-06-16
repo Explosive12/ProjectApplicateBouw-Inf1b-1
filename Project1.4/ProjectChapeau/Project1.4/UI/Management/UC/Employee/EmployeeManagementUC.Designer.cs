@@ -143,7 +143,7 @@ namespace Project1._4.UI.Management
             Controls.Add(Logo);
             Name = "EmployeeManagementUC";
             Size = new Size(414, 736);
-            Load += OnLoad;
+            Load += EmployeeManagementOnLoad;
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
             PerformLayout();

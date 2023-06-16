@@ -16,7 +16,7 @@ namespace Project1._4.DAL
         {
             return (EmployeeType)type;
         }
-        private List<Employee> ReadTables(DataTable dataTable)
+        private List<Employee> ReadEmployees(DataTable dataTable)
         {
             List<Employee> employees = new List<Employee>();
 
@@ -42,7 +42,7 @@ namespace Project1._4.DAL
         {
             //Employee gegevens uit de database halen.
             string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadEmployees(ExecuteSelectQuery(query));
         }
 
         public Employee GetEmployeeById(int id)
@@ -50,7 +50,7 @@ namespace Project1._4.DAL
             //Employee gegevens uit de database halen van een Persoon.
             string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker WHERE medewerkerId = @id";
             SqlParameter parameter = new SqlParameter("@id", id);
-            return ReadTables(ExecuteSelectQuery(query, parameter))[0];
+            return ReadEmployees(ExecuteSelectQuery(query, parameter))[0];
         }
 
         public void AddEmployee(Employee employee)

@@ -53,7 +53,7 @@ namespace Project1._4.UI.Management.UC
             _form.NavigateToEmployee();
         }
 
-        private void AddAdjustEmployee(object sender, EventArgs e)
+        private void AddAdjustEmployee_Click(object sender, EventArgs e)
         {
             if (name.Value == "" || username.Value == "" || password.Value == "" || role.ChosenOption == null)
             {

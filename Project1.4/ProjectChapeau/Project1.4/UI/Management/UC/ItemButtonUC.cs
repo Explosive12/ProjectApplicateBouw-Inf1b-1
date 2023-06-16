@@ -3,11 +3,12 @@
 
 namespace Project1._4.UI
 {
-    public partial class UserEmployeeUC : UserControl
+    public partial class ItemButtonUC : UserControl
     {
 
         private Color selectedColor = Color.FromArgb(255, 128, 0);
         private Color unSelectedColor = SystemColors.ActiveBorder;
+        private Color lowStockColor = Color.FromArgb(245, 108, 117);
         public bool IsSelected
         {
             get
@@ -17,26 +18,48 @@ namespace Project1._4.UI
         }
 
         public Employee Employee { get; internal set; }
+        public Product Product { get; internal set; }
 
-        public UserEmployeeUC(Employee employee)
+        public ItemButtonUC(Employee employee = null, Product product = null)
         {
             InitializeComponent();
+
+
             Employee = employee;
-            buttonSelectOption.Text = employee.Username;
-            textBoxType.Text = employee.Function.ToString();
+            Product = product;
+
+            if (employee != null)
+            {
+                SetEmployee(employee);
+            }
+            else if (product != null)
+            {
+                SetProduct(product);
+            }
+
         }
 
-
-        private void textBoxType_TextChanged(object sender, EventArgs e)
+        public void SetEmployee(Employee employee)
         {
+            buttonSelectOption.Text = employee.Username;
+            textBoxStock.Text = employee.Function.ToString();
+        }
 
+        public void SetProduct(Product product)
+        {
+            buttonSelectOption.Text = product.Name;
+            textBoxStock.Text = product.Stock.ToString();
+            if (product.Stock == 1)
+            {
+                textBoxStock.BackColor = lowStockColor;
+            }
         }
 
         private void OptionSelected(object sender, EventArgs e)
         {
-            foreach (UserEmployeeUC userEmployeeUC in Parent.Controls.OfType<UserEmployeeUC>())
+            foreach (ItemButtonUC userItemUC in Parent.Controls.OfType<ItemButtonUC>())
             {
-                userEmployeeUC.buttonSelectOption.BackColor = unSelectedColor;
+                userItemUC.buttonSelectOption.BackColor = unSelectedColor;
             }
 
             this.buttonSelectOption.BackColor = selectedColor;

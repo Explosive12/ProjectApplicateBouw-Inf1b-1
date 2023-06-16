@@ -80,18 +80,18 @@ namespace Project1._4.DAL
         {
             List<Product> products = new List<Product>();
 
-            ProductType productType = GetProductType(dataTable.Rows[0]["productType"].ToString());
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                ProductType productType = GetProductType(dr["productType"].ToString());
 
                 Product product = new Product(
-                    (int)dr["productId"],
-                    dr["naam"].ToString(),
-                    (decimal)dr["prijs"],
-                    (int)dr["voorraad"],
-                    (decimal)dr["btw"],
-                    productType
+                    (int)dr["productId"], //id
+                    dr["naam"].ToString(), // name
+                    (decimal)dr["prijs"], // price
+                    (int)dr["voorraad"], // Stock
+                    (decimal)dr["btw"], // btw
+                    productType         // productType
                     );
                 products.Add(product);
             }
@@ -100,7 +100,30 @@ namespace Project1._4.DAL
         }
 
 
+        // From the management
 
+        public void AddProduct(Product product)
+        {
+            string query = "INSERT INTO product (naam, prijs, voorraad, btw, productType) VALUES (@naam, @prijs, @voorraad, @btw, @productType)";
+            SqlParameter[] sqlParameters = new SqlParameter[5];
+            sqlParameters[0] = new SqlParameter("@naam", product.Name);
+            sqlParameters[1] = new SqlParameter("@prijs", product.Price);
+            sqlParameters[2] = new SqlParameter("@voorraad", product.Stock);
+            sqlParameters[3] = new SqlParameter("@btw", product.Btw);
+            sqlParameters[4] = new SqlParameter("@productType", product.Type);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void DeleteProduct(Product product)
+        {
+            string query = "DELETE FROM product WHERE productId = @productId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@productId", product.ProductId);
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
+        public void UpdateProduct(Product product)
+        {
+            
+        }
     }
 }

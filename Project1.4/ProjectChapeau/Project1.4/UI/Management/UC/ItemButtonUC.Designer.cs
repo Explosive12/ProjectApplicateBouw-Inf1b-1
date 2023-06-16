@@ -2,7 +2,7 @@
 
 namespace Project1._4.UI
 {
-    partial class UserEmployeeUC
+    partial class ItemButtonUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Project1._4.UI
         private void InitializeComponent()
         {
             buttonSelectOption = new RoundButton();
-            textBoxType = new RoundTextBox();
+            textBoxStock = new RoundTextBox();
             SuspendLayout();
             // 
             // buttonSelectOption
@@ -51,25 +51,23 @@ namespace Project1._4.UI
             // 
             // textBoxType
             // 
-            textBoxType.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            textBoxType.Location = new Point(201, 8);
-            textBoxType.Name = "textBoxType";
-            textBoxType.ReadOnly = true;
-            textBoxType.Size = new Size(128, 22);
-            textBoxType.TabIndex = 1;
-            textBoxType.Text = "{Type}";
-            textBoxType.TextAlign = HorizontalAlignment.Center;
-            textBoxType.TextChanged += textBoxType_TextChanged;
+            textBoxStock.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            textBoxStock.Location = new Point(201, 8);
+            textBoxStock.Name = "textBoxType";
+            textBoxStock.ReadOnly = true;
+            textBoxStock.Size = new Size(128, 22);
+            textBoxStock.TabIndex = 1;
+            textBoxStock.Text = "{Type}";
+            textBoxStock.TextAlign = HorizontalAlignment.Center;
             // 
             // UserEmployeeUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(textBoxType);
+            Controls.Add(textBoxStock);
             Controls.Add(buttonSelectOption);
             Name = "UserEmployeeUC";
             Size = new Size(350, 35);
-            Click += textBoxType_TextChanged;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -77,7 +75,7 @@ namespace Project1._4.UI
         #endregion
 
         //private Label labelName;
-        private RoundTextBox textBoxType;
+        private RoundTextBox textBoxStock;
         private RoundButton buttonSelectOption;
     }
 
