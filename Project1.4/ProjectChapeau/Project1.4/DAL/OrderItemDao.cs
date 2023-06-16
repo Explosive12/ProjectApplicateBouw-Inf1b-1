@@ -33,8 +33,14 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetOrderItemsByDrinks()
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status " +
-                            "FROM bestelregel";
+            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE M.type='Drinks' " +
+                                "AND B.status !='2' " +
+                            "ORDER BY begintijd";
             return ReadTables(ExecuteSelectQuery(query));
         }
         public List<OrderItem> GetByOrderItemId(int orderItemId)
@@ -67,22 +73,6 @@ namespace Project1._4.DAL
             return orderItems;
         }
 
-        public void UpdateOrderItem(OrderItem orderItem) 
-        {
-            string query =  "UPDATE bestelregel " +
-                            "SET id = @OrderItemId, bestellingId = @OrderId, productId = @ProductId, aantal = @Amount, opmerking = @Comment, status = @Status " +
-                            "WHERE id = @OrderItemId";
-            SqlParameter[] sqlParameters =
-            {
-                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
-                new SqlParameter("@OrderId", orderItem.OrderId),
-                new SqlParameter("@ProductId", orderItem.ProductId),
-                new SqlParameter("@Amount", orderItem.Amount),
-                new SqlParameter("@Comment", orderItem.Comment),
-                new SqlParameter("@Status", orderItem.Status),
-            };
-            ExecuteEditQuery(query, sqlParameters);
-        }
         public void UpdateOrderItemState(int clickeddata, int state)
         {
             string query = string.Empty;

@@ -33,13 +33,6 @@ namespace Project1._4
             return orders;
         }
 
-        public List<OrderItem> LoadOrderItems()
-        {
-            OrderItemService service = new OrderItemService();
-            List<OrderItem> orderItems = service.GetOrderItemsByDinnerLunch();
-            return orderItems;
-        }
-
         public void AddProductToOrder(Product product) { }
 
         public void RemoveProductFromOrder(OrderItem orderItem) { }

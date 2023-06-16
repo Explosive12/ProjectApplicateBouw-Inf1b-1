@@ -21,6 +21,11 @@ namespace Project1._4.Service
             List<OrderItem> list = orderItemDb.GetOrderItemsByDinnerLunch();
             return list;
         }
+        public List<OrderItem> GetOrderItemsByDrink()
+        {
+            List<OrderItem> list = orderItemDb.GetOrderItemsByDrinks();
+            return list;
+        }
 
         public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
