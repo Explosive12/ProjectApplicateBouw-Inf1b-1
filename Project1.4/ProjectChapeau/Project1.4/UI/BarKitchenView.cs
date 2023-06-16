@@ -42,6 +42,7 @@ namespace Project1._4.UI
                 ShowKitchenControl();
             }
         }
+
         private void btnLoadBarOrders_Click(object sender, EventArgs e)
         {
             List<OrderItem> barOrders = GetBarOrders();
@@ -134,7 +135,7 @@ namespace Project1._4.UI
             List<OrderItem> orders = orderItemService.GetOrderItemsByDinnerLunch();
             return orders;
         }
-        private List<OrderItem> GetBarOrders()
+        public List<OrderItem> GetBarOrders()
         {
             OrderItemService orderItemService = new OrderItemService();
             List<OrderItem> orders = orderItemService.GetOrderItemsByDrink();

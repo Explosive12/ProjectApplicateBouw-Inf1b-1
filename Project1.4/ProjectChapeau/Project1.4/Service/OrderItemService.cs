@@ -32,10 +32,17 @@ namespace Project1._4.Service
             List<OrderItem> list = orderItemDb.GetByOrderItemId(orderItemId);
             return list;
         }
+        public List<OrderItem> GetByStatusBar(int intValue)
+        {
+            List<OrderItem> list = orderItemDb.GetByStatusBar(intValue);
+            return list;
+        }
 
         public void UpdateOrderItemStatus(int clickedData, int state)
         {
             orderItemDb.UpdateOrderItemState(clickedData, state);
         }
+
+        
     }
 }

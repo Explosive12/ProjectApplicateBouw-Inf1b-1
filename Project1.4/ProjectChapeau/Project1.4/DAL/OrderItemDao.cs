@@ -101,13 +101,27 @@ namespace Project1._4.DAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-        public List<OrderItem> GetByStatus(int orderItemId)
+        public List<OrderItem> GetByStatusKitchen(int orderItemId)
         {
             string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
                             "FROM bestelregel " +
                             "WHERE id = @orderItemId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetByStatusBar(int intValue)
+        {
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE [status] = @IntValue " +
+                                "AND M.type='Drinks' " +
+                            "ORDER BY begintijd";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@IntValue", intValue);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
     }

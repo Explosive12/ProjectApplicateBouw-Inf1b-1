@@ -88,6 +88,8 @@ namespace Project1._4
                 //Add the ListViewItem to the ListView control
                 listViewKitchenOrders.Items.Add(li);
             }
+
+
         }
 
         private void listViewKitchenOrders_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,14 +1,17 @@
 ﻿using Project1._4.Model;
 using Project1._4.Service;
+using Project1._4.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project1._4
 {
@@ -45,6 +48,17 @@ namespace Project1._4
 
                 //Add the ListViewItem to the ListView control
                 listViewBarOrders.Items.Add(li);
+
+
+                // Check if "Running" and "Finished" options are already in the ComboBox
+                if (!cbxStatusBar.Items.Contains("Running"))
+                {
+                    cbxStatusBar.Items.Add("Running");
+                }
+                if (!cbxStatusBar.Items.Contains("Finished"))
+                {
+                    cbxStatusBar.Items.Add("Finished");
+                }
             }
         }
 
@@ -101,6 +115,43 @@ namespace Project1._4
                     lblSelectedOrder.Text = selectedOrderItem.OrderItemId.ToString();
                     lblStatusOfDish.Text = selectedOrderItem.Status.ToString();
                 }
+            }
+        }
+        private void btnFilterByStatusBar_Click(object sender, EventArgs e)
+        {
+            if (cbxStatusBar.SelectedItem != null)
+            {
+                //OrderStatusEnum selectedValue = (OrderStatusEnum)cbxStatusBar.SelectedItem;
+                //int intValue = (int)selectedValue;
+                //
+                //OrderItemService orderItemService = new OrderItemService();
+                //List<OrderItem> orders = orderItemService.GetByStatusBar(intValue);
+                //
+                //DisplayBarOrders(orders);
+
+
+                string selectedValue = cbxStatusBar.SelectedItem.ToString();
+
+                OrderItemService orderItemService = new OrderItemService();
+                List<OrderItem> orders;
+
+                if (selectedValue == "Running")
+                {
+                    orders = orderItemService.GetByStatusBar((int)OrderStatusEnum.Inpreparation);
+                }
+                else if (selectedValue == "Finished")
+                {
+                    orders = orderItemService.GetByStatusBar((int)OrderStatusEnum.Prepared);
+                    orders.AddRange(orderItemService.GetByStatusBar((int)OrderStatusEnum.Served));
+                }
+                else
+                {
+                    // Handle unknown status or error
+                    return;
+                }
+
+
+                DisplayBarOrders(orders);
             }
         }
     }
