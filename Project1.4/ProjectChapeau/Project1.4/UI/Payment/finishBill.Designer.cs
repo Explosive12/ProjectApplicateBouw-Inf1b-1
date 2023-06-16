@@ -41,6 +41,7 @@
             DEBITRadio = new RadioButton();
             radioButtonVisa = new RadioButton();
             radioButtonCash = new RadioButton();
+            totalPriceCalculate = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -84,6 +85,7 @@
             listView1.Size = new Size(286, 272);
             listView1.TabIndex = 20;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // labelTotal
             // 
@@ -168,11 +170,21 @@
             radioButtonCash.UseVisualStyleBackColor = true;
             radioButtonCash.CheckedChanged += radioButtonCash_CheckedChanged_1;
             // 
+            // totalPriceCalculate
+            // 
+            totalPriceCalculate.AutoSize = true;
+            totalPriceCalculate.Location = new Point(294, 407);
+            totalPriceCalculate.Name = "totalPriceCalculate";
+            totalPriceCalculate.Size = new Size(38, 15);
+            totalPriceCalculate.TabIndex = 29;
+            totalPriceCalculate.Text = "label1";
+            // 
             // finishBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(totalPriceCalculate);
             Controls.Add(radioButtonCash);
             Controls.Add(radioButtonVisa);
             Controls.Add(DEBITRadio);
@@ -208,5 +220,6 @@
         private RadioButton DEBITRadio;
         private RadioButton radioButtonVisa;
         private RadioButton radioButtonCash;
+        private Label totalPriceCalculate;
     }
 }

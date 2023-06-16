@@ -1,4 +1,6 @@
 ﻿using Microsoft.Graph.Models;
+using Project1._4.DAL;
+using Project1._4.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,13 +72,36 @@ namespace Project1._4.UI.Payment
         }
 
         // constructor om tafel id op te halen
-        private void GetTable()
+        private void GetTableId()
         {
 
         }
 
         private void finishBill_Load(object sender, EventArgs e)
         {
+            OrderDao orderDao = new OrderDao();
+            int tableId = 1;
+            List<OrderItem> orderItems = orderDao.GetOrdersFromTable(tableId);
+           
+            
+
+            decimal totalOrderPrice = orderDao.CalculateTotalPrice(orderItems);
+
+            totalPriceCalculate.Text = totalOrderPrice.ToString("C");
+
+        /*    foreach (OrderItem item in orderItems)
+            {
+                
+                ListViewItem listViewItem = new ListViewItem(item.id.ToString()); 
+                listViewItem.SubItems.Add(item.Na.ToString()); 
+                listViewItem.SubItems.Add(item.ProductId.ToString()); 
+                listViewItem.SubItems.Add(item.Amount.ToString()); 
+                listViewItem.SubItems.Add(item.Opmerking);
+                listViewItem.SubItems.Add(item.Status); 
+
+                listView1.Items.Add(listViewItem); 
+            }*/
+           
 
         }
 
@@ -85,12 +110,17 @@ namespace Project1._4.UI.Payment
 
         }
 
-        private void GetTotalPrice()
+        public void GetTotalPrice()
         {
 
         }
 
         private void GetVatPrice()
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

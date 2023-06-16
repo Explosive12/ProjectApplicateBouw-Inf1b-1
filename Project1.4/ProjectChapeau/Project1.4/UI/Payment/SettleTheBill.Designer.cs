@@ -36,6 +36,7 @@
             tipAmountLabel = new Label();
             labelVat = new Label();
             goBackToTableForm = new Button();
+            orderPriceLabelSettle = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -108,11 +109,20 @@
             goBackToTableForm.UseVisualStyleBackColor = false;
             goBackToTableForm.Click += goBackToTableForm_Click;
             // 
+            // orderPriceLabelSettle
+            // 
+            orderPriceLabelSettle.AutoSize = true;
+            orderPriceLabelSettle.Location = new Point(310, 264);
+            orderPriceLabelSettle.Name = "orderPriceLabelSettle";
+            orderPriceLabelSettle.Size = new Size(0, 15);
+            orderPriceLabelSettle.TabIndex = 16;
+            // 
             // SettleTheBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(orderPriceLabelSettle);
             Controls.Add(goBackToTableForm);
             Controls.Add(labelVat);
             Controls.Add(tipAmountLabel);
@@ -138,5 +148,6 @@
         private Label tipAmountLabel;
         private Label labelVat;
         private Button goBackToTableForm;
+        private Label orderPriceLabelSettle;
     }
 }

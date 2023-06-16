@@ -29,7 +29,7 @@ namespace Project1._4.DAL
 
         public List<OrderItem> GetOrdersFromTable(int tableId)
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel AS BR " +
+            string query = "SELECT id, productId, aantal, opmerking, status FROM bestelregel AS BR " +
                            "JOIN rekening AS R ON BR.id = R.rekeningId " +
                            "JOIN bestelling AS B ON R.bestellingId = B.bestellingId " +
                            "WHERE B.tafelId = @tableId";
@@ -38,7 +38,43 @@ namespace Project1._4.DAL
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
 
-  
+
+        public decimal CalculateTotalPrice(List<OrderItem> orderItems)
+        {
+            decimal totalPrice = 0;
+
+            foreach (OrderItem item in orderItems)
+            {
+           
+
+
+                decimal productPrice = GetProductPrice(item.ProductId); // Prijs van het product ophalen
+                int quantity = QuantityOfProduct(item.ProductId); // Aantal van het product ophalen
+
+                decimal itemTotalPrice = productPrice * quantity; // Bereken de totaalprijs van het item
+
+                totalPrice += itemTotalPrice;
+            }
+
+            return totalPrice;
+        }
+
+        public decimal GetProductPrice(int productId)
+        {
+            string query = "SELECT prijs FROM product WHERE productId = @productId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@productId", productId);
+            return (decimal)ExecuteSelectQuery(query, sqlParameters).Rows[0]["prijs"];
+        }
+
+        public int QuantityOfProduct(int productId)
+        {
+            string query = "SELECT aantal FROM product WHERE productId = @productId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@productId", productId);
+            return (int)ExecuteSelectQuery(query, sqlParameters).Rows[0]["aantal"];
+        }
+
 
         public List<Order> GetByIdOrder(int orderId)
         {

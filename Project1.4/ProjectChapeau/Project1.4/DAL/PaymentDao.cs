@@ -11,12 +11,12 @@ namespace Project1._4.DAL
     internal class PaymentDao : BaseDao
     {
 
-        public List<Order> GetAllOrders()
+      /*  public List<Order> GetAllOrders()
         {
             string query = "SELECT bestellingId, tafelId, begintijd, eindtijd FROM bestelling";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
+        }*/
 
         /* public List<Order> GetByIdOrder(int orderId)
          {

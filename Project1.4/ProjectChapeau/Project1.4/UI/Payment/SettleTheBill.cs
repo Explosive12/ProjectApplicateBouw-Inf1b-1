@@ -24,10 +24,13 @@ namespace Project1._4.UI
 
             this.Hide();
         }
+       /* decimal totalPrice = GetTotalPrice(); */
 
         private void SettleTheBill_Load(object sender, EventArgs e)
         {
             LoadAllPaymentData();
+           /* orderPriceLabelSettle.Text = totalPrice.ToString("C"); */
+
         }
 
         private void LoadAllPaymentData()
