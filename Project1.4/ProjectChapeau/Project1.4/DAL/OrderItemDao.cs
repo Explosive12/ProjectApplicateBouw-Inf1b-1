@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.CodeDom.Compiler;
+using Microsoft.Graph.Models;
+using System.Web;
 
 namespace Project1._4.DAL
 {
@@ -81,12 +83,29 @@ namespace Project1._4.DAL
         }
         public void UpdateOrderItemState(int clickeddata, int state)
         {
-            string query =  "UPDATE bestelregel SET status = @Status " +
-                            "WHERE id = @OrderItemId";
-            SqlParameter[] sqlParameters =
+            string query = string.Empty;
+            SqlParameter[] sqlParameters = null;
+            DateTime finishTime = DateTime.Now;
+
+            //if (served)
+            //{
+            //    query = "UPDATE bestelling SET eindtijd = @Eindtijd " +
+            //            "WHERE bestellingId = @BestellingID";
+            //    sqlParameters = new SqlParameter[]
+            //    {
+            //        new SqlParameter("@Eindtijd", finishTime),
+            //        new SqlParameter("@BestellingId", clickeddata),
+            //    };
+            //    ExecuteEditQuery(query, sqlParameters);
+            //}
+
+
+            query = "UPDATE bestelregel SET status = @Status " +
+                        "WHERE id = @OrderItemId";
+            sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@OrderItemId", clickeddata),
-                new SqlParameter("@Status", state)
+                new SqlParameter("@Status", state),
             };
             ExecuteEditQuery(query, sqlParameters);
         }
