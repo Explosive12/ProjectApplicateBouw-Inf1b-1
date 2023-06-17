@@ -8,14 +8,11 @@ namespace Project1._4.Model
 {
     public class PaymentItem
     {
-        public int TafelId { get; set; }
+        public string Comment { get; set; }
         public int BestellingId { get; set; }   
         public int RekeningId { get; set; }
-        public int Aantal { get; set; }
+        public decimal Fooi { get; set; }
 
-        public int Fooi { get; set; }
-        public decimal Prijs { get; set; }
-        public decimal TotaalPrijs { get; set; }
 
 
 

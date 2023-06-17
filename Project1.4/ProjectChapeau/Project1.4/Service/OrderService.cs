@@ -45,5 +45,20 @@ namespace Project1._4.Service
         {
             orderDb.UpdateOrder(order);
         }
+
+        public decimal GetProductPrice(int productId)
+        {
+            
+            return orderDb.GetProductPrice(productId);
+        }
+        public int QuantityOfProduct(int productId)
+        {
+            orderDb.QuantityOfProduct(productId);
+            return productId;
+        }
+
+
     }
+
+
 }

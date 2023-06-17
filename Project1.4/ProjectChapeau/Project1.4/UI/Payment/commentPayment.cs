@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project1._4.Model;
+using Project1._4.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,31 +14,51 @@ namespace Project1._4.UI.Payment
 {
     public partial class commentPayment : Form
     {
+        public decimal CustomTip { get; set; }
 
+        public decimal AmountPaid { get; set; }
+
+        private decimal orderPrice;
         /*     private Timer timer;*/
 
 
 
-        public commentPayment()
+        public commentPayment(decimal CustomTip, decimal AmountPaid) // constructor om dingen mee te geven
         {
             InitializeComponent();
-            /* timer = new Timer();
-             timer.Interval = 5000; // 5 seconds
-             timer.Tick += Timer_Tick;*/
+            this.CustomTip = CustomTip;
+            this.AmountPaid = AmountPaid;
+            
 
 
         }
 
         private async void confirmPayment_Click(object sender, EventArgs e)
         {
+            PaymentService paymentService = new PaymentService();
+            PaymentItem paymentItem = new PaymentItem();
+           
+           
+            commentCustomerBox.Text = paymentItem.Comment;
+            paymentService.AddComment(paymentItem);
+
 
 
             if (!string.IsNullOrEmpty(commentCustomerBox.Text))
             {
                 commentHasBeenSaved.Text = "COMMENT HAS BEEN SAVED";
-                await Task.Delay(3000); // Delay for 3 seconds
-                SettleTheBill settleForm = new SettleTheBill();
-                settleForm.Show();
+                commentHasBeenSaved.ForeColor = Color.Green;
+
+                
+                await Task.Delay(3000);
+                // Delay for 3 seconds
+
+                paymentSelected paymentSelected = new paymentSelected(orderPrice);
+                SettleTheBill settleTheBill = new SettleTheBill(paymentSelected, CustomTip, AmountPaid, orderPrice); // constructor meegeven
+                this.Hide();
+                settleTheBill.Show();
+
+                
             }
             else if (string.IsNullOrEmpty(commentCustomerBox.Text))
             {
@@ -51,7 +73,7 @@ namespace Project1._4.UI.Payment
 
         private void backToCommentOrContinue_Click(object sender, EventArgs e)
         {
-            commentOrContinuePayment commentOrContinue = new commentOrContinuePayment();
+            commentOrContinuePayment commentOrContinue = new commentOrContinuePayment(CustomTip, AmountPaid);
 
             commentOrContinue.Show();
             this.Hide();

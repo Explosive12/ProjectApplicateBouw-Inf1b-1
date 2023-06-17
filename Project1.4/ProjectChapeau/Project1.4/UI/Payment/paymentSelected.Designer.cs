@@ -40,9 +40,12 @@
             textBoxCustomTip = new TextBox();
             buttonPay = new Button();
             buttonSet = new Button();
-            setButton1 = new Button();
             buttonAddChangeTip = new Button();
             tipHasBeenAdded = new Label();
+            totalPriceSelected = new Label();
+            LeftOverPriceLabel = new Label();
+            euroLabel = new Label();
+            TipLabelWithChange = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -147,16 +150,7 @@
             buttonSet.TabIndex = 31;
             buttonSet.Text = "SET";
             buttonSet.UseVisualStyleBackColor = false;
-            // 
-            // setButton1
-            // 
-            setButton1.BackColor = Color.FromArgb(138, 210, 176);
-            setButton1.Location = new Point(317, 440);
-            setButton1.Name = "setButton1";
-            setButton1.Size = new Size(56, 23);
-            setButton1.TabIndex = 32;
-            setButton1.Text = "SET";
-            setButton1.UseVisualStyleBackColor = false;
+            buttonSet.Click += buttonSet_Click;
             // 
             // buttonAddChangeTip
             // 
@@ -181,14 +175,52 @@
             tipHasBeenAdded.Size = new Size(0, 15);
             tipHasBeenAdded.TabIndex = 34;
             // 
+            // totalPriceSelected
+            // 
+            totalPriceSelected.AutoSize = true;
+            totalPriceSelected.Location = new Point(298, 171);
+            totalPriceSelected.Name = "totalPriceSelected";
+            totalPriceSelected.Size = new Size(75, 15);
+            totalPriceSelected.TabIndex = 35;
+            totalPriceSelected.Text = "getTotalPrice";
+            totalPriceSelected.Click += totalPriceSelected_Click;
+            // 
+            // LeftOverPriceLabel
+            // 
+            LeftOverPriceLabel.AutoSize = true;
+            LeftOverPriceLabel.Location = new Point(326, 309);
+            LeftOverPriceLabel.Name = "LeftOverPriceLabel";
+            LeftOverPriceLabel.Size = new Size(0, 15);
+            LeftOverPriceLabel.TabIndex = 36;
+            // 
+            // euroLabel
+            // 
+            euroLabel.AutoSize = true;
+            euroLabel.Location = new Point(288, 171);
+            euroLabel.Name = "euroLabel";
+            euroLabel.Size = new Size(13, 15);
+            euroLabel.TabIndex = 37;
+            euroLabel.Text = "€";
+            // 
+            // TipLabelWithChange
+            // 
+            TipLabelWithChange.AutoSize = true;
+            TipLabelWithChange.Location = new Point(326, 353);
+            TipLabelWithChange.Name = "TipLabelWithChange";
+            TipLabelWithChange.Size = new Size(0, 15);
+            TipLabelWithChange.TabIndex = 38;
+            // 
             // paymentSelected
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(TipLabelWithChange);
+            Controls.Add(euroLabel);
+            Controls.Add(LeftOverPriceLabel);
+            Controls.Add(totalPriceSelected);
             Controls.Add(tipHasBeenAdded);
             Controls.Add(buttonAddChangeTip);
-            Controls.Add(setButton1);
             Controls.Add(buttonSet);
             Controls.Add(buttonPay);
             Controls.Add(textBoxCustomTip);
@@ -222,8 +254,11 @@
         private TextBox textBoxCustomTip;
         private Button buttonPay;
         private Button buttonSet;
-        private Button setButton1;
         private Button buttonAddChangeTip;
         private Label tipHasBeenAdded;
+        private Label totalPriceSelected;
+        private Label LeftOverPriceLabel;
+        private Label euroLabel;
+        private Label TipLabelWithChange;
     }
 }

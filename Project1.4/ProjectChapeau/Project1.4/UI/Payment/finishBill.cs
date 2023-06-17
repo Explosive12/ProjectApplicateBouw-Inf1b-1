@@ -1,6 +1,7 @@
 ﻿using Microsoft.Graph.Models;
 using Project1._4.DAL;
 using Project1._4.Model;
+using Project1._4.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace Project1._4.UI.Payment
 {
     public partial class finishBill : Form
     {
+        private decimal orderPrice;
+
         public finishBill()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace Project1._4.UI.Payment
         {
             if (radioButtonVisa.Checked || DEBITRadio.Checked)
             {
-                paymentSelected paymentSelect = new paymentSelected();
+                paymentSelected paymentSelect = new paymentSelected(orderPrice);
                 finishBill finishBill = new finishBill();
                 paymentSelect.Show();
                 this.Hide();
@@ -71,12 +74,29 @@ namespace Project1._4.UI.Payment
 
         }
 
-        // constructor om tafel id op te halen
-        private void GetTableId()
+       
+
+        private decimal CalculateTotalPrice(List<OrderItem> orderItems)
         {
+            OrderService orderService = new OrderService();
+            
+            decimal totalPrice = 0;
 
+            foreach (OrderItem item in orderItems)
+            {
+
+
+                
+                decimal productPrice = orderService.GetProductPrice(item.ProductId); // Prijs van het product ophalen
+                int quantity = orderService.QuantityOfProduct(item.ProductId); // Aantal van het product ophalen
+
+                decimal itemTotalPrice = productPrice * quantity; // Bereken de totaalprijs van het item
+
+                totalPrice += itemTotalPrice;
+            }
+
+            return totalPrice;
         }
-
         private void finishBill_Load(object sender, EventArgs e)
         {
             OrderDao orderDao = new OrderDao();
@@ -85,41 +105,19 @@ namespace Project1._4.UI.Payment
            
             
 
-            decimal totalOrderPrice = orderDao.CalculateTotalPrice(orderItems);
+            decimal totalOrderPrice = CalculateTotalPrice(orderItems);
 
-            totalPriceCalculate.Text = totalOrderPrice.ToString("C");
+            totalPriceCalculate.Text = totalOrderPrice.ToString("C"); // C is euro currency
 
-        /*    foreach (OrderItem item in orderItems)
-            {
-                
-                ListViewItem listViewItem = new ListViewItem(item.id.ToString()); 
-                listViewItem.SubItems.Add(item.Na.ToString()); 
-                listViewItem.SubItems.Add(item.ProductId.ToString()); 
-                listViewItem.SubItems.Add(item.Amount.ToString()); 
-                listViewItem.SubItems.Add(item.Opmerking);
-                listViewItem.SubItems.Add(item.Status); 
 
-                listView1.Items.Add(listViewItem); 
-            }*/
-           
+            
+
+
+
 
         }
 
-        private void LoadBill()
-        {
-
-        }
-
-        public void GetTotalPrice()
-        {
-
-        }
-
-        private void GetVatPrice()
-        {
-
-        }
-
+    
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

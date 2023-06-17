@@ -16,15 +16,11 @@ namespace Project1._4.Service
         {
             orderDb = new PaymentDao();
         }
-        public void GetOrders() { }
-        public void RemoveOrders() { }
-
-        public void GetTableNumber() { }
-        public void GetTipPercentage() { }
-
-        public void GetTipPrice() { }
-
-        public void GetTotalPrice() { }
+        public void AddComment(PaymentItem paymentItem)
+        {
+            
+            orderDb.AddComment(paymentItem);
+        }
       
 
     }

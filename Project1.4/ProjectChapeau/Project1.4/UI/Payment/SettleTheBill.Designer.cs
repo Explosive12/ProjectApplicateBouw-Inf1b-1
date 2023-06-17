@@ -37,6 +37,9 @@
             labelVat = new Label();
             goBackToTableForm = new Button();
             orderPriceLabelSettle = new Label();
+            amountPaidSettle = new Label();
+            TipAmountLabels = new Label();
+            calculateVatLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
@@ -117,11 +120,41 @@
             orderPriceLabelSettle.Size = new Size(0, 15);
             orderPriceLabelSettle.TabIndex = 16;
             // 
+            // amountPaidSettle
+            // 
+            amountPaidSettle.AutoSize = true;
+            amountPaidSettle.Location = new Point(310, 306);
+            amountPaidSettle.Name = "amountPaidSettle";
+            amountPaidSettle.Size = new Size(38, 15);
+            amountPaidSettle.TabIndex = 17;
+            amountPaidSettle.Text = "label2";
+            // 
+            // TipAmountLabels
+            // 
+            TipAmountLabels.AutoSize = true;
+            TipAmountLabels.Location = new Point(310, 343);
+            TipAmountLabels.Name = "TipAmountLabels";
+            TipAmountLabels.Size = new Size(38, 15);
+            TipAmountLabels.TabIndex = 18;
+            TipAmountLabels.Text = "label2";
+            // 
+            // calculateVatLabel
+            // 
+            calculateVatLabel.AutoSize = true;
+            calculateVatLabel.Location = new Point(310, 390);
+            calculateVatLabel.Name = "calculateVatLabel";
+            calculateVatLabel.Size = new Size(38, 15);
+            calculateVatLabel.TabIndex = 19;
+            calculateVatLabel.Text = "label3";
+            // 
             // SettleTheBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 697);
+            Controls.Add(calculateVatLabel);
+            Controls.Add(TipAmountLabels);
+            Controls.Add(amountPaidSettle);
             Controls.Add(orderPriceLabelSettle);
             Controls.Add(goBackToTableForm);
             Controls.Add(labelVat);
@@ -149,5 +182,8 @@
         private Label labelVat;
         private Button goBackToTableForm;
         private Label orderPriceLabelSettle;
+        private Label amountPaidSettle;
+        private Label TipAmountLabels;
+        private Label calculateVatLabel;
     }
 }

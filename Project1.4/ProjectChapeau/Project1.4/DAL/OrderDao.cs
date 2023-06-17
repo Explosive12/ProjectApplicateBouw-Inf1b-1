@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Project1._4.DAL
 {
@@ -25,39 +26,27 @@ namespace Project1._4.DAL
          *  
          *  addcommand function in DAO
          */
-
+        /* string query = "SELECT naam, aantal, prijs FROM bestelregel AS BR " +
+                            "JOIN rekening AS R ON BR.id = R.rekeningId " +
+                            "JOIN bestelling AS B ON R.bestellingId = B.bestellingId " +
+                            "WHERE B.tafelId = @tableId";*/
 
         public List<OrderItem> GetOrdersFromTable(int tableId)
         {
-            string query = "SELECT id, productId, aantal, opmerking, status FROM bestelregel AS BR " +
-                           "JOIN rekening AS R ON BR.id = R.rekeningId " +
-                           "JOIN bestelling AS B ON R.bestellingId = B.bestellingId " +
-                           "WHERE B.tafelId = @tableId";
+            string query = "SELECT p.naam, p.prijs, br.aantal FROM product p JOIN bestelregel br ON p.productId = br.productId JOIN bestelling b ON br.bestellingId = b.bestellingId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@tableId", tableId);
+
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
 
-
-        public decimal CalculateTotalPrice(List<OrderItem> orderItems)
-        {
-            decimal totalPrice = 0;
-
-            foreach (OrderItem item in orderItems)
-            {
-           
+       
+        
 
 
-                decimal productPrice = GetProductPrice(item.ProductId); // Prijs van het product ophalen
-                int quantity = QuantityOfProduct(item.ProductId); // Aantal van het product ophalen
+       /* public decimal TotalPrice { get; set; }*/
 
-                decimal itemTotalPrice = productPrice * quantity; // Bereken de totaalprijs van het item
-
-                totalPrice += itemTotalPrice;
-            }
-
-            return totalPrice;
-        }
+        // prijs per bestelling berekenen
+        
 
         public decimal GetProductPrice(int productId)
         {
@@ -84,12 +73,15 @@ namespace Project1._4.DAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private List<OrderItem> ReadOrderItems(DataTable dataTable) 
+        private List<OrderItem> ReadOrderItems(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
-            foreach (DataRow dr in dataTable.Rows)
+            foreach (DataRow row in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["bestellingId"], (int)dr["productId"], (int)dr["aantal"],(string)dr["opmerking"], (OrderStatusEnum)dr["status"]);
+                OrderItem orderItem = new OrderItem();
+                orderItem.Name = row["naam"].ToString();
+                orderItem.Price = Convert.ToDecimal(row["prijs"]);
+                orderItem.Quantity = Convert.ToInt32(row["aantal"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;
