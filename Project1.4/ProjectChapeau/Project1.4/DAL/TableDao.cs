@@ -41,10 +41,10 @@ namespace Project1._4.DAL
             }
             return table;
         }
-        public Table GetTableById(int tableid)
+        public Table GetTableById(int tableId)
         {
-            string query = "SELECT tafelId , reserveringId , status FROM tafel";
-            SqlParameter[] sqlParameters = { new SqlParameter("@tableId" , tableid)};
+            string query = "SELECT tafelId , reserveringId , status FROM tafel WHERE tafelId = @tableId";
+            SqlParameter[] sqlParameters = { new SqlParameter("@tableId" , tableId)};
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<Table> GetAllTables()

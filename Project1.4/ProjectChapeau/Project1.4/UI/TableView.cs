@@ -25,7 +25,5 @@ namespace Project1._4.UI
 
             lblLoginName.Text = username;
         }
-
-
     }
 }

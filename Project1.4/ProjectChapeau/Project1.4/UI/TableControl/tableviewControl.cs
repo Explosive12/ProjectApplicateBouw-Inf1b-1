@@ -36,13 +36,13 @@ namespace Project1._4
             tableButtons = new TableButtonsControl();
             AddButtonsToTableLayout();
         }
-        private void Button_Click(object sender , EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             int buttonIndex = tableLayoutPanel.Controls.IndexOf(button);
             int tableId = tableslist[buttonIndex].tafelId;
 
-            tableStatusControl tableStatusControl = new tableStatusControl(tableId , this);
+            tableStatusControl tableStatusControl = new tableStatusControl(tableId, this);
             this.Parent.Controls.Add(tableStatusControl);
             tableStatusControl.BringToFront();
         }
@@ -62,10 +62,10 @@ namespace Project1._4
                 {
                     int tableId = tableslist[buttontext].tafelId;
                     TableStatus status = tableslist[buttontext].status;
-                    
+
                     Button button = tableButtons.GetButton(coll, row, tableId, status);
                     button.Click += Button_Click;
-                    
+
                     tableLayoutPanel.Controls.Add(button, coll, row);
                     buttontext++;
                 }

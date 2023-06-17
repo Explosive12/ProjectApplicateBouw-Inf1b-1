@@ -19,6 +19,7 @@ namespace Project1._4
         private TableService tableService;
         private int tableId;
         private tableviewControl tableviewControl;
+        private tableGereseveerdControl tableGereseveerdControl;
         public tableStatusControl(int tableId, tableviewControl tableviewControl)
         {
             InitializeComponent();
@@ -33,19 +34,26 @@ namespace Project1._4
         }
         private void freeButton(object sender, EventArgs e)
         {
-            UpdateTableStatus(TableStatus.Vrij , tableId);
+            UpdateTableStatus(TableStatus.Vrij, tableId);
         }
         private void occupiedButton(object sender, EventArgs e)
         {
-            UpdateTableStatus(TableStatus. Bezet , tableId);
+            UpdateTableStatus(TableStatus.Bezet, tableId);
         }
         private void reservedButton(object sender, EventArgs e)
         {
-            UpdateTableStatus(TableStatus.Gereseveerd , tableId);
+            if (tableService.GetTableById(tableId).status == TableStatus.Gereseveerd)
+            {
+                MessageBox.Show("This table is already reserved");
+                return;
+            }
+            tableGereseveerdControl tableGereseveerdControl = new tableGereseveerdControl(tableId, this.tableGereseveerdControl);
+            this.Parent.Controls.Add(tableGereseveerdControl);
+            tableGereseveerdControl.BringToFront();
         }
         private void UpdateTableStatus(TableStatus status, int tableId)
         {
-            DialogResult result = MessageBox.Show("Do you want to updated the table status" , "Update Status" , MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to updated the table status", "Update Status", MessageBoxButtons.YesNo);
 
             switch (result)
             {
