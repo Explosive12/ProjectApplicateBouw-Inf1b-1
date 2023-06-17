@@ -9,9 +9,9 @@ namespace Project1._4
         private ManagerView _form;
         private string _currentEmployeeName;
 
-        public MainMenuUC(ManagerView form)
+        public MainMenuUC(ManagerView form, string username)
         {
-            _currentEmployeeName = "Todo"; // TODO: get the current employee from the login screen
+            _currentEmployeeName = username;
 
             InitializeComponent();
             labelUserName.Text = _currentEmployeeName;
@@ -26,6 +26,10 @@ namespace Project1._4
         private void NavigateToEmployee(object sender, EventArgs e)
         {
             _form.NavigateToEmployee();
+        }
+        private void ButtonToTableViewClick(object sender, EventArgs e)
+        {
+            _form.NavigateToTableView();
         }
 
         private void MainMenuUC_Load(object sender, EventArgs e)
@@ -49,5 +53,7 @@ namespace Project1._4
         {
             return new DateTime(2020, month, 1).ToString("MMMM");
         }
+
+
     }
 }

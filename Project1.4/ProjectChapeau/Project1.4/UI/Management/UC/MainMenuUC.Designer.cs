@@ -106,6 +106,7 @@ namespace Project1._4
             buttonToTableView.TabIndex = 4;
             buttonToTableView.Text = "TABLE VIEW";
             buttonToTableView.UseVisualStyleBackColor = false;
+            buttonToTableView.Click += ButtonToTableViewClick;
             // 
             // labelLastMonth
             // 

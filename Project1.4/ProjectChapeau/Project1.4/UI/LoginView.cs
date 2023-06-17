@@ -66,7 +66,7 @@ namespace Project1._4
                     this.Hide();
                     break;
                 case EmployeeType.Manager:
-                    ManagerView managerView = new ManagerView();
+                    ManagerView managerView = new ManagerView(username);
                     managerView.Show();
                     this.Hide();
                     break;

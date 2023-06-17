@@ -46,26 +46,6 @@
             btnBarResOverview.UseVisualStyleBackColor = true;
             btnBarResOverview.Click += btnBarResOverview_Click;
             // 
-            // buttonStartManagerView
-            // 
-            buttonStartManagerView.Location = new Point(1261, 14);
-            buttonStartManagerView.Margin = new Padding(4, 5, 4, 5);
-            buttonStartManagerView.Name = "buttonStartManagerView";
-            buttonStartManagerView.Size = new Size(236, 82);
-            buttonStartManagerView.TabIndex = 2;
-            buttonStartManagerView.Text = "Show Manager View";
-            buttonStartManagerView.UseVisualStyleBackColor = true;
-            buttonStartManagerView.Click += buttonStartManagerView_Click;
-            // 
-            // panelManagerView
-            // 
-            panelManagerView.Controls.Add(btnBarResOverview);
-            panelManagerView.Location = new Point(36, 55);
-            panelManagerView.Margin = new Padding(4, 5, 4, 5);
-            panelManagerView.Name = "panelManagerView";
-            panelManagerView.Size = new Size(1339, 1250);
-            panelManagerView.TabIndex = 3;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
