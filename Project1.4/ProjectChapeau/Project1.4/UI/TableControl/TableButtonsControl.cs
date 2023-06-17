@@ -32,7 +32,7 @@ namespace Project1._4
                 case TableStatus.Vrij:
                     return Color.FromArgb(138, 210, 176);
                 case TableStatus.Bezet:
-                    return Color.FromArgb(248, 102, 39);
+                    return Color.FromArgb(255, 179, 71);
                 case TableStatus.Gereseveerd:
                     return Color.FromArgb(196, 196, 196);
                 default:

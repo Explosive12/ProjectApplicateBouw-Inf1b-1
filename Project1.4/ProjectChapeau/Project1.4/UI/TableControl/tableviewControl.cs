@@ -50,7 +50,6 @@ namespace Project1._4
         {
             tableslist = tableService.GetAllTables();
             AddButtonsToTableLayout();
-
         }
         private void AddButtonsToTableLayout()
         {
@@ -63,8 +62,10 @@ namespace Project1._4
                 {
                     int tableId = tableslist[buttontext].tafelId;
                     TableStatus status = tableslist[buttontext].status;
+                    
                     Button button = tableButtons.GetButton(coll, row, tableId, status);
                     button.Click += Button_Click;
+                    
                     tableLayoutPanel.Controls.Add(button, coll, row);
                     buttontext++;
                 }

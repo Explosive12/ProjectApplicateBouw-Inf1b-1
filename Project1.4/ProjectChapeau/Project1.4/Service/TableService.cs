@@ -27,9 +27,9 @@ namespace Project1._4.Service
         {
             return tabledb.GetAllTables();
         }
-        public void ReserveTable()
+        public void ReserveTable(TableStatus status, int tableId)
         {
-            throw new System.NotImplementedException();
+            tabledb.ReserveTable(status, tableId);
         }
     }
 }

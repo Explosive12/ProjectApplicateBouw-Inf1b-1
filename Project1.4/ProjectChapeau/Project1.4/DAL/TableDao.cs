@@ -59,11 +59,19 @@ namespace Project1._4.DAL
             SqlParameter[] sqlParameters = {new SqlParameter("@status" , (int)status) , new SqlParameter("@tableId", tableId) };
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void ReserveTable(int tafelId)
+        public void ReserveTable(TableStatus status, int tableId)
         {
-            string query = "SELECT tafelId , reserveringId, status FROM tafel where tafelId = {tafelId}";
-            SqlParameter[] sqlParameters = new SqlParameter[] { new SqlParameter("@tafelId" , tafelId) };
+            string query = "SELECT max(reserveringId) FROM tafel";
+            SqlCommand cmd = new(query, OpenConnection());
+            int highestReseveringsId = (int)cmd.ExecuteScalar();
+
+            int reserveringId = highestReseveringsId + 1;
+
+            query = "UPDATE tafel SET status = @status , reserveringId = @reserveringId WHERE tafelId = @tableId";
+            SqlParameter[] sqlParameters = new SqlParameter[] { new SqlParameter("@status" , (int)status) , new SqlParameter("@reserveringId", reserveringId), new SqlParameter("@tableId", tableId) };
             ExecuteEditQuery(query, sqlParameters);
+
+
         }
     }
 }

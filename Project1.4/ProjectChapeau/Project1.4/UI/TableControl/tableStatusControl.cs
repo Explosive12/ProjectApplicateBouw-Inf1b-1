@@ -45,9 +45,21 @@ namespace Project1._4
         }
         private void UpdateTableStatus(TableStatus status, int tableId)
         {
-            tableService.UpdateTableStatus(status, tableId);
-            MessageBox.Show("The table was succesfully updated");
+            DialogResult result = MessageBox.Show("Do you want to updated the table status" , "Update Status" , MessageBoxButtons.YesNo);
 
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    if (status == TableStatus.Gereseveerd)
+                        tableService.ReserveTable(status, tableId);
+                    else
+                        tableService.UpdateTableStatus(status, tableId);
+                    MessageBox.Show("The table was updated succesfully");
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("The table is not updated");
+                    break;
+            }
             tableviewControl.UpdateTableData();
 
             this.Hide();
