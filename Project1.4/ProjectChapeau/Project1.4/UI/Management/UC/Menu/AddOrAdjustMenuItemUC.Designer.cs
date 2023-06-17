@@ -60,7 +60,7 @@
             buttonGoBack.TabIndex = 18;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
-            buttonGoBack.Click += buttonGoBack_Click;
+            buttonGoBack.Click += ButtonGoBackClick;
             // 
             // labelMenuChange
             // 
@@ -94,7 +94,7 @@
             buttonAddOrAdjustMenuItem.TabIndex = 18;
             buttonAddOrAdjustMenuItem.Text = "ADD";
             buttonAddOrAdjustMenuItem.UseVisualStyleBackColor = false;
-            buttonAddOrAdjustMenuItem.Click += AddOrAdjust_Click;
+            buttonAddOrAdjustMenuItem.Click += AddOrAdjustClick;
             // 
             // AddOrAdjustMenuItemUC
             // 

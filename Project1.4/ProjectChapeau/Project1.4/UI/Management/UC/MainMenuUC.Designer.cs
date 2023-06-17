@@ -35,6 +35,10 @@ namespace Project1._4
             Logo = new PictureBox();
             labelUserName = new RoundLabel();
             buttonToTableView = new RoundButton();
+            labelLastMonth = new Label();
+            labelThisMonth = new Label();
+            labelLastMonthIncome = new Label();
+            labelThisMonthIncome = new Label();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
@@ -103,11 +107,55 @@ namespace Project1._4
             buttonToTableView.Text = "TABLE VIEW";
             buttonToTableView.UseVisualStyleBackColor = false;
             // 
+            // labelLastMonth
+            // 
+            labelLastMonth.AutoSize = true;
+            labelLastMonth.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelLastMonth.Location = new Point(58, 641);
+            labelLastMonth.Name = "labelLastMonth";
+            labelLastMonth.Size = new Size(145, 18);
+            labelLastMonth.TabIndex = 5;
+            labelLastMonth.Text = "Income last month";
+            // 
+            // labelThisMonth
+            // 
+            labelThisMonth.AutoSize = true;
+            labelThisMonth.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelThisMonth.Location = new Point(237, 641);
+            labelThisMonth.Name = "labelThisMonth";
+            labelThisMonth.Size = new Size(145, 18);
+            labelThisMonth.TabIndex = 6;
+            labelThisMonth.Text = "Income this month";
+            // 
+            // labelLastMonthIncome
+            // 
+            labelLastMonthIncome.AutoSize = true;
+            labelLastMonthIncome.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelLastMonthIncome.Location = new Point(58, 684);
+            labelLastMonthIncome.Name = "labelLastMonthIncome";
+            labelLastMonthIncome.Size = new Size(89, 18);
+            labelLastMonthIncome.TabIndex = 7;
+            labelLastMonthIncome.Text = "{income1}";
+            // 
+            // labelThisMonthIncome
+            // 
+            labelThisMonthIncome.AutoSize = true;
+            labelThisMonthIncome.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelThisMonthIncome.Location = new Point(237, 684);
+            labelThisMonthIncome.Name = "labelThisMonthIncome";
+            labelThisMonthIncome.Size = new Size(89, 18);
+            labelThisMonthIncome.TabIndex = 8;
+            labelThisMonthIncome.Text = "{income2}";
+            // 
             // MainMenuUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(labelThisMonthIncome);
+            Controls.Add(labelLastMonthIncome);
+            Controls.Add(labelThisMonth);
+            Controls.Add(labelLastMonth);
             Controls.Add(buttonToTableView);
             Controls.Add(labelUserName);
             Controls.Add(buttonToEmployeeManagement);
@@ -115,8 +163,10 @@ namespace Project1._4
             Controls.Add(Logo);
             Name = "MainMenuUC";
             Size = new Size(414, 736);
+            Load += MainMenuUC_Load;
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -127,5 +177,9 @@ namespace Project1._4
         private PictureBox Logo;
         private RoundLabel labelUserName;
         private RoundButton buttonToTableView;
+        private Label labelLastMonth;
+        private Label labelThisMonth;
+        private Label labelLastMonthIncome;
+        private Label labelThisMonthIncome;
     }
 }

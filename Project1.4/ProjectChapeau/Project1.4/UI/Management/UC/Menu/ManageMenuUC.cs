@@ -1,25 +1,17 @@
 ﻿using Project1._4.Model;
 using Project1._4.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Project1._4.UI.Management.UC
 {
     public partial class ManageMenuUC : UserControl
     {
+        private const int stockWidth = 30;
         private ManagerView _form;
 
         public ManageMenuUC(ManagerView form)
         {
             InitializeComponent();
-            this._form = form;
+            _form = form;
         }
 
         // Refreshes the controls (buttons) in the panel
@@ -30,7 +22,7 @@ namespace Project1._4.UI.Management.UC
             foreach (Product product in products)
             {
                 ItemButtonUC control = new ItemButtonUC(null, product);
-                control.TextboxSize = 30;
+                control.TextboxSize = stockWidth; //small size for textbox so that label can be a long text
                 panelProductsList.Controls.Add(control);
             }
         }
@@ -43,17 +35,17 @@ namespace Project1._4.UI.Management.UC
             return products;
         }
 
-        private void buttonGoBack_Click(object sender, EventArgs e)
+        private void ButtonGoBackClick(object sender, EventArgs e)
         {
             _form.GoBackToMainMenu();
         }
 
-        private void buttonAddNewMenuItem_Click(object sender, EventArgs e)
+        private void ButtonAddNewMenuItemClick(object sender, EventArgs e)
         {
-            NavigateToAddOrAdjustMenuItem("ADD MENU ITEM", "ADD", null);
+            _form.NavigateToAddOrAdjustMenuItem("ADD MENU ITEM", "ADD", null);
         }
 
-        private void buttonAdjustMenuItem_Click(object sender, EventArgs e)
+        private void ButtonAdjustMenuItemClick(object sender, EventArgs e)
         {
             Product product = GetSelectedProduct();
             if (product == null)
@@ -62,12 +54,7 @@ namespace Project1._4.UI.Management.UC
                 return;
             }
 
-            NavigateToAddOrAdjustMenuItem("ADJUST MENU ITEM", "ADJUST", product);
-        }
-
-        private void NavigateToAddOrAdjustMenuItem(string typeofPanel, string buttonText, Product product)
-        {
-            _form.NavigateToAddOrAdjustMenuItem(typeofPanel, buttonText, product);
+            _form.NavigateToAddOrAdjustMenuItem("ADJUST MENU ITEM", "ADJUST", product);
         }
 
         private void ManageMenuOnLoad(object sender, EventArgs e)
@@ -84,6 +71,21 @@ namespace Project1._4.UI.Management.UC
                     return productItemUC.Product;
             }
             return null!;
+        }
+
+        private void ButtonRemoveClick(object sender, EventArgs e)
+        {
+            Product product = GetSelectedProduct();
+            if (product == null)
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+            
+            ProductService service = new ProductService();
+            service.DeleteProduct(product);
+            
+            RefreshMenuPanel();
         }
     }
 }

@@ -1,26 +1,33 @@
 ﻿using Project1._4.Model;
 using Project1._4.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Project1._4.UI.Management
 {
     public partial class EmployeeManagementUC : UserControl
     {
-        private ManagerView form;
+        private readonly ManagerView _form;
 
         public EmployeeManagementUC(ManagerView form)
         {
             InitializeComponent();
-            this.form = form;
+            _form = form;
+        }
 
+        private void RefreshEmployeePanel()
+        {
+            try
+            {
+                panelEmployee.Controls.Clear();
+                List<Employee> employees = GetAllEmployees();
+                foreach (Employee employee in employees)
+                {
+                    panelEmployee.Controls.Add(new ItemButtonUC(employee));
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Something went wrong");
+            }
         }
 
         private List<Employee> GetAllEmployees()
@@ -30,32 +37,22 @@ namespace Project1._4.UI.Management
             return employees;
         }
 
-        private void RefreshEmployeePanel()
-        {
-            panelEmployee.Controls.Clear();
-            List<Employee> employees = GetAllEmployees();
-            foreach (Employee employee in employees)
-            {
-                panelEmployee.Controls.Add(new ItemButtonUC(employee));
-            }
-        }
-
         private void EmployeeManagementOnLoad(object sender, EventArgs e)
         {
             RefreshEmployeePanel();
         }
 
-        private void GoBackToMainMenu(object sender, EventArgs e)
+        private void GoBackToMainMenuClick(object sender, EventArgs e)
         {
-            form.GoBackToMainMenu();
+            _form.GoBackToMainMenu();
         }
 
-        private void ButtonAdd_Click(object sender, EventArgs e)
+        private void ButtonAddClick(object sender, EventArgs e)
         {
-            NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD", null);
+            _form.NavigateToAddOrAdjustEmployee("NEW EMPLOYEE", "ADD", null);
         }
 
-        private void buttonAdjust_Click(object sender, EventArgs e)
+        private void ButtonAdjustClick(object sender, EventArgs e)
         {
             Employee employee = GetSelectedEmployee();
             if (employee == null)
@@ -64,24 +61,26 @@ namespace Project1._4.UI.Management
                 return;
             }
 
-            NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE", "ADJUST", employee);
+            _form.NavigateToAddOrAdjustEmployee("ADJUST EMPLOYEE", "ADJUST", employee);
         }
 
-        private void NavigateToAddOrAdjustEmployee(string panelname, string buttonName, Employee employee)
+        private void ButtonRemoveClick(object sender, EventArgs e)
         {
-            form.NavigateToAddOrAdjustEmployee(panelname, buttonName, employee);
-        }
+            try
+            {
+                Employee employee = GetSelectedEmployee();
+                if (employee == null)
+                    return;
 
-        private void ButtonRemove_Click(object sender, EventArgs e)
-        {
-            Employee employee = GetSelectedEmployee();
-            if (employee == null)
-                return;
+                EmployeeService service = new EmployeeService();
+                service.DeleteEmployee(employee);
 
-            EmployeeService service = new EmployeeService();
-            service.DeleteEmployee(employee);
-
-            RefreshEmployeePanel();
+                RefreshEmployeePanel();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Something went wrong");
+            }
         }
         private Employee GetSelectedEmployee()
         {

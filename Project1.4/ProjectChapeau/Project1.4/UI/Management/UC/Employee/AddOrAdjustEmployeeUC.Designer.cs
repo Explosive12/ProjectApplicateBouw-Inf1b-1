@@ -61,7 +61,7 @@ namespace Project1._4.UI.Management.UC
             buttonGoBack.TabIndex = 14;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
-            buttonGoBack.Click += NavigateToEmployee;
+            buttonGoBack.Click += NavigateToEmployeeClick;
             // 
             // labelEmployeeChanges
             // 
@@ -96,7 +96,7 @@ namespace Project1._4.UI.Management.UC
             buttonAddAdjustEmployee.TabIndex = 17;
             buttonAddAdjustEmployee.Text = "ADD";
             buttonAddAdjustEmployee.UseVisualStyleBackColor = false;
-            buttonAddAdjustEmployee.Click += AddAdjustEmployee_Click;
+            buttonAddAdjustEmployee.Click += AddAdjustEmployeeClick;
             // 
             // AddOrAdjustEmployeeUC
             // 

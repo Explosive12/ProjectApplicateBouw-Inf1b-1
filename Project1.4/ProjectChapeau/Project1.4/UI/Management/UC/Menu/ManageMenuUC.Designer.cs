@@ -51,7 +51,7 @@
             buttonAdjust.TabIndex = 11;
             buttonAdjust.Text = "ADJUST";
             buttonAdjust.UseVisualStyleBackColor = false;
-            buttonAdjust.Click += buttonAdjustMenuItem_Click;
+            buttonAdjust.Click += ButtonAdjustMenuItemClick;
             // 
             // buttonRemove
             // 
@@ -66,6 +66,7 @@
             buttonRemove.TabIndex = 13;
             buttonRemove.Text = "REMOVE";
             buttonRemove.UseVisualStyleBackColor = false;
+            buttonRemove.Click += ButtonRemoveClick;
             // 
             // buttonAddNew
             // 
@@ -80,7 +81,7 @@
             buttonAddNew.TabIndex = 14;
             buttonAddNew.Text = "ADD NEW";
             buttonAddNew.UseVisualStyleBackColor = false;
-            buttonAddNew.Click += buttonAddNewMenuItem_Click;
+            buttonAddNew.Click += ButtonAddNewMenuItemClick;
             // 
             // buttonGoBack
             // 
@@ -96,7 +97,7 @@
             buttonGoBack.TabIndex = 15;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
-            buttonGoBack.Click += buttonGoBack_Click;
+            buttonGoBack.Click += ButtonGoBackClick;
             // 
             // labelMenu
             // 

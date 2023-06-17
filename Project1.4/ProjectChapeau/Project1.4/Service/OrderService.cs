@@ -1,31 +1,33 @@
 ﻿using Project1._4.DAL;
 using Project1._4.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Project1._4.Service
 {
     public class OrderService
     {
-        private OrderDao orderDb;
+        private OrderDao orderDao;
 
         public OrderService()
         {
-            orderDb = new OrderDao();
+            orderDao = new OrderDao();
         }
 
         public List<Order> GetAllOrders()
         {
-            List<Order> orders = orderDb.GetAllOrders();
+            List<Order> orders = orderDao.GetAllOrders();
             return orders;
         }
 
         public List<Order> GetByIdOrder(int orderId)
         {
-            List<Order> orders = orderDb.GetByIdOrder(orderId);
+            List<Order> orders = orderDao.GetByIdOrder(orderId);
             return orders;
+        }
+
+        public List<Income> GetPriceFromLast2Months()
+        {
+            List<Income> incomes = orderDao.GetPriceFromLast2Months();
+            return incomes;
         }
 
         public void InsertOrder(Order order)

@@ -74,7 +74,7 @@ namespace Project1._4.UI.Management
             buttonGoBack.TabIndex = 6;
             buttonGoBack.Text = "BACK";
             buttonGoBack.UseVisualStyleBackColor = false;
-            buttonGoBack.Click += GoBackToMainMenu;
+            buttonGoBack.Click += GoBackToMainMenuClick;
             // 
             // buttonAddNew
             // 
@@ -89,7 +89,7 @@ namespace Project1._4.UI.Management
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "ADD NEW";
             buttonAddNew.UseVisualStyleBackColor = false;
-            buttonAddNew.Click += ButtonAdd_Click;
+            buttonAddNew.Click += ButtonAddClick;
             // 
             // buttonRemove
             // 
@@ -104,7 +104,7 @@ namespace Project1._4.UI.Management
             buttonRemove.TabIndex = 9;
             buttonRemove.Text = "REMOVE";
             buttonRemove.UseVisualStyleBackColor = false;
-            buttonRemove.Click += ButtonRemove_Click;
+            buttonRemove.Click += ButtonRemoveClick;
             // 
             // buttonAdjust
             // 
@@ -119,7 +119,7 @@ namespace Project1._4.UI.Management
             buttonAdjust.TabIndex = 10;
             buttonAdjust.Text = "ADJUST";
             buttonAdjust.UseVisualStyleBackColor = false;
-            buttonAdjust.Click += buttonAdjust_Click;
+            buttonAdjust.Click += ButtonAdjustClick;
             // 
             // panelEmployee
             // 

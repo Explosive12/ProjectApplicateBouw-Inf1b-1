@@ -53,7 +53,7 @@ namespace Project1._4.DAL
             {
                 parameters[0] = new SqlParameter("@function", employee.Function);
                 parameters[1] = new SqlParameter("@username", employee.Username);
-                parameters[2] = new SqlParameter("@password", employee.Password);
+                parameters[2] = new SqlParameter("@password", employee.PasswordHash);
                 parameters[3] = new SqlParameter("@name", employee.Name);
 
             }
@@ -71,7 +71,7 @@ namespace Project1._4.DAL
                 parameters[0] = new SqlParameter("@id", employee.EmployeeId);
                 parameters[1] = new SqlParameter("@username", employee.Username);
                 parameters[2] = new SqlParameter("@function", employee.Function);
-                parameters[3] = new SqlParameter("@password", employee.Password);
+                parameters[3] = new SqlParameter("@password", employee.PasswordHash);
                 parameters[4] = new SqlParameter("@name", employee.Name);
             };
             ExecuteEditQuery(query, parameters);
