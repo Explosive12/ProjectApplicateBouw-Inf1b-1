@@ -54,12 +54,12 @@ namespace Project1._4
         private void UpdateTableStatus(TableStatus status, int tableId)
         {
             DialogResult result = MessageBox.Show("Do you want to updated the table status", "Update Status", MessageBoxButtons.YesNo);
-
+            Reservation reservation = new Reservation();
             switch (result)
             {
                 case DialogResult.Yes:
                     if (status == TableStatus.Gereseveerd)
-                        tableService.ReserveTable(status, tableId);
+                        tableService.ReserveTable(reservation, tableId);
                     else
                         tableService.UpdateTableStatus(status, tableId);
                     MessageBox.Show("The table was updated succesfully");

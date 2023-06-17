@@ -27,11 +27,16 @@ namespace Project1._4
             Reservation reservation = new Reservation()
             {
                 phoneNumber = int.Parse(txtNummerGegevens.Text),
-                naam = txtNummerGegevens.Text,
+                naam = txtNaamGegevens.Text,
                 opmerking = int.Parse(txtOpmerkingGegevens.Text),
                 datum = DateTime.Parse(txtDatumGegevens.Text),
                 tijd = DateTime.Parse(txtTijdGegevens.Text),
             };
+
+            TableService tableService = new TableService();
+            tableService.ReserveTable(reservation , tableId);
+
+            tableService.UpdateTableStatus(TableStatus.Gereseveerd, tableId);
         }
     }
 }

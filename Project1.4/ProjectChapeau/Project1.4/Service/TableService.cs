@@ -27,9 +27,9 @@ namespace Project1._4.Service
         {
             return tabledb.GetAllTables();
         }
-        public void ReserveTable(TableStatus status, int tableId)
+        public void ReserveTable(Reservation reservation , int tableId)
         {
-            tabledb.ReserveTable(status, tableId);
+            tabledb.ReserveTable(reservation , tableId);
         }
     }
 }
