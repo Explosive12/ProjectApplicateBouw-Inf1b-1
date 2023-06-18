@@ -99,7 +99,9 @@ namespace Project1._4
         }
         private void GoToTableButton(object sender, EventArgs e)
         {
-            //kian zijn stukje
+            OrderViewLunch orderViewLunch = new OrderViewLunch(tableId);
+            orderViewLunch.Show();
+            tablev.Hide();
         }
 
     }

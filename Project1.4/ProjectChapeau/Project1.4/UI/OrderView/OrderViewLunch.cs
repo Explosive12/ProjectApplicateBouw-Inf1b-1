@@ -22,7 +22,7 @@ namespace Project1._4
         private Order order;
         private List<Product> products;
         private string employeeName;
-        public OrderViewLunch(int tableId, string employeeName) // TODO receive table id from tables // Employee name
+        public OrderViewLunch(int tableId)
         {
             InitializeComponent();
             OrderService orderService = new OrderService();
