@@ -1,4 +1,5 @@
-﻿using Project1._4.Model;
+﻿using Microsoft.IdentityModel.Tokens;
+using Project1._4.Model;
 using Project1._4.Service;
 using Project1._4.UI;
 using System;
@@ -75,53 +76,88 @@ namespace Project1._4
 
                 // Add the ListViewItem to the ListView control
                 listViewBarOrders.Items.Add(li);
+            }
 
-                // Check if "Running" and "Finished" options are already in the ComboBox
-                if (!cbxStatusBar.Items.Contains("Running"))
-                {
-                    cbxStatusBar.Items.Add("Running");
-                }
-                if (!cbxStatusBar.Items.Contains("Finished"))
-                {
-                    cbxStatusBar.Items.Add("Finished");
-                }
+            // Check if "Running" and "Finished" options are already in the ComboBox
+            if (!cbxStatusBar.Items.Contains("Running"))
+            {
+                cbxStatusBar.Items.Add("Running");
+            }
+            if (!cbxStatusBar.Items.Contains("Finished"))
+            {
+                cbxStatusBar.Items.Add("Finished");
             }
         }
 
         private void btnPreparationBar_Click(object sender, EventArgs e)
         {
-            state = OrderStatusEnum.Inpreparation;
-            int stateInt = (int)state;
+            try
+            {
+                if (clickedData == 0)
+                {
+                    throw new Exception("No data selected");
+                }
 
-            OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+                state = OrderStatusEnum.Inpreparation;
+                int stateInt = (int)state;
+                ChangeStateDatabase(stateInt);
 
-            //to instant update the label
-            lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
+                //to instant update the label
+                lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
         }
 
         private void btnPreparedBar_Click(object sender, EventArgs e)
         {
-            state = OrderStatusEnum.Prepared;
-            int stateInt = (int)state;
+            try
+            {
+                if (clickedData == 0)
+                {
+                    throw new Exception("No data selected");
+                }
 
-            OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+                state = OrderStatusEnum.Prepared;
+                int stateInt = (int)state;
+                ChangeStateDatabase(stateInt);
 
-            //to instant update the label
-            lblStatusOfDish.Text = OrderStatusEnum.Prepared.ToString();
+                //to instant update the label
+                lblStatusOfDish.Text = OrderStatusEnum.Prepared.ToString();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
         }
 
         private void btnServedBar_Click(object sender, EventArgs e)
         {
-            state = OrderStatusEnum.Served;
-            int stateInt = (int)state;
+            try
+            {
+                if (clickedData == 0)
+                {
+                    throw new Exception("No data selected");
+                }
 
+                state = OrderStatusEnum.Served;
+                int stateInt = (int)state;
+                ChangeStateDatabase(stateInt);
+
+                //to instant update the label
+                lblStatusOfDish.Text = OrderStatusEnum.Served.ToString();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+        private void ChangeStateDatabase(int stateInt)
+        {
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
-
-            //to instant update the label
-            lblStatusOfDish.Text = OrderStatusEnum.Served.ToString();
         }
 
         private void listViewBarOrders_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,8 +181,13 @@ namespace Project1._4
         }
         private void btnFilterByStatusBar_Click(object sender, EventArgs e)
         {
-            if (cbxStatusBar.SelectedItem != null)
+            try
             {
+                if (cbxStatusBar.SelectedItem == null)
+                {
+                    throw new Exception("No data selected in combobox");
+                }
+
                 string selectedValue = cbxStatusBar.SelectedItem.ToString();
 
                 OrderItemService orderItemService = new OrderItemService();
@@ -168,6 +209,10 @@ namespace Project1._4
                 }
 
                 DisplayBarOrders(orders);
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show(er.Message);
             }
         }
     }

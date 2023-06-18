@@ -74,16 +74,16 @@ namespace Project1._4
 
                 // Add the ListViewItem to the ListView control
                 listViewKitchenOrders.Items.Add(li);
+            }
 
-                // Check if "Running" and "Finished" options are already in the ComboBox
-                if (!cbxStatusKitchen.Items.Contains("Running"))
-                {
-                    cbxStatusKitchen.Items.Add("Running");
-                }
-                if (!cbxStatusKitchen.Items.Contains("Finished"))
-                {
-                    cbxStatusKitchen.Items.Add("Finished");
-                }
+            // Check if "Running" and "Finished" options are already in the ComboBox
+            if (!cbxStatusKitchen.Items.Contains("Running"))
+            {
+                cbxStatusKitchen.Items.Add("Running");
+            }
+            if (!cbxStatusKitchen.Items.Contains("Finished"))
+            {
+                cbxStatusKitchen.Items.Add("Finished");
             }
         }
 
@@ -92,13 +92,13 @@ namespace Project1._4
         {
             state = OrderStatusEnum.Prepared;
             int stateInt = (int)state;
-
-            OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+            ChangeStateDatabase(stateInt);
 
             //to instant update the label
             lblStatusOfDish.Text = OrderStatusEnum.Prepared.ToString();
         }
+
+        
 
         //TODO AUTOUPDATE LISTVIEW
         private void btnServedKitchen_Click(object sender, EventArgs e)
@@ -106,8 +106,7 @@ namespace Project1._4
             state = OrderStatusEnum.Served;
             int stateInt = (int)state;
 
-            OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+            ChangeStateDatabase(stateInt);
 
             //to instant update the label
             lblStatusOfDish.Text = OrderStatusEnum.Served.ToString();
@@ -119,11 +118,16 @@ namespace Project1._4
             state = OrderStatusEnum.Inpreparation;
             int stateInt = (int)state;
 
-            OrderItemService orderItemService = new OrderItemService();
-            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
+            ChangeStateDatabase(stateInt);
 
             //to instant update the label
             lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
+        }
+
+        private void ChangeStateDatabase(int stateInt)
+        {
+            OrderItemService orderItemService = new OrderItemService();
+            orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
         private void listViewKitchenOrders_SelectedIndexChanged_1(object sender, EventArgs e)
         {

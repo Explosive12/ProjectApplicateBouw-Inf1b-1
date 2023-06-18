@@ -21,7 +21,7 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetOrderItemsByDinnerLunch()
         {
-            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd " +
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId " +
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
@@ -45,9 +45,9 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
-            string query =  "SELECT bestelregel.id, bestelregel.bestellingId, productId, aantal, opmerking, status, begintijd " +
+            string query =  "SELECT bestelregel.id, bestelregel.bestellingId, productId, aantal, opmerking, status, begintijd, bestelling.tafelId " +
                             "FROM bestelregel " +
-                            "JOIN bestelling ON bestelregel.bestellingId = bestelling.bestellingId " +
+                                "JOIN bestelling ON bestelregel.bestellingId = bestelling.bestellingId " +
                             "WHERE bestelregel.id = @orderItemId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
@@ -78,8 +78,8 @@ namespace Project1._4.DAL
 
         public void UpdateOrderItemState(int clickeddata, int state)
         {
-            string query = "UPDATE bestelregel SET status = @Status " +
-                        "WHERE id = @OrderItemId";
+            string query =  "UPDATE bestelregel SET status = @Status " +
+                            "WHERE id = @OrderItemId";
             SqlParameter[] sqlParameters =
             {
                 new SqlParameter("@OrderItemId", clickeddata),
@@ -89,7 +89,7 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetByStatusKitchen(int orderItemId)
         {
-           string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd  " +
+           string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId  " +
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
@@ -103,7 +103,7 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetByStatusBar(int intValue)
         {
-            string query =  "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd " +
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId " +
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
