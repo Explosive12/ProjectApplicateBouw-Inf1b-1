@@ -55,7 +55,7 @@ namespace Project1._4.DAL
 
         public decimal GetProductPrice(int productId)
         {
-            string query = "SELECT prijs FROM product WHERE productId = @productId";
+            string query = "SELECT p.prijs FROM product p JOIN bestelregel br ON p.productId = br.productId JOIN bestelling b ON br.bestellingId = b.bestellingId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@productId", productId);
             return (decimal)ExecuteSelectQuery(query, sqlParameters).Rows[0]["prijs"];
@@ -63,7 +63,7 @@ namespace Project1._4.DAL
 
         public int QuantityOfProduct(int productId)
         {
-            string query = "SELECT aantal FROM product WHERE productId = @productId";
+            string query = "SELECT br.aantal FROM product p JOIN bestelregel br ON p.productId = br.productId JOIN bestelling b ON br.bestellingId = b.bestellingId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@productId", productId);
             return (int)ExecuteSelectQuery(query, sqlParameters).Rows[0]["aantal"];
@@ -80,16 +80,19 @@ namespace Project1._4.DAL
 
         private List<OrderItem> ReadOrderItems(DataTable dataTable)
         {
-            List<OrderItem> orderItems = new List<OrderItem>();
-            foreach (DataRow row in dataTable.Rows)
+            List<OrderItem> orders = new List<OrderItem>();
+            foreach (DataRow dr in dataTable.Rows)
             {
-           /*     OrderItem orderItem = new OrderItem();
-                orderItem.Name = row["naam"].ToString();
-                orderItem.Price = Convert.ToDecimal(row["prijs"]);
-                orderItem.Quantity = Convert.ToInt32(row["aantal"]);
-                orderItems.Add(orderItem);*/
+                OrderItem orderItem = new OrderItem(
+                    (int)dr["OrderId"],
+                    (int)dr["ProductId"],
+                    (int)dr["Amount"],
+                    dr["Comment"].ToString(),
+                    (OrderStatusEnum)dr["Status"]
+                );
+                orders.Add(orderItem);
             }
-            return orderItems;
+            return orders;
         }
 
         private List<Order> ReadTables(DataTable dataTable)
