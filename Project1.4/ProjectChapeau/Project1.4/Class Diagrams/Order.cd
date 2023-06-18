@@ -62,11 +62,12 @@
       <FileName>DAL\OrderDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Service.OrderService">
+  <Class Name="Project1._4.Service.PaymentService">
     <Position X="4.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAg=</HashCode>
-      <FileName>Service\OrderService.cs</FileName>
+      <HashCode>IAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAAQAAAEBAABA=</HashCode>
+      <FileName>Service\PaymentService.cs</FileName>
+      <NewMemberFileName>Service\OrderService.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.OrderItemService">
