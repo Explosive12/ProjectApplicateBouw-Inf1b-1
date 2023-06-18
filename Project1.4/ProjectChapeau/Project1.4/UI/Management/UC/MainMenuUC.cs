@@ -32,6 +32,7 @@ namespace Project1._4
             _form.NavigateToTableView();
         }
 
+        // On load of the main menu, get the income from the last 2 months
         private void MainMenuUC_Load(object sender, EventArgs e)
         {
             OrderService orderService = new OrderService();
