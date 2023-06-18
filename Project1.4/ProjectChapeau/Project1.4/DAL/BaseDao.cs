@@ -11,15 +11,14 @@ namespace Project1._4.DAL
 {
     public abstract class BaseDao
     {
-        private SqlDataAdapter adapter;
-        public SqlConnection conn;
+        protected SqlDataAdapter adapter;
+        protected SqlConnection conn;
 
         public BaseDao()
         {
             // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'CHAPEAU DATABASE' IN YOUR APP.CONFIG!!
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["applicatiebouw"].ConnectionString);
             adapter = new SqlDataAdapter();
-
         }
 
         protected SqlConnection OpenConnection()
@@ -101,7 +100,7 @@ namespace Project1._4.DAL
             {
                 command.Connection = OpenConnection();
                 command.CommandText = query;
-                command.Parameters.AddRange(sqlParameters);
+                command.Parameters.AddRange(sqlParameters); 
                 command.ExecuteNonQuery();
                 adapter.SelectCommand = command;
                 adapter.Fill(dataSet);

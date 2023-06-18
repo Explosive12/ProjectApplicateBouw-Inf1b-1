@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.CodeDom.Compiler;
+using Microsoft.Graph.Models;
+using System.Web;
 
 namespace Project1._4.DAL
 {
@@ -12,16 +15,43 @@ namespace Project1._4.DAL
     {
         public List<OrderItem> GetAllOrderItems()
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            string query =  "SELECT id, bestellingId, productId, aantal, opmerking, status " +
+                            "FROM bestelregel";
+            return ReadTables(ExecuteSelectQuery(query));
         }
-        public List<OrderItem> GetByIdOrderItem(int orderItemId)
+        public List<OrderItem> GetOrderItemsByDinnerLunch()
         {
-            string query = "SELECT id, bestellingId, productId, aantal, opmerking, status FROM bestelregel WHERE id = @orderItemId";
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE (M.type='Lunch' OR M.type='Dinner') " +
+                                "AND B.status !='2' " +
+                            "ORDER BY begintijd";
+            return ReadTablesDateTafel(ExecuteSelectQuery(query));
+        }
+        public List<OrderItem> GetOrderItemsByDrinks()
+        {
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE M.type='Drinks' " +
+                                "AND B.status !='2' " +
+                            "ORDER BY begintijd";
+            return ReadTablesDateTafel(ExecuteSelectQuery(query));
+        }
+        public List<OrderItem> GetByOrderItemId(int orderItemId)
+        {
+            string query =  "SELECT bestelregel.id, bestelregel.bestellingId, productId, aantal, opmerking, status, begintijd, bestelling.tafelId " +
+                            "FROM bestelregel " +
+                                "JOIN bestelling ON bestelregel.bestellingId = bestelling.bestellingId " +
+                            "WHERE bestelregel.id = @orderItemId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTablesDateTafel(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private List<OrderItem> ReadTables(DataTable dataTable)
@@ -30,59 +60,115 @@ namespace Project1._4.DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem(
+                OrderItem orderItem = new OrderItem
+                (
                     (int)dr["id"],
                     (int)dr["bestellingId"],
                     (int)dr["productId"],
-                    (int)dr["aantal"],
+                    (int)dr["aantal"],  
                     (string)dr["opmerking"],
                     (OrderStatusEnum)dr["status"]
-                    );
+                );
                 orderItems.Add(orderItem);
             }
             return orderItems;
         }
 
-        
+        private List<OrderItem> ReadTablesDateTafel(DataTable dataTable)
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
 
-        public void InsertOrderItem(OrderItem orderItem) 
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem orderItem = new OrderItem
+                (
+                    (int)dr["id"],
+                    (int)dr["bestellingId"],
+                    (int)dr["productId"],
+                    (int)dr["aantal"],
+                    (string)dr["opmerking"],
+                    (OrderStatusEnum)dr["status"],
+                    (DateTime)dr["begintijd"],
+                    (int)dr["tafelId"]
+                );
+                orderItems.Add(orderItem);
+            }
+            return orderItems;
+        }
+
+        private int GetNextAvailableId()
+        {
+            string query = "SELECT COUNT(*) FROM bestelregel";
+            int count = ReadCountTable(ExecuteSelectQuery(query)) + 1;
+            return count;
+        }
+
+        private int ReadCountTable(DataTable dataTable)
+        {
+            DataRow dr = dataTable.Rows[0];
+            int count = (int)dr[0];
+            return count;
+        }
+
+        public void InsertOrderItems(List<OrderItem> orderItems)
         {
             string query = "INSERT INTO bestelregel (id, bestellingId, productId, aantal, opmerking, status) " +
-                                "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
-            SqlParameter[] sqlParameters =
+                           "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
+            foreach (OrderItem orderItem in orderItems)
             {
-                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
-                new SqlParameter("@OrderId", orderItem.OrderId),
-                new SqlParameter("@ProductId", orderItem.ProductId),
-                new SqlParameter("@Amount", orderItem.Amount),
-                new SqlParameter("@Comment", orderItem.Comment),
-                new SqlParameter("@Status", orderItem.Status),
-            };
-            ExecuteEditQuery( query, sqlParameters );
+                orderItem.OrderItemId = GetNextAvailableId();
+                SqlParameter[] sqlParameters =
+                {
+                    new SqlParameter("@OrderItemId", orderItem.OrderItemId),
+                    new SqlParameter("@OrderId", orderItem.OrderId),
+                    new SqlParameter("@ProductId", orderItem.ProductId),
+                    new SqlParameter("@Amount", orderItem.Amount),
+                    new SqlParameter("@Comment", orderItem.Comment),
+                    new SqlParameter("@Status", orderItem.Status),
+                };
+
+                ExecuteEditQuery(query, sqlParameters);
+            }
         }
 
-        public void RemoveOrderItem(OrderItem orderItem) 
+        public void UpdateOrderItemState(int clickeddata, int state)
         {
-            string query = "DELETE FROM bestelregel WHERE id = @Id";
-            SqlParameter[] sqlParameters = { new SqlParameter("@Id", orderItem.OrderItemId) };
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
-        public void UpdateOrderItem(OrderItem orderItem) 
-        {
-            string query = "UPDATE bestelregel " +
-                "SET id = @OrderItemId, bestellingId = @OrderId, productId = @ProductId, aantal = @Amount, opmerking = @Comment, status = @Status " +
-                "WHERE id = @OrderItemId";
+            string query = "UPDATE bestelregel SET status = @Status " +
+                            "WHERE id = @OrderItemId";
             SqlParameter[] sqlParameters =
             {
-                new SqlParameter("@OrderItemId", orderItem.OrderItemId),
-                new SqlParameter("@OrderId", orderItem.OrderId),
-                new SqlParameter("@ProductId", orderItem.ProductId),
-                new SqlParameter("@Amount", orderItem.Amount),
-                new SqlParameter("@Comment", orderItem.Comment),
-                new SqlParameter("@Status", orderItem.Status),
+                new SqlParameter("@OrderItemId", clickeddata),
+                new SqlParameter("@Status", state),
             };
             ExecuteEditQuery(query, sqlParameters);
+        }
+        public List<OrderItem> GetByStatusKitchen(int orderItemId)
+        {
+           string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId  " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE (M.type='Lunch' OR M.type='Dinner') " +
+                                "AND [status] = @IntValue " +
+                            "ORDER BY begintijd";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@IntValue", orderItemId);
+            return ReadTablesDateTafel(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetByStatusBar(int intValue)
+        {
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId " +
+                            "FROM bestelregel as B " +
+                                "JOIN product as P ON P.productId = B.productId " +
+                                "JOIN menu as M ON P.productId = M.productId " +
+                                "JOIN bestelling ON B.bestellingId = bestelling.bestellingId " +
+                            "WHERE [status] = @IntValue " +
+                                "AND M.type='Drinks' " +
+                            "ORDER BY bestelling.begintijd";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@IntValue", intValue);
+            return ReadTablesDateTafel(ExecuteSelectQuery(query, sqlParameters));
         }
     }
 }

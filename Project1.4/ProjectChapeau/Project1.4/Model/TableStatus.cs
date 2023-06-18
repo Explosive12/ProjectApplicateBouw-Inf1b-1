@@ -7,8 +7,9 @@ namespace Project1._4.Model
 {
     public enum TableStatus
     {
-        Occupied,
-        Reserved,
-        Available
+        Vrij = 1,
+        Bezet,
+        Gereseveerd,
+        Besteld,
     }
 }

@@ -1,93 +1,259 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Comment CommentText="UI">
-    <Position X="2.528" Y="1.841" Height="0.323" Width="0.7" />
+    <Position X="2.5" Y="1" Height="0.323" Width="0.7" />
   </Comment>
   <Comment CommentText="Service">
-    <Position X="2.525" Y="6.079" Height="0.302" Width="0.7" />
+    <Position X="2.533" Y="6.738" Height="0.302" Width="0.7" />
   </Comment>
   <Comment CommentText="DAL">
-    <Position X="2.486" Y="9.346" Height="0.292" Width="0.7" />
+    <Position X="2.755" Y="11.2" Height="0.292" Width="0.7" />
   </Comment>
   <Comment CommentText="Model">
-    <Position X="8.492" Y="6.091" Height="0.291" Width="0.7" />
+    <Position X="8.5" Y="6.75" Height="0.291" Width="0.7" />
   </Comment>
   <Class Name="Project1._4.Model.OrderItem">
-    <Position X="10.75" Y="6.75" Width="1.5" />
+    <Position X="10.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAACAAAEAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAEQAAAAAAgAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\OrderItem.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Product" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Project1._4.Model.Product">
-    <Position X="13.5" Y="6.75" Width="1.5" />
+    <Position X="12" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAQAAAAAIAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAQAAAAAAAAAAAAQAgAAQAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Model\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.ProductDao">
-    <Position X="2.5" Y="10" Width="1.5" />
+    <Position X="2.75" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAQAQAAAIQAAQAiAAAACAgAAAAAAAAAACAA=</HashCode>
       <FileName>DAL\ProductDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.ProductService">
-    <Position X="2.5" Y="6.75" Width="1.5" />
+    <Position X="2.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAIAAAAAAAQAAAIAAAQAiAAAACAgAAAAAAAAAACQA=</HashCode>
       <FileName>Service\ProductService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.OrderView">
-    <Position X="2.5" Y="2.25" Width="2.75" />
-    <Members>
-      <Field Name="components" Hidden="true" />
-      <Method Name="Dispose" Hidden="true" />
-      <Method Name="InitializeComponent" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>AAEAAAAJACAgAAAAAACIBAACAQAAAAAAAAAABAAAEAA=</HashCode>
-      <FileName>UI\OrderView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Project1._4.DAL.OrderDao">
-    <Position X="4.25" Y="10" Width="1.5" />
+    <Position X="4.5" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AwAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAg=</HashCode>
+      <HashCode>AwAAAAEAAAQEAAAAAAQgAAAAAAAAAAEAAQAAAAAAAAg=</HashCode>
       <FileName>DAL\OrderDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.OrderService">
-    <Position X="4.25" Y="6.75" Width="1.5" />
+    <Position X="4.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAg=</HashCode>
+      <HashCode>AgAAAAEAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAEAAAg=</HashCode>
       <FileName>Service\OrderService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.OrderItemService">
-    <Position X="6" Y="6.75" Width="1.5" />
+    <Position X="6" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAoAAAAAAACAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+      <HashCode>AAABAQAAAAAEAAAAAACAQAoAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\OrderItemService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.OrderItemDao">
-    <Position X="6" Y="10" Width="1.5" />
+    <Position X="6.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAA4AAAAAAAAAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+      <HashCode>IAABAQCAAAQEAAAAAAAgQAgAAAAgAAAAAAAAAAAAQAg=</HashCode>
       <FileName>DAL\OrderItemDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Model.Order">
-    <Position X="8.5" Y="6.75" Width="1.5" />
+    <Position X="8.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAEQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>EAAAAAAAQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.OrderViewAddComment">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="CommentTxtBox" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="orderViewCommentAddBtn" Hidden="true" />
+      <Field Name="orderViewCommentBackBtn" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAFABGCgAAAEAAAiAAAASACAAAAAAAAAAJAAAAAA=</HashCode>
+      <FileName>UI\OrderView\OrderViewAddComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.OrderViewDinner">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="columnHeader1" Hidden="true" />
+      <Field Name="columnHeader2" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="orderItemLV" Hidden="true" />
+      <Field Name="orderViewCommentBtn" Hidden="true" />
+      <Field Name="OrderViewDessertsFLP" Hidden="true" />
+      <Field Name="orderViewFinishBtn" Hidden="true" />
+      <Field Name="orderViewGoToDinnerBtn" Hidden="true" />
+      <Field Name="orderViewGoToDrinksBtn" Hidden="true" />
+      <Field Name="orderViewGoToLunchBtn" Hidden="true" />
+      <Field Name="orderViewLbl1" Hidden="true" />
+      <Field Name="orderViewLbl2" Hidden="true" />
+      <Field Name="orderViewLbl3" Hidden="true" />
+      <Field Name="OrderViewMainFLP" Hidden="true" />
+      <Field Name="orderViewRemoveBtn" Hidden="true" />
+      <Field Name="orderViewSideDish" Hidden="true" />
+      <Field Name="OrderViewSideDishFLP" Hidden="true" />
+      <Field Name="OrderViewStarterFLP" Hidden="true" />
+      <Field Name="orderViewTableLbl" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAAAAFBBiCwAEDABEAiCBCwiAyAAAEABGAAABABBAKA=</HashCode>
+      <FileName>UI\OrderView\OrderViewDinner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.OrderViewDrinks">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="columnHeader1" Hidden="true" />
+      <Field Name="columnHeader2" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="orderItemLV" Hidden="true" />
+      <Field Name="OrderViewBeersFLP" Hidden="true" />
+      <Field Name="orderViewBeersLbl" Hidden="true" />
+      <Field Name="orderViewCommentBtn" Hidden="true" />
+      <Field Name="orderViewFinishBtn" Hidden="true" />
+      <Field Name="orderViewGoToDinnerBtn" Hidden="true" />
+      <Field Name="orderViewGoToDrinksBtn" Hidden="true" />
+      <Field Name="orderViewGoToLunchBtn" Hidden="true" />
+      <Field Name="OrderViewHotDrinksFLP" Hidden="true" />
+      <Field Name="orderViewLbl1" Hidden="true" />
+      <Field Name="orderViewLbl2" Hidden="true" />
+      <Field Name="orderViewLbl3" Hidden="true" />
+      <Field Name="orderViewRemoveBtn" Hidden="true" />
+      <Field Name="OrderViewSoftDrinksFLP" Hidden="true" />
+      <Field Name="OrderViewSpiritsFLP" Hidden="true" />
+      <Field Name="orderViewTableLbl" Hidden="true" />
+      <Field Name="OrderViewWinesFLP" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>UAQAAFBBiCiAEHABEAiGBSwiAygAAAAACAAAhABAAIA=</HashCode>
+      <FileName>UI\OrderView\OrderViewDrinks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.OrderViewFinishOrder">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="columnHeader1" Hidden="true" />
+      <Field Name="columnHeader2" Hidden="true" />
+      <Field Name="columnHeader3" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="orderItemLV" Hidden="true" />
+      <Field Name="orderViewGoToDinnerBtn" Hidden="true" />
+      <Field Name="orderViewGoToDrinksBtn" Hidden="true" />
+      <Field Name="orderViewGoToLunchBtn" Hidden="true" />
+      <Field Name="orderViewPayBtn" Hidden="true" />
+      <Field Name="orderViewPriceLbl" Hidden="true" />
+      <Field Name="orderViewTableLbl" Hidden="true" />
+      <Field Name="orderViewVATLbl" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QQABAgEBiGgAAAABEgiAAECCE6AAAAAQAAggJABAAIA=</HashCode>
+      <FileName>UI\OrderView\OrderViewFinishOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.OrderViewLunch">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="columnHeader1" Hidden="true" />
+      <Field Name="columnHeader2" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="orderItemLV" Hidden="true" />
+      <Field Name="orderViewCommentBtn" Hidden="true" />
+      <Field Name="OrderViewDessertsFLP" Hidden="true" />
+      <Field Name="orderViewFinishBtn" Hidden="true" />
+      <Field Name="orderViewGoToDinnerBtn" Hidden="true" />
+      <Field Name="orderViewGoToDrinksBtn" Hidden="true" />
+      <Field Name="orderViewGoToLunchBtn" Hidden="true" />
+      <Field Name="orderViewLbl1" Hidden="true" />
+      <Field Name="orderViewLbl2" Hidden="true" />
+      <Field Name="orderViewLbl3" Hidden="true" />
+      <Field Name="OrderViewMainFLP" Hidden="true" />
+      <Field Name="orderViewRemoveBtn" Hidden="true" />
+      <Field Name="OrderViewStarterFLP" Hidden="true" />
+      <Field Name="orderViewTableLbl" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+      <Field Name="testBtn" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAAAABBBiCgAMTABEAiCDCwiAyAAQAABCAAABABBAKA=</HashCode>
+      <FileName>UI\OrderView\OrderViewLunch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.OrderViewDinnerUC">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="priceLbl" Hidden="true" />
+      <Field Name="productLbl" Hidden="true" />
+      <Field Name="UCButton" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQiAAgAAAAICABECCQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\OrderView\UC\OrderViewDinnerUC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.OrderViewDrinkUC">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="priceLbl" Hidden="true" />
+      <Field Name="productLbl" Hidden="true" />
+      <Field Name="UCButton" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQiAAgAAAAICABECCQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\OrderView\UC\OrderViewDrinkUC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.OrderViewLunchUC">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="priceLbl" Hidden="true" />
+      <Field Name="productLbl" Hidden="true" />
+      <Field Name="UCButton" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQiAAgAAAAICABECCQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\OrderView\UC\OrderViewLunchUC.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

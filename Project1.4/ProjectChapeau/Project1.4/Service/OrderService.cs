@@ -1,44 +1,63 @@
 ﻿using Project1._4.DAL;
 using Project1._4.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Project1._4.Service
 {
     public class OrderService
     {
-        private OrderDao orderDb;
+        private OrderDao orderDao;
 
         public OrderService()
         {
-            orderDb = new OrderDao();
+            orderDao = new OrderDao();
         }
 
         public List<Order> GetAllOrders()
         {
-            List<Order> list = orderDb.GetAllOrders();
-            return list;
+            List<Order> orders = orderDao.GetAllOrders();
+            return orders;
+        }
+
+        public List<OrderItem> GetOrdersFromTable(int tableId)
+        {
+            return orderDao.GetOrdersFromTable(tableId);
         }
 
         public List<Order> GetByIdOrder(int orderId)
         {
-            List<Order> list = orderDb.GetByIdOrder(orderId);
-            return list;
+            List<Order> orders = orderDao.GetByIdOrder(orderId);
+            return orders;
+        }
+
+        public List<Income> GetPriceFromLast2Months()
+        {
+            List<Income> incomes = orderDao.GetPriceFromLast2Months();
+            return incomes;
+        }
+
+        public int GetNextAvailableOrderId()
+        {
+            return orderDao.GetNextOrderAvailableId();
         }
 
         public void InsertOrder(Order order)
         {
-            orderDb.InsertOrder(order);
+            orderDao.InsertOrder(order);
         }
-        public void RemoveOrder(Order order)
+
+        public decimal GetProductPrice(int productId)
         {
-            orderDb.RemoveOrder(order);
+            
+            return orderDao.GetProductPrice(productId);
         }
-        public void UpdateOrder(Order order)
+        public int QuantityOfProduct(int productId)
         {
-            orderDb.UpdateOrder(order);
+            orderDao.QuantityOfProduct(productId);
+            return productId;
         }
+
+
     }
+
+
 }
