@@ -20,7 +20,7 @@ namespace Project1._4.Service
 
         public List<OrderItem> GetOrdersFromTable(int tableId)
         {
-            return orderDb.GetOrdersFromTable(tableId);
+            return orderDao.GetOrdersFromTable(tableId);
         }
 
         public List<Order> GetByIdOrder(int orderId)
@@ -48,11 +48,11 @@ namespace Project1._4.Service
         public decimal GetProductPrice(int productId)
         {
             
-            return orderDb.GetProductPrice(productId);
+            return orderDao.GetProductPrice(productId);
         }
         public int QuantityOfProduct(int productId)
         {
-            orderDb.QuantityOfProduct(productId);
+            orderDao.QuantityOfProduct(productId);
             return productId;
         }
 

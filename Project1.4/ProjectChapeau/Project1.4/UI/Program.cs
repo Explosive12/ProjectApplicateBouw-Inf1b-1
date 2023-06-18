@@ -1,4 +1,5 @@
 using Project1._4.Model;
+using Project1._4.UI.Payment;
 
 namespace Project1._4.UI
 {
@@ -13,7 +14,7 @@ namespace Project1._4.UI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new finishBill());
+            Application.Run(new LoginView());
         }
     }
 }

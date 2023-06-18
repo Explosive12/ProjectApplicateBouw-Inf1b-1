@@ -50,7 +50,7 @@ namespace Project1._4
                 MessageBox.Show("This table is already reserved");
                 return;
             }
-            tableGereseveerdControl tableGereseveerdControl = new tableGereseveerdControl(tableId, this.tableGereseveerdControl , flowLayoutPanel);
+            tableGereseveerdControl tableGereseveerdControl = new tableGereseveerdControl(tableId, this.tableGereseveerdControl, flowLayoutPanel);
             flowLayoutPanel.Controls.Clear();
             flowLayoutPanel.Controls.Add(tableGereseveerdControl);
         }
@@ -102,5 +102,11 @@ namespace Project1._4
             //kian zijn stukje
         }
 
+        private void buttonGoToPayment_Click(object sender, EventArgs e)
+        {
+            finishBill finishBill = new finishBill();
+            finishBill.Show();
+            this.Hide();
+        }
     }
 }

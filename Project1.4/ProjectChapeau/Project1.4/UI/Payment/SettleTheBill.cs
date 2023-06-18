@@ -15,6 +15,7 @@ namespace Project1._4.UI
 {
     public partial class SettleTheBill : Form
     {
+        private string table = "payment";
         private paymentSelected paymentSelected { get; set; }
         private decimal CustomTip { get; set; }
 
@@ -38,7 +39,7 @@ namespace Project1._4.UI
             List<OrderItem> orderItems = orderDao.DeleteOrder(tableId);*/
             
             
-            TableView tafelOverzicht = new TableView();
+            TableView tafelOverzicht = new TableView(table);
             tafelOverzicht.Show();
 
             this.Hide();

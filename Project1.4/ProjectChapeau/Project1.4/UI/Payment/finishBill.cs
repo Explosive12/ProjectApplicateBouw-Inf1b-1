@@ -18,6 +18,8 @@ namespace Project1._4.UI.Payment
     {
         private decimal orderPrice;
 
+        private string table = "payment";
+
         public finishBill()
         {
             InitializeComponent();
@@ -41,7 +43,7 @@ namespace Project1._4.UI.Payment
             {
                 radioButtonCash.BackColor = Color.Orange;
 
-                TableView tafelOverzicht = new TableView();
+                TableView tafelOverzicht = new TableView(table);
                 tafelOverzicht.Show();
             }
 

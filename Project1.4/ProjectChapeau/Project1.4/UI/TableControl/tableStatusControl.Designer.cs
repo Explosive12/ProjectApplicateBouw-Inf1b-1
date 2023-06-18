@@ -35,6 +35,7 @@
             btnReservedTableControl = new Button();
             btnGoToTableControl = new Button();
             btnBackTableControl = new Button();
+            buttonGoToPayment = new Button();
             SuspendLayout();
             // 
             // lblTableIdStatusControl
@@ -116,10 +117,24 @@
             btnBackTableControl.UseVisualStyleBackColor = false;
             btnBackTableControl.Click += Back;
             // 
+            // buttonGoToPayment
+            // 
+            buttonGoToPayment.BackColor = Color.FromArgb(138, 210, 176);
+            buttonGoToPayment.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonGoToPayment.ForeColor = SystemColors.ControlText;
+            buttonGoToPayment.Location = new Point(239, 369);
+            buttonGoToPayment.Name = "buttonGoToPayment";
+            buttonGoToPayment.Size = new Size(100, 37);
+            buttonGoToPayment.TabIndex = 7;
+            buttonGoToPayment.Text = "PAYMENT";
+            buttonGoToPayment.UseVisualStyleBackColor = false;
+            buttonGoToPayment.Click += buttonGoToPayment_Click;
+            // 
             // tableStatusControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(buttonGoToPayment);
             Controls.Add(btnBackTableControl);
             Controls.Add(btnGoToTableControl);
             Controls.Add(btnReservedTableControl);
@@ -142,5 +157,6 @@
         private Button btnReservedTableControl;
         private Button btnGoToTableControl;
         private Button btnBackTableControl;
+        private Button buttonGoToPayment;
     }
 }
