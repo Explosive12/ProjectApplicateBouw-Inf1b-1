@@ -40,7 +40,6 @@
             orderViewPriceLbl = new Label();
             orderViewVATLbl = new Label();
             orderViewPayBtn = new Button();
-            nameLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -161,24 +160,12 @@
             orderViewPayBtn.UseVisualStyleBackColor = false;
             orderViewPayBtn.Click += orderViewPayBtn_Click;
             // 
-            // nameLbl
-            // 
-            nameLbl.AutoSize = true;
-            nameLbl.BackColor = Color.DarkOrange;
-            nameLbl.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            nameLbl.Location = new Point(301, 34);
-            nameLbl.Name = "nameLbl";
-            nameLbl.Size = new Size(69, 25);
-            nameLbl.TabIndex = 32;
-            nameLbl.Text = "{Name}";
-            // 
             // OrderViewFinishOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 611);
-            Controls.Add(nameLbl);
             Controls.Add(orderViewPayBtn);
             Controls.Add(orderViewVATLbl);
             Controls.Add(orderViewPriceLbl);
@@ -210,6 +197,5 @@
         private Label orderViewPriceLbl;
         private Label orderViewVATLbl;
         private Button orderViewPayBtn;
-        private Label nameLbl;
     }
 }

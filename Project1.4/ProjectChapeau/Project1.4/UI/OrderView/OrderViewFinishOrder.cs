@@ -17,8 +17,6 @@ namespace Project1._4.UI
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
         private List<Product> products;
-        private string employeeName;
-
 
         private decimal price;
         private decimal vatPrice;
@@ -26,13 +24,12 @@ namespace Project1._4.UI
         const decimal AlcVAT = 0.21M;
         const decimal VAT = 0.09M;
 
-        public OrderViewFinishOrder(List<OrderItem> items, Order order, List<Product> products, string employeeName)
+        public OrderViewFinishOrder(List<OrderItem> items, Order order, List<Product> products)
         {
             InitializeComponent();
             this.items = items;
             this.order = order;
             this.products = products;
-            this.employeeName = employeeName;
             DisplayOrderItems();
             DisplayPrice();
         }
@@ -67,21 +64,21 @@ namespace Project1._4.UI
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderViewLunch = new OrderViewLunch(items, order, products, employeeName);
+            OrderViewLunch orderViewLunch = new OrderViewLunch(items, order, products);
             orderViewLunch.Show();
             this.Hide();
         }
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDinner orderViewDinner = new OrderViewDinner(items, order, products, employeeName);
+            OrderViewDinner orderViewDinner = new OrderViewDinner(items, order, products);
             orderViewDinner.Show();
             this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDrinks orderViewDrinks = new OrderViewDrinks(items, order, products, employeeName);
+            OrderViewDrinks orderViewDrinks = new OrderViewDrinks(items, order, products);
             orderViewDrinks.Show();
             this.Hide();
         }
@@ -149,7 +146,6 @@ namespace Project1._4.UI
         private void OrderViewFinishOrder_Load(object sender, EventArgs e)
         {
             orderViewTableLbl.Text = $"TABLE: {order.TableId}";
-            nameLbl.Text = employeeName;
         }
     }
 }

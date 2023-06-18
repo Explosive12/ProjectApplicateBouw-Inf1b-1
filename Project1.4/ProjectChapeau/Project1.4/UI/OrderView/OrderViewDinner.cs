@@ -17,26 +17,24 @@ namespace Project1._4.UI
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
         private List<Product> products;
-        private string employeeName;
 
-        public OrderViewDinner(List<OrderItem> items, Order order, List<Product> products, string employeeName)
+        public OrderViewDinner(List<OrderItem> items, Order order, List<Product> products)
         {
             InitializeComponent();
             this.order = order;
             this.items = items;
             this.products = products;
-            this.employeeName = employeeName;
             DisplayOrderItems();
         }
 
         // start buttons
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
-            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products, employeeName);
+            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products);
             orderView.Show();
             this.Hide();
         }
-        
+
         private void orderViewCommentBtn_Click(object sender, EventArgs e)
         {
             try
@@ -47,7 +45,7 @@ namespace Project1._4.UI
                 string itemName = selectedItem.SubItems[1].Text;
                 OrderItem item = GetOrderItemWithName(itemName);
 
-                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products, employeeName);
+                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products);
                 commentView.Show();
                 this.Hide();
             }
@@ -75,21 +73,21 @@ namespace Project1._4.UI
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDinner orderView = new OrderViewDinner(items, order, products, employeeName);
+            OrderViewDinner orderView = new OrderViewDinner(items, order, products);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderView = new OrderViewLunch(items, order, products, employeeName);
+            OrderViewLunch orderView = new OrderViewLunch(items, order, products);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products, employeeName);
+            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products);
             orderView.Show();
             this.Hide();
         }
@@ -98,7 +96,6 @@ namespace Project1._4.UI
         {
             DisplayDinnerProducts();
             orderViewTableLbl.Text = $"TABLE: {order.TableId}";
-            nameLbl.Text = employeeName;
         }
 
         // adds everything to the flowlayout panels

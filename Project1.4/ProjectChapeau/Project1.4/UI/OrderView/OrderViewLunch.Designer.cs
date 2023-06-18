@@ -46,7 +46,6 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             pictureBox1 = new PictureBox();
-            nameLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -228,17 +227,6 @@
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
             // 
-            // nameLbl
-            // 
-            nameLbl.AutoSize = true;
-            nameLbl.BackColor = Color.DarkOrange;
-            nameLbl.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            nameLbl.Location = new Point(299, 34);
-            nameLbl.Name = "nameLbl";
-            nameLbl.Size = new Size(69, 25);
-            nameLbl.TabIndex = 32;
-            nameLbl.Text = "{Name}";
-            // 
             // OrderViewLunch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -246,7 +234,6 @@
             AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 661);
-            Controls.Add(nameLbl);
             Controls.Add(pictureBox1);
             Controls.Add(orderItemLV);
             Controls.Add(orderViewFinishBtn);
@@ -294,6 +281,5 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private PictureBox pictureBox1;
-        private Label nameLbl;
     }
 }

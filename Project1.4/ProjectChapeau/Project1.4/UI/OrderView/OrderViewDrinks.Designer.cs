@@ -50,7 +50,6 @@
             OrderViewSoftDrinksFLP = new FlowLayoutPanel();
             OrderViewSpiritsFLP = new FlowLayoutPanel();
             label2 = new Label();
-            nameLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -271,17 +270,6 @@
             label2.TabIndex = 50;
             label2.Text = "Spirits";
             // 
-            // nameLbl
-            // 
-            nameLbl.AutoSize = true;
-            nameLbl.BackColor = Color.DarkOrange;
-            nameLbl.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            nameLbl.Location = new Point(298, 34);
-            nameLbl.Name = "nameLbl";
-            nameLbl.Size = new Size(69, 25);
-            nameLbl.TabIndex = 51;
-            nameLbl.Text = "{Name}";
-            // 
             // OrderViewDrinks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -289,7 +277,6 @@
             AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 661);
-            Controls.Add(nameLbl);
             Controls.Add(OrderViewSpiritsFLP);
             Controls.Add(label2);
             Controls.Add(orderViewBeersLbl);
@@ -344,6 +331,5 @@
         private FlowLayoutPanel OrderViewSoftDrinksFLP;
         private FlowLayoutPanel OrderViewSpiritsFLP;
         private Label label2;
-        private Label nameLbl;
     }
 }

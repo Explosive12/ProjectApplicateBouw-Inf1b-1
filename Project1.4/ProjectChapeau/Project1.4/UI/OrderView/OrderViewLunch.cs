@@ -21,24 +21,21 @@ namespace Project1._4
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
         private List<Product> products;
-        private string employeeName;
-        public OrderViewLunch(int tableId, string employeeName) // TODO receive table id from tables // Employee name
+        public OrderViewLunch(int tableId)
         {
             InitializeComponent();
             OrderService orderService = new OrderService();
             order = new Order(orderService.GetNextAvailableOrderId(), tableId, DateTime.Now, DateTime.Now);
             ProductService productService = new ProductService();
             products = productService.GetAllProducts();
-            this.employeeName = employeeName;
         }
 
-        public OrderViewLunch(List<OrderItem> items, Order order, List<Product> products, string employeeName) // Employee name
+        public OrderViewLunch(List<OrderItem> items, Order order, List<Product> products) 
         {
             InitializeComponent();
             this.order = order;
             this.items = items;
             this.products = products;
-            this.employeeName = employeeName;
             DisplayOrderItems();
 
         }
@@ -190,21 +187,21 @@ namespace Project1._4
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDinner orderView = new OrderViewDinner(items, order, products, employeeName);
+            OrderViewDinner orderView = new OrderViewDinner(items, order, products);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products, employeeName);
+            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderView = new OrderViewLunch(items, order, products, employeeName);
+            OrderViewLunch orderView = new OrderViewLunch(items, order, products);
             orderView.Show();
             this.Hide();
         }
@@ -213,7 +210,6 @@ namespace Project1._4
         {
             DisplayLunchProducts();
             orderViewTableLbl.Text = $"TABLE: {order.TableId}";
-            nameLbl.Text = employeeName;
         }
 
         private void orderViewRemoveBtn_Click(object sender, EventArgs e)
@@ -243,7 +239,7 @@ namespace Project1._4
                 string itemName = selectedItem.SubItems[1].Text;
                 OrderItem item = GetOrderItemWithName(itemName);
 
-                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products, employeeName);
+                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products);
                 commentView.Show();
                 this.Hide();
             }
@@ -256,7 +252,7 @@ namespace Project1._4
 
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
-            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products, employeeName);
+            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products);
             orderView.Show();
             this.Hide();
         }
