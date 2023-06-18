@@ -18,33 +18,29 @@ namespace Project1._4
 {
     public partial class BarOrderControl : UserControl
     {
-        private int clickedData;
-        private OrderItem barOrder;
-        private OrderStatusEnum state;
+        private int clickedData; // Stores the ID of the clicked data
+        private OrderItem barOrder; // Represents the current bar order
+        private OrderStatusEnum state; // Represents the state of the bar order
 
-        public BarOrderControl(OrderItem barOrder)
+        public BarOrderControl()
         {
             InitializeComponent();
-            this.barOrder = barOrder;
         }
 
+        // Method to display bar orders in the ListView control
         public void DisplayBarOrders(List<OrderItem> barOrderItems)
         {
-            // Clear the ListView control before adding new items
             listViewBarOrders.Items.Clear();
 
-            // Iterate over each OrderItem object in the list and create a new ListViewItem to display its data
             foreach (OrderItem orderItem in barOrderItems)
             {
                 TimeSpan waitingTime = DateTime.Now - orderItem.BeginTime;
 
-                // Create a new ListViewItem with the OrderItemId as the first column
                 ListViewItem li = new ListViewItem(orderItem.OrderItemId.ToString());
-
-                // Add additional sub-items to the ListViewItem for the Table Number, Order Time, Wait Time, and Order Items
                 li.SubItems.Add(orderItem.TableNumber.ToString());
                 li.SubItems.Add(orderItem.BeginTime.ToString("HH:mm:ss"));
 
+                // Check if the order is from today
                 if (orderItem.BeginTime.Date == DateTime.Now.Date)
                 {
                     if (orderItem.Status == OrderStatusEnum.Prepared || orderItem.Status == OrderStatusEnum.Served)
@@ -60,7 +56,7 @@ namespace Project1._4
                         // The order is not InPreparation, Prepared, or Served, so skip displaying it.
                         continue;
                     }
-                    }
+                }
                 else
                 {
                     // The order is not from today, so skip displaying it.
@@ -89,6 +85,7 @@ namespace Project1._4
             }
         }
 
+        // Button click event handler for marking an order as in preparation
         private void btnPreparationBar_Click(object sender, EventArgs e)
         {
             try
@@ -111,6 +108,7 @@ namespace Project1._4
             }
         }
 
+        // Button click event handler for marking an order as prepared
         private void btnPreparedBar_Click(object sender, EventArgs e)
         {
             try
@@ -133,6 +131,7 @@ namespace Project1._4
             }
         }
 
+        // Button click event handler for marking an order as served
         private void btnServedBar_Click(object sender, EventArgs e)
         {
             try
@@ -154,12 +153,15 @@ namespace Project1._4
                 MessageBox.Show(er.Message);
             }
         }
+
+        // Method to update the state of the bar order in the database
         private void ChangeStateDatabase(int stateInt)
         {
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
 
+        // ListView selection changed event handler
         private void listViewBarOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewBarOrders.SelectedItems.Count > 0)
@@ -179,6 +181,8 @@ namespace Project1._4
                 }
             }
         }
+
+        // Button click event handler for filtering orders by status
         private void btnFilterByStatusBar_Click(object sender, EventArgs e)
         {
             try
@@ -204,10 +208,10 @@ namespace Project1._4
                 }
                 else
                 {
-                    // Handle unknown status or error
                     return;
                 }
 
+                // Display the filtered orders
                 DisplayBarOrders(orders);
             }
             catch(Exception er)

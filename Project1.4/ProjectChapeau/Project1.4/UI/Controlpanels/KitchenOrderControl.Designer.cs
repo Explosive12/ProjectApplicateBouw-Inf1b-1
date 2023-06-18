@@ -336,7 +336,6 @@
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(lblWaitingTimeHeader);
@@ -361,7 +360,7 @@
             Controls.Add(pbxHeaderBar);
             Margin = new Padding(2);
             Name = "KitchenOrderControl";
-            Size = new Size(2419, 1029);
+            Size = new Size(2421, 1031);
             ((System.ComponentModel.ISupportInitialize)pbxHeaderViewOrderStatusKitchen).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxHeaderBar).EndInit();

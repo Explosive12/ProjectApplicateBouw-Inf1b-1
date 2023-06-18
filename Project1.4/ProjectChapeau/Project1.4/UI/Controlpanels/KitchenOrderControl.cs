@@ -17,32 +17,30 @@ namespace Project1._4
 {
     public partial class KitchenOrderControl : UserControl
     {
-        private int clickedData;
-        private OrderItem kitchenOrder;
-        private OrderStatusEnum state;
+        private int clickedData; // Stores the ID of the clicked data
+        private OrderItem kitchenOrder; // Represents the current kitchen order
+        private OrderStatusEnum state; // Represents the state of the kitchen order
 
-        public KitchenOrderControl(OrderItem kitchenOrder)
+        public KitchenOrderControl()
         {
             InitializeComponent();
-            this.kitchenOrder = kitchenOrder;
         }
+
+        // Method to display kitchen orders in the ListView control
         public void DisplayKitchenOrders(List<OrderItem> kitchenOrderItems)
         {
-            //Clear the ListView control before adding new items
             listViewKitchenOrders.Items.Clear();
 
-            // Iterate over each OrderItem object in the list and create a new ListViewItem to display its data
             foreach (OrderItem orderItem in kitchenOrderItems)
             {
                 TimeSpan waitingTime = DateTime.Now - orderItem.BeginTime;
 
                 // Create a new ListViewItem with the OrderItemId as the first column
                 ListViewItem li = new ListViewItem(orderItem.OrderItemId.ToString());
-
-                // Add additional sub-items to the ListViewItem for the Table Number, Order Time, Wait Time, and Order Items
                 li.SubItems.Add(orderItem.TableNumber.ToString());
                 li.SubItems.Add(orderItem.BeginTime.ToString("HH:mm:ss"));
 
+                // Check if the order is from today
                 if (orderItem.BeginTime.Date == DateTime.Now.Date)
                 {
                     if (orderItem.Status == OrderStatusEnum.Prepared || orderItem.Status == OrderStatusEnum.Served)
@@ -87,6 +85,7 @@ namespace Project1._4
             }
         }
 
+        // Button click event handler for marking an order as prepared
         private void btnPreparedKitchen_Click(object sender, EventArgs e)
         {
             try
@@ -107,6 +106,7 @@ namespace Project1._4
             }
         }
 
+        // Button click event handler for marking an order as served
         private void btnServedKitchen_Click(object sender, EventArgs e)
         {
             try
@@ -129,10 +129,11 @@ namespace Project1._4
             }
         }
 
+        // Button click event handler for marking an order as in preparation
         private void btnPreparationKitchen_Click(object sender, EventArgs e)
         {
-            try 
-            { 
+            try
+            {
                 if (clickedData == 0)
                 {
                     throw new Exception("No data selected");
@@ -151,12 +152,14 @@ namespace Project1._4
             }
         }
 
+        // Method to update the state of the kitchen order in the database
         private void ChangeStateDatabase(int stateInt)
         {
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
 
+        // ListView selection changed event handler
         private void listViewKitchenOrders_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (listViewKitchenOrders.SelectedItems.Count > 0)
@@ -164,18 +167,19 @@ namespace Project1._4
                 OrderItemService orderItemService = new OrderItemService();
 
                 ListViewItem selectedItem = listViewKitchenOrders.SelectedItems[0];
-                clickedData = int.Parse(selectedItem.Text); // Assuming the clicked data is in the first column
+                clickedData = int.Parse(selectedItem.Text);
 
                 List<OrderItem> orderItems = orderItemService.GetByOrderItemId(clickedData);
 
                 if (orderItems.Count > 0)
                 {
-                    OrderItem selectedOrderItem = orderItems[0]; // Assuming you want to access the first item in the list
+                    OrderItem selectedOrderItem = orderItems[0];
                     lblSelectedOrder.Text = selectedOrderItem.OrderItemId.ToString();
                     lblStatusOfDish.Text = selectedOrderItem.Status.ToString();
                 }
             }
         }
+        // Button click event handler for filtering orders by status
         private void btnFilterByStatusKitchen_Click(object sender, EventArgs e)
         {
             try
@@ -198,17 +202,17 @@ namespace Project1._4
                 }
                 else
                 {
-                    // Handle unknown status or error
                     return;
                 }
+
+                // Display the filtered orders
                 DisplayKitchenOrders(orders);
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
     }
 }
