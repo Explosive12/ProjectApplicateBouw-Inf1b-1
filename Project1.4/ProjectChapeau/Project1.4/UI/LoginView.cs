@@ -56,6 +56,7 @@ namespace Project1._4
                     this.Hide();
                     break;
                 case EmployeeType.Chef:
+                    BarKitchenView orderViewChef = new BarKitchenView();
                     orderViewChef.Show();
                     this.Hide();
                     break;
