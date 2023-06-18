@@ -16,12 +16,9 @@ namespace Project1._4.Service
         {
             orderDb = new PaymentDao();
         }
-        public void AddComment(PaymentItem paymentItem)
+        public void AddComment(string paymentcomment, int paymentId)
         {
-            
-            orderDb.AddComment(paymentItem);
+            orderDb.AddComment(paymentcomment, paymentId);
         }
-      
-
     }
 }

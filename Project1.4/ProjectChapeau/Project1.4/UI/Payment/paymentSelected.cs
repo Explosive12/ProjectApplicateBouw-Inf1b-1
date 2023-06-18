@@ -95,6 +95,8 @@ namespace Project1._4.UI.Payment
                 return;
             }
             decimal totalPriceSelectedLabel = decimal.Parse(totalPriceSelected.Text);
+
+            //TODO make it so you can only enter numbers
             decimal textBoxAmountPaidTotal = decimal.Parse(textBoxAmountPaid.Text);
 
             OrderPrice = totalPriceSelectedLabel;

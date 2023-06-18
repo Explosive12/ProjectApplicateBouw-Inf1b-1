@@ -12,9 +12,5 @@ namespace Project1._4.Model
         public int BestellingId { get; set; }   
         public int RekeningId { get; set; }
         public decimal Fooi { get; set; }
-
-
-
-
     }
 }

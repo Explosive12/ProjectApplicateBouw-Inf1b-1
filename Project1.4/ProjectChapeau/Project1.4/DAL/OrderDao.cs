@@ -31,22 +31,27 @@ namespace Project1._4.DAL
                             "JOIN bestelling AS B ON R.bestellingId = B.bestellingId " +
                             "WHERE B.tafelId = @tableId";*/
 
-        public List<OrderItem> GetOrdersFromTable(int tableId)
+
+
+
+
+
+        public List<OrderItem> GetOrdersFromTable(int productId)
         {
             string query = "SELECT p.naam, p.prijs, br.aantal FROM product p JOIN bestelregel br ON p.productId = br.productId JOIN bestelling b ON br.bestellingId = b.bestellingId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
-
+            sqlParameters[0] = new SqlParameter("@productId", productId);
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
 
-       
-        
 
 
-       /* public decimal TotalPrice { get; set; }*/
+
+
+        /* public decimal TotalPrice { get; set; }*/
 
         // prijs per bestelling berekenen
-        
+
 
         public decimal GetProductPrice(int productId)
         {
@@ -78,11 +83,11 @@ namespace Project1._4.DAL
             List<OrderItem> orderItems = new List<OrderItem>();
             foreach (DataRow row in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem();
+           /*     OrderItem orderItem = new OrderItem();
                 orderItem.Name = row["naam"].ToString();
                 orderItem.Price = Convert.ToDecimal(row["prijs"]);
                 orderItem.Quantity = Convert.ToInt32(row["aantal"]);
-                orderItems.Add(orderItem);
+                orderItems.Add(orderItem);*/
             }
             return orderItems;
         }

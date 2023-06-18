@@ -79,7 +79,6 @@
             commentCustomerBox.Name = "commentCustomerBox";
             commentCustomerBox.Size = new Size(293, 274);
             commentCustomerBox.TabIndex = 16;
-            commentCustomerBox.TextChanged += commentCustomerBox_TextChanged;
             // 
             // labelCustomerComment
             // 

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace Project1._4.UI.Payment
@@ -37,19 +38,29 @@ namespace Project1._4.UI.Payment
         {
             PaymentService paymentService = new PaymentService();
             PaymentItem paymentItem = new PaymentItem();
+
+            paymentItem.Comment = commentCustomerBox.Text;
+
+
+
+            int paymentId = paymentItem.BestellingId;
            
-           
-            commentCustomerBox.Text = paymentItem.Comment;
-            paymentService.AddComment(paymentItem);
+
+            //TODO: make the paymentId and get the current paymentId
+            paymentService.AddComment(paymentItem.Comment, paymentId);
 
 
-
-            if (!string.IsNullOrEmpty(commentCustomerBox.Text))
+            if (string.IsNullOrEmpty(commentCustomerBox.Text))
+            {
+                commentHasBeenSaved.Text = "PLEASE ENTER A COMMENT";
+                commentHasBeenSaved.ForeColor = Color.Red;
+            }
+            else
             {
                 commentHasBeenSaved.Text = "COMMENT HAS BEEN SAVED";
                 commentHasBeenSaved.ForeColor = Color.Green;
+                //githubupdate
 
-                
                 await Task.Delay(3000);
                 // Delay for 3 seconds
 
@@ -57,18 +68,7 @@ namespace Project1._4.UI.Payment
                 SettleTheBill settleTheBill = new SettleTheBill(paymentSelected, CustomTip, AmountPaid, orderPrice); // constructor meegeven
                 this.Hide();
                 settleTheBill.Show();
-
-                
             }
-            else if (string.IsNullOrEmpty(commentCustomerBox.Text))
-            {
-                commentHasBeenSaved.Text = "PLEASE ENTER A COMMENT";
-                commentHasBeenSaved.ForeColor = Color.Red;
-
-            }
-
-
-
         }
 
         private void backToCommentOrContinue_Click(object sender, EventArgs e)
@@ -77,11 +77,6 @@ namespace Project1._4.UI.Payment
 
             commentOrContinue.Show();
             this.Hide();
-        }
-
-        private void commentCustomerBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void commentPayment_Load(object sender, EventArgs e)
