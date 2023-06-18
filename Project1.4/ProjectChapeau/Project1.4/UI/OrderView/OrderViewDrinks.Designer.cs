@@ -275,6 +275,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 661);
             Controls.Add(OrderViewSpiritsFLP);
             Controls.Add(label2);
@@ -298,6 +299,7 @@
             Controls.Add(OrderViewSoftDrinksFLP);
             MaximumSize = new Size(414, 1500);
             Name = "OrderViewDrinks";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderViewDrinks";
             Load += OrderViewDrinks_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

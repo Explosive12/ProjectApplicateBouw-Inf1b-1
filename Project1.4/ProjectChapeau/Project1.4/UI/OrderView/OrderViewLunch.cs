@@ -20,18 +20,22 @@ namespace Project1._4
 
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
+        private List<Product> products;
         public OrderViewLunch() // TODO receive table id from tables // Employee name
         {
             InitializeComponent();
-            OrderService service = new OrderService();
-            order = new Order(service.GetNextAvailableOrderId(), 0, DateTime.Now, DateTime.Now);
+            OrderService orderService = new OrderService();
+            order = new Order(orderService.GetNextAvailableOrderId(), 0, DateTime.Now, DateTime.Now);
+            ProductService productService = new ProductService();
+            products = productService.GetAllProducts();
         }
 
-        public OrderViewLunch(List<OrderItem> items, Order order) // Employee name
+        public OrderViewLunch(List<OrderItem> items, Order order, List<Product> products) // Employee name
         {
             InitializeComponent();
             this.order = order;
             this.items = items;
+            this.products = products;
             DisplayOrderItems();
 
         }
@@ -66,7 +70,6 @@ namespace Project1._4
         {
             orderItemLV.Items.Clear();
             ProductService service = new ProductService();
-            List<Product> products = service.GetAllProducts();
             foreach (OrderItem item in items)
             {
                 List<Product> nameProducts = service.GetProductById(item.ProductId);
@@ -105,9 +108,11 @@ namespace Project1._4
         {
             try
             {
-                if (product.Stock == 0) 
+                // I am using a "lambda expression" here, basically it uses Product _product as input and then checks if the productId exists in the list
+                int index = products.FindIndex(_product => _product.ProductId == product.ProductId);
+                if (products[index].Stock == 0)
                     throw new Exception("product is out of stock");
-                product.Stock -= 1; // temporarily decreases stock
+                products[index].Stock -= 1; // temporarily decreases stock
                 OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Inpreparation);
                 List<OrderItem> itemsToAdd = new List<OrderItem>();
 
@@ -156,7 +161,7 @@ namespace Project1._4
         {
             int productId = 0;
             ProductService service = new ProductService();
-            foreach (Product product in service.GetAllProducts())
+            foreach (Product product in products)
             {
                 if (product.Name == name)
                 {
@@ -182,21 +187,21 @@ namespace Project1._4
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDinner orderView = new OrderViewDinner(items, order);
+            OrderViewDinner orderView = new OrderViewDinner(items, order, products);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDrinks orderView = new OrderViewDrinks(items, order);
+            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderView = new OrderViewLunch(items, order);
+            OrderViewLunch orderView = new OrderViewLunch(items, order, products);
             orderView.Show();
             this.Hide();
         }
@@ -233,7 +238,7 @@ namespace Project1._4
                 string itemName = selectedItem.SubItems[1].Text;
                 OrderItem item = GetOrderItemWithName(itemName);
 
-                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order);
+                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products);
                 commentView.Show();
                 this.Hide();
             }
@@ -246,7 +251,7 @@ namespace Project1._4
 
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
-            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order);
+            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products);
             orderView.Show();
             this.Hide();
         }

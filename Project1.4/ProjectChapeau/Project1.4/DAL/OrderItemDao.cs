@@ -29,7 +29,7 @@ namespace Project1._4.DAL
                             "WHERE (M.type='Lunch' OR M.type='Dinner') " +
                                 "AND B.status !='2' " +
                             "ORDER BY begintijd";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadTablesDateTafel(ExecuteSelectQuery(query));
         }
         public List<OrderItem> GetOrderItemsByDrinks()
         {
@@ -41,7 +41,7 @@ namespace Project1._4.DAL
                             "WHERE M.type='Drinks' " +
                                 "AND B.status !='2' " +
                             "ORDER BY begintijd";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadTablesDateTafel(ExecuteSelectQuery(query));
         }
         public List<OrderItem> GetByOrderItemId(int orderItemId)
         {
@@ -51,7 +51,7 @@ namespace Project1._4.DAL
                             "WHERE bestelregel.id = @orderItemId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTablesDateTafel(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private List<OrderItem> ReadTables(DataTable dataTable)
@@ -65,7 +65,7 @@ namespace Project1._4.DAL
                     (int)dr["id"],
                     (int)dr["bestellingId"],
                     (int)dr["productId"],
-                    (int)dr["aantal"],
+                    (int)dr["aantal"],  
                     (string)dr["opmerking"],
                     (OrderStatusEnum)dr["status"]
                 );
@@ -134,7 +134,7 @@ namespace Project1._4.DAL
                             "ORDER BY begintijd";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@IntValue", orderItemId);
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTablesDateTafel(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<OrderItem> GetByStatusBar(int intValue)
         {
@@ -148,7 +148,7 @@ namespace Project1._4.DAL
                             "ORDER BY bestelling.begintijd";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@IntValue", intValue);
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTablesDateTafel(ExecuteSelectQuery(query, sqlParameters));
         }
     }
 }

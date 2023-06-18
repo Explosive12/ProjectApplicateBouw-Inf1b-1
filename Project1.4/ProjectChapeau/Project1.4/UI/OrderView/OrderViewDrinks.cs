@@ -6,27 +6,45 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1._4.UI
 {
-    public partial class OrderViewDinner : Form
+    public partial class OrderViewDrinks : Form
     {
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
-        public OrderViewDinner(List<OrderItem> items, Order order)
+        private List<Product> products;
+        public OrderViewDrinks(List<OrderItem> items, Order order, List<Product> products)
         {
             InitializeComponent();
             this.order = order;
             this.items = items;
+            this.products = products;
             DisplayOrderItems();
         }
-        // start buttons
-        private void orderViewFinishBtn_Click(object sender, EventArgs e)
+
+        // Start Buttons
+        private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order);
+            OrderViewLunch orderView = new OrderViewLunch(items, order, products);
+            orderView.Show();
+            this.Hide();
+        }
+
+        private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
+        {
+            OrderViewDinner orderView = new OrderViewDinner(items, order, products);
+            orderView.Show();
+            this.Hide();
+        }
+
+        private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
+        {
+            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products);
             orderView.Show();
             this.Hide();
         }
@@ -41,7 +59,7 @@ namespace Project1._4.UI
                 string itemName = selectedItem.SubItems[1].Text;
                 OrderItem item = GetOrderItemWithName(itemName);
 
-                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order);
+                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products);
                 commentView.Show();
                 this.Hide();
             }
@@ -67,71 +85,65 @@ namespace Project1._4.UI
             }
         }
 
-        private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
+        private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDinner orderView = new OrderViewDinner(items, order);
+            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products);
             orderView.Show();
             this.Hide();
         }
+        // End Buttons
 
-        private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
+
+        private void OrderViewDrinks_Load(object sender, EventArgs e)
         {
-            OrderViewLunch orderView = new OrderViewLunch(items, order);
-            orderView.Show();
-            this.Hide();
+            DisplayDrinkProducts();
         }
 
-        private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
+        private void DisplayDrinkProducts()
         {
-            OrderViewDrinks orderView = new OrderViewDrinks(items, order);
-            orderView.Show();
-            this.Hide();
-        }
-        // end buttons
-        private void OrderViewDinner_Load(object sender, EventArgs e)
-        {
-            DisplayDinnerProducts();
-        }
+            List<Product> products = LoadDrinksProducts();
+            List<Product> softDrinksProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.SoftDrinks);
+            List<Product> beerProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.Beer);
+            List<Product> wineProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.Wine);
+            List<Product> spiritProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.Spirit);
+            List<Product> hotDrinkProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.CoffeeAndTea);
 
-        private void DisplayDinnerProducts()
-        {
-            List<Product> products = LoadDinnerProducts();
-            List<Product> entreeProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.Entree);
-            List<Product> sideDishProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.SideDish);
-            List<Product> mainCourseProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.MainCourse);
-            List<Product> dessertProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.Dessert);
-
-            OrderViewDinnerUC orderViewFLP;
-            foreach (Product product in entreeProducts)
+            OrderViewDrinkUC orderViewFLP;
+            foreach (Product product in softDrinksProducts)
             {
-                orderViewFLP = new OrderViewDinnerUC(product, this);
-                this.OrderViewStarterFLP.Controls.Add(orderViewFLP);
+                orderViewFLP = new OrderViewDrinkUC(product, this);
+                this.OrderViewSoftDrinksFLP.Controls.Add(orderViewFLP);
             }
-            foreach (Product product in sideDishProducts)
+            foreach (Product product in beerProducts)
             {
-                orderViewFLP = new OrderViewDinnerUC(product, this);
-                this.OrderViewSideDishFLP.Controls.Add(orderViewFLP);
+                orderViewFLP = new OrderViewDrinkUC(product, this);
+                this.OrderViewBeersFLP.Controls.Add(orderViewFLP);
             }
-            foreach (Product product in mainCourseProducts)
+            foreach (Product product in wineProducts)
             {
-                orderViewFLP = new OrderViewDinnerUC(product, this);
-                this.OrderViewMainFLP.Controls.Add(orderViewFLP);
+                orderViewFLP = new OrderViewDrinkUC(product, this);
+                this.OrderViewWinesFLP.Controls.Add(orderViewFLP);
             }
-            foreach (Product product in dessertProducts)
+            foreach (Product product in spiritProducts)
             {
-                orderViewFLP = new OrderViewDinnerUC(product, this);
-                this.OrderViewDessertsFLP.Controls.Add(orderViewFLP);
+                orderViewFLP = new OrderViewDrinkUC(product, this);
+                this.OrderViewSpiritsFLP.Controls.Add(orderViewFLP);
+            }
+            foreach (Product product in hotDrinkProducts)
+            {
+                orderViewFLP = new OrderViewDrinkUC(product, this);
+                this.OrderViewHotDrinksFLP.Controls.Add(orderViewFLP);
             }
         }
 
-        private List<Product> LoadDinnerProducts()
+        private List<Product> LoadDrinksProducts()
         {
             ProductService service = new ProductService();
-            List<Product> products = service.GetAllDinnerProducts();
+            List<Product> products = service.GetAllDrinksProducts();
             return products;
         }
 
-        private List<Product> SortDinnerProductsOnType(List<Product> products, ProductType productType)
+        private List<Product> SortDrinkProductsOnType(List<Product> products, ProductType productType)
         {
             List<Product> productsCopy = new List<Product>(products); // Create a copy of the products list so it doesnt get modified during a foreach loop
 
@@ -163,9 +175,11 @@ namespace Project1._4.UI
         {
             try
             {
-                if (product.Stock == 0)
+                // I am using a "lambda expression" here, basically it uses Product _product as input and then checks if the productId exists in the list
+                int index = products.FindIndex(_product => _product.ProductId == product.ProductId);
+                if (products[index].Stock == 0)
                     throw new Exception("product is out of stock");
-                product.Stock -= -1; // temporarily decreases stock
+                products[index].Stock -= 1; // temporarily decreases stock
                 OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Inpreparation);
                 List<OrderItem> itemsToAdd = new List<OrderItem>();
 
@@ -237,7 +251,5 @@ namespace Project1._4.UI
             }
             return itemToGet;
         }
-
-        
     }
 }

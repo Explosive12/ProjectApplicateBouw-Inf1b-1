@@ -16,6 +16,7 @@ namespace Project1._4.UI
     {
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
+        private List<Product> products;
 
         private decimal price;
         private decimal vatPrice;
@@ -23,11 +24,12 @@ namespace Project1._4.UI
         const decimal AlcVAT = 0.21M;
         const decimal VAT = 0.09M;
 
-        public OrderViewFinishOrder(List<OrderItem> items, Order order) // todo table + employee name
+        public OrderViewFinishOrder(List<OrderItem> items, Order order, List<Product> products) // todo table + employee name
         {
             InitializeComponent();
             this.items = items;
             this.order = order;
+            this.products = products;
             DisplayOrderItems();
             DisplayPrice();
         }
@@ -62,23 +64,23 @@ namespace Project1._4.UI
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderViewLunch = new OrderViewLunch(items, order);
+            OrderViewLunch orderViewLunch = new OrderViewLunch(items, order, products);
             orderViewLunch.Show();
             this.Hide();
         }
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            //OrderViewDinner orderViewDinner = new OrderViewDinner(items, order);
-            //orderViewDinner.Show();
-            //this.Hide();
+            OrderViewDinner orderViewDinner = new OrderViewDinner(items, order, products);
+            orderViewDinner.Show();
+            this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            //OrderViewDrinks orderViewDrinks = new OrderViewDrinks(items, order);
-            //orderViewDrinks.Show();
-            //this.Hide();
+            OrderViewDrinks orderViewDrinks = new OrderViewDrinks(items, order, products);
+            orderViewDrinks.Show();
+            this.Hide();
         }
 
         private void orderViewPayBtn_Click(object sender, EventArgs e)

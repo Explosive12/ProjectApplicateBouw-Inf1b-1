@@ -67,11 +67,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 611);
             Controls.Add(orderViewCommentAddBtn);
             Controls.Add(orderViewCommentBackBtn);
             Controls.Add(CommentTxtBox);
             Name = "OrderViewAddComment";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderViewAddComment";
             ResumeLayout(false);
             PerformLayout();
