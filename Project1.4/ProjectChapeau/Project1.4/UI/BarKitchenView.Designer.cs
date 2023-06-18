@@ -36,6 +36,7 @@
             // 
             // flpOrders
             // 
+            flpOrders.ForeColor = Color.Black;
             flpOrders.Location = new Point(215, 39);
             flpOrders.Name = "flpOrders";
             flpOrders.Size = new Size(2456, 943);
