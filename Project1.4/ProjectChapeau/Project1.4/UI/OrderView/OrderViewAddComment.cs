@@ -19,9 +19,8 @@ namespace Project1._4.UI
         private List<OrderItem> items;
         private Order order;
         private List<Product> products;
-        private string employeeName;
 
-        public OrderViewAddComment(string orderView, OrderItem orderItem, List<OrderItem> items, Order order, List<Product> products, string employeeName) // TODO receive table ID / Employee name
+        public OrderViewAddComment(string orderView, OrderItem orderItem, List<OrderItem> items, Order order, List<Product> products)
         {
             InitializeComponent();
             this.orderView = orderView;
@@ -29,7 +28,6 @@ namespace Project1._4.UI
             this.order = order;
             this.items = items;
             this.products = products;
-            this.employeeName = employeeName;
         }
         
         // removes orderItem from the list, edits it and then adds it back to the list
@@ -53,17 +51,17 @@ namespace Project1._4.UI
             switch (orderView)
             {
                 case "Lunch":
-                    OrderViewLunch orderViewLunch = new OrderViewLunch(items, order, products, employeeName);
+                    OrderViewLunch orderViewLunch = new OrderViewLunch(items, order, products);
                     orderViewLunch.Show();
                     this.Hide();
                     break;
                 case "Dinner":
-                    OrderViewDinner orderViewDinner = new OrderViewDinner(items, order, products, employeeName);
+                    OrderViewDinner orderViewDinner = new OrderViewDinner(items, order, products);
                      orderViewDinner.Show();
                     this.Hide();
                     break;
                 case "Drinks":
-                    OrderViewDrinks orderViewDrinks = new OrderViewDrinks(items, order, products, employeeName);
+                    OrderViewDrinks orderViewDrinks = new OrderViewDrinks(items, order, products);
                     orderViewDrinks.Show();
                     this.Hide();
                     break;
