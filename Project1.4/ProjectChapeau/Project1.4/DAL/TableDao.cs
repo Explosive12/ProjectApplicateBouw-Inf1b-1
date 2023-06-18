@@ -42,11 +42,34 @@ namespace Project1._4.DAL
             }
             return table;
         }
+
+        private Reservation ReadReservation(DataTable dataTable)
+        {
+            Reservation reservation = new Reservation();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                reservation.reservationId = (int)dr["reserveringId"];
+                reservation.naam = dr["naam"].ToString();
+                reservation.opmerking = (int)dr["opmerking"]; ;
+                reservation.tijd = (DateTime)dr["tijd"];
+                reservation.datum = (DateTime)dr["datum"];
+                reservation.phoneNumber = (int)dr["telefoonNr"]; ;
+            }
+            return reservation;
+        }
+
         public Table GetTableById(int tableId)
         {
             string query = "SELECT tafelId , reserveringId , status FROM tafel WHERE tafelId = @tableId";
             SqlParameter[] sqlParameters = { new SqlParameter("@tableId", tableId) };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public Reservation GetReservationById(int reserveringId)
+        {
+            string query = "SELECT reserveringId FROM reservering WHERE reserveringId = @reserveringId";
+            SqlParameter[] sqlParameters = { new SqlParameter("@reserveringId", reserveringId) };
+            return ReadReservation(ExecuteSelectQuery(query, sqlParameters));
         }
         public List<Table> GetAllTables()
         {
@@ -90,7 +113,7 @@ namespace Project1._4.DAL
                 };
             ExecuteEditQuery(query, sqlParametersupdate);
         }
-        public void RemoveReservation(Reservation reservation, int tableId)
+        public void RemoveReservation(Reservation reservation, int tableId , TableStatus status)
         {
             string query = "DELETE FROM reservering WHERE reserveringId = @reserveringId ";
             SqlParameter[]  sqlParameters = new SqlParameter[] 
@@ -103,7 +126,7 @@ namespace Project1._4.DAL
             query = "UPDATE tafel SET status = @status , reserveringId = NULL WHERE tafelId = @tableId";
             SqlParameter[] sqlParametersupdate =
                 {
-                     new SqlParameter("@status" , (int)tableStatus),
+                     new SqlParameter("@status" , (int)status),
                      new SqlParameter("@tableId", tableId),
                 };
             ExecuteEditQuery(query, sqlParametersupdate);

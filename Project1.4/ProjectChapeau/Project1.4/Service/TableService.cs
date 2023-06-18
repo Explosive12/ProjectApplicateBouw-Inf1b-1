@@ -18,7 +18,10 @@ namespace Project1._4.Service
         {
             return tabledb.GetTableById(tableId);
         }
-
+        public Reservation GetReservationById(int reservationId)
+        {
+            return tabledb.GetReservationById(reservationId);
+        }
         public void UpdateTableStatus(TableStatus status, int tableId)
         {
             tabledb.UpdateTableStatus(status, tableId);
@@ -31,9 +34,9 @@ namespace Project1._4.Service
         {
             tabledb.ReserveTable(reservation , tableId);
         }
-        public void RemoveReservation(Reservation reservation, int tableId)
+        public void RemoveReservation(Reservation reservation, int tableId , TableStatus status)
         {
-            tabledb.ReserveTable(reservation, tableId);
+            tabledb.RemoveReservation(reservation, tableId , status);
         }
     }
 }

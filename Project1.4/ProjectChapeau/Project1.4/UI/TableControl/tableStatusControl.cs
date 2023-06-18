@@ -32,7 +32,8 @@ namespace Project1._4
         }
         private void Back(object sender, EventArgs e)
         {
-            this.Hide();
+            flowLayoutPanel.Controls.Clear();
+            flowLayoutPanel.Controls.Add(tableviewControl);
         }
         private void freeButton(object sender, EventArgs e)
         {
@@ -55,24 +56,43 @@ namespace Project1._4
         }
         public void UpdateTableStatus(TableStatus status, int tableId)
         {
-            DialogResult result = MessageBox.Show("Do you want to updated the table status", "Update Status", MessageBoxButtons.YesNo);
-            switch (result)
+            Table table = tableService.GetTableById(tableId);
+            if (table.status == TableStatus.Gereseveerd && (status == TableStatus.Vrij || status == TableStatus.Bezet))
             {
-                case DialogResult.Yes:
+                DialogResult resultGereseveerd = MessageBox.Show("The table is currently reserved do you want to change the status", "Update Status", MessageBoxButtons.YesNo);
+                if (resultGereseveerd == DialogResult.Yes)
+                {
+                    Reservation reservation = tableService.GetReservationById(table.reseveringId);
+                    tableService.RemoveReservation(reservation, tableId, status);
+                    table.status = status;
+                    
                     tableService.UpdateTableStatus(status, tableId);
-                    MessageBox.Show("The table was updated succesfully");
-                    tableviewControl.UpdateTableData();
-                    flowLayoutPanel.Controls.Clear();
-                    flowLayoutPanel.Controls.Add(tableviewControl);
-                    break;
-                case DialogResult.No:
-                    MessageBox.Show("The table is not updated");
-                    break;
+                }
+                else if (resultGereseveerd == DialogResult.No)
+                {
+                    MessageBox.Show("The table status remains unchanged");
+                    return;
+                }
             }
+            else
+            {
+                DialogResult resultStatus = MessageBox.Show("Do you want to updated the table status", "Update Status", MessageBoxButtons.YesNo);
+                if (resultStatus == DialogResult.Yes)
+                {
+                    table.status = status;
+                    tableService.UpdateTableStatus(status, tableId);
+                }
+                else
+                {
+                    MessageBox.Show("The table status remains unchanged");
+                    return;
+                }
+            }
+            tableviewControl.UpdateTableData();
             flowLayoutPanel.Controls.Clear();
             flowLayoutPanel.Controls.Add(tableviewControl);
-            tableviewControl.BringToFront();
-            this.Hide();
+            //tableviewControl.BringToFront();
+
         }
         private void GoToTableButton(object sender, EventArgs e)
         {

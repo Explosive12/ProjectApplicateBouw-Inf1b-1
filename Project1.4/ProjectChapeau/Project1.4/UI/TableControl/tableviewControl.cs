@@ -1,6 +1,7 @@
 ﻿using Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions.Item.Return;
 using Project1._4.Model;
 using Project1._4.Service;
+using Project1._4.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,20 +60,25 @@ namespace Project1._4
                 if (result == DialogResult.Yes)
                 {
                     Reservation reservation = new Reservation();
-                    tableService.RemoveReservation(reservation, tableId);
+                    tableService.RemoveReservation(reservation, tableId, status);
                     TableStatus statusAfterGereseveerd = TableStatus.Vrij;
                     if (status == TableStatus.Bezet)
                     {
                         statusAfterGereseveerd = TableStatus.Bezet;
                     }
                     tableService.UpdateTableStatus(statusAfterGereseveerd , tableId);
-                    MessageBox.Show("The table status has been updated successfully");
+                }
+                else if (result == DialogResult.No)
+                {
+                    tableviewControl tableviewControl = new tableviewControl(table, flowLayoutPanel);
+                    flowLayoutPanel.Controls.Clear();
+                    flowLayoutPanel.Controls.Add(tableviewControl);
+                    return;
                 }
             }
             tableStatusControl tableStatusControl = new tableStatusControl(tableId, this , flowLayoutPanel);
             flowLayoutPanel.Controls.Clear();
             flowLayoutPanel.Controls.Add(tableStatusControl);
-            //tableStatusControl.BringToFront();
         }
         public void UpdateTableData()
         {
