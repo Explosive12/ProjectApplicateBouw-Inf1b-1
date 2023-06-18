@@ -3,6 +3,7 @@
     class RoundLabel : Label
 
     {
+    // stolen from stackOverflow: https://stackoverflow.com/questions/58613713/how-to-make-a-textbox-with-rounded-corner-in-c
         [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
