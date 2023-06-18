@@ -45,6 +45,21 @@ namespace Project1._4.Service
             List<Product> products = productDb.GetAllDrinksProducts();
             return products;
         }
+
+        public void AddProduct(Product product)
+        {
+            productDb.AddProduct(product);
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            productDb.UpdateProduct(product);
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            productDb.DeleteProduct(product);
+        }
     }
 
 }

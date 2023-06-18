@@ -32,7 +32,7 @@ namespace Project1._4.Service
 
         public int GetNextAvailableOrderId()
         {
-            return orderDb.GetNextOrderAvailableId();
+            return orderDao.GetNextOrderAvailableId();
         }
 
         public void InsertOrder(Order order)

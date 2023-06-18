@@ -99,11 +99,11 @@ namespace Project1._4.UI
         private void DisplayDrinkProducts()
         {
             List<Product> products = LoadDrinksProducts();
-            List<Product> softDrinksProducts = SortDrinkProductsOnType(new List<Product>(products), ProductTypeEnum.SoftDrinks);
-            List<Product> beerProducts = SortDrinkProductsOnType(new List<Product>(products), ProductTypeEnum.Beer);
-            List<Product> wineProducts = SortDrinkProductsOnType(new List<Product>(products), ProductTypeEnum.Wine);
-            List<Product> spiritProducts = SortDrinkProductsOnType(new List<Product>(products), ProductTypeEnum.Spirit);
-            List<Product> hotDrinkProducts = SortDrinkProductsOnType(new List<Product>(products), ProductTypeEnum.CoffeeAndTea);
+            List<Product> softDrinksProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.SoftDrinks);
+            List<Product> beerProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.Beer);
+            List<Product> wineProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.Wine);
+            List<Product> spiritProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.Spirit);
+            List<Product> hotDrinkProducts = SortDrinkProductsOnType(new List<Product>(products), ProductType.CoffeeAndTea);
 
             OrderViewDrinkUC orderViewFLP;
             foreach (Product product in softDrinksProducts)
@@ -140,13 +140,13 @@ namespace Project1._4.UI
             return products;
         }
 
-        private List<Product> SortDrinkProductsOnType(List<Product> products, ProductTypeEnum productType)
+        private List<Product> SortDrinkProductsOnType(List<Product> products, ProductType productType)
         {
             List<Product> productsCopy = new List<Product>(products); // Create a copy of the products list so it doesnt get modified during a foreach loop
 
             foreach (Product product in productsCopy)
             {
-                if (product.ProductType != productType)
+                if (product.Type != productType)
                     products.Remove(product);
             }
 
@@ -175,7 +175,7 @@ namespace Project1._4.UI
                 if (product.Stock == 0)
                     throw new Exception("product is out of stock");
                 product.Stock -= -1; // temporarily decreases stock
-                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Bezig);
+                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Inpreparation);
                 List<OrderItem> itemsToAdd = new List<OrderItem>();
 
                 bool found = false;

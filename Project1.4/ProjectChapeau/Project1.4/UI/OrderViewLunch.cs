@@ -40,9 +40,9 @@ namespace Project1._4
         private void DisplayLunchProducts()
         {
             List<Product> products = LoadLunchProducts();
-            List<Product> entreeProducts = SortLunchProductsOnType(new List<Product>(products), ProductTypeEnum.Entree);
-            List<Product> mainCourseProducts = SortLunchProductsOnType(new List<Product>(products), ProductTypeEnum.MainCourse);
-            List<Product> dessertProducts = SortLunchProductsOnType(new List<Product>(products), ProductTypeEnum.Dessert);
+            List<Product> entreeProducts = SortLunchProductsOnType(new List<Product>(products), ProductType.Entree);
+            List<Product> mainCourseProducts = SortLunchProductsOnType(new List<Product>(products), ProductType.MainCourse);
+            List<Product> dessertProducts = SortLunchProductsOnType(new List<Product>(products), ProductType.Dessert);
 
             OrderViewLunchUC orderViewFLP;
             foreach (Product product in entreeProducts)
@@ -78,13 +78,13 @@ namespace Project1._4
         }
         // End Display methods
 
-        private List<Product> SortLunchProductsOnType(List<Product> products, ProductTypeEnum productType)
+        private List<Product> SortLunchProductsOnType(List<Product> products, ProductType productType)
         {
             List<Product> productsCopy = new List<Product>(products); // Create a copy of the products list so it doesnt get modified during a foreach loop
 
             foreach (Product product in productsCopy)
             {
-                if (product.ProductType != productType)
+                if (product.Type != productType)
                     products.Remove(product);
             }
 
@@ -108,7 +108,7 @@ namespace Project1._4
                 if (product.Stock == 0) 
                     throw new Exception("product is out of stock");
                 product.Stock -= 1; // temporarily decreases stock
-                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Bezig);
+                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Inpreparation);
                 List<OrderItem> itemsToAdd = new List<OrderItem>();
 
                 bool found = false;

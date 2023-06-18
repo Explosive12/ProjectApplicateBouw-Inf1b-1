@@ -19,6 +19,16 @@ namespace Project1._4.Model
             TableNumber = tableNumber;
         }
 
+        public OrderItem(int orderItemId, int orderId, int productId, int amount, string comment, OrderStatusEnum status)
+        {
+            OrderItemId = orderItemId;
+            OrderId = orderId;
+            ProductId = productId;
+            Comment = comment;
+            Amount = amount;
+            Status = status;
+        }
+
         public int OrderItemId { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }

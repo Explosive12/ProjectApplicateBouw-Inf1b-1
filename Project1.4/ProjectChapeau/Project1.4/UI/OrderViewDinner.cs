@@ -96,10 +96,10 @@ namespace Project1._4.UI
         private void DisplayDinnerProducts()
         {
             List<Product> products = LoadDinnerProducts();
-            List<Product> entreeProducts = SortDinnerProductsOnType(new List<Product>(products), ProductTypeEnum.Entree);
-            List<Product> sideDishProducts = SortDinnerProductsOnType(new List<Product>(products), ProductTypeEnum.SideDish);
-            List<Product> mainCourseProducts = SortDinnerProductsOnType(new List<Product>(products), ProductTypeEnum.MainCourse);
-            List<Product> dessertProducts = SortDinnerProductsOnType(new List<Product>(products), ProductTypeEnum.Dessert);
+            List<Product> entreeProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.Entree);
+            List<Product> sideDishProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.SideDish);
+            List<Product> mainCourseProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.MainCourse);
+            List<Product> dessertProducts = SortDinnerProductsOnType(new List<Product>(products), ProductType.Dessert);
 
             OrderViewDinnerUC orderViewFLP;
             foreach (Product product in entreeProducts)
@@ -131,13 +131,13 @@ namespace Project1._4.UI
             return products;
         }
 
-        private List<Product> SortDinnerProductsOnType(List<Product> products, ProductTypeEnum productType)
+        private List<Product> SortDinnerProductsOnType(List<Product> products, ProductType productType)
         {
             List<Product> productsCopy = new List<Product>(products); // Create a copy of the products list so it doesnt get modified during a foreach loop
 
             foreach (Product product in productsCopy)
             {
-                if (product.ProductType != productType)
+                if (product.Type != productType)
                     products.Remove(product);
             }
 
@@ -166,7 +166,7 @@ namespace Project1._4.UI
                 if (product.Stock == 0)
                     throw new Exception("product is out of stock");
                 product.Stock -= -1; // temporarily decreases stock
-                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Bezig);
+                OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Inpreparation);
                 List<OrderItem> itemsToAdd = new List<OrderItem>();
 
                 bool found = false;

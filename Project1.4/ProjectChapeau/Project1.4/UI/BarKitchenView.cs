@@ -73,7 +73,7 @@ namespace Project1._4.UI
         private void btnKitchenToMain_Click(object sender, EventArgs e)
         {
             // Create an instance of the main form
-            Form1 form1 = new Form1();
+            LoginView form1 = new LoginView();
             // Create an instance of the login view form
             LoginView loginview = new LoginView();
             // Create an instance of the bar kitchen view form

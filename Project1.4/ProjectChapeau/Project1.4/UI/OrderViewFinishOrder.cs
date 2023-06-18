@@ -47,7 +47,7 @@ namespace Project1._4.UI
                 orderItemLV.Items.Add(li);
 
                 price += (item.Amount * nameProducts[0].Price);
-                if (nameProducts[0].ProductType == ProductTypeEnum.Beer || nameProducts[0].ProductType == ProductTypeEnum.Wine || nameProducts[0].ProductType == ProductTypeEnum.Spirit)
+                if (nameProducts[0].Type == ProductType.Beer || nameProducts[0].Type == ProductType.Wine || nameProducts[0].Type == ProductType.Spirit)
                     vatPrice = (item.Amount * nameProducts[0].Price) * AlcVAT;
                 else
                     vatPrice = (item.Amount * nameProducts[0].Price) * VAT;
