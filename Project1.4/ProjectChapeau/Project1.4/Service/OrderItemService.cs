@@ -56,5 +56,10 @@ namespace Project1._4.Service
         {
             orderItemDb.UpdateOrderItemState(clickedData, state);
         }
+
+        public void InsertOrderItems(List<OrderItem> orderItems)
+        {
+            orderItemDb.InsertOrderItems(orderItems);
+        }
     }
 }

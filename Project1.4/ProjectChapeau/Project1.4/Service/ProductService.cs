@@ -60,6 +60,11 @@ namespace Project1._4.Service
         {
             productDb.DeleteProduct(product);
         }
+
+        public void UpdateProductStockList(List<Product> products)
+        {
+            productDb.UpdateProductStockList(products);
+        }
     }
 
 }

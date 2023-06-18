@@ -48,6 +48,7 @@
             OrderViewStarterFLP = new FlowLayoutPanel();
             orderViewSideDish = new Label();
             OrderViewSideDishFLP = new FlowLayoutPanel();
+            nameLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -178,7 +179,7 @@
             // 
             orderViewTableLbl.AutoSize = true;
             orderViewTableLbl.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            orderViewTableLbl.Location = new Point(122, 8);
+            orderViewTableLbl.Location = new Point(114, 8);
             orderViewTableLbl.Name = "orderViewTableLbl";
             orderViewTableLbl.Size = new Size(179, 54);
             orderViewTableLbl.TabIndex = 20;
@@ -248,6 +249,17 @@
             OrderViewSideDishFLP.Size = new Size(340, 169);
             OrderViewSideDishFLP.TabIndex = 22;
             // 
+            // nameLbl
+            // 
+            nameLbl.AutoSize = true;
+            nameLbl.BackColor = Color.DarkOrange;
+            nameLbl.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            nameLbl.Location = new Point(298, 33);
+            nameLbl.Name = "nameLbl";
+            nameLbl.Size = new Size(69, 25);
+            nameLbl.TabIndex = 31;
+            nameLbl.Text = "{Name}";
+            // 
             // OrderViewDinner
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -255,6 +267,7 @@
             AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(398, 661);
+            Controls.Add(nameLbl);
             Controls.Add(orderViewSideDish);
             Controls.Add(OrderViewSideDishFLP);
             Controls.Add(pictureBox1);
@@ -305,5 +318,6 @@
         private FlowLayoutPanel OrderViewStarterFLP;
         private Label orderViewSideDish;
         private FlowLayoutPanel OrderViewSideDishFLP;
+        private Label nameLbl;
     }
 }

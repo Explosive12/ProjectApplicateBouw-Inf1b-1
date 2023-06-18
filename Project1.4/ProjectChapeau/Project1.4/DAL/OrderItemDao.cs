@@ -110,7 +110,27 @@ namespace Project1._4.DAL
             return count;
         }
 
-        
+        public void InsertOrderItems(List<OrderItem> orderItems)
+        {
+            string query = "INSERT INTO bestelregel (id, bestellingId, productId, aantal, opmerking, status) " +
+                           "VALUES (@OrderItemId, @OrderId, @ProductId, @Amount, @Comment, @Status)";
+            foreach (OrderItem orderItem in orderItems)
+            {
+                orderItem.OrderItemId = GetNextAvailableId();
+                SqlParameter[] sqlParameters =
+                {
+                    new SqlParameter("@OrderItemId", orderItem.OrderItemId),
+                    new SqlParameter("@OrderId", orderItem.OrderId),
+                    new SqlParameter("@ProductId", orderItem.ProductId),
+                    new SqlParameter("@Amount", orderItem.Amount),
+                    new SqlParameter("@Comment", orderItem.Comment),
+                    new SqlParameter("@Status", orderItem.Status),
+                };
+
+                ExecuteEditQuery(query, sqlParameters);
+            }
+        }
+
         public void UpdateOrderItemState(int clickeddata, int state)
         {
             string query = "UPDATE bestelregel SET status = @Status " +

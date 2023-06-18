@@ -139,5 +139,19 @@ namespace Project1._4.DAL
             }
             ExecuteEditQuery(query, sqlParameters);
         }
+
+        public void UpdateProductStockList(List<Product> products)
+        {
+            string query = "UPDATE product SET voorraad = @voorraad WHERE productId = @productId";
+            foreach (Product product in products)
+            {
+                SqlParameter[] sqlParameters = new SqlParameter[2];
+                {
+                    sqlParameters[0] = new SqlParameter("@productId", product.ProductId);
+                    sqlParameters[1] = new SqlParameter("@voorraad", product.Stock);
+                }
+                ExecuteEditQuery(query, sqlParameters);
+            }
+        }
     }
 }

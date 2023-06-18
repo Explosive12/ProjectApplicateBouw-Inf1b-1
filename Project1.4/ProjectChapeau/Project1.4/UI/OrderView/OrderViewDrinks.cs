@@ -18,33 +18,36 @@ namespace Project1._4.UI
         private List<OrderItem> items = new List<OrderItem>();
         private Order order;
         private List<Product> products;
-        public OrderViewDrinks(List<OrderItem> items, Order order, List<Product> products)
+        private string employeeName;
+
+        public OrderViewDrinks(List<OrderItem> items, Order order, List<Product> products, string employeeName)
         {
             InitializeComponent();
             this.order = order;
             this.items = items;
             this.products = products;
+            this.employeeName = employeeName;
             DisplayOrderItems();
         }
 
         // Start Buttons
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
         {
-            OrderViewLunch orderView = new OrderViewLunch(items, order, products);
+            OrderViewLunch orderView = new OrderViewLunch(items, order, products, employeeName);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDinner orderView = new OrderViewDinner(items, order, products);
+            OrderViewDinner orderView = new OrderViewDinner(items, order, products, employeeName);
             orderView.Show();
             this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products);
+            OrderViewDrinks orderView = new OrderViewDrinks(items, order, products, employeeName);
             orderView.Show();
             this.Hide();
         }
@@ -59,7 +62,7 @@ namespace Project1._4.UI
                 string itemName = selectedItem.SubItems[1].Text;
                 OrderItem item = GetOrderItemWithName(itemName);
 
-                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products);
+                OrderViewAddComment commentView = new OrderViewAddComment("Lunch", item, items, order, products, employeeName);
                 commentView.Show();
                 this.Hide();
             }
@@ -87,7 +90,7 @@ namespace Project1._4.UI
 
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
-            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products);
+            OrderViewFinishOrder orderView = new OrderViewFinishOrder(items, order, products, employeeName);
             orderView.Show();
             this.Hide();
         }
@@ -97,6 +100,8 @@ namespace Project1._4.UI
         private void OrderViewDrinks_Load(object sender, EventArgs e)
         {
             DisplayDrinkProducts();
+            orderViewTableLbl.Text = $"TABLE: {order.TableId}";
+            nameLbl.Text = employeeName;
         }
 
         private void DisplayDrinkProducts()
