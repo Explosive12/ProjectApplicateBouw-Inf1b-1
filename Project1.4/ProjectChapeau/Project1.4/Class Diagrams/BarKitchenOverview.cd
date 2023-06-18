@@ -1,78 +1,153 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Comment CommentText="UI">
-    <Position X="1.495" Y="1.588" Height="0.291" Width="0.7" />
-  </Comment>
-  <Comment CommentText="Service">
-    <Position X="1.514" Y="5.014" Height="0.291" Width="0.7" />
+  <Comment CommentText="ui&#xD;&#xA;">
+    <Position X="2.443" Y="10.267" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="Model">
-    <Position X="8.028" Y="5.023" Height="0.291" Width="0.7" />
+    <Position X="2.362" Y="6.897" Height="0.291" Width="0.7" />
   </Comment>
-  <Comment CommentText="DAL">
-    <Position X="1.514" Y="8.597" Height="0.291" Width="0.7" />
+  <Comment CommentText="DAL&#xD;&#xA;">
+    <Position X="2.541" Y="3.712" Height="0.291" Width="0.7" />
   </Comment>
-  <Class Name="Project1._4.UI.BarKitchenView">
-    <Position X="1.5" Y="2" Width="1.5" />
-    <Members>
-      <Field Name="components" Hidden="true" />
-      <Method Name="Dispose" Hidden="true" />
-      <Method Name="InitializeComponent" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>AAAAAAABACAAAAAAAACABAACAQQAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>UI\BarKitchenView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Project1._4.Service.OrderService">
-    <Position X="1.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAg=</HashCode>
-      <FileName>Service\OrderService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Project1._4.DAL.OrderDao">
-    <Position X="1.5" Y="9" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AwAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAg=</HashCode>
-      <FileName>DAL\OrderDao.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Project1._4.Model.Order">
-    <Position X="9.75" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAEQAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAEAA=</HashCode>
-      <FileName>Model\Order.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Status" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="Project1._4.Model.OrderItem">
-    <Position X="8" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAACAAAEAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\OrderItem.cs</FileName>
-    </TypeIdentifier>
-  </Class>
+  <Comment CommentText="Service&#xD;&#xA;">
+    <Position X="7.842" Y="6.715" Height="0.291" Width="0.7" />
+  </Comment>
   <Class Name="Project1._4.DAL.OrderItemDao">
-    <Position X="3.25" Y="9" Width="1.5" />
+    <Position X="3.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAA4AAAAAAAAAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+      <HashCode>AAAAAQCAAAQEAAAAAAAAQAgAAAAgAAAAAAAAAAAAAAg=</HashCode>
       <FileName>DAL\OrderItemDao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project1._4.Service.OrderItemService">
-    <Position X="3.25" Y="5.5" Width="1.5" />
+  <Class Name="Project1._4.Model.OrderItem">
+    <Position X="3.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAoAAAAAAACAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+      <HashCode>EAAAAAAEQAAAAAAgAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\OrderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.Service.OrderItemService">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAEAAAAAACAQAoAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\OrderItemService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Project1._4.Model.OrderStatusEnum">
-    <Position X="12" Y="5.5" Width="1.5" />
+  <Class Name="Project1._4.UI.BarKitchenView">
+    <Position X="7" Y="10.25" Width="1.5" />
+    <Members>
+      <Field Name="btnKitchenToMain" Hidden="true" />
+      <Field Name="btnLoad2004" Hidden="true" />
+      <Field Name="btnLoadBarOrders" Hidden="true" />
+      <Field Name="btnLoadKitchenOrders" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="flpOrders" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAgAAAAAAAAAAAAAAQAA=</HashCode>
+      <HashCode>AAAAAAABACgAAAAAAACAEEACSAACgAAAAQYAAAIAQAA=</HashCode>
+      <FileName>UI\BarKitchenView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.BarOrderControl">
+    <Position X="5.25" Y="10.25" Width="1.5" />
+    <Members>
+      <Field Name="barAmount" Hidden="true" />
+      <Field Name="barComment" Hidden="true" />
+      <Field Name="barOrderId" Hidden="true" />
+      <Field Name="barOrderItems" Hidden="true" />
+      <Field Name="barOrderTime" Hidden="true" />
+      <Field Name="barTableNumber" Hidden="true" />
+      <Field Name="barWaitingTime" Hidden="true" />
+      <Field Name="barWaitTime" Hidden="true" />
+      <Field Name="btnFilterByStatusBar" Hidden="true" />
+      <Field Name="btnPreparationBar" Hidden="true" />
+      <Field Name="btnPreparedBar" Hidden="true" />
+      <Field Name="btnServedBar" Hidden="true" />
+      <Field Name="cbxStatusBar" Hidden="true" />
+      <Field Name="columnHeader1" Hidden="true" />
+      <Field Name="columnHeader2" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="kitchenDescription" Hidden="true" />
+      <Field Name="kitchenOrderCount" Hidden="true" />
+      <Field Name="kitchenOrderId" Hidden="true" />
+      <Field Name="kitchenOrderItems" Hidden="true" />
+      <Field Name="kitchenOrderNumber" Hidden="true" />
+      <Field Name="kitchenOrderTime" Hidden="true" />
+      <Field Name="kitchenTableNumber" Hidden="true" />
+      <Field Name="kitchenWaitTime" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="lblBarHeader" Hidden="true" />
+      <Field Name="lblChangeStatusHeaderBar" Hidden="true" />
+      <Field Name="lblCountHeaderBar" Hidden="true" />
+      <Field Name="lblDescriptionHeaderBar" Hidden="true" />
+      <Field Name="lblOrderIDHeaderBar" Hidden="true" />
+      <Field Name="lblOrderNumberHeaderBar" Hidden="true" />
+      <Field Name="lblSelectedOrder" Hidden="true" />
+      <Field Name="lblStatusOfDish" Hidden="true" />
+      <Field Name="lblViewOrderByStatusHeaderBar" Hidden="true" />
+      <Field Name="lblViewOrderStatusHeaderBar" Hidden="true" />
+      <Field Name="lblWaitingTimeHeader" Hidden="true" />
+      <Field Name="listViewBarOrders" Hidden="true" />
+      <Field Name="pbxHeaderBar" Hidden="true" />
+      <Field Name="pbxHeaderViewOrderStatusBar" Hidden="true" />
+      <Field Name="pbxOrderByStatusBar" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAABgICAiCgBALAkggiABkQGAxICAAskgqQgCYAIWIA=</HashCode>
+      <FileName>UI\Controlpanels\BarOrderControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.KitchenOrderControl">
+    <Position X="3.5" Y="10.25" Width="1.5" />
+    <Members>
+      <Field Name="barAmount" Hidden="true" />
+      <Field Name="barComment" Hidden="true" />
+      <Field Name="barOrderId" Hidden="true" />
+      <Field Name="barOrderItems" Hidden="true" />
+      <Field Name="barOrderTime" Hidden="true" />
+      <Field Name="barTableNumber" Hidden="true" />
+      <Field Name="barWaitTime" Hidden="true" />
+      <Field Name="btnFilterByStatusKitchen" Hidden="true" />
+      <Field Name="btnPreparationKitchen" Hidden="true" />
+      <Field Name="btnPreparedKitchen" Hidden="true" />
+      <Field Name="btnServedKitchen" Hidden="true" />
+      <Field Name="cbxOrderStatusKitchen" Hidden="true" />
+      <Field Name="cbxStatusKitchen" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="lblChangeStatusHeaderKitchen" Hidden="true" />
+      <Field Name="lblCountHeaderBar" Hidden="true" />
+      <Field Name="lblDescriptionHeaderBar" Hidden="true" />
+      <Field Name="lblKitchenHeader" Hidden="true" />
+      <Field Name="lblOrderIDHeaderBar" Hidden="true" />
+      <Field Name="lblOrderNumberHeaderBar" Hidden="true" />
+      <Field Name="lblSelectedOrder" Hidden="true" />
+      <Field Name="lblStatusOfDish" Hidden="true" />
+      <Field Name="lblViewOrderStatusHeaderBar" Hidden="true" />
+      <Field Name="lblWaitingTimeHeader" Hidden="true" />
+      <Field Name="listViewKitchenOrders" Hidden="true" />
+      <Field Name="pbxHeaderBar" Hidden="true" />
+      <Field Name="pbxHeaderViewOrderStatusKitchen" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAhAgADAICBAABAggACAggAGAoIAQBokgKUAARHASJA=</HashCode>
+      <FileName>UI\Controlpanels\KitchenOrderControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Project1._4.Model.OrderStatusEnum">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgBAAAA=</HashCode>
       <FileName>Model\OrderStatusEnum.cs</FileName>
     </TypeIdentifier>
   </Enum>

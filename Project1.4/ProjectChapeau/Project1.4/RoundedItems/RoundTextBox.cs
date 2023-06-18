@@ -2,23 +2,26 @@
 {
     class RoundTextBox : TextBox
     {
-        // TODO, Explain how it all works
+        // TODO, Explain how it all works 
+        // stolen from stackOverflow: https://stackoverflow.com/questions/58613713/how-to-make-a-textbox-with-rounded-corner-in-c
         [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        
         private static extern IntPtr CreateRoundRectRgn
         (
-            int nLeftRect, // X-coordinate of upper-left corner or padding at start
-            int nTopRect,// Y-coordinate of upper-left corner or padding at the top of the textbox
-            int nRightRect, // X-coordinate of lower-right corner or Width of the object
-            int nBottomRect,// Y-coordinate of lower-right corner or Height of the object
-                            //RADIUS, how round do you want it to be?
-            int nheightRect, //height of ellipse 
-            int nweightRect //width of ellipse
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+
+            int nheightRect,
+            int nweightRect
         );
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            IntPtr makeCoolShape = CreateRoundRectRgn(2, 3, Width, Height, 15, 15);
-            Region = Region.FromHrgn(makeCoolShape); //play with these values till you are happy
+            IntPtr makeCoolShape = CreateRoundRectRgn(2, 3, Width, Height, 15, 16);
+            Region = Region.FromHrgn(makeCoolShape); //play with these values till me happy
         }
     }
 }

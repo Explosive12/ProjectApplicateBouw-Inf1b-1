@@ -144,9 +144,9 @@ namespace Project1._4
             labelThisMonthIncome.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             labelThisMonthIncome.Location = new Point(237, 684);
             labelThisMonthIncome.Name = "labelThisMonthIncome";
-            labelThisMonthIncome.Size = new Size(89, 18);
+            labelThisMonthIncome.Size = new Size(32, 18);
             labelThisMonthIncome.TabIndex = 8;
-            labelThisMonthIncome.Text = "{income2}";
+            labelThisMonthIncome.Text = "€ 0";
             // 
             // MainMenuUC
             // 
