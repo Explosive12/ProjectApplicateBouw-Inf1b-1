@@ -67,6 +67,7 @@
             btnFreeTableControl.TabIndex = 2;
             btnFreeTableControl.Text = "FREE";
             btnFreeTableControl.UseVisualStyleBackColor = false;
+            btnFreeTableControl.Click += freeButton;
             // 
             // btnOccupiedTableControl
             // 
@@ -78,6 +79,7 @@
             btnOccupiedTableControl.TabIndex = 3;
             btnOccupiedTableControl.Text = "OCCUPIED";
             btnOccupiedTableControl.UseVisualStyleBackColor = false;
+            btnOccupiedTableControl.Click += occupiedButton;
             // 
             // btnReservedTableControl
             // 
@@ -89,6 +91,7 @@
             btnReservedTableControl.TabIndex = 4;
             btnReservedTableControl.Text = "RESERVED";
             btnReservedTableControl.UseVisualStyleBackColor = false;
+            btnReservedTableControl.Click += reservedButton;
             // 
             // btnGoToTableControl
             // 
@@ -99,6 +102,7 @@
             btnGoToTableControl.TabIndex = 5;
             btnGoToTableControl.Text = "Go to table";
             btnGoToTableControl.UseVisualStyleBackColor = true;
+            btnGoToTableControl.Click += GoToTableButton;
             // 
             // btnBackTableControl
             // 

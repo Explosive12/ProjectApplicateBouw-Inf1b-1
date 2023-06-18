@@ -58,7 +58,7 @@
             // pnlFree
             // 
             pnlFree.BackColor = Color.FromArgb(138, 210, 176);
-            pnlFree.Location = new Point(48, 393);
+            pnlFree.Location = new Point(28, 393);
             pnlFree.Name = "pnlFree";
             pnlFree.Size = new Size(19, 20);
             pnlFree.TabIndex = 0;
@@ -66,7 +66,7 @@
             // pnlAccupied
             // 
             pnlAccupied.BackColor = Color.FromArgb(255, 179, 71);
-            pnlAccupied.Location = new Point(128, 393);
+            pnlAccupied.Location = new Point(108, 393);
             pnlAccupied.Name = "pnlAccupied";
             pnlAccupied.Size = new Size(19, 20);
             pnlAccupied.TabIndex = 1;
@@ -74,7 +74,7 @@
             // pnlReserved
             // 
             pnlReserved.BackColor = Color.FromArgb(196, 196, 196);
-            pnlReserved.Location = new Point(216, 393);
+            pnlReserved.Location = new Point(196, 393);
             pnlReserved.Name = "pnlReserved";
             pnlReserved.Size = new Size(19, 20);
             pnlReserved.TabIndex = 1;
@@ -82,7 +82,7 @@
             // pnlOrdered
             // 
             pnlOrdered.BackColor = Color.FromArgb(248, 102, 39);
-            pnlOrdered.Location = new Point(294, 393);
+            pnlOrdered.Location = new Point(274, 393);
             pnlOrdered.Name = "pnlOrdered";
             pnlOrdered.Size = new Size(19, 20);
             pnlOrdered.TabIndex = 1;
@@ -90,7 +90,7 @@
             // lblFree
             // 
             lblFree.AutoSize = true;
-            lblFree.Location = new Point(38, 416);
+            lblFree.Location = new Point(18, 416);
             lblFree.Name = "lblFree";
             lblFree.Size = new Size(29, 15);
             lblFree.TabIndex = 0;
@@ -99,7 +99,7 @@
             // lblOccupied
             // 
             lblOccupied.AutoSize = true;
-            lblOccupied.Location = new Point(108, 416);
+            lblOccupied.Location = new Point(88, 416);
             lblOccupied.Name = "lblOccupied";
             lblOccupied.Size = new Size(58, 15);
             lblOccupied.TabIndex = 2;
@@ -108,7 +108,7 @@
             // lblReserved
             // 
             lblReserved.AutoSize = true;
-            lblReserved.Location = new Point(197, 416);
+            lblReserved.Location = new Point(177, 416);
             lblReserved.Name = "lblReserved";
             lblReserved.Size = new Size(54, 15);
             lblReserved.TabIndex = 3;
@@ -117,7 +117,7 @@
             // lblOrdered
             // 
             lblOrdered.AutoSize = true;
-            lblOrdered.Location = new Point(279, 416);
+            lblOrdered.Location = new Point(259, 416);
             lblOrdered.Name = "lblOrdered";
             lblOrdered.Size = new Size(50, 15);
             lblOrdered.TabIndex = 4;
