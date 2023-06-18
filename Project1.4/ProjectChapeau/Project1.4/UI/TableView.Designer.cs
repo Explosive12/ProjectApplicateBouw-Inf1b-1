@@ -47,7 +47,7 @@
             // 
             // FLPTableView
             // 
-            FLPTableView.Location = new Point(19, 123);
+            FLPTableView.Location = new Point(28, 125);
             FLPTableView.Name = "FLPTableView";
             FLPTableView.Size = new Size(367, 445);
             FLPTableView.TabIndex = 1;

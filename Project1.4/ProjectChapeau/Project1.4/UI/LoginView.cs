@@ -9,6 +9,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,10 +26,11 @@ namespace Project1._4
             txtWachtwoord.PasswordChar = '*';
             userService = new UserService();
         }
-        public void Getlogin()
+        public void Getlogin(object sender, EventArgs e)
         {
             string password = PasswordHasher.HashPassword(txtWachtwoord.Text);
             string username = txtInlogNaam.Text;
+
             try
             {
                 Login login = userService.LoginUser(password, username);
@@ -42,7 +45,17 @@ namespace Project1._4
                 MessageBox.Show("login failed " + ex.Message);
             }
         }
-        private void ForgetPassword()
+        public string HashPassword(string password)
+        {
+            string salt = "password";
+            SHA256 hash = SHA256.Create();
+            byte[] passwordbytes = Encoding.UTF8.GetBytes(password + salt);
+            byte[] hashedpassword = hash.ComputeHash(passwordbytes);
+            return Convert.ToBase64String(hashedpassword);
+            //geen var
+            //https://www.youtube.com/watch?v=ZbUCgU3G1z4&t
+        }
+        private void ForgetPassword(object sender, EventArgs e)
         {
             MessageBox.Show("Contact the Manager for a password reset");
         }
@@ -131,12 +144,12 @@ namespace Project1._4
             btnLoginHandheld.Text = "Login";
             btnLoginHandheld.UseMnemonic = false;
             btnLoginHandheld.UseVisualStyleBackColor = false;
-            btnLoginHandheld.Click += btnLoginHandheld_Click;
+            btnLoginHandheld.Click += Getlogin;
             // 
             // lblForgotPassword
             // 
             lblForgotPassword.AutoSize = true;
-            lblForgotPassword.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblForgotPassword.Font = new Font("Tahoma", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lblForgotPassword.Location = new Point(133, 514);
             lblForgotPassword.Name = "lblForgotPassword";
             lblForgotPassword.Size = new Size(111, 14);
@@ -144,7 +157,7 @@ namespace Project1._4
             lblForgotPassword.Text = "Forgot password";
             lblForgotPassword.TextAlign = ContentAlignment.MiddleCenter;
             lblForgotPassword.UseMnemonic = false;
-            lblForgotPassword.Click += lblForgotPassword_Click;
+            lblForgotPassword.Click += ForgetPassword;
             // 
             // pictureBox1
             // 
@@ -171,16 +184,6 @@ namespace Project1._4
             ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void btnLoginHandheld_Click(object sender, EventArgs e)
-        {
-            Getlogin();
-        }
-
-        private void lblForgotPassword_Click(object sender, EventArgs e)
-        {
-            ForgetPassword();
         }
     }
 }

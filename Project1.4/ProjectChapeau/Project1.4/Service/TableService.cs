@@ -18,18 +18,25 @@ namespace Project1._4.Service
         {
             return tabledb.GetTableById(tableId);
         }
-
-        public void UpdateTableStatus(Table table)
+        public Reservation GetReservationById(int reservationId)
         {
-            tabledb.UpdateTableStatus(table);
+            return tabledb.GetReservationById(reservationId);
+        }
+        public void UpdateTableStatus(TableStatus status, int tableId)
+        {
+            tabledb.UpdateTableStatus(status, tableId);
         }
         public List<Table> GetAllTables()
         {
             return tabledb.GetAllTables();
         }
-        public void ReserveTable()
+        public void ReserveTable(Reservation reservation , int tableId)
         {
-            throw new System.NotImplementedException();
+            tabledb.ReserveTable(reservation , tableId);
+        }
+        public void RemoveReservation(Reservation reservation, int tableId , TableStatus status)
+        {
+            tabledb.RemoveReservation(reservation, tableId , status);
         }
     }
 }
