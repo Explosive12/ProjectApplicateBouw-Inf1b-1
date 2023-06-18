@@ -87,41 +87,68 @@ namespace Project1._4
             }
         }
 
-        //TODO AUTOUPDATE LISTVIEW
         private void btnPreparedKitchen_Click(object sender, EventArgs e)
         {
-            state = OrderStatusEnum.Prepared;
-            int stateInt = (int)state;
-            ChangeStateDatabase(stateInt);
+            try
+            {
+                if (clickedData == 0)
+                {
+                    throw new Exception("No data selected");
+                }
+                state = OrderStatusEnum.Prepared;
+                int stateInt = (int)state;
+                ChangeStateDatabase(stateInt);
 
-            //to instant update the label
-            lblStatusOfDish.Text = OrderStatusEnum.Prepared.ToString();
+                lblStatusOfDish.Text = OrderStatusEnum.Prepared.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        
-
-        //TODO AUTOUPDATE LISTVIEW
         private void btnServedKitchen_Click(object sender, EventArgs e)
         {
-            state = OrderStatusEnum.Served;
-            int stateInt = (int)state;
+            try
+            {
+                if (clickedData == 0)
+                {
+                    throw new Exception("No data selected");
+                }
 
-            ChangeStateDatabase(stateInt);
+                state = OrderStatusEnum.Served;
+                int stateInt = (int)state;
+                ChangeStateDatabase(stateInt);
 
-            //to instant update the label
-            lblStatusOfDish.Text = OrderStatusEnum.Served.ToString();
+                //to instant update the label
+                lblStatusOfDish.Text = OrderStatusEnum.Served.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        //TODO AUTOUPDATE LISTVIEW
         private void btnPreparationKitchen_Click(object sender, EventArgs e)
         {
-            state = OrderStatusEnum.Inpreparation;
-            int stateInt = (int)state;
+            try 
+            { 
+                if (clickedData == 0)
+                {
+                    throw new Exception("No data selected");
+                }
+                state = OrderStatusEnum.Inpreparation;
+                int stateInt = (int)state;
 
-            ChangeStateDatabase(stateInt);
+                ChangeStateDatabase(stateInt);
 
-            //to instant update the label
-            lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
+                //to instant update the label
+                lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ChangeStateDatabase(int stateInt)
@@ -129,6 +156,7 @@ namespace Project1._4
             OrderItemService orderItemService = new OrderItemService();
             orderItemService.UpdateOrderItemStatus(clickedData, stateInt);
         }
+
         private void listViewKitchenOrders_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (listViewKitchenOrders.SelectedItems.Count > 0)
@@ -150,13 +178,15 @@ namespace Project1._4
         }
         private void btnFilterByStatusKitchen_Click(object sender, EventArgs e)
         {
-            if (cbxStatusKitchen.SelectedItem != null)
+            try
             {
+                if (cbxStatusKitchen.SelectedItem == null)
+                {
+                    throw new Exception("No data selected in combobox");
+                }
                 string selectedValue = cbxStatusKitchen.SelectedItem.ToString();
-
                 OrderItemService orderItemService = new OrderItemService();
                 List<OrderItem> orders;
-
                 if (selectedValue == "Running")
                 {
                     orders = orderItemService.GetByStatusKitchen((int)OrderStatusEnum.Inpreparation);
@@ -171,9 +201,14 @@ namespace Project1._4
                     // Handle unknown status or error
                     return;
                 }
-
                 DisplayKitchenOrders(orders);
+                
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
