@@ -11,44 +11,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Project1._4.UI
 {
     public partial class BarKitchenView : Form
     {
-        //private Order order = new Order();
         public BarKitchenView()
         {
             InitializeComponent();
-        }
-        public void Loadabc()
-        {
-            List<OrderItem> kitchenOrders = GetKitchenOrders();
-
-            this.flpKitchenOrders.Controls.Clear();
-
-            foreach (OrderItem kitchenOrder in kitchenOrders)
-            {
-                KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
-                this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
-            }
-
         }
 
         private void btnLoadKitchenOrders_Click(object sender, EventArgs e)
         {
             List<OrderItem> kitchenOrders = GetKitchenOrders();
 
-            this.flpKitchenOrders.Controls.Clear();
+            this.flpOrders.Controls.Clear();
 
-            foreach (OrderItem kitchenOrder in kitchenOrders)
+            if (kitchenOrders.Count == 0)
             {
-                KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
-                this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+                MessageBox.Show("No orders in list");
             }
+            else
+            {
+                foreach (OrderItem kitchenOrder in kitchenOrders)
+                {
+                    KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(kitchenOrder);
+                    this.flpOrders.Controls.Add(kitchenOrderControl);
+                }
 
-            ShowCashRegistersPanel();
+                ShowKitchenControl();
+            }
         }
 
+        private void btnLoadBarOrders_Click(object sender, EventArgs e)
+        {
+            List<OrderItem> barOrders = GetBarOrders();
+
+            this.flpOrders.Controls.Clear();
+
+            if (barOrders.Count == 0)
+            {
+                MessageBox.Show("No orders in list");
+            }
+            else
+            {
+                foreach (OrderItem barOrder in barOrders)
+                {
+                    BarOrderControl barOrderControl = new BarOrderControl(barOrder);
+                    this.flpOrders.Controls.Add(barOrderControl);
+                }
+
+                ShowBarControl();
+            }
+        }
         private void btnKitchenToMain_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
@@ -60,19 +75,20 @@ namespace Project1._4.UI
             form1.Show();
             this.Hide();
         }
-        private void ShowCashRegistersPanel()
+
+        public void ShowKitchenControl()
         {
             try
             {
                 List<OrderItem> kitchenOrderItems = GetKitchenOrderItems();
 
-                this.flpKitchenOrders.Controls.Clear();
+                this.flpOrders.Controls.Clear();
 
                 foreach (OrderItem order in kitchenOrderItems)
                 {
                     KitchenOrderControl kitchenOrderControl = new KitchenOrderControl(order);
                     kitchenOrderControl.DisplayKitchenOrders(kitchenOrderItems);
-                    this.flpKitchenOrders.Controls.Add(kitchenOrderControl);
+                    this.flpOrders.Controls.Add(kitchenOrderControl);
                 }
             }
             catch (SqlException e)
@@ -80,17 +96,50 @@ namespace Project1._4.UI
                 MessageBox.Show("Something went wrong while loading the cash registers: " + e.Message);
             }
         }
-        private List<OrderItem> GetKitchenOrders()
+        public void ShowBarControl()
         {
-           OrderItemService orderItemService = new OrderItemService();
-           List<OrderItem> orders = orderItemService.GetOrderItemsByDinnerLunch();
-           return orders;
+            try
+            {
+                List<OrderItem> barOrderItems = GetBarOrderItems();
+
+                this.flpOrders.Controls.Clear();
+
+                foreach (OrderItem order in barOrderItems)
+                {
+                    BarOrderControl barOrderControl = new BarOrderControl(order);
+                    barOrderControl.DisplayBarOrders(barOrderItems);
+                    this.flpOrders.Controls.Add(barOrderControl);
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Something went wrong while loading the cash registers: " + e.Message);
+            }
         }
+
         private List<OrderItem> GetKitchenOrderItems()
         {
             OrderItemService orderItemService = new OrderItemService();
             List<OrderItem> orderItems = orderItemService.GetOrderItemsByDinnerLunch();
             return orderItems;
+        }
+        private List<OrderItem> GetBarOrderItems()
+        {
+            OrderItemService orderItemService = new OrderItemService();
+            List<OrderItem> orderItems = orderItemService.GetOrderItemsByDrink();
+            return orderItems;
+        }
+        private List<OrderItem> GetKitchenOrders()
+        {
+            OrderItemService orderItemService = new OrderItemService();
+            List<OrderItem> orders = orderItemService.GetOrderItemsByDinnerLunch();
+            return orders;
+        }
+        public List<OrderItem> GetBarOrders()
+        {
+            OrderItemService orderItemService = new OrderItemService();
+            List<OrderItem> orders = orderItemService.GetOrderItemsByDrink();
+            return orders;
         }
     }
 }
