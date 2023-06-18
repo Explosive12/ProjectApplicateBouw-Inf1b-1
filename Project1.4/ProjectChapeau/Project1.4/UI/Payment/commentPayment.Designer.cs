@@ -111,7 +111,6 @@
             Controls.Add(backToCommentOrContinue);
             Controls.Add(confirmPayment);
             Controls.Add(logo);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "commentPayment";
             Text = "Form1";
             Load += commentPayment_Load;

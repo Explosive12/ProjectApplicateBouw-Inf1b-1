@@ -16,7 +16,7 @@ namespace Project1._4.UI.Payment
     {
 
 
-        private decimal orderPrice; 
+        private decimal orderPrice;
         public decimal OrderPrice { get; set; }
 
         public decimal CustomTip { get; set; }
@@ -29,7 +29,7 @@ namespace Project1._4.UI.Payment
             InitializeComponent();
             this.OrderPrice = orderPrice;
         }
-        
+
         private void paymentSelected_Load(object sender, EventArgs e)
         {
             OrderDao orderDao = new OrderDao();
@@ -51,7 +51,7 @@ namespace Project1._4.UI.Payment
                 return;
             }
             commentOrContinuePayment commentOrContinue = new commentOrContinuePayment(CustomTip, AmountPaid);
-            
+
             commentOrContinue.Show();
             this.Hide();
 
@@ -85,11 +85,11 @@ namespace Project1._4.UI.Payment
             tipHasBeenAdded.Text = "HAS BEEN ADDED";
         }
 
-      
+
 
         private void buttonSet_Click(object sender, EventArgs e) // amount price
         {
-            if(textBoxAmountPaid.Text == "") // lege waarde komt er een text box
+            if (textBoxAmountPaid.Text == "") // lege waarde komt er een text box
             {
                 MessageBox.Show("Please enter an amount!");
                 return;
@@ -101,7 +101,7 @@ namespace Project1._4.UI.Payment
 
             OrderPrice = totalPriceSelectedLabel;
             AmountPaid = textBoxAmountPaidTotal;
-            
+
 
             if (totalPriceSelectedLabel > textBoxAmountPaidTotal) // bedrag moet groter zijn
             {
@@ -113,7 +113,7 @@ namespace Project1._4.UI.Payment
             LeftOverPriceLabel.Text = leftOverPrice.ToString("C");
         }
 
-       
+
 
         private void totalPriceSelected_Click(object sender, EventArgs e)
         {

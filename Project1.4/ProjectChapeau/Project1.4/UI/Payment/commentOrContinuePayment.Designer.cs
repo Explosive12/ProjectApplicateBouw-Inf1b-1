@@ -89,7 +89,6 @@
             Controls.Add(buttonContinuePayment);
             Controls.Add(labelCustomerComment);
             Controls.Add(logo);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "commentOrContinuePayment";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

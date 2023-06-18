@@ -62,6 +62,7 @@
             lblLoginName.Name = "lblLoginName";
             lblLoginName.Size = new Size(2, 21);
             lblLoginName.TabIndex = 2;
+            lblLoginName.Click += Exitlogin;
             // 
             // TableView
             // 

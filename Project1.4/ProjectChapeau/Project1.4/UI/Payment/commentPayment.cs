@@ -29,7 +29,7 @@ namespace Project1._4.UI.Payment
             InitializeComponent();
             this.CustomTip = CustomTip;
             this.AmountPaid = AmountPaid;
-            
+
 
 
         }
@@ -44,7 +44,7 @@ namespace Project1._4.UI.Payment
 
 
             int paymentId = paymentItem.BestellingId;
-           
+
 
             //TODO: make the paymentId and get the current paymentId
             paymentService.AddComment(paymentItem.Comment, paymentId);

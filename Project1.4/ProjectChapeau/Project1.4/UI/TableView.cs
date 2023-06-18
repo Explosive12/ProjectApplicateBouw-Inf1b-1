@@ -19,11 +19,17 @@ namespace Project1._4.UI
         {
             InitializeComponent();
             Table table = new Table();
-            tableviewControl tableviewControl = new tableviewControl(table , FLPTableView);
+            tableviewControl tableviewControl = new tableviewControl(table, FLPTableView);
 
             this.FLPTableView.Controls.Add(tableviewControl);
 
             lblLoginName.Text = username;
+        }
+        private void Exitlogin(object sender, EventArgs e)
+        {
+            LoginView loginview = new LoginView();
+            loginview.Show();
+            this.Close();
         }
     }
 }

@@ -76,19 +76,19 @@ namespace Project1._4.UI.Payment
 
         }
 
-       
+
 
         private decimal CalculateTotalPrice(List<OrderItem> orderItems)
         {
             OrderService orderService = new OrderService();
-            
+
             decimal totalPrice = 0;
 
             foreach (OrderItem item in orderItems)
             {
 
 
-                
+
                 decimal productPrice = orderService.GetProductPrice(item.ProductId); // Prijs van het product ophalen
                 int quantity = orderService.QuantityOfProduct(item.ProductId); // Aantal van het product ophalen
 
@@ -104,22 +104,22 @@ namespace Project1._4.UI.Payment
             OrderDao orderDao = new OrderDao();
             int tableId = 1;
             List<OrderItem> orderItems = orderDao.GetOrdersFromTable(tableId);
-           
-            
+
+
 
             decimal totalOrderPrice = CalculateTotalPrice(orderItems);
 
             totalPriceCalculate.Text = totalOrderPrice.ToString("C"); // C is euro currency
 
 
-            
+
 
 
 
 
         }
 
-    
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

@@ -197,7 +197,6 @@
             Controls.Add(proceedPayment);
             Controls.Add(billLabel);
             Controls.Add(logo);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "finishBill";
             Text = "Form1";
             Load += finishBill_Load;

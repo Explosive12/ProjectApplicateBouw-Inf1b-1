@@ -46,6 +46,7 @@ namespace Project1._4
         }
         private void reservedButton(object sender, EventArgs e)
         {
+            //check if the table is already reserved and then open tablegereseveerd
             if (tableService.GetTableById(tableId).status == TableStatus.Gereseveerd)
             {
                 MessageBox.Show("This table is already reserved");
@@ -57,6 +58,7 @@ namespace Project1._4
         }
         public void UpdateTableStatus(TableStatus status, int tableId)
         {
+            //check if the table is currently reserved and the new status will be Free or Occupied
             Table table = tableService.GetTableById(tableId);
             if (table.status == TableStatus.Gereseveerd && (status == TableStatus.Vrij || status == TableStatus.Bezet))
             {
@@ -69,6 +71,7 @@ namespace Project1._4
                         MessageBox.Show("reservation not found");
                         return;
                     }
+                    //remove reservation and update the status off the table
                     tableService.RemoveReservation(reservation, tableId, status);
                     table.status = status;
                     tableService.UpdateTableStatus(status, tableId);
@@ -102,14 +105,20 @@ namespace Project1._4
         {
             OrderViewLunch orderViewLunch = new OrderViewLunch(tableId);
             orderViewLunch.Show();
-            tablev.Hide();
+
+            Form currentform = FindForm();
+            currentform.Close();
+            //open the orderviewlunch and close the current form
         }
 
         private void buttonGoToPayment_Click(object sender, EventArgs e)
         {
             finishBill finishBill = new finishBill();
             finishBill.Show();
-            this.Hide();
+
+            Form currentform = FindForm();
+            currentform.Close();
+            //open the finishbill and close the current form
         }
     }
 }

@@ -41,8 +41,10 @@ namespace Project1._4
         }
         private void Button_Click(object sender, EventArgs e)
         {
+            //get the clicked button and its index int thetablelayoutpanel
             Button button = (Button)sender;
             int buttonIndex = tableLayoutPanel.Controls.IndexOf(button);
+            //get the tableId and status
             int tableId = tableslist[buttonIndex].tafelId;
             TableStatus status = tableslist[buttonIndex].status;
 

@@ -10,43 +10,43 @@
     <Position X="2.5" Y="8" Height="0.292" Width="0.7" />
   </Comment>
   <Comment CommentText="UI">
-    <Position X="2.5" Y="2.75" Height="0.323" Width="0.7" />
+    <Position X="2.75" Y="2" Height="0.323" Width="0.7" />
   </Comment>
   <Class Name="Project1._4.UI.TableView">
-    <Position X="2.5" Y="3.25" Width="1.5" />
+    <Position X="2.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEA=</HashCode>
+      <HashCode>AAAAABAAACAAAAAAAACABAACAAAAAAAAAAAgAABAAAA=</HashCode>
       <FileName>UI\TableView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.TableService">
     <Position X="2.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAABAAAAI=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAFABAAAAAIAAAAABAAAAI=</HashCode>
       <FileName>Service\TableService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.TableDao">
     <Position X="2.5" Y="8.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAABAAAAI=</HashCode>
+      <HashCode>AAAAAAAAgCQAAAAQAAAAAAAFAAAAAAAIAAAAABAAAAI=</HashCode>
       <FileName>DAL\TableDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Model.Table">
     <Position X="5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Table.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="status" />
+      <Property Name="status" />
     </ShowAsAssociation>
   </Class>
   <Enum Name="Project1._4.Model.TableStatus">
     <Position X="8" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAgAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAAAAAkAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TableStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -29,16 +29,16 @@ namespace Project1._4.UI
             this.paymentSelected = new paymentSelected(orderPrice);
             this.CustomTip = CustomTip;
             this.AmountPaid = AmountPaid;
-           
+
         }
 
         private void goBackToTableForm_Click(object sender, EventArgs e)
         {
-          /*  OrderDao orderDao = new OrderDao();
-            int tableId = 1;
-            List<OrderItem> orderItems = orderDao.DeleteOrder(tableId);*/
-            
-            
+            /*  OrderDao orderDao = new OrderDao();
+              int tableId = 1;
+              List<OrderItem> orderItems = orderDao.DeleteOrder(tableId);*/
+
+
             TableView tafelOverzicht = new TableView(table);
             tafelOverzicht.Show();
 
@@ -62,16 +62,16 @@ namespace Project1._4.UI
 
             if (CustomTip == 0)
             {
-               
+
                 TipAmountLabels.Text = CustomTip.ToString("C0");
             }
 
             // label voor amount paid
-           
+
 
 
         }
 
-        
+
     }
 }

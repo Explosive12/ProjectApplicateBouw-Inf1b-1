@@ -20,7 +20,7 @@ namespace Project1._4.UI.Payment
         public commentOrContinuePayment(decimal CustomTip, decimal AmountPaid) // van vorige vorm meegeven
         {
             InitializeComponent();
-            this.CustomTip = CustomTip; 
+            this.CustomTip = CustomTip;
             this.AmountPaid = AmountPaid;
         }
 
@@ -31,7 +31,7 @@ namespace Project1._4.UI.Payment
             commentPayment.Show();
             this.Hide();
         }
-      
+
         private void buttonContinuePayment_Click(object sender, EventArgs e)
         {
             paymentSelected paymentSelected = new paymentSelected(orderPrice);

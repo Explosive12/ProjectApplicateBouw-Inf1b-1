@@ -41,6 +41,8 @@ namespace Project1._4
             };
 
             tableService = new TableService();
+
+            //reserve table and update the tablestatus 
             tableService.ReserveTable(reservation , tableId);
 
             tableService.UpdateTableStatus(TableStatus.Gereseveerd, tableId);
