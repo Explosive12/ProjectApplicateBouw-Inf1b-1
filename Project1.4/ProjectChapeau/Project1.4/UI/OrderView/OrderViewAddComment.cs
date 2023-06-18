@@ -31,7 +31,8 @@ namespace Project1._4.UI
             this.products = products;
             this.employeeName = employeeName;
         }
-
+        
+        // removes orderItem from the list, edits it and then adds it back to the list
         private void orderViewCommentAddBtn_Click(object sender, EventArgs e)
         {
             items.Remove(orderItem);

@@ -28,6 +28,7 @@ namespace Project1._4.UI
             this.employeeName = employeeName;
             DisplayOrderItems();
         }
+
         // start buttons
         private void orderViewFinishBtn_Click(object sender, EventArgs e)
         {
@@ -35,7 +36,7 @@ namespace Project1._4.UI
             orderView.Show();
             this.Hide();
         }
-
+        
         private void orderViewCommentBtn_Click(object sender, EventArgs e)
         {
             try
@@ -100,6 +101,7 @@ namespace Project1._4.UI
             nameLbl.Text = employeeName;
         }
 
+        // adds everything to the flowlayout panels
         private void DisplayDinnerProducts()
         {
             List<Product> products = LoadDinnerProducts();
