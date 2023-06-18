@@ -4,13 +4,13 @@
     <Position X="3.604" Y="0.927" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="Model">
-    <Position X="8" Y="1" Height="0.301" Width="0.7" />
+    <Position X="9.5" Y="1.25" Height="0.301" Width="0.7" />
   </Comment>
   <Comment CommentText="Service">
-    <Position X="4.24" Y="4.938" Height="0.291" Width="0.7" />
+    <Position X="9.74" Y="4.938" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="Dao">
-    <Position X="8.073" Y="4.896" Height="0.291" Width="0.7" />
+    <Position X="13.573" Y="4.896" Height="0.291" Width="0.7" />
   </Comment>
   <Class Name="Project1._4.UI.PaymentView">
     <Position X="3.25" Y="1.5" Width="1.5" />
@@ -20,33 +20,61 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Model.PaymentItem">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+    <Position X="9" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAIAAAAAAAAAQIgAAAAAAEAAAAAg=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAEAAAAAg=</HashCode>
       <FileName>Model\PaymentItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.DAL.PaymentDao">
-    <Position X="7.75" Y="5.5" Width="1.5" />
+    <Position X="13.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAQAAAAAAAABAAAAAAAAAAAAAgAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\PaymentDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.PaymentService">
-    <Position X="3.75" Y="5.5" Width="1.5" />
+    <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAAQAAAEBAABA=</HashCode>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Service\PaymentService.cs</FileName>
       <NewMemberFileName>Service\OrderService.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Project1._4.Model.PaymentPayOption">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+  <Class Name="Project1._4.UI.Payment.commentPayment">
+    <Position X="1.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\PaymentEnum.cs</FileName>
+      <HashCode>IAAAAAAAACEAABAAACCQIAACQAAAARAAAAAAAAQCAAA=</HashCode>
+      <FileName>UI\Payment\commentPayment.cs</FileName>
     </TypeIdentifier>
-  </Enum>
+  </Class>
+  <Class Name="Project1._4.UI.Payment.commentOrContinuePayment">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACUAABAAAACQAAACAAAAAQAAAAAEAAAAACA=</HashCode>
+      <FileName>UI\Payment\commentOrContinuePayment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.Payment.finishBill">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAQhACEBBgIAAACQAAADkAAAAJADAAAAAICAAAA=</HashCode>
+      <FileName>UI\Payment\finishBill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.Payment.paymentSelected">
+    <Position X="3" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEEAAAAAAKEEADFAAACQABACAAIADYAAAAAAAAg5AEA=</HashCode>
+      <FileName>UI\Payment\paymentSelected.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project1._4.UI.SettleTheBill">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQQAgAAQCEAAJAAAACQAAACAAAAAQACAABAAABgAAA=</HashCode>
+      <FileName>UI\Payment\SettleTheBill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

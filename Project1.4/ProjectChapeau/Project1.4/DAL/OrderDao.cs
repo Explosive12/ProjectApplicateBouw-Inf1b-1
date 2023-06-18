@@ -81,7 +81,7 @@ namespace Project1._4.DAL
         private List<OrderItem> ReadOrderItems(DataTable dataTable)
         {
             List<OrderItem> orders = new List<OrderItem>();
-            foreach (DataRow dr in dataTable.Rows)
+           /* foreach (DataRow dr in dataTable.Rows)
             {
                 OrderItem orderItem = new OrderItem(
                     (int)dr["OrderId"],
@@ -91,7 +91,7 @@ namespace Project1._4.DAL
                     (OrderStatusEnum)dr["Status"]
                 );
                 orders.Add(orderItem);
-            }
+            }*/
             return orders;
         }
 
