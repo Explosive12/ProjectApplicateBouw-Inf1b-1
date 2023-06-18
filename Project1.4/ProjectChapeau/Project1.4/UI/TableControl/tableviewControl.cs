@@ -17,6 +17,7 @@ namespace Project1._4
     {
         private Table table;
         private TableButtonsControl tableButtons;
+        private FlowLayoutPanel flowLayoutPanel;
 
         private TableService tableService;
         private List<Table> tableslist;
@@ -25,11 +26,12 @@ namespace Project1._4
             get { return table; }
         }
 
-        public tableviewControl(Table table)
+        public tableviewControl(Table table, FlowLayoutPanel flowLayoutPanel)
         {
             InitializeComponent();
             this.table = table;
-
+            this.flowLayoutPanel = flowLayoutPanel;
+            
             tableService = new TableService();
             tableslist = tableService.GetAllTables();
 
@@ -41,10 +43,36 @@ namespace Project1._4
             Button button = (Button)sender;
             int buttonIndex = tableLayoutPanel.Controls.IndexOf(button);
             int tableId = tableslist[buttonIndex].tafelId;
+            TableStatus status = tableslist[buttonIndex].status;
 
-            tableStatusControl tableStatusControl = new tableStatusControl(tableId, this);
-            this.Parent.Controls.Add(tableStatusControl);
-            tableStatusControl.BringToFront();
+            if (status == TableStatus.Besteld)
+            {
+                DialogResult result = MessageBox.Show("There is a order on the table , do you want to proceed ?", "Confirm Change", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            else if (status == TableStatus.Gereseveerd)
+            {
+                DialogResult result = MessageBox.Show("The table is reserved. Do you want to change the status and remove the reservation", "Confirm Change", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Reservation reservation = new Reservation();
+                    tableService.RemoveReservation(reservation, tableId);
+                    TableStatus statusAfterGereseveerd = TableStatus.Vrij;
+                    if (status == TableStatus.Bezet)
+                    {
+                        statusAfterGereseveerd = TableStatus.Bezet;
+                    }
+                    tableService.UpdateTableStatus(statusAfterGereseveerd , tableId);
+                    MessageBox.Show("The table status has been updated successfully");
+                }
+            }
+            tableStatusControl tableStatusControl = new tableStatusControl(tableId, this , flowLayoutPanel);
+            flowLayoutPanel.Controls.Clear();
+            flowLayoutPanel.Controls.Add(tableStatusControl);
+            //tableStatusControl.BringToFront();
         }
         public void UpdateTableData()
         {
@@ -54,20 +82,18 @@ namespace Project1._4
         private void AddButtonsToTableLayout()
         {
             tableLayoutPanel.Controls.Clear();
-            int buttontext = 0;
-
             for (int row = 0; row < 2; row++)
             {
                 for (int coll = 0; coll < 5; coll++)
                 {
-                    int tableId = tableslist[buttontext].tafelId;
-                    TableStatus status = tableslist[buttontext].status;
+                    int buttonIndex = row * 5 + coll;
+                    int tableId = tableslist[buttonIndex].tafelId;
+                    TableStatus status = tableslist[buttonIndex].status;
 
                     Button button = tableButtons.GetButton(coll, row, tableId, status);
                     button.Click += Button_Click;
 
                     tableLayoutPanel.Controls.Add(button, coll, row);
-                    buttontext++;
                 }
             }
         }

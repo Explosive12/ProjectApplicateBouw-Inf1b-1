@@ -16,10 +16,17 @@ namespace Project1._4
     {
         private int tableId;
         private tableGereseveerdControl tableGereseveerd;
-        public tableGereseveerdControl(int tableId, tableGereseveerdControl tableGereseveerdControl)
+        private Table table;
+        private FlowLayoutPanel FlowLayoutPanel;
+        private TableService tableService;
+        public tableGereseveerdControl(int tableId, tableGereseveerdControl tableGereseveerdControl , FlowLayoutPanel FlowLayoutPanel)
         {
             this.tableId = tableId;
             this.tableGereseveerd = tableGereseveerdControl;
+            this.FlowLayoutPanel = FlowLayoutPanel;
+
+            table = new Table();
+
             InitializeComponent();
         }
         private void Opslaan(object sender, EventArgs e)
@@ -33,10 +40,19 @@ namespace Project1._4
                 tijd = DateTime.Parse(txtTijdGegevens.Text),
             };
 
-            TableService tableService = new TableService();
+            tableService = new TableService();
             tableService.ReserveTable(reservation , tableId);
 
             tableService.UpdateTableStatus(TableStatus.Gereseveerd, tableId);
+            MessageBox.Show("The table has been reserved successfully ");
+            this.Hide();
+
+            tableviewControl tableview = new tableviewControl(table , FlowLayoutPanel);
+            tableview.UpdateTableData();
+
+            FlowLayoutPanel.Controls.Clear();
+            FlowLayoutPanel.Controls.Add(tableview);
+
         }
     }
 }

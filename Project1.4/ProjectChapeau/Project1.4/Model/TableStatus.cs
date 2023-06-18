@@ -10,5 +10,6 @@ namespace Project1._4.Model
         Vrij = 1,
         Bezet,
         Gereseveerd,
+        Besteld,
     }
 }

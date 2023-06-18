@@ -23,6 +23,7 @@ namespace Project1._4
             button.Text = tableId.ToString();
             button.Size = btnTableButton.Size;
             button.BackColor = GetbuttonColor(status);
+            button.Tag = tableId;
             return button;
         }
         private Color GetbuttonColor(TableStatus status)
@@ -35,6 +36,8 @@ namespace Project1._4
                     return Color.FromArgb(255, 179, 71);
                 case TableStatus.Gereseveerd:
                     return Color.FromArgb(196, 196, 196);
+                case TableStatus.Besteld:
+                    return Color.FromArgb(248, 102, 39);
                 default:
                     return Color.FromArgb(0, 0, 0);
             };

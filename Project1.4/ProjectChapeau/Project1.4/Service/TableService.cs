@@ -31,5 +31,9 @@ namespace Project1._4.Service
         {
             tabledb.ReserveTable(reservation , tableId);
         }
+        public void RemoveReservation(Reservation reservation, int tableId)
+        {
+            tabledb.ReserveTable(reservation, tableId);
+        }
     }
 }

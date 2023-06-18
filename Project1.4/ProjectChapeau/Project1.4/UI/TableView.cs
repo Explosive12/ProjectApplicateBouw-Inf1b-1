@@ -19,7 +19,7 @@ namespace Project1._4.UI
         {
             InitializeComponent();
             Table table = new Table();
-            tableviewControl tableviewControl = new tableviewControl(table);
+            tableviewControl tableviewControl = new tableviewControl(table , FLPTableView);
 
             this.FLPTableView.Controls.Add(tableviewControl);
 
