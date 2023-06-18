@@ -1,4 +1,4 @@
-﻿namespace Project1._4
+﻿namespace Project1._4.UI
 {
     partial class ManagerView
     {
@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ManagerView";
+            panelManagerView = new Panel();
+            SuspendLayout();
+            // 
+            // panelManagerView
+            // 
+            panelManagerView.Location = new Point(0, 0);
+            panelManagerView.Margin = new Padding(2);
+            panelManagerView.Name = "panelManagerView";
+            panelManagerView.Size = new Size(414, 736);
+            panelManagerView.TabIndex = 0;
+            // 
+            // ManagerView
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(415, 739);
+            Controls.Add(panelManagerView);
+            Margin = new Padding(2);
+            Name = "ManagerView";
+            Text = "ManagerView";
+            Load += ManagerView_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panelManagerView;
     }
 }

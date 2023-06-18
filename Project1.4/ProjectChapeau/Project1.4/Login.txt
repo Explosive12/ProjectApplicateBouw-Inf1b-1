@@ -1,0 +1,20 @@
+﻿Inlog gegevens  
+
+Waitress : 
+username : Maria
+Password : 1234
+
+
+Barman : 
+username : Mike
+Password : 2345
+
+
+Bartender : 
+username : Pierre
+Password : 3456
+
+
+Manager : 
+username : Claire
+Password : 4567

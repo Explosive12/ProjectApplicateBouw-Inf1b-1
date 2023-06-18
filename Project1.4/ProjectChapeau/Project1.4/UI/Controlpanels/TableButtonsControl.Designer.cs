@@ -1,6 +1,6 @@
 ﻿namespace Project1._4
 {
-    partial class KitchenOrderControl
+    partial class TableButtonsControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,10 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            btnTableButton = new Button();
+            SuspendLayout();
+            // 
+            // btnTableButton
+            // 
+            btnTableButton.Location = new Point(0, 0);
+            btnTableButton.Name = "btnTableButton";
+            btnTableButton.Size = new Size(140, 72);
+            btnTableButton.TabIndex = 0;
+            btnTableButton.UseVisualStyleBackColor = true;
+            // 
+            // TableButtonsControl
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnTableButton);
+            Name = "TableButtonsControl";
+            Size = new Size(140, 72);
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnTableButton;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
             btnBarResOverview = new Button();
             orderViewBtn = new Button();
             SuspendLayout();
@@ -75,12 +74,11 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
+            panelManagerView.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ListView listView1;
         private Button btnBarResOverview;
         private Button orderViewBtn;
     }

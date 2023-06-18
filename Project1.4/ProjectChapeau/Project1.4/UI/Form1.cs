@@ -1,3 +1,4 @@
+using Project1._4.Model;
 using Project1._4.UI;
 
 namespace Project1._4
@@ -16,7 +17,9 @@ namespace Project1._4
 
         private void btnBarResOverview_Click(object sender, EventArgs e)
         {
+            Form1 form1 = new Form1();
             // Create an instance of the new form
+            LoginView loginview = new LoginView();
             BarKitchenView barKitchenView = new BarKitchenView();
 
             // Show the new form

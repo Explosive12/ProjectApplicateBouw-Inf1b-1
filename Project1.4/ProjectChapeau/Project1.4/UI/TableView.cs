@@ -1,19 +1,35 @@
-﻿using System;
+﻿using Microsoft.Graph.Models;
+using Project1._4.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Project1._4.UI
 {
-    public class TableView : Form
+    public partial class TableView : Form
     {
-        public void TableGridView()
+        public TableView(string username)
         {
-            throw new NotImplementedException();
+            InitializeComponent();
+            Table table = new Table();
+            tableviewControl tableviewControl = new tableviewControl(table);
+
+            this.FLPTableView.Controls.Add(tableviewControl);
+
+            lblLoginName.Text = username;
         }
-        public void GetTableInfo()
+        private void UpdateTable()
         {
-            throw new NotImplementedException();
+
         }
+
+
     }
 }
