@@ -63,9 +63,13 @@ namespace Project1._4
                 if (resultGereseveerd == DialogResult.Yes)
                 {
                     Reservation reservation = tableService.GetReservationById(table.reseveringId);
+                    if (reservation == null)
+                    {
+                        MessageBox.Show("reservation not found");
+                        return;
+                    }
                     tableService.RemoveReservation(reservation, tableId, status);
                     table.status = status;
-                    
                     tableService.UpdateTableStatus(status, tableId);
                 }
                 else if (resultGereseveerd == DialogResult.No)
@@ -91,7 +95,6 @@ namespace Project1._4
             tableviewControl.UpdateTableData();
             flowLayoutPanel.Controls.Clear();
             flowLayoutPanel.Controls.Add(tableviewControl);
-            //tableviewControl.BringToFront();
 
         }
         private void GoToTableButton(object sender, EventArgs e)

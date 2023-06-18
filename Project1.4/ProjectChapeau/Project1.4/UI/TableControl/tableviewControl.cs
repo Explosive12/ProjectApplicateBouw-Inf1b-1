@@ -61,6 +61,7 @@ namespace Project1._4
                 {
                     Reservation reservation = new Reservation();
                     tableService.RemoveReservation(reservation, tableId, status);
+                    
                     TableStatus statusAfterGereseveerd = TableStatus.Vrij;
                     if (status == TableStatus.Bezet)
                     {
