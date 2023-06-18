@@ -5,8 +5,8 @@ namespace Project1._4.UI.Management.UC
 {
     public partial class AddOrAdjustItemComboBoxUC : UserControl
     {
-        private string enumType;
-
+        private string[] roles = Enum.GetNames(typeof(EmployeeType));
+        private string[] categories = Enum.GetNames(typeof(ProductType));
         // public string to get the chosen option
         public string ChosenOption
         {
@@ -14,7 +14,10 @@ namespace Project1._4.UI.Management.UC
             {
                 return (string)comboBoxType.SelectedItem;
             }
-            set { comboBoxType.SelectedItem = value; }
+            set
+            {
+                comboBoxType.SelectedItem = value;
+            }
         }
 
         public AddOrAdjustItemComboBoxUC(string label, string enumType)
@@ -22,40 +25,24 @@ namespace Project1._4.UI.Management.UC
             InitializeComponent();
 
             this.labelAddComboBoxItem.Text = label;
-            this.enumType = enumType;
-            FillComboBox();
+            FillComboBox(GetNames(enumType));
         }
 
-
         // Fill Combobox with the enum options
-        private void FillComboBox()
+        private void FillComboBox(string[] enumNames)
         {
-            comboBoxType.SelectedValue = "Hi";
-            switch (enumType)
+            foreach (string name in enumNames)
+                comboBoxType.Items.Add(name);
+        }
+        
+        private string[] GetNames(string enumType)
+        {
+            return enumType switch
             {
-                case "EmployeeType":
-                    foreach (string role in Enum.GetNames(typeof(EmployeeType)))
-                    {
-                        comboBoxType.Items.Add(role);
-                    }
-                    break;
-                case "MenuType":
-                    foreach (string menu in Enum.GetNames(typeof(MenuType)))
-                    {
-                        comboBoxType.Items.Add(menu);
-                    }
-                    break;
-                case "ProductType":
-                    foreach (string category in Enum.GetNames(typeof(ProductType)))
-                    {
-                        comboBoxType.Items.Add(category);
-                    }
-                    break;
-                default:
-                    throw new Exception("The enum for this does not exist in here");
-            }
-
-
+                "EmployeeType" => roles,
+                "ProductType" => categories,
+                _ => throw new Exception("The enum for this does not exist in here"), // _ = default
+            };
         }
     }
 }

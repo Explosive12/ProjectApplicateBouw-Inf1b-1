@@ -14,7 +14,7 @@ namespace Project1._4.DAL
         public List<Product> GetAllProducts()
         {
             string query = "SELECT productId, naam, prijs, voorraad, btw, productType FROM product";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetAllLunchProducts()
@@ -22,7 +22,7 @@ namespace Project1._4.DAL
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
                             "JOIN menu AS M ON P.productId = M.productId " +
                             "WHERE M.type='Lunch'";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetAllDinnerProducts()
@@ -30,7 +30,7 @@ namespace Project1._4.DAL
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
                             "JOIN menu AS M ON P.productId = M.productId" +
                             "WHERE M.type='Dinner'";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
         public List<Product> GetAllDrinksProducts()
@@ -38,7 +38,7 @@ namespace Project1._4.DAL
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
                             "JOIN menu AS M ON P.productId = M.productId" +
                             "WHERE M.type='Drinks'";
-            return ReadTables(ExecuteSelectQuery(query));
+            return ReadProducts(ExecuteSelectQuery(query));
         }
 
 
@@ -48,50 +48,50 @@ namespace Project1._4.DAL
             string query = "SELECT productId, naam, prijs, voorraad, btw, productType FROM product WHERE productId = @productId";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@productId", productId);
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadProducts(ExecuteSelectQuery(query, sqlParameters));
         }
-        private ProductType GetProductType(string productType)
+        private ProductType GetProductType(int productType)
         {
             switch (productType)
             {
-                case "Entree":
+                case 1:
                     return ProductType.Entree;
-                case "MainCourse":
-                    return ProductType.MainCourse;
-                case "Dessert":
-                    return ProductType.Dessert;
-                case "SideDish":
+                case 2:
                     return ProductType.SideDish;
-                case "SoftDrinks":
+                case 3:
+                    return ProductType.MainCourse;
+                case 4:
+                    return ProductType.Dessert;
+                case 13:
                     return ProductType.SoftDrinks;
-                case "Beer":
+                case 10:
                     return ProductType.Beer;
-                case "Wine":
+                case 11:
                     return ProductType.Wine;
-                case "Spirit":
+                case 12:
                     return ProductType.Spirit;
-                case "CoffeeAdnTea":
+                case 14:
                     return ProductType.CoffeeAndTea;
                 default:
                     return ProductType.Entree;
             }
         }
-        private List<Product> ReadTables(DataTable dataTable)
+        private List<Product> ReadProducts(DataTable dataTable)
         {
             List<Product> products = new List<Product>();
 
-            ProductType productType = GetProductType(dataTable.Rows[0]["productType"].ToString());
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                ProductType productType = GetProductType((int)dr[5]);
 
                 Product product = new Product(
-                    (int)dr["productId"],
-                    dr["naam"].ToString(),
-                    (decimal)dr["prijs"],
-                    (int)dr["voorraad"],
-                    (decimal)dr["btw"],
-                    productType
+                    (int)dr[0],         //id
+                    dr[1].ToString(),   // name
+                    (decimal)dr[2],     // price
+                    (int)dr[3],         // Stock
+                    (decimal)dr[4],     // btw
+                    productType         // productType
                     );
                 products.Add(product);
             }
@@ -100,7 +100,44 @@ namespace Project1._4.DAL
         }
 
 
+        // From the management
 
+        public void AddProduct(Product product)
+        {
+            string query = "INSERT INTO product (naam, prijs, voorraad, btw, productType) VALUES (@naam, @prijs, @voorraad, @btw, @productType)";
+            SqlParameter[] sqlParameters = new SqlParameter[5];
+            {
+                sqlParameters[0] = new SqlParameter("@naam", product.Name);
+                sqlParameters[1] = new SqlParameter("@prijs", product.Price);
+                sqlParameters[2] = new SqlParameter("@voorraad", product.Stock);
+                sqlParameters[3] = new SqlParameter("@btw", product.Btw);
+                sqlParameters[4] = new SqlParameter("@productType", product.Type);
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
+        public void DeleteProduct(Product product)
+        {
+            string query = "DELETE FROM product WHERE productId = @productId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@productId", product.ProductId);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            string query = "UPDATE product SET naam = @naam, prijs = @prijs, voorraad = @voorraad, btw = @btw, productType = @productType WHERE productId = @productId";
+            SqlParameter[] sqlParameters = new SqlParameter[6];
+            {
+                sqlParameters[0] = new SqlParameter("@productId", product.ProductId);
+                sqlParameters[1] = new SqlParameter("@naam", product.Name);
+                sqlParameters[2] = new SqlParameter("@prijs", product.Price);
+                sqlParameters[3] = new SqlParameter("@voorraad", product.Stock);
+                sqlParameters[4] = new SqlParameter("@btw", product.Btw);
+                sqlParameters[5] = new SqlParameter("@productType", product.Type);
+
+            }
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

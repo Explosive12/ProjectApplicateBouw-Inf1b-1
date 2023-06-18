@@ -3,11 +3,14 @@
 
 namespace Project1._4.UI
 {
-    public partial class UserEmployeeUC : UserControl
+    public partial class ItemButtonUC : UserControl
     {
+        private readonly Color lowStockColor = Color.FromArgb(245, 108, 117);
+        private readonly Color selectedColor = Color.FromArgb(255, 128, 0);
+        private readonly Color unSelectedColor = SystemColors.ActiveBorder;
+        public Employee Employee { get; set; }
+        public Product Product { get; set; }
 
-        private Color selectedColor = Color.FromArgb(255, 128, 0);
-        private Color unSelectedColor = SystemColors.ActiveBorder;
         public bool IsSelected
         {
             get
@@ -16,31 +19,56 @@ namespace Project1._4.UI
             }
         }
 
-        public Employee Employee { get; internal set; }
-
-        public UserEmployeeUC(Employee employee)
+        public int TextboxSize
         {
-            InitializeComponent();
-            Employee = employee;
-            buttonSelectOption.Text = employee.Username;
-            textBoxType.Text = employee.Function.ToString();
+            get
+            {
+                return textBox.Width;
+            }
+            set
+            {
+                textBox.Width = value;
+                int sizeAndPadding = value + 10;
+                textBox.Location = new Point(this.Width - sizeAndPadding, textBox.Location.Y);
+                buttonSelectOption.Padding = new Padding(0, 0, sizeAndPadding, 0);
+            }
         }
 
-
-        private void textBoxType_TextChanged(object sender, EventArgs e)
+        public ItemButtonUC(Employee employee = null, Product product = null)
         {
+            InitializeComponent();
 
+            Employee = employee;
+            Product = product;
+
+            if (employee != null)
+                SetEmployee(employee);
+            else if (product != null)
+                SetProduct(product);
+        }
+
+        private void SetEmployee(Employee employee)
+        {
+            buttonSelectOption.Text = employee.Username;
+            textBox.Text = employee.Function.ToString();
+        }
+
+        private void SetProduct(Product product)
+        {
+            buttonSelectOption.Text = product.Name;
+            textBox.Text = product.Stock.ToString();
+            if (product.Stock < 1)
+                textBox.BackColor = lowStockColor;
         }
 
         private void OptionSelected(object sender, EventArgs e)
         {
-            foreach (UserEmployeeUC userEmployeeUC in Parent.Controls.OfType<UserEmployeeUC>())
+            foreach (ItemButtonUC userItemUC in Parent.Controls.OfType<ItemButtonUC>())
             {
-                userEmployeeUC.buttonSelectOption.BackColor = unSelectedColor;
+                userItemUC.buttonSelectOption.BackColor = unSelectedColor;
             }
 
-            this.buttonSelectOption.BackColor = selectedColor;
+            buttonSelectOption.BackColor = selectedColor;
         }
     }
-
 }

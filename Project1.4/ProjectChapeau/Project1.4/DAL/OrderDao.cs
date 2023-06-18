@@ -12,14 +12,14 @@ namespace Project1._4.DAL
     {
         public List<Order> GetAllOrders()
         {
-            string query =  "SELECT bestellingId, tafelId, begintijd, eindtijd " +
+            string query = "SELECT bestellingId, tafelId, begintijd, eindtijd " +
                             "FROM bestelling";
             return ReadTables(ExecuteSelectQuery(query));
         }
 
         public List<Order> GetByIdOrder(int orderId)
         {
-            string query =  "SELECT bestellingId, tafelId, begintijd, eindtijd " +
+            string query = "SELECT bestellingId, tafelId, begintijd, eindtijd " +
                             "FROM bestelling " +
                             "WHERE bestellingId = @orderId";
             SqlParameter[] sqlParameters =
@@ -27,6 +27,32 @@ namespace Project1._4.DAL
                 new SqlParameter("@orderId", orderId)
             };
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<Income> GetPriceFromLast2Months()
+        {
+            string query = "SELECT top 2 SUM(prijs* aantal) as total, MONTH(B.begintijd) as month " +
+                "FROM product P JOIN bestelregel R ON P.productId = R.productId JOIN bestelling B ON R.bestellingId = B.bestellingId   " +
+                "group by year(B.begintijd),MONTH(B.begintijd)   " +
+                "order by year(B.begintijd) desc ,MONTH(B.begintijd) desc";
+
+            return ReadIncomes(query);
+        }
+
+        private List<Income> ReadIncomes(string query)
+        {
+            List<Income> incomes = new();
+            DataTable datatable = ExecuteSelectQuery(query);
+            foreach (DataRow dr in datatable.Rows)
+            {
+                Income income= new Income()
+                {
+                    Total = (decimal)dr["total"],
+                    Month = (int)dr["month"]
+                };
+                incomes.Add(income);
+            }
+            return incomes;
         }
 
         private List<Order> ReadTables(DataTable dataTable)
@@ -62,10 +88,10 @@ namespace Project1._4.DAL
             ExecuteEditQuery(query, sqlParameters);
 
         }
-        
+
         public void RemoveOrder(Order order)
         {
-            string query =  "DELETE FROM bestelling " +
+            string query = "DELETE FROM bestelling " +
                             "WHERE id = @orderId";
             SqlParameter[] sqlParameters =
             {
@@ -73,7 +99,7 @@ namespace Project1._4.DAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-        
+
         public void UpdateOrder(Order order)
         {
             string query = "UPDATE bestelling" +

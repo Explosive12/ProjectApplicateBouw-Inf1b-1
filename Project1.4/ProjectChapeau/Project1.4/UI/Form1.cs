@@ -28,11 +28,5 @@ namespace Project1._4
             this.Hide();
         }
 
-        private void buttonStartManagerView_Click(object sender, EventArgs e)
-        {
-            ManagerView managerView = new ManagerView();
-            managerView.Show();
-            
-        }
     }
 }

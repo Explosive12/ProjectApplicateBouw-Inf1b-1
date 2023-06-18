@@ -16,7 +16,7 @@ namespace Project1._4.DAL
         {
             return (EmployeeType)type;
         }
-        private List<Employee> ReadTables(DataTable dataTable)
+        private List<Employee> ReadEmployees(DataTable dataTable)
         {
             List<Employee> employees = new List<Employee>();
 
@@ -42,15 +42,7 @@ namespace Project1._4.DAL
         {
             //Employee gegevens uit de database halen.
             string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker";
-            return ReadTables(ExecuteSelectQuery(query));
-        }
-
-        public Employee GetEmployeeById(int id)
-        {
-            //Employee gegevens uit de database halen van een Persoon.
-            string query = "SELECT medewerkerId ,functie, inlogNaam, wachtwoord, naam FROM Medewerker WHERE medewerkerId = @id";
-            SqlParameter parameter = new SqlParameter("@id", id);
-            return ReadTables(ExecuteSelectQuery(query, parameter))[0];
+            return ReadEmployees(ExecuteSelectQuery(query));
         }
 
         public void AddEmployee(Employee employee)
@@ -61,7 +53,7 @@ namespace Project1._4.DAL
             {
                 parameters[0] = new SqlParameter("@function", employee.Function);
                 parameters[1] = new SqlParameter("@username", employee.Username);
-                parameters[2] = new SqlParameter("@password", employee.Password);
+                parameters[2] = new SqlParameter("@password", employee.PasswordHash);
                 parameters[3] = new SqlParameter("@name", employee.Name);
 
             }
@@ -79,7 +71,7 @@ namespace Project1._4.DAL
                 parameters[0] = new SqlParameter("@id", employee.EmployeeId);
                 parameters[1] = new SqlParameter("@username", employee.Username);
                 parameters[2] = new SqlParameter("@function", employee.Function);
-                parameters[3] = new SqlParameter("@password", employee.Password);
+                parameters[3] = new SqlParameter("@password", employee.PasswordHash);
                 parameters[4] = new SqlParameter("@name", employee.Name);
             };
             ExecuteEditQuery(query, parameters);

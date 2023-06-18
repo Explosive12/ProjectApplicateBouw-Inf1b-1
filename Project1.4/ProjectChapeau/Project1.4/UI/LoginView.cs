@@ -9,8 +9,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,7 +26,7 @@ namespace Project1._4
         }
         public void Getlogin()
         {
-            string password = HashPassword(txtWachtwoord.Text);
+            string password = PasswordHasher.HashPassword(txtWachtwoord.Text);
             string username = txtInlogNaam.Text;
             try
             {
@@ -43,16 +41,6 @@ namespace Project1._4
             {
                 MessageBox.Show("login failed " + ex.Message);
             }
-        }
-        public string HashPassword(string password)
-        {
-            string salt = "password";
-            SHA256 hash = SHA256.Create();
-            byte[] passwordbytes = Encoding.UTF8.GetBytes(password + salt);
-            byte[] hashedpassword = hash.ComputeHash(passwordbytes);
-            return Convert.ToBase64String(hashedpassword);
-            //sgeen var
-            //https://www.youtube.com/watch?v=ZbUCgU3G1z4&t
         }
         private void ForgetPassword()
         {
@@ -78,7 +66,7 @@ namespace Project1._4
                     this.Hide();
                     break;
                 case EmployeeType.Manager:
-                    ManagerView managerView = new ManagerView();
+                    ManagerView managerView = new ManagerView(username);
                     managerView.Show();
                     this.Hide();
                     break;
@@ -196,3 +184,4 @@ namespace Project1._4
         }
     }
 }
+

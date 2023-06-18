@@ -1,14 +1,5 @@
 ﻿using Project1._4.Model;
 using Project1._4.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Project1._4.UI.Management.UC
 {
@@ -16,44 +7,43 @@ namespace Project1._4.UI.Management.UC
     {
         private readonly ManagerView _form;
         private readonly Employee _employee;
-        private AddItemUC name = new AddItemUC("Name");
-        private AddItemUC username = new AddItemUC("Username");
-        private AddOrAdjustItemComboBoxUC role = new AddOrAdjustItemComboBoxUC("Role", "EmployeeType");
-        private AddItemUC password = new AddItemUC("Password", true);
+        private readonly AddItemUC name = new AddItemUC("Name");
+        private readonly AddItemUC username = new AddItemUC("Username");
+        private readonly AddItemUC password = new AddItemUC("Password", true);
+        private readonly AddOrAdjustItemComboBoxUC role = new AddOrAdjustItemComboBoxUC("Role", "EmployeeType");
 
-
-
-        public AddOrAdjustEmployeeUC(ManagerView form, string typeOfPanelEmployeeText, string buttonText, Employee employee)
+        public AddOrAdjustEmployeeUC(ManagerView form, string panelText, string buttonText, Employee employee)
         {
             InitializeComponent();
             _form = form;
             _employee = employee;
-            labelEmployeeChanges.Text = typeOfPanelEmployeeText;
+            labelEmployeeChanges.Text = panelText;
             buttonAddAdjustEmployee.Text = buttonText;
-            LoadControllers(employee);
+            FillPanel(employee);
         }
 
-        private void LoadControllers(Employee employee)
+        private void FillPanel(Employee employee)
         {
             if (employee != null)
             {
                 name.Value = employee.Name;
                 username.Value = employee.Username;
                 role.ChosenOption = employee.Function.ToString();
-                password.Value = employee.Password;
+                password.Value = employee.PasswordHash;
             }
-            this.panelAddEmployee.Controls.Add(name);
-            this.panelAddEmployee.Controls.Add(username);
-            this.panelAddEmployee.Controls.Add(role);
-            this.panelAddEmployee.Controls.Add(password);
+            // Add ListviewHeaders to panel
+            panelAddEmployee.Controls.Add(name);
+            panelAddEmployee.Controls.Add(username);
+            panelAddEmployee.Controls.Add(role);
+            panelAddEmployee.Controls.Add(password);
         }
 
-        private void NavigateToEmployee(object sender, EventArgs e)
+        private void NavigateToEmployeeClick(object sender, EventArgs e)
         {
             _form.NavigateToEmployee();
         }
 
-        private void AddAdjustEmployee(object sender, EventArgs e)
+        private void AddAdjustEmployeeClick(object sender, EventArgs e)
         {
             if (name.Value == "" || username.Value == "" || password.Value == "" || role.ChosenOption == null)
             {
@@ -63,7 +53,7 @@ namespace Project1._4.UI.Management.UC
 
             try
             {
-                if (buttonAddAdjustEmployee.Text == "ADJUST")
+                if (_employee != null)
                     AdjustEmployee();
                 else
                     AddEmployee();
@@ -80,7 +70,8 @@ namespace Project1._4.UI.Management.UC
 
             EmployeeService service = new EmployeeService();
             EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), role.ChosenOption);
-            Employee employee = new Employee(_employee.EmployeeId, employeeType, name.Value, password.Value, username.Value);
+            string hash = PasswordHasher.HashPassword(password.Value);
+            Employee employee = new Employee(_employee.EmployeeId, employeeType, name.Value, hash, username.Value);
             service.AdjustEmployee(employee);
 
             _form.NavigateToEmployee();
@@ -91,7 +82,8 @@ namespace Project1._4.UI.Management.UC
 
             EmployeeService service = new EmployeeService();
             EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), role.ChosenOption);
-            Employee employee = new Employee(0, employeeType, name.Value, password.Value, username.Value);
+            string hash = PasswordHasher.HashPassword(password.Value);
+            Employee employee = new Employee(0, employeeType, name.Value, hash, username.Value);
             service.AddEmployee(employee);
 
             _form.NavigateToEmployee();
