@@ -38,7 +38,7 @@
             // 
             flpOrders.Location = new Point(215, 39);
             flpOrders.Name = "flpOrders";
-            flpOrders.Size = new Size(2010, 943);
+            flpOrders.Size = new Size(2456, 943);
             flpOrders.TabIndex = 3;
             // 
             // btnLoadKitchenOrders

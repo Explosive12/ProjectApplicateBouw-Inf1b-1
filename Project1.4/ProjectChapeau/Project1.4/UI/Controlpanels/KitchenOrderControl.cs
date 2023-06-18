@@ -26,6 +26,66 @@ namespace Project1._4
             InitializeComponent();
             this.kitchenOrder = kitchenOrder;
         }
+        public void DisplayKitchenOrders(List<OrderItem> kitchenOrderItems)
+        {
+            //Clear the ListView control before adding new items
+            listViewKitchenOrders.Items.Clear();
+
+            // Iterate over each OrderItem object in the list and create a new ListViewItem to display its data
+            foreach (OrderItem orderItem in kitchenOrderItems)
+            {
+                TimeSpan waitingTime = DateTime.Now - orderItem.BeginTime;
+
+                // Create a new ListViewItem with the OrderItemId as the first column
+                ListViewItem li = new ListViewItem(orderItem.OrderItemId.ToString());
+
+                // Add additional sub-items to the ListViewItem for the Table Number, Order Time, Wait Time, and Order Items
+                li.SubItems.Add(orderItem.TableNumber.ToString());
+                li.SubItems.Add(orderItem.BeginTime.ToString("HH:mm:ss"));
+
+                if (orderItem.BeginTime.Date == DateTime.Now.Date)
+                {
+                    if (orderItem.Status == OrderStatusEnum.Prepared || orderItem.Status == OrderStatusEnum.Served)
+                    {
+                        li.SubItems.Add("--:--:--");
+                    }
+                    else if (orderItem.Status == OrderStatusEnum.Inpreparation)
+                    {
+                        li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
+                    }
+                    else
+                    {
+                        // The order is not InPreparation, Prepared, or Served, so skip displaying it.
+                        continue;
+                    }
+                }
+                else
+                {
+                    // The order is not from today, so skip displaying it.
+                    continue;
+                }
+
+                li.SubItems.Add(orderItem.OrderId.ToString());
+                li.SubItems.Add(orderItem.Amount.ToString());
+                li.SubItems.Add(orderItem.Comment);
+
+                // Set the Tag property of the ListViewItem to the OrderItem object itself
+                li.Tag = orderItem;
+
+                // Add the ListViewItem to the ListView control
+                listViewKitchenOrders.Items.Add(li);
+
+                // Check if "Running" and "Finished" options are already in the ComboBox
+                if (!cbxStatusKitchen.Items.Contains("Running"))
+                {
+                    cbxStatusKitchen.Items.Add("Running");
+                }
+                if (!cbxStatusKitchen.Items.Contains("Finished"))
+                {
+                    cbxStatusKitchen.Items.Add("Finished");
+                }
+            }
+        }
 
         //TODO AUTOUPDATE LISTVIEW
         private void btnPreparedKitchen_Click(object sender, EventArgs e)
@@ -65,45 +125,7 @@ namespace Project1._4
             //to instant update the label
             lblStatusOfDish.Text = OrderStatusEnum.Inpreparation.ToString();
         }
-
-        public void DisplayKitchenOrders(List<OrderItem> kitchenOrderItems)
-        {
-            //Clear the ListView control before adding new items
-            listViewKitchenOrders.Items.Clear();
-
-            //Iterate over each CashRegister object in the list and create a new ListViewItem to display its data
-            foreach (OrderItem orderItem in kitchenOrderItems)
-            {
-                TimeSpan waitingTime = DateTime.Now - orderItem.BeginTime;
-
-                //Create a new ListViewItem with the student ID as the first column
-                ListViewItem li = new ListViewItem(orderItem.OrderItemId.ToString());
-
-                //Add additional sub-items to the ListViewItem for the student's first and last name, the drink name, and the order date
-                li.SubItems.Add(orderItem.OrderId.ToString());
-                li.SubItems.Add(orderItem.Amount.ToString());
-                li.SubItems.Add(orderItem.Comment);
-                li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
-
-                //Set the Tag property of the ListViewItem to the CashRegister object itself
-                li.Tag = orderItem;
-
-                //Add the ListViewItem to the ListView control
-                listViewKitchenOrders.Items.Add(li);
-
-                // Check if "Running" and "Finished" options are already in the ComboBox
-                if (!cbxStatusKitchen.Items.Contains("Running"))
-                {
-                    cbxStatusKitchen.Items.Add("Running");
-                }
-                if (!cbxStatusKitchen.Items.Contains("Finished"))
-                {
-                    cbxStatusKitchen.Items.Add("Finished");
-                }
-            }
-        }
-
-        private void listViewKitchenOrders_SelectedIndexChanged(object sender, EventArgs e)
+        private void listViewKitchenOrders_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (listViewKitchenOrders.SelectedItems.Count > 0)
             {

@@ -33,7 +33,7 @@ namespace Project1._4.DAL
         }
         public List<OrderItem> GetOrderItemsByDrinks()
         {
-            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd " +
+            string query = "SELECT B.id, B.bestellingId, B.productId, B.aantal, B.opmerking, B.status, bestelling.begintijd, bestelling.tafelId " +
                             "FROM bestelregel as B " +
                                 "JOIN product as P ON P.productId = B.productId " +
                                 "JOIN menu as M ON P.productId = M.productId " +
@@ -68,7 +68,8 @@ namespace Project1._4.DAL
                     (int)dr["aantal"],
                     (string)dr["opmerking"],
                     (OrderStatusEnum)dr["status"],
-                    (DateTime)dr["begintijd"]
+                    (DateTime)dr["begintijd"],
+                    (int)dr["tafelId"]
                 );
                 orderItems.Add(orderItem);
             }

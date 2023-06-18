@@ -29,41 +29,52 @@ namespace Project1._4
 
         public void DisplayBarOrders(List<OrderItem> barOrderItems)
         {
-
-            //Clear the ListView control before adding new items
+            // Clear the ListView control before adding new items
             listViewBarOrders.Items.Clear();
 
-            //Iterate over each CashRegister object in the list and create a new ListViewItem to display its data
+            // Iterate over each OrderItem object in the list and create a new ListViewItem to display its data
             foreach (OrderItem orderItem in barOrderItems)
             {
                 TimeSpan waitingTime = DateTime.Now - orderItem.BeginTime;
 
-                //Create a new ListViewItem with the student ID as the first column
+                // Create a new ListViewItem with the OrderItemId as the first column
                 ListViewItem li = new ListViewItem(orderItem.OrderItemId.ToString());
 
-                //Add additional sub-items to the ListViewItem for the student's first and last name, the drink name, and the order date
+                // Add additional sub-items to the ListViewItem for the Table Number, Order Time, Wait Time, and Order Items
+                li.SubItems.Add(orderItem.TableNumber.ToString());
+                li.SubItems.Add(orderItem.BeginTime.ToString("HH:mm:ss"));
+
+                if (orderItem.BeginTime.Date == DateTime.Now.Date)
+                {
+                    if (orderItem.Status == OrderStatusEnum.Prepared || orderItem.Status == OrderStatusEnum.Served)
+                    {
+                        li.SubItems.Add("--:--:--");
+                    }
+                    else if (orderItem.Status == OrderStatusEnum.Inpreparation)
+                    {
+                        li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
+                    }
+                    else
+                    {
+                        // The order is not InPreparation, Prepared, or Served, so skip displaying it.
+                        continue;
+                    }
+                    }
+                else
+                {
+                    // The order is not from today, so skip displaying it.
+                    continue;
+                }
+
                 li.SubItems.Add(orderItem.OrderId.ToString());
                 li.SubItems.Add(orderItem.Amount.ToString());
                 li.SubItems.Add(orderItem.Comment);
 
-                //TODO MAKE IT CHECK ORDERS OF TODAY
-
-                if (orderItem.Status.ToString() == "Prepared" || orderItem.Status.ToString() == "Served" && orderItem.BeginTime.Day == DateTime.Now.Day)
-                {
-                    li.SubItems.Add("--:--:--");
-                }
-                else
-                {
-                    li.SubItems.Add(waitingTime.ToString(@"hh\:mm\:ss"));
-                }
-                
-
-                //Set the Tag property of the ListViewItem to the CashRegister object itself
+                // Set the Tag property of the ListViewItem to the OrderItem object itself
                 li.Tag = orderItem;
 
-                //Add the ListViewItem to the ListView control
+                // Add the ListViewItem to the ListView control
                 listViewBarOrders.Items.Add(li);
-
 
                 // Check if "Running" and "Finished" options are already in the ComboBox
                 if (!cbxStatusBar.Items.Contains("Running"))
