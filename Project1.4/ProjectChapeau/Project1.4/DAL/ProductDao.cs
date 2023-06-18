@@ -29,7 +29,7 @@ namespace Project1._4.DAL
         public List<Product> GetAllDinnerProducts()
         {
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
-                            "JOIN menu AS M ON P.productId = M.productId" +
+                            "JOIN menu AS M ON P.productId = M.productId " +
                             "WHERE M.type='Dinner'";
             return ReadTables(ExecuteSelectQuery(query));
         }
@@ -37,7 +37,7 @@ namespace Project1._4.DAL
         public List<Product> GetAllDrinksProducts()
         {
             string query = "SELECT P.productId, naam, prijs, voorraad, btw, productType FROM product AS P " +
-                            "JOIN menu AS M ON P.productId = M.productId" +
+                            "JOIN menu AS M ON P.productId = M.productId " +
                             "WHERE M.type='Drinks'";
             return ReadTables(ExecuteSelectQuery(query));
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project1._4.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,18 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Project1._4.Model;
-using Project1._4.UI;
 
-namespace Project1._4
+namespace Project1._4.UI
 {
-    public partial class OrderViewLunchUC : UserControl
+    public partial class OrderViewDrinkUC : UserControl
     {
         // Ik had in de tijd van schrijven geen idee hoe ik geen duplicate code moest hebben met de usercontrol
         private Product product;
-        private OrderViewLunch orderview;
+        private OrderViewDrinks orderview;
 
-        public OrderViewLunchUC(Product product, OrderViewLunch orderView)
+        public OrderViewDrinkUC(Product product, OrderViewDrinks orderView)
         {
             InitializeComponent();
             priceLbl.Text = product.Price.ToString();
@@ -41,6 +40,7 @@ namespace Project1._4
         {
             ButtonAction();
         }
+
         private void ButtonAction()
         {
             orderview.AddProductToOrderItem(product);

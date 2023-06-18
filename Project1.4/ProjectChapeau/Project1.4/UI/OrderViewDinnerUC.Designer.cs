@@ -1,6 +1,6 @@
-﻿namespace Project1._4
+﻿namespace Project1._4.UI
 {
-    partial class OrderViewLunchUC
+    partial class OrderViewDinnerUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,43 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            productLbl = new Label();
             priceLbl = new Label();
+            productLbl = new Label();
             UCButton = new Button();
             SuspendLayout();
-            // 
-            // productLbl
-            // 
-            productLbl.AutoEllipsis = true;
-            productLbl.Location = new Point(13, 10);
-            productLbl.Name = "productLbl";
-            productLbl.Size = new Size(218, 39);
-            productLbl.TabIndex = 0;
-            productLbl.Text = "{Product}";
-            productLbl.Click += productLbl_Click;
             // 
             // priceLbl
             // 
             priceLbl.AutoSize = true;
-            priceLbl.Location = new Point(233, 34);
+            priceLbl.BackColor = Color.White;
+            priceLbl.Location = new Point(233, 35);
             priceLbl.Name = "priceLbl";
             priceLbl.Size = new Size(41, 15);
-            priceLbl.TabIndex = 1;
+            priceLbl.TabIndex = 3;
             priceLbl.Text = "{Price}";
             priceLbl.Click += priceLbl_Click;
+            // 
+            // productLbl
+            // 
+            productLbl.AutoEllipsis = true;
+            productLbl.BackColor = Color.White;
+            productLbl.Location = new Point(13, 11);
+            productLbl.Name = "productLbl";
+            productLbl.Size = new Size(218, 39);
+            productLbl.TabIndex = 2;
+            productLbl.Text = "{Product}";
+            productLbl.Click += productLbl_Click;
             // 
             // UCButton
             // 
             UCButton.BackColor = Color.Transparent;
-            UCButton.Location = new Point(0, 0);
+            UCButton.Location = new Point(0, -2);
             UCButton.Margin = new Padding(3, 2, 3, 2);
             UCButton.Name = "UCButton";
-            UCButton.Size = new Size(341, 62);
-            UCButton.TabIndex = 2;
+            UCButton.Size = new Size(341, 64);
+            UCButton.TabIndex = 4;
             UCButton.UseVisualStyleBackColor = false;
             UCButton.Click += UCButton_Click;
             // 
-            // OrderViewLunchUC
+            // OrderViewDinnerUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -72,17 +74,16 @@
             Controls.Add(priceLbl);
             Controls.Add(productLbl);
             Controls.Add(UCButton);
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "OrderViewLunchUC";
-            Size = new Size(337, 58);
+            Name = "OrderViewDinnerUC";
+            Size = new Size(341, 62);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label productLbl;
         private Label priceLbl;
+        private Label productLbl;
         private Button UCButton;
     }
 }

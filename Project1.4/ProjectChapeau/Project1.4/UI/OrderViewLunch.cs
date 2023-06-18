@@ -105,8 +105,9 @@ namespace Project1._4
         {
             try
             {
-                if (product.Stock > 0)
+                if (product.Stock == 0) 
                     throw new Exception("product is out of stock");
+                product.Stock -= 1; // temporarily decreases stock
                 OrderItem orderItem = new OrderItem(0, order.OrderId, product.ProductId, 1, "geen", OrderStatusEnum.Bezig);
                 List<OrderItem> itemsToAdd = new List<OrderItem>();
 
@@ -130,7 +131,7 @@ namespace Project1._4
             {
                 MessageBox.Show(e.Message);
             }
-            
+
         }
 
         private void RemoveProductFromOrderItem(string name)
@@ -138,7 +139,15 @@ namespace Project1._4
             OrderItem itemToRemove = GetOrderItemWithName(name);
             if (itemToRemove != null)
             {
-                items.Remove(itemToRemove);
+                int index = items.IndexOf(itemToRemove); // just to get the index rq
+                if (itemToRemove.Amount > 1)
+                {
+                    items[index].Amount -= 1;
+                }
+                else
+                {
+                    items.Remove(itemToRemove);
+                }
             }
             DisplayOrderItems();
         }
@@ -173,16 +182,16 @@ namespace Project1._4
 
         private void orderViewGoToDinnerBtn_Click(object sender, EventArgs e)
         {
-            //OrderViewDinner orderView = new OrderViewDinner();
-            //orderView.Show();
-            //this.Hide();
+            OrderViewDinner orderView = new OrderViewDinner(items, order);
+            orderView.Show();
+            this.Hide();
         }
 
         private void orderViewGoToDrinksBtn_Click(object sender, EventArgs e)
         {
-            //OrderViewDrinks orderView = new OrderViewDrinks();
-            //orderView.Show();
-            //this.Hide();
+            OrderViewDrinks orderView = new OrderViewDrinks(items, order);
+            orderView.Show();
+            this.Hide();
         }
 
         private void orderViewGoToLunchBtn_Click(object sender, EventArgs e)
@@ -211,7 +220,7 @@ namespace Project1._4
             {
                 MessageBox.Show(er.Message);
             }
-            
+
         }
 
         private void orderViewCommentBtn_Click(object sender, EventArgs e)
@@ -232,7 +241,7 @@ namespace Project1._4
             {
                 MessageBox.Show(er.Message);
             }
-           
+
         }
 
         private void orderViewFinishBtn_Click(object sender, EventArgs e)

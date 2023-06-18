@@ -233,7 +233,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(398, 1061);
+            ClientSize = new Size(398, 661);
             Controls.Add(pictureBox1);
             Controls.Add(orderItemLV);
             Controls.Add(orderViewFinishBtn);
