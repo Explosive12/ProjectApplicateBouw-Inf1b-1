@@ -27,9 +27,14 @@ namespace Project1._4.UI
         }
         private void Exitlogin(object sender, EventArgs e)
         {
-            LoginView loginview = new LoginView();
-            loginview.Show();
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure u want to log out ", "Logout", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) 
+            {
+                LoginView loginview = new LoginView();
+                loginview.Show();
+                this.Close();
+            }
+
         }
     }
 }

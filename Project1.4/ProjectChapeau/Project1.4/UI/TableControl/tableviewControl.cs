@@ -1,4 +1,5 @@
 ﻿using Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions.Item.Return;
+using Microsoft.Graph.Models;
 using Project1._4.Model;
 using Project1._4.Service;
 using Project1._4.UI;
@@ -90,19 +91,38 @@ namespace Project1._4
         }
         private void AddButtonsToTableLayout()
         {
-            tableLayoutPanel.Controls.Clear();
-            for (int row = 0; row < 2; row++)
+            //tableLayoutPanel.Controls.Clear();
+            //for (int row = 0; row < 2; row++)
+            //{
+            //    for (int coll = 0; coll < 5; coll++)
+            //    {
+            //        int buttonIndex = row * 5 + coll;
+            //        int tableId = tableslist[buttonIndex].tafelId;
+            //        TableStatus status = tableslist[buttonIndex].status;
+
+            //        Button button = tableButtons.GetButton(coll, row, tableId, status);
+            //        button.Click += Button_Click;
+
+            //        tableLayoutPanel.Controls.Add(button, coll, row);
+            //    }
+            //}
+            int row = 0;
+            int coll = 0;
+            foreach (Table table in tableslist)
             {
-                for (int coll = 0; coll < 5; coll++)
+                int tableId = table.tafelId;
+                TableStatus status = table.status;
+
+                Button button = tableButtons.GetButton(coll, row, tableId, status);
+                button.Click += Button_Click;
+
+                tableLayoutPanel.Controls.Add(button, coll, row);
+
+                coll++;
+                if (coll >= tableLayoutPanel.ColumnCount)
                 {
-                    int buttonIndex = row * 5 + coll;
-                    int tableId = tableslist[buttonIndex].tafelId;
-                    TableStatus status = tableslist[buttonIndex].status;
-
-                    Button button = tableButtons.GetButton(coll, row, tableId, status);
-                    button.Click += Button_Click;
-
-                    tableLayoutPanel.Controls.Add(button, coll, row);
+                    coll = 0;
+                    row++;
                 }
             }
         }

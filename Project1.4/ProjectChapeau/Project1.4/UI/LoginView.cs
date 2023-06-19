@@ -28,7 +28,7 @@ namespace Project1._4
         }
         public void Getlogin(object sender, EventArgs e)
         {
-            string password = PasswordHasher.HashPassword(txtWachtwoord.Text);
+            string password = userService.HashPassword(txtWachtwoord.Text);
             string username = txtInlogNaam.Text;
 
             try
@@ -38,20 +38,13 @@ namespace Project1._4
                 if (login.Hash != username && login.Hash != password)
                     throw new Exception("You entered the wrong password or username");
 
+
                 EmployeeView(login, username);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("login failed " + ex.Message);
             }
-        }
-        public string HashPassword(string password)
-        {
-            string salt = "password";
-            SHA256 hash = SHA256.Create();
-            byte[] passwordbytes = Encoding.UTF8.GetBytes(password + salt);
-            byte[] hashedpassword = hash.ComputeHash(passwordbytes);
-            return Convert.ToBase64String(hashedpassword);
         }
         private void ForgetPassword(object sender, EventArgs e)
         {
@@ -82,7 +75,7 @@ namespace Project1._4
                     this.Hide();
                     break;
             }
-            //deze switchstatement stuurt je door naar het juiste screen als werknemer
+            //the switch will send you to the right screen
         }
         private void InitializeComponent()
         {
