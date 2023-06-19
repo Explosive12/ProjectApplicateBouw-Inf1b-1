@@ -8,6 +8,7 @@
   </Comment>
   <Comment CommentText="DAL&#xD;&#xA;">
     <Position X="2.541" Y="3.712" Height="0.291" Width="0.7" />
+<<<<<<< Updated upstream
   </Comment>
   <Comment CommentText="Service&#xD;&#xA;">
     <Position X="7.842" Y="6.715" Height="0.291" Width="0.7" />
@@ -16,26 +17,45 @@
     <Position X="3.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQCAAAQEAAAAAAAAQAgAAAAgAAAAAAAAAAAAAAg=</HashCode>
+=======
+  </Comment>
+  <Comment CommentText="Service&#xD;&#xA;">
+    <Position X="7.842" Y="6.715" Height="0.291" Width="0.7" />
+  </Comment>
+  <Class Name="Project1._4.DAL.OrderItemDao">
+    <Position X="3.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAA4AAAAAAAAAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+>>>>>>> Stashed changes
       <FileName>DAL\OrderItemDao.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Model.OrderItem">
     <Position X="3.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
+<<<<<<< Updated upstream
       <HashCode>EAAAAAAEQAAAAAAgAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
+=======
+      <HashCode>EAAAAAAEAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
+>>>>>>> Stashed changes
       <FileName>Model\OrderItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.Service.OrderItemService">
     <Position X="8.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
+<<<<<<< Updated upstream
       <HashCode>AAAAAQAAAAAEAAAAAACAQAoAAAAgAAAAAAAAAAAAAAA=</HashCode>
+=======
+      <HashCode>AAAAAAAAAAoAAAAAAACAAAAAACAAAAAAAAAAIAAAAAg=</HashCode>
+>>>>>>> Stashed changes
       <FileName>Service\OrderItemService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project1._4.UI.BarKitchenView">
     <Position X="7" Y="10.25" Width="1.5" />
     <Members>
+<<<<<<< Updated upstream
       <Field Name="btnKitchenToMain" Hidden="true" />
       <Field Name="btnLoad2004" Hidden="true" />
       <Field Name="btnLoadBarOrders" Hidden="true" />
@@ -45,6 +65,19 @@
       <Field Name="flpOrders" Hidden="true" />
       <Method Name="InitializeComponent" Hidden="true" />
     </Members>
+=======
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACABAACAQQIQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\BarKitchenView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Project1._4.Model.OrderStatusEnum">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+>>>>>>> Stashed changes
     <TypeIdentifier>
       <HashCode>AAAAAAABACgAAAAAAACAEEACSAACgAAAAQYAAAIAQAA=</HashCode>
       <FileName>UI\BarKitchenView.cs</FileName>
