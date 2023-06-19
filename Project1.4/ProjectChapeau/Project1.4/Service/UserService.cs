@@ -19,9 +19,5 @@ namespace Project1._4.Service
         {
             return userdao.LoginUser(hash , username);
         }
-        public void Authenticate()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

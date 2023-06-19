@@ -52,8 +52,6 @@ namespace Project1._4
             byte[] passwordbytes = Encoding.UTF8.GetBytes(password + salt);
             byte[] hashedpassword = hash.ComputeHash(passwordbytes);
             return Convert.ToBase64String(hashedpassword);
-            //geen var
-            //https://www.youtube.com/watch?v=ZbUCgU3G1z4&t
         }
         private void ForgetPassword(object sender, EventArgs e)
         {

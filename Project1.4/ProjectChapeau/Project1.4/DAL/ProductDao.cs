@@ -102,7 +102,7 @@ namespace Project1._4.DAL
 
         // From the management
 
-        public void AddProduct(Product product)
+        public void AddProduct  (Product product)
         {
             string query = "INSERT INTO product (naam, prijs, voorraad, btw, productType) VALUES (@naam, @prijs, @voorraad, @btw, @productType)";
             SqlParameter[] sqlParameters = new SqlParameter[5];
